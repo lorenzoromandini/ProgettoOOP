@@ -22,7 +22,6 @@ public class Event {
 		super();
 	}
 	
-
   
 	/**
 	 * @param name
@@ -33,7 +32,6 @@ public class Event {
 	}
 	
 
-
 	/**
 	 * @param id
 	 * @param name
@@ -43,7 +41,6 @@ public class Event {
 		this.id = id;
 		this.name = name;
 	}
-
 
 
 	/**
