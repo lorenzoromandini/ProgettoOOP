@@ -19,40 +19,53 @@ public class Date {
 	 * @param orario
 	 */
 	public Date(String data, String orario) {
+		
 		super();
 		this.data = data;
 		this.orario = orario;
+		
 	}
 
 
 	public String getData() {
+		
 		return data;
+		
 	}
 
 
 	public void setData(String data) {
+		
 		this.data = data;
+		
 	}
 
 
 	public String getOrario() {
+		
 		return orario;
+		
 	}
 
 
 	public void setOrario(String orario) {
+		
 		this.orario = orario;
+		
 	}
 	
 	
 	@Override
 	public String toString() {
+		
 		return data +  "  " + orario;
+		
 	}
 	
 	
 	@Override
 	public boolean equals(Object obj) {
+		
 		if (this == obj)
 			return true;
 		if (obj == null)
@@ -70,8 +83,8 @@ public class Date {
 				return false;
 		} else if (!orario.equals(date.orario))
 			return false;
-		
 		return true;
+		
 	}
 	
 	
