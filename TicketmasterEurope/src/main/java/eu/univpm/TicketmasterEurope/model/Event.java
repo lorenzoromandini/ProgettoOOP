@@ -23,15 +23,6 @@ public class Event {
 	}
 	
 
-
-	/**
-	 * @param id
-	 */
-	public Event(String id) {
-		super();
-		this.id = id;
-	}
-
   
 	/**
 	 * @param name
@@ -40,6 +31,19 @@ public class Event {
 		super();
 		this.name = name;
 	}
+	
+
+
+	/**
+	 * @param id
+	 * @param name
+	 */
+	public Event(String id, String name) {
+		super();
+		this.id = id;
+		this.name = name;
+	}
+
 
 
 	/**
@@ -96,6 +100,45 @@ public class Event {
 		this.info = info;
 	}
 
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Event ev = (Event) obj;
+		if (id == null) {
+			if (ev.id != null)
+				return false;
+		} else if (!id.equals(ev.id))
+			return false;
+		if (name == null) {
+			if (ev.name != null)
+				return false;
+		} else if (!name.equals(ev.name))
+			return false;
+		if (url == null) {
+				if (ev.url != null)
+					return false;
+		} else if (!url.equals(ev.url))
+				return false;
+		if (info == null) {
+			if (ev.info != null)
+				return false;
+	   } else if (!info.equals(ev.info))
+			return false;
+		return true;
+
+	}
+
+
+
+
+	
+	
 	
 
 	
