@@ -25,36 +25,40 @@ public class Date {
 		this.orario = orario;
 		
 	}
-
-
+	
+	
+	/**
+	 * @return the data
+	 */
 	public String getData() {
-		
 		return data;
-		
 	}
 
 
+	/**
+	 * @param data the data to set
+	 */
 	public void setData(String data) {
-		
 		this.data = data;
-		
 	}
 
 
+	/**
+	 * @return the orario
+	 */
 	public String getOrario() {
-		
 		return orario;
-		
 	}
 
 
+	/**
+	 * @param orario the orario to set
+	 */
 	public void setOrario(String orario) {
-		
 		this.orario = orario;
-		
 	}
-	
-	
+
+
 	@Override
 	public String toString() {
 		
