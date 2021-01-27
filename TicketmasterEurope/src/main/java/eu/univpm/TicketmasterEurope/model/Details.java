@@ -9,11 +9,6 @@ package eu.univpm.TicketmasterEurope.model;
  */
 public class Details {
 
-	/**
-	 * 
-	 */
-	public Details() {
-		// TODO Auto-generated constructor stub
-	}
+
 
 }
