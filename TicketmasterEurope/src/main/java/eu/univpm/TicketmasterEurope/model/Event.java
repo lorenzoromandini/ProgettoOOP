@@ -130,8 +130,8 @@ public class Event {
 				return false;
 	   } else if (!info.equals(ev.info))
 			return false;
+		
 		return true;
-
 	}
 
 
