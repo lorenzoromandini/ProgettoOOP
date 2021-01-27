@@ -56,43 +56,67 @@ public class Event {
 		this.url = url;
 		this.info = info;
 	}
+	
 
-
+	/**
+	 * @return the id
+	 */
 	public String getId() {
 		return id;
 	}
 
 
+	/**
+	 * @param id the id to set
+	 */
 	public void setId(String id) {
 		this.id = id;
 	}
 
 
+	/**
+	 * @return the name
+	 */
 	public String getName() {
 		return name;
 	}
 
 
+	/**
+	 * @param name the name to set
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
 
+	/**
+	 * @return the url
+	 */
 	public String getUrl() {
 		return url;
 	}
 
 
+	/**
+	 * @param url the url to set
+	 */
 	public void setUrl(String url) {
 		this.url = url;
 	}
 
 
+	/**
+	 * @return the info
+	 */
 	public String getInfo() {
 		return info;
 	}
 
 
+	/**
+	 * @param info the info to set
+	 */
 	public void setInfo(String info) {
 		this.info = info;
 	}
