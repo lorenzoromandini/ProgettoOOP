@@ -13,6 +13,7 @@ public class Location {
 	private String address;
 	private String city;
 	private String country;
+	private String countrycode;
 	
 	
 	public Location() {
@@ -58,13 +59,15 @@ public class Location {
 	 * @param address
 	 * @param city
 	 * @param country
+	 * @param countrycode
 	 */
-	public Location(String placement, String address, String city, String country) {
+	public Location(String placement, String address, String city, String country, String countrycode) {
 		super();
 		this.placement = placement;
 		this.address = address;
 		this.city = city;
 		this.country = country;
+		this.countrycode = countrycode;
 	}
 
 
@@ -132,12 +135,71 @@ public class Location {
 	}
 	
 	
+	/**
+	 * @return the countrycode
+	 */
+	public String getCountrycode() {
+		return countrycode;
+	}
+
+
+	/**
+	 * @param countrycode the countrycode to set
+	 */
+	public void setCountrycode(String countrycode) {
+		this.countrycode = countrycode;
+	}
+
+
+	/**
+	 * Override del metodo toString.
+	 * @return String che rappresenta la città.
+	 */
+	@Override
+	public String toString() {
+		return "placement = " + placement + ", address = " + address + ", city = " + city +
+				", country =" + country + ", countrycode = " + countrycode;
+		
+	}
 	
 	
-	
-	
-	
-	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Location loc = (Location) obj;
+		if (placement == null) {
+			if (loc.placement != null)
+				return false;
+		} else if (!placement.equals(loc.placement))
+			return false;
+		if (address == null) {
+			if (loc.address != null)
+				return false;
+	} else if (!address.equals(loc.address))
+			return false;
+		if (city == null) {
+			if (loc.city != null)
+				return false;
+		} else if (!city.equals(loc.city))
+			return false;
+		if (country == null) {
+			if (loc.country != null)
+				return false;
+	   } else if (!country.equals(loc.country))
+			return false;
+		if (countrycode == null) {
+			if (loc.countrycode != null)
+				return false;
+	   } else if (!countrycode.equals(loc.countrycode))
+			return false;
+		
+		return true;
+	}
 	
 	
 	
