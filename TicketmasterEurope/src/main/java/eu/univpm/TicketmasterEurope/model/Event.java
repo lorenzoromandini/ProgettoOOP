@@ -121,7 +121,23 @@ public class Event {
 		this.info = info;
 	}
 
+	
+	/**
+	 * Override del metodo toString.
+	 * @return String che rappresenta le informazioni relative all'evento.
+	 */
+	@Override
+	public String toString() {
+		
+		return "id = " + id + ", name = " + name + ", url = " + url + ", info =" + info; 
+	}
+	
 
+	/**
+	 * Override del metodo equals.
+	 * @param oggetto Event da confrontare.
+	 * @return true o false a seconda che i due oggetti siano uguali.
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -130,28 +146,27 @@ public class Event {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Event ev = (Event) obj;
+		Event other = (Event) obj;
 		if (id == null) {
-			if (ev.id != null)
+			if (other.id != null)
 				return false;
-		} else if (!id.equals(ev.id))
+		} else if (!id.equals(other.id))
 			return false;
 		if (name == null) {
-			if (ev.name != null)
+			if (other.name != null)
 				return false;
-		} else if (!name.equals(ev.name))
+		} else if (!name.equals(other.name))
 			return false;
 		if (url == null) {
-				if (ev.url != null)
+				if (other.url != null)
 					return false;
-		} else if (!url.equals(ev.url))
+		} else if (!url.equals(other.url))
 				return false;
 		if (info == null) {
-			if (ev.info != null)
+			if (other.info != null)
 				return false;
-	   } else if (!info.equals(ev.info))
+	   } else if (!info.equals(other.info))
 			return false;
-		
 		return true;
 	}
 
