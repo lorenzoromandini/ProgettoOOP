@@ -59,38 +59,42 @@ public class Date {
 	}
 
 
+	/**
+	 * Override del metodo toString.
+	 * @return String che rappresenta la data e l'ora.
+	 */
 	@Override
-	public String toString() {
-		
-		return data +  "  " + orario;
-		
+	public String toString() {		
+		return "data = " + data +  ", ora = " + orario;		
 	}
 	
 	
+	/**
+	 * Override del metodo equals.
+	 * @param oggetto Date da confrontare.
+	 * @return true o false a seconda che i due oggetti siano uguali.
+	 */
 	@Override
-	public boolean equals(Object obj) {
-		
+	public boolean equals(Object obj) {		
 		if (this == obj)
 			return true;
 		if (obj == null)
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Date date = (Date) obj;
+		Date other = (Date) obj;
 		if (data == null) {
-			if (date.data != null)
+			if (other.data != null)
 				return false;
-		} else if (!data.equals(date.data))
+		} else if (!data.equals(other.data))
 			return false;
 		if (orario == null) {
-			if (date.orario != null)
+			if (other.orario != null)
 				return false;
-		} else if (!orario.equals(date.orario))
+		} else if (!orario.equals(other.orario))
 			return false;
-		return true;
-		
-	}
-	
+		return true;		
+	}	
 	
 	
 	
