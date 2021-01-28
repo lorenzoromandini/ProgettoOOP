@@ -57,18 +57,14 @@ public class Date {
 	public void setOrario(String orario) {
 		this.orario = orario;
 	}
-
-
-	/**
-	 * Override del metodo toString.
-	 * @return String che rappresenta la data e l'ora.
-	 */
+	
+	
 	@Override
-	public String toString() {		
-		return "data = " + data +  ", ora = " + orario;		
+	public String toString() {
+		return "data =" + data + ", orario =" + orario;
 	}
-	
-	
+
+
 	/**
 	 * Override del metodo equals.
 	 * @param oggetto Date da confrontare.
@@ -94,8 +90,9 @@ public class Date {
 		} else if (!orario.equals(other.orario))
 			return false;
 		return true;		
-	}	
-	
+	}
+
+
 	
 	
 	
