@@ -30,9 +30,9 @@ public class Genre {
 		
 	
 	/** Costruttore dell'oggetto
-	 * @param segmentName
-	 * @param genreName
-	 * @param subGenreName
+	 * @param segmentName -  tipologia dell'evento
+	 * @param genreName - genere dell'evento
+	 * @param subGenreName - sottogenere dell'evento
 	 */
 	public Genre() {
 		this.segmentName = null;
@@ -42,9 +42,9 @@ public class Genre {
 
 	
 	/** Costruttore dell'oggetto
-	 * @param segmentName
-	 * @param genreName
-	 * @subgenreName
+	 * @param segmentName - tipologia dell'evento
+	 * @param genreName - genere dell'evento
+	 * @param subGenreName - sottogenere dell'evento
 	 */
 	public Genre(String segmentName) {		
 		this.segmentName = segmentName;
@@ -54,9 +54,9 @@ public class Genre {
 	
 	
 	/** Costruttore dell'oggetto
-	 * @param segmentName
-	 * @param genreName
-	 * @param subGenreName
+	 * @param segmentName - tipologia dell'evento
+	 * @param genreName - genere dell'evento
+	 * @param subGenreName - sottogenere dell'evento
 	 */
 	public Genre(String genreName, String subGenreName) {
 		this.segmentName = null;
@@ -66,9 +66,9 @@ public class Genre {
 
  
 	/** Costruttore dell'oggetto
-	 * @param segmentName
-	 * @param genreName
-	 * @param subGenreName
+	 * @param segmentName - tipologia dell'evento
+	 * @param genreName - genere dell'evento
+	 * @param subGenreName - sottogenere dell'evento
 	 */
 	public Genre(String segmentName, String genreName, String subGenreName) {
 		this.segmentName = segmentName;
