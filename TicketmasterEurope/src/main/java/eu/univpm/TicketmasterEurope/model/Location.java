@@ -36,7 +36,7 @@ public class Location {
 
 	/**
 	 * @param city
-	 * @param country
+	 * @param countrycode
 	 */
 	public Location(String city, String countrycode) {
 		super();

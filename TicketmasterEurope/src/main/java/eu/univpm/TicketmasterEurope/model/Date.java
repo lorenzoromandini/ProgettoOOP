@@ -5,8 +5,8 @@ package eu.univpm.TicketmasterEurope.model;
 
 
 /**
- * @author loren
- *
+ * @author Lorenzo Romandini
+ * @author Nicholas Urbanelli
  */
 public class Date {
 	

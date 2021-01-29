@@ -4,14 +4,13 @@
 package eu.univpm.TicketmasterEurope.model;
 
 /**
- * @author loren
- *
+ * @author Lorenzo Romandini
+ * @author Nicholas Urbanelli
  */
 public class Event {
 	
 	private String id;
 	private String name;
-	private String url;
 	private String info;
 	
 
@@ -21,7 +20,6 @@ public class Event {
 	public Event() {
 		this.id = null;
 		this.name = null;
-		this.url = null;
 		this.info = null;
 	}
 	
@@ -32,7 +30,6 @@ public class Event {
 	public Event(String name) {		
 		this.id = null;
 		this.name = name;
-		this.url = null;
 		this.info = null;		
 	}
 	
@@ -44,7 +41,6 @@ public class Event {
 	public Event(String id, String name) {		
 		this.id = id;
 		this.name = name;
-		this.url = null;
 		this.info = null;		
 	}
 
@@ -52,13 +48,11 @@ public class Event {
 	/**
 	 * @param id
 	 * @param name
-	 * @param url
 	 * @param info
 	 */
-	public Event(String id, String name, String url, String info) {
+	public Event(String id, String name, String info) {
 		this.id = id;
 		this.name = name;
-		this.url = url;
 		this.info = info;		
 	}
 	
@@ -96,22 +90,6 @@ public class Event {
 
 
 	/**
-	 * @return the url
-	 */
-	public String getUrl() {	
-		return url;		
-	}
-
-
-	/**
-	 * @param url the url to set
-	 */
-	public void setUrl(String url) {	
-		this.url = url;		
-	}
-
-
-	/**
 	 * @return the info
 	 */
 	public String getInfo() {		
@@ -134,7 +112,7 @@ public class Event {
 	@Override
 	public String toString() {
 		
-		return "id = " + id + ", name = " + name + ", url = " + url + ", info =" + info; 
+		return "id = " + id + ", name = " + name + ", info =" + info; 
 	}
 	
 
@@ -162,11 +140,6 @@ public class Event {
 				return false;
 		} else if (!name.equals(other.name))
 			return false;
-		if (url == null) {
-				if (other.url != null)
-					return false;
-		} else if (!url.equals(other.url))
-				return false;
 		if (info == null) {
 			if (other.info != null)
 				return false;

@@ -4,8 +4,8 @@
 package eu.univpm.TicketmasterEurope.model;
 
 /**
- * @author loren
- * 
+ * @author Lorenzo Romandini
+ * @author Nicholas Urbanelli
  */
 public class Details {
 	
@@ -15,6 +15,7 @@ public class Details {
 	private String segmentName;		
 	private String genreName;		
 	private String subGenreName;
+	private String source;
 	
 	
 	/**
@@ -26,11 +27,11 @@ public class Details {
 
 
 	/**
-	 * @param subGenreName
+	 * @param segmentName
 	 */
-	public Details(String subGenreName) {
+	public Details(String segmentName) {
 		super();
-		this.subGenreName = subGenreName;
+		this.segmentName = segmentName;
 	}
 
 
@@ -177,6 +178,7 @@ public class Details {
 	public String getSubGenreName() {
 		return subGenreName;
 	}
+	
 		
 	/**
 	 * @param subGenreName the subGenreName to set
@@ -184,12 +186,29 @@ public class Details {
 	public void setSubGenreName(String subGenreName) {
 		this.subGenreName = subGenreName;
 	}
+	
+
+	/**
+	 * @return the source
+	 */
+	public String getSource() {
+		return source;
+	}
+
+
+	/**
+	 * @param source the source to set
+	 */
+	public void setSource(String source) {
+		this.source = source;
+	}
 
 
 	@Override
 	public String toString() {
 		return "currency =" + currency + ", minPrince =" + minPrince + ", maxPrice =" + maxPrice
-				+ ", segmentName =" + segmentName + ", genreName =" + genreName + ", subGenreName =" + subGenreName;
+				+ ", segmentName =" + segmentName + ", genreName =" + genreName + ", subGenreName =" + subGenreName
+				+ ", source =" + source;
 	}
 
 
@@ -221,21 +240,24 @@ public class Details {
 				return false;
 		} else if (!segmentName.equals(other.segmentName))
 			return false;
+		if (source == null) {
+			if (other.source != null)
+				return false;
+		} else if (!source.equals(other.source))
+			return false;
 		if (subGenreName == null) {
 			if (other.subGenreName != null)
 				return false;
 		} else if (!subGenreName.equals(other.subGenreName))
 			return false;
 		return true;
-	}	
+	}
 	
-	
-	
-	
-	
-	
-	
-
-
 
 }
+	
+	
+	
+
+
+	
