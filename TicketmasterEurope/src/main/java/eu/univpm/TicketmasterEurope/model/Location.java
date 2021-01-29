@@ -7,8 +7,8 @@ import java.util.Vector;
 
 
 /**
- * @author loren
- *
+ * @author Lorenzo Romandini
+ * @author Nicholas Urbanelli
  */
 public class Location {
 	
