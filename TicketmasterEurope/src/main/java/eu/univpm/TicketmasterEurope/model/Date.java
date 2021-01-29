@@ -4,7 +4,8 @@
 package eu.univpm.TicketmasterEurope.model;
 
 
-/**
+/** Questa classe rappresenta le date e gli orari di ogni evento.
+ * 
  * @author Lorenzo Romandini
  * @author Nicholas Urbanelli
  */
@@ -22,8 +23,8 @@ public class Date {
 	
 	
 	/** Costruttore completo
-	 * @param data
-	 * @param orario
+	 * @param data - data (di inizio e fine) dell'evento
+	 * @param orario - orario (di inizio e fine) dell'evento
 	 */
 	public Date(String data, String orario) {
 		this.data = data;
@@ -31,32 +32,32 @@ public class Date {
 	}
 	
 	
-	/** 
-	 * @return Data dell'evento
+	/** Restituisce la data dell'evento
+	 * @return data
 	 */
 	public String getData() {
 		return data;
 	}
 
 
-	/**
-	 * @param Imposta la data dell'evento
+	/** Setta la data dell'evento
+	 * @param String data
 	 */
 	public void setData(String data) {
 		this.data = data;
 	}
 
  
-	/**
-	 * @return Orario dell'evento
+	/** Restituisce l'orario dell'eventp
+	 * @return orario
 	 */
 	public String getOrario() {
 		return orario;
 	}
 
 
-	/**
-	 * @param Imposta l'orario dell'evento
+	/** Setta l'orario dell'evento
+	 * @param String orario
 	 */
 	public void setOrario(String orario) {
 		this.orario = orario;
@@ -64,7 +65,7 @@ public class Date {
 	
 	/**
 	 * Override del metodo toString.
-	 * @return Date che rappresenta data e orario dell'evento
+	 * @return Date - rappresenta data e orario dell'evento
 	 */
 	@Override
 	public String toString() {
