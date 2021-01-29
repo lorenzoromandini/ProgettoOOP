@@ -5,7 +5,6 @@ package eu.univpm.TicketmasterEurope.model;
 
 import java.util.Vector;
 
-
 /**
  * @author Lorenzo Romandini
  * @author Nicholas Urbanelli

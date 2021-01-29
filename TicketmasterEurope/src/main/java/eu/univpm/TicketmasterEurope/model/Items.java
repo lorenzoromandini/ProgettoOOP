@@ -69,7 +69,7 @@ public class Items {
 		this.maxPrice = maxPrice;
 		this.source = source;
 	}
-
+ 
 
 	@Override
 	public String toString() {
