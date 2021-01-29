@@ -3,32 +3,33 @@
  */
 package eu.univpm.TicketmasterEurope.model;
 
-/**
+/** Questa classe rappresenta la tipologia, il genere e il sottogenere di ogni evento.
+ * 
  * @author Lorenzo Romandini
  * @author Nicholas Urbanelli
  */
 public class Genre {
 	
 	/**
-	 *  Indica il genere dell'evento
+	 *  Indica la tipologia dell'evento
 	 */	
 	
 	private String segmentName;		
 	
 	/**
-	 *  Indica 
+	 *  Indica il genere dell'evento
 	 */	
 	
 	private String genreName;	
 	
 	/**
-	 *  Indica l'id dell'evento
+	 *  Indica il sottogenere dell'evento
 	 */	
 	
 	private String subGenreName;
 		
 	
-	/** Costruttore vuoto che imposta tutti i parametri a null
+	/** Costruttore dell'oggetto
 	 * @param segmentName
 	 * @param genreName
 	 * @param subGenreName
@@ -40,7 +41,7 @@ public class Genre {
 	}
 
 	
-	/** Costruttore che imposta il parametro segmentName e imposta gli altri parametri a null
+	/** Costruttore dell'oggetto
 	 * @param segmentName
 	 * @param genreName
 	 * @subgenreName
@@ -52,7 +53,7 @@ public class Genre {
 	}
 	
 	
-	/** Costruttore che imposta il parametro genreName e subGenreName e imposta segmentName a null
+	/** Costruttore dell'oggetto
 	 * @param segmentName
 	 * @param genreName
 	 * @param subGenreName
@@ -64,7 +65,7 @@ public class Genre {
 	}
 
  
-	/** Costruttore completo
+	/** Costruttore dell'oggetto
 	 * @param segmentName
 	 * @param genreName
 	 * @param subGenreName
@@ -76,12 +77,21 @@ public class Genre {
 	}
 
 
+	/**
+	 * Override del metodo toString.
+	 * @return String - rappresenta tipologia, genere e sottogenere relativi all'evento.
+	 */
 	@Override
 	public String toString() {
 		return "segmentName = " + segmentName + ", genreName = " + genreName + ", subGenreName = " + subGenreName;
 	}
 
 
+	/**
+	 * Override del metodo equals.
+	 * @param oggetto Genre da confrontare.
+	 * @return true o false a seconda che i due oggetti siano uguali.
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
