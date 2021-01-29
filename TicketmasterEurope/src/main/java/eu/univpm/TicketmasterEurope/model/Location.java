@@ -5,7 +5,7 @@ package eu.univpm.TicketmasterEurope.model;
 
 import java.util.Vector;
 
-/**
+/** Questa classe rappresenta le proprietà di ogni location e i relativi eventi che si svolgono in quel luogo.
  * @author Lorenzo Romandini
  * @author Nicholas Urbanelli
  */
@@ -14,64 +14,49 @@ public class Location {
 	/**
 	 *  Indica il luogo dell'evento
 	 */
-	 
 	private String placement;
 	
 	/**
 	 *  Indica l'indirizzo dell'evento
 	 */
-	
 	private String address;
 	
 	/**
 	 *  Indica la città dell'evento
 	 */
-	
 	private String city;
 	
 	/**
 	 *  Indica lo stato dell'evento
 	 */
-	
 	private String country;
 	
 	/**
 	 *  Indica il codice dello stato dell'evento
 	 */
-	
 	private String countrycode;
 	
 	/**
-	 *  
+	 *  Vettore contentente le caratteristiche dei vari eventi che hanno luogo in una determinata location
 	 */
-	
 	private Vector<Event> evento = new Vector<Event>();
 	
 	
 	/**
-	 *  Costruttore vuoto che imposta tutti i parametri a null
-	 *  @param placement
-	 *  @param address
-	 *  @param city
-	 *  @param country
-	 *  @param countrycode
+	 * Costruttore dell'oggetto
 	 */
 	public Location() {
-		super();
 		this.placement = null;
 		this.address = null;
 		this.city = null;
 		this.country = null;
 		this.countrycode = null;
+		//this.eventArray = null
 	}
 
 
-	/** Costruttore che imposta il parametro placement e imposta gli altri parametri a null
-	 * @param placement
-	 * @param address
-	 * @param city
-	 * @param country
-	 * @param countrycode
+	/** Costruttore dell'oggetto
+	 * @param placement - luogo dell'evento
 	 */
 	public Location(String placement) {
 		this.placement = placement;
@@ -79,157 +64,153 @@ public class Location {
 		this.city = null;
 		this.country = null;
 		this.countrycode = null;
+		//this.eventArray = null
 	}
 
 
-	/** Costruttore che imposta il parametro città e countrycode e imposta gli altri parametri a null
-	 * @param placement
-	 * @param address
-	 * @param city
-	 * @param country
-	 * @param countrycode
+	/** Costruttore dell'oggetto
+	 * @param city - città dell'evento
+	 * @param country - stato dell'evento
 	 */
-	public Location(String city, String countrycode) {
+	public Location(String city, String country) {
 		this.placement = null;
 		this.address = null;
 		this.city = city; 
 		this.country = null; 
-		this.countrycode = countrycode;
+		this.country = country;
+		//this.eventArray = null
 	}
 
 
-	/** Costruttore che imposta il parametro città, countrycode e l'indirizzo e imposta gli altri parametri a null
-	 * @param placement
-	 * @param address
-	 * @param city
-	 * @param country
-	 * @param countrycode
+	/** Costruttore dell'oggetto
+	 * @param address - indirizzo dell'evento
+	 * @param city - città dell'evento
+	 * @param country - stato dell'evento
 	 */
-	public Location(String address, String city, String countrycode) {
+	public Location(String address, String city, String country) {
 		this.placement = null;
 		this.address = address;
 		this.city = city;
 		this.country = null;
-		this.countrycode = countrycode;
+		this.country = country;
+		//this.eventArray = null
 	}
 
 
-	/** Costruttore completo
-	 * @param placement
-	 * @param address
-	 * @param city
-	 * @param country
-	 * @param countrycode
+	/** Costruttore dell'oggetto
+	 * @param placement - luogo dell'evento
+	 * @param address - indirizzo dell'evento
+	 * @param city - città dell'evento
+	 * @param country - stato dell'evento
+	 * @param countrycode - codice dello stato dell'evento
 	 */
 	public Location(String placement, String address, String city, String country, String countrycode) {
-		super();
 		this.placement = placement;
 		this.address = address;
 		this.city = city;
 		this.country = country;
 		this.countrycode = countrycode;
+		//this.eventArray = null
 	}
 
 
-	/**
-	 * @return il luogo dell'evento
+	/** Restituisce il luogo dell'evento
+	 * @return placement
 	 */
 	public String getPlacement() {
 		return placement;
 	}
 
 
-	/**
-	 * @param imposta il luogo dell'evento
+	/** Setta il luogo dell'eventp
+	 * @param String placement
 	 */
 	public void setPlacement(String placement) {
 		this.placement = placement;
 	}
 
 
-	/**
-	 * @return l'indirizzo dell'evento
+	/** Resituisce l'indirizzo dell'evento
+	 * @return address
 	 */
 	public String getAddress() {
 		return address;
 	}
 
 
-	/**
-	 * @param imposta l'indirizzo dell'evento
+	/** Setta l'indirizzo dell'evento
+	 * @param String address
 	 */
 	public void setAddress(String address) {
 		this.address = address;
 	}
 
 
-	/**
-	 * @return la città dell'evento
+	/** Restituisce la città dell'evento
+	 * @return city
 	 */
 	public String getCity() {
 		return city;
 	}
 
 
-	/**
-	 * @param imposta la città dell'evento
+	/** Setta la città dell'evento
+	 * @param String city
 	 */
 	public void setCity(String city) {
 		this.city = city;
 	}
 
 
-	/**
-	 * @return lo stato dell'evento
+	/** Restituisce lo stato dell'evento
+	 * @return country
 	 */
 	public String getCountry() {
 		return country;
 	}
 
 
-	/**
-	 * @param imposta lo stato dell'evento
+	/** Setta lo stato dell'evento
+	 * @param String country
 	 */
 	public void setCountry(String country) {
 		this.country = country;
 	}
 	
 	
-	/**
-	 * @return il codice dello stato dell'evento
+	/** Restituisce il codice dello stato dell'evento
+	 * @return countrycode
 	 */
 	public String getCountrycode() {
 		return countrycode;
 	}
 
 
-	/**
-	 * @param imposta il codice dello stato dell'evento 
+	/** Setta il codice dello stato dell'evento
+	 * @param String countrycode 
 	 */
 	public void setCountrycode(String countrycode) {
 		this.countrycode = countrycode;
 	}
 	
 	
-	/**
-     * Metodo che restituisce il vettore di event.
-     * @return vector.
+	/** Restituisce il vettore di Event della location
+     * @return vector
      */
 	public Vector<Event> getVector() {
 		return evento;
 	}
 
-	/**
-     * Metodo che setta il vettore di event.
-     * @param vettore di event.
+	/** Setta il vettore di Event della location
+     * @param Vector<Event> vector
      */
 	public void setVector(Vector<Event> evento) {
 		this.evento = evento;
 	}
 	
 	/**
-     * Metodo che scrive il vettore come una stringa.
-     * @return String toReturn che rappresenta le informazioni essenziali relative all'evento.
+	 *  Scrive il vettore degli eventi come una stringa
+     * @return String toReturn - rappresenta le informazioni relative all'evento.
      */
 	public String toStringVector() {
 		String toReturn = "";
@@ -240,7 +221,7 @@ public class Location {
 
 	/**
 	 * Override del metodo toString.
-	 * @return String che rappresenta la località e la sua ubicazione.
+	 * @return String - rappresenta la location e i suoi eventi
 	 */
 	@Override
 	public String toString() {		
