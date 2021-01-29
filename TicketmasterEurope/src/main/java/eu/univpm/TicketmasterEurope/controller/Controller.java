@@ -10,8 +10,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import eu.univpm.TicketmasterEurope.model.*;
 
+import eu.univpm.TicketmasterEurope.model.*;
+import eu.univpm.TicketmasterEurope.service.JSON_Converter;
 import eu.univpm.TicketmasterEurope.service.Service;
 
 
@@ -35,9 +36,9 @@ public class Controller {
 		Location location = service.getCountryEventsfromApi(country);
 		
 		JSONObject obj = new JSONObject();
-		ToJSON tojson = new ToJSON();
+		JSON_Converter jsonconverter = new JSON_Converter();
 		
-		obj = tojson.toJson(country);
+		obj = jsonconverter.JSON_converter(location);
 		
 		return new ResponseEntity<> (obj.toString(), HttpStatus.OK);
     }
