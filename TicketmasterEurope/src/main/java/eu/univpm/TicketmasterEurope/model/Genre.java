@@ -13,19 +13,16 @@ public class Genre {
 	/**
 	 *  Indica la tipologia dell'evento
 	 */	
-	
 	private String segmentName;		
 	
 	/**
 	 *  Indica il genere dell'evento
 	 */	
-	
 	private String genreName;	
 	
 	/**
 	 *  Indica il sottogenere dell'evento
 	 */	
-	
 	private String subGenreName;
 		
 	
