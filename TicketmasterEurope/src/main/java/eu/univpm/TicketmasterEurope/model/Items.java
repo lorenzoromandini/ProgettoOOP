@@ -20,6 +20,11 @@ public class Items {
 	 */
 	public Items() {
 		super();
+		this.currency = null;
+		this.minPrince = 0;
+		this.maxPrice = 0;
+		this.source = null;
+		
 	}
 	
 
@@ -27,7 +32,9 @@ public class Items {
 	 * @param source
 	 */
 	public Items(String source) {
-		super();
+		this.currency = null;
+		this.minPrince = 0;
+		this.maxPrice = 0;
 		this.source = source;
 	}
 
@@ -37,9 +44,10 @@ public class Items {
 	 * @param maxPrice
 	 */
 	public Items(double minPrince, double maxPrice) {
-		super();
+		this.currency = null;
 		this.minPrince = minPrince;
 		this.maxPrice = maxPrice;
+		this.source = null;
 	}
 
 
@@ -49,10 +57,10 @@ public class Items {
 	 * @param maxPrice
 	 */
 	public Items(String currency, double minPrince, double maxPrice) {
-		super();
 		this.currency = currency;
 		this.minPrince = minPrince;
 		this.maxPrice = maxPrice;
+		this.source = null;
 	}
 
 

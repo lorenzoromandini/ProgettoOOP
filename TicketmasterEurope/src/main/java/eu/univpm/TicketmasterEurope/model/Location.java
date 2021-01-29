@@ -21,6 +21,11 @@ public class Location {
 	
 	public Location() {
 		super();
+		this.placement = null;
+		this.address = null;
+		this.city = null;
+		this.country = null;
+		this.countrycode = null;
 	}
 
 
@@ -28,8 +33,11 @@ public class Location {
 	 * @param placement
 	 */
 	public Location(String placement) {
-		super();
 		this.placement = placement;
+		this.address = null;
+		this.city = null;
+		this.country = null;
+		this.countrycode = null;
 	}
 
 
@@ -38,8 +46,10 @@ public class Location {
 	 * @param countrycode
 	 */
 	public Location(String city, String countrycode) {
-		super();
-		this.city = city;
+		this.placement = null;
+		this.address = null;
+		this.city = city; 
+		this.country = null; 
 		this.countrycode = countrycode;
 	}
 
@@ -50,9 +60,10 @@ public class Location {
 	 * @param country
 	 */
 	public Location(String address, String city, String countrycode) {
-		super();
+		this.placement = null;
 		this.address = address;
 		this.city = city;
+		this.country = null;
 		this.countrycode = countrycode;
 	}
 
