@@ -26,9 +26,11 @@ public class Event {
 	/**
 	 * @param name
 	 */
-	public Event(String name) {
-		super();
+	public Event(String name) {		
+		this.id = null;
 		this.name = name;
+		this.url = null;
+		this.info = null;		
 	}
 	
 
@@ -36,10 +38,11 @@ public class Event {
 	 * @param id
 	 * @param name
 	 */
-	public Event(String id, String name) {
-		super();
+	public Event(String id, String name) {		
 		this.id = id;
 		this.name = name;
+		this.url = null;
+		this.info = null;		
 	}
 
 
@@ -54,71 +57,71 @@ public class Event {
 		this.id = id;
 		this.name = name;
 		this.url = url;
-		this.info = info;
+		this.info = info;		
 	}
 	
 
 	/**
 	 * @return the id
 	 */
-	public String getId() {
-		return id;
+	public String getId() {	
+		return id;		
 	}
 
 
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(String id) {
-		this.id = id;
+	public void setId(String id) {		
+		this.id = id;		
 	}
 
 
 	/**
 	 * @return the name
 	 */
-	public String getName() {
-		return name;
+	public String getName() {		
+		return name;		
 	}
 
 
 	/**
 	 * @param name the name to set
 	 */
-	public void setName(String name) {
-		this.name = name;
+	public void setName(String name) {		
+		this.name = name;		
 	}
 
 
 	/**
 	 * @return the url
 	 */
-	public String getUrl() {
-		return url;
+	public String getUrl() {	
+		return url;		
 	}
 
 
 	/**
 	 * @param url the url to set
 	 */
-	public void setUrl(String url) {
-		this.url = url;
+	public void setUrl(String url) {	
+		this.url = url;		
 	}
 
 
 	/**
 	 * @return the info
 	 */
-	public String getInfo() {
-		return info;
+	public String getInfo() {		
+		return info;		
 	}
 
 
 	/**
 	 * @param info the info to set
 	 */
-	public void setInfo(String info) {
-		this.info = info;
+	public void setInfo(String info) {		
+		this.info = info;		
 	}
 
 	
