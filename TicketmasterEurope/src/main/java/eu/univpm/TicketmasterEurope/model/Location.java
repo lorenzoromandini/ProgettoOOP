@@ -38,10 +38,10 @@ public class Location {
 	 * @param city
 	 * @param country
 	 */
-	public Location(String city, String country) {
+	public Location(String city, String countrycode) {
 		super();
 		this.city = city;
-		this.country = country;
+		this.countrycode = countrycode;
 	}
 
 
