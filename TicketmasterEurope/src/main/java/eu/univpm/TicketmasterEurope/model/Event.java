@@ -12,19 +12,16 @@ public class Event {
 	/**
 	 *  Indica l'id dell'evento
 	 */
-	
 	private String id;
 	
 	/**
 	 *  Indica il nome dell'evento
 	 */	
-	
 	private String name;
 	
 	/**
 	 *  Indica l'info dell'evento
 	 */	
-	
 	private String info;
 	
 
@@ -85,7 +82,7 @@ public class Event {
 
 
 	/**
-	 * @param imposta l'id dell'evento
+	 * @param Imposta l'id dell'evento
 	 */
 	public void setId(String id) {		
 		this.id = id;		
@@ -93,7 +90,7 @@ public class Event {
 
 
 	/**
-	 * @return il nome dell'evento
+	 * @return Nome dell'evento
 	 */
 	public String getName() {		
 		return name;		
@@ -101,7 +98,7 @@ public class Event {
 
 
 	/**
-	 * @param imposta il nome dell'evento
+	 * @param Imposta il nome dell'evento
 	 */
 	public void setName(String name) {		
 		this.name = name;		
@@ -109,7 +106,7 @@ public class Event {
 
 
 	/**
-	 * @return l'info dell'evento
+	 * @return Info dell'evento
 	 */
 	public String getInfo() {		
 		return info;		
@@ -117,7 +114,7 @@ public class Event {
 
 
 	/**
-	 * @param imposta l'info dell'evento
+	 * @param Imposta l'info dell'evento
 	 */
 	public void setInfo(String info) {		
 		this.info = info;		
