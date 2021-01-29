@@ -59,7 +59,7 @@ public class Date {
 	
 	@Override
 	public String toString() {
-		return "data =" + data + ", orario =" + orario;
+		return "data = " + data + ", orario = " + orario;
 	}
 
 
