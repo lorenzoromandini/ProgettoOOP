@@ -19,11 +19,9 @@ public class Date {
 	 * @param orario
 	 */
 	public Date(String data, String orario) {
-		
 		super();
 		this.data = data;
 		this.orario = orario;
-		
 	}
 	
 	
