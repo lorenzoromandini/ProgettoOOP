@@ -40,7 +40,7 @@ public class Date {
 		this.data = data;
 	}
 
-
+ 
 	/**
 	 * @return the orario
 	 */
