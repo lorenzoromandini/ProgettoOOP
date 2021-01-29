@@ -246,10 +246,5 @@ public class Location {
 	}
 	
 	
-	
-	
-	
-
-	
 
 }

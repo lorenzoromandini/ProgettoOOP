@@ -18,7 +18,6 @@ public class Genre {
 	 * 
 	 */
 	public Genre() {
-		super();
 		this.segmentName = null;
 		this.genreName = null;
 		this.subGenreName = null;
@@ -52,7 +51,6 @@ public class Genre {
 	 * @param subGenreName
 	 */
 	public Genre(String segmentName, String genreName, String subGenreName) {
-		super();
 		this.segmentName = segmentName;
 		this.genreName = genreName;
 		this.subGenreName = subGenreName;
