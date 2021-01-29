@@ -15,7 +15,8 @@ public class Details {
 	private String segmentName;		
 	private String genreName;		
 	private String subGenreName;
-	//Roma + Derrick = <<33
+	
+	
 	/**
 	 * 
 	 */
