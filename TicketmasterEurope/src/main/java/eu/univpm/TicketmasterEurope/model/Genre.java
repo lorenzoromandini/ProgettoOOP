@@ -77,6 +77,54 @@ public class Genre {
 	}
 
 
+	/** Restituisce la tipologia dell'evento
+	 * @return segmentName
+	 */
+	public String getSegmentName() {
+		return segmentName;
+	}
+
+
+	/** Setta la tipologia dell'evento
+	 * @param String segmentName
+	 */
+	public void setSegmentName(String segmentName) {
+		this.segmentName = segmentName;
+	}
+
+
+	/** Restituisce il genere dell'evento
+	 * @return genreName
+	 */
+	public String getGenreName() {
+		return genreName;
+	}
+
+
+	/** Setta il genere dell'evento
+	 * @param String genreName
+	 */
+	public void setGenreName(String genreName) {
+		this.genreName = genreName;
+	}
+
+
+	/** Restituisce il sottogenere dell'evento
+	 * @return subGenreName
+	 */
+	public String getSubGenreName() {
+		return subGenreName;
+	}
+
+
+	/** Setta il sottogenere dell'evento
+	 * @param String subGenreName
+	 */
+	public void setSubGenreName(String subGenreName) {
+		this.subGenreName = subGenreName;
+	}
+
+
 	/**
 	 * Override del metodo toString.
 	 * @return String - rappresenta tipologia, genere e sottogenere relativi all'evento.
