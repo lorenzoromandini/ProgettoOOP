@@ -10,11 +10,18 @@ package eu.univpm.TicketmasterEurope.model;
  */
 public class Date {
 	
+	/**
+	 *  Indica la data (di inizio e fine) dell'evento
+	 */
 	private String data;
+	
+	/** 
+	 * Indica l'orario (di inizio e fine) dell'evento
+	 */
 	private String orario;
 	
 	
-	/**
+	/** Costruttore completo
 	 * @param data
 	 * @param orario
 	 */
@@ -24,8 +31,8 @@ public class Date {
 	}
 	
 	
-	/**
-	 * @return the data
+	/** 
+	 * @return Data dell'evento
 	 */
 	public String getData() {
 		return data;
@@ -33,7 +40,7 @@ public class Date {
 
 
 	/**
-	 * @param data the data to set
+	 * @param Imposta la data dell'evento
 	 */
 	public void setData(String data) {
 		this.data = data;
@@ -41,7 +48,7 @@ public class Date {
 
  
 	/**
-	 * @return the orario
+	 * @return Orario dell'evento
 	 */
 	public String getOrario() {
 		return orario;
@@ -49,13 +56,16 @@ public class Date {
 
 
 	/**
-	 * @param orario the orario to set
+	 * @param Imposta l'orario dell'evento
 	 */
 	public void setOrario(String orario) {
 		this.orario = orario;
 	}
 	
-	
+	/**
+	 * Override del metodo toString.
+	 * @return Date che rappresenta data e orario dell'evento
+	 */
 	@Override
 	public String toString() {
 		return "data = " + data + ", orario = " + orario;
