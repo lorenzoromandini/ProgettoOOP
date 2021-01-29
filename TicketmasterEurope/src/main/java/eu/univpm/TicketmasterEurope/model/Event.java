@@ -42,9 +42,7 @@ public class Event {
 	
 
 	/** Costruttore dell'oggetto
-	 * @param id
-	 * @param name
-	 * @param info
+	 * 
 	 */
 	public Event() {
 		this.id = null;
@@ -57,9 +55,7 @@ public class Event {
 	
   
 	/** Costruttore dell'oggetto
-	 * @param id
 	 * @param name
-	 * @param info
 	 */
 	public Event(String name) {		
 		this.id = null;
@@ -113,7 +109,6 @@ public class Event {
 	/** Costruttore dell'oggetto
 	 * @param id
 	 * @param name
-	 * @param info
 	 */
 	public Event(String id, String name) {		
 		this.id = id;

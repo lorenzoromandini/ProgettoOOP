@@ -3,104 +3,90 @@
  */
 package eu.univpm.TicketmasterEurope.model;
 
-/**
+
+/** Questa classe rappresenta delle caratteristiche di ogni evento.
+ * 
  * @author Lorenzo Romandini
  * @author Nicholas Urbanelli
  */
-public class Items {
+public class Features {
 	
 	/**
-	 *  Indica la valuta del biglietto
+	 *  Indica la valuta con cui pagare il biglietto
 	 */
-	
 	private String currency;   		
 	
 	/**
 	 *  Indica il prezzo minimo
 	 */
-	
-	private double minPrince;   	
+	private double minPrice;   	
 	
 	/**
 	 *  Indica il prezzo massimo
 	 */
-	
 	private double maxPrice;    
 	
 	/**
 	 *  Indica la piattaforma che si occupa della vendita dei biglietti
 	 */
-	
 	private String source;
 	
 	
-	/** Costruttore vuoto che imposta tutti i parametri a null
-	 * @param currency
-	 * @param minPrince
-	 * @param maxPrice
-	 * @param source
-	 */
-	public Items() {
-		this.currency = null;
-		this.minPrince = 0;
-		this.maxPrice = 0;
-		this.source = null;
-		
-	}
-	
-
-	/** Costruttore che imposta il parametro source e imposta gli altri parametri a null
-	 * @param currency
-	 * @param minPrince
-	 * @param maxPrice
-	 * @param source
+	/** Costruttore dell'oggetto
 	 * 
 	 */
-	public Items(String source) {
+	public Features() {
 		this.currency = null;
-		this.minPrince = 0;
+		this.minPrice = 0;
+		this.maxPrice = 0;
+		this.source = null;
+	}
+	
+    /** Costruttore dell'oggetto
+	 * @param source - piattaforma che si occupa della vendita dei biglietti
+	 */
+	public Features(String source) {
+		this.currency = null;
+		this.minPrice = 0;
 		this.maxPrice = 0;
 		this.source = source;
 	}
 
 	
-	/** Costruttore che imposta il parametro minPrince e maxPrice e imposta gli altri parametri a null
-	 * @param currency
-	 * @param minPrince
-	 * @param maxPrice
-	 * @param source
+	/** Costruttore dell'oggetto
+	 * @param minPrice - prezzo minimo
+	 * @param maxPrice - prezzo massimo
 	 */
-	public Items(double minPrince, double maxPrice) {
+	public Features(double minPrice, double maxPrice) {
 		this.currency = null;
-		this.minPrince = minPrince;
+		this.minPrice = minPrice;
 		this.maxPrice = maxPrice;
 		this.source = null;
 	}
 
 
-	/** Costruttore che imposta il parametro currency, minPrince e maxPrice e imposta il parametro source a null
-	 * @param currency
-	 * @param minPrince
-	 * @param maxPrice
-	 * @param source
+	/** Costruttore dell'oggetto
+	 * @param currency - valuta con cui pagare il biglietto
+	 * @param minPrice - prezzo minimo
+	 * @param maxPrice - prezzo massimo
 	 */
-	public Items(String currency, double minPrince, double maxPrice) {
+	public Features(String currency, double minPrice, double maxPrice) {
 		this.currency = currency;
-		this.minPrince = minPrince;
+		this.minPrice = minPrice;
 		this.maxPrice = maxPrice;
 		this.source = null;
 	}
 
 
-	/** Costruttore completo 
-	 * @param currency
-	 * @param minPrince
-	 * @param maxPrice
-	 * @param source
+	/** Costruttore dell'oggetto
+	 * @param currency - valuta con cui pagare il biglietto
+	 * @param minPrince - prezzo minimo
+	 * @param maxPrice - prezzo massimo
+	 * @param source - piattaforma che si occupa della vendita dei biglietti
 	 */
-	public Items(String currency, double minPrince, double maxPrice, String source) {
+	public Features(String currency, double minPrice, double maxPrice, String source) {
 		this.currency = currency;
-		this.minPrince = minPrince;
+		this.minPrice = minPrice;
 		this.maxPrice = maxPrice;
 		this.source = source;
 	}
@@ -108,7 +94,7 @@ public class Items {
 
 	@Override
 	public String toString() {
-		return "currency = " + currency + ", minPrince = " + minPrince + ", maxPrice = " + maxPrice + ", source = " + source;
+		return "currency = " + currency + ", minPrice = " + minPrice + ", maxPrice = " + maxPrice + ", source = " + source;
 	}
 
 
@@ -120,7 +106,7 @@ public class Items {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Items other = (Items) obj;
+		Features other = (Features) obj;
 		if (currency == null) {
 			if (other.currency != null)
 				return false;
@@ -128,7 +114,7 @@ public class Items {
 			return false;
 		if (Double.doubleToLongBits(maxPrice) != Double.doubleToLongBits(other.maxPrice))
 			return false;
-		if (Double.doubleToLongBits(minPrince) != Double.doubleToLongBits(other.minPrince))
+		if (Double.doubleToLongBits(minPrice) != Double.doubleToLongBits(other.minPrice))
 			return false;
 		if (source == null) {
 			if (other.source != null)
