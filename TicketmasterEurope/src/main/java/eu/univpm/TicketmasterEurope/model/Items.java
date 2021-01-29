@@ -9,14 +9,36 @@ package eu.univpm.TicketmasterEurope.model;
  */
 public class Items {
 	
+	/**
+	 *  Indica la valuta del biglietto
+	 */
+	
 	private String currency;   		
+	
+	/**
+	 *  Indica il prezzo minimo
+	 */
+	
 	private double minPrince;   	
-	private double maxPrice;    	
+	
+	/**
+	 *  Indica il prezzo massimo
+	 */
+	
+	private double maxPrice;    
+	
+	/**
+	 *  Indica la piattaforma che si occupa della vendita dei biglietti
+	 */
+	
 	private String source;
 	
 	
-	/**
-	 * 
+	/** Costruttore vuoto che imposta tutti i parametri a null
+	 * @param currency
+	 * @param minPrince
+	 * @param maxPrice
+	 * @param source
 	 */
 	public Items() {
 		this.currency = null;
@@ -27,8 +49,12 @@ public class Items {
 	}
 	
 
-	/**
+	/** Costruttore che imposta il parametro source e imposta gli altri parametri a null
+	 * @param currency
+	 * @param minPrince
+	 * @param maxPrice
 	 * @param source
+	 * 
 	 */
 	public Items(String source) {
 		this.currency = null;
@@ -38,9 +64,11 @@ public class Items {
 	}
 
 	
-	/**
+	/** Costruttore che imposta il parametro minPrince e maxPrice e imposta gli altri parametri a null
+	 * @param currency
 	 * @param minPrince
 	 * @param maxPrice
+	 * @param source
 	 */
 	public Items(double minPrince, double maxPrice) {
 		this.currency = null;
@@ -50,10 +78,11 @@ public class Items {
 	}
 
 
-	/**
+	/** Costruttore che imposta il parametro currency, minPrince e maxPrice e imposta il parametro source a null
 	 * @param currency
 	 * @param minPrince
 	 * @param maxPrice
+	 * @param source
 	 */
 	public Items(String currency, double minPrince, double maxPrice) {
 		this.currency = currency;
@@ -63,7 +92,7 @@ public class Items {
 	}
 
 
-	/**
+	/** Costruttore completo 
 	 * @param currency
 	 * @param minPrince
 	 * @param maxPrice

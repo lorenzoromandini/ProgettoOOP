@@ -9,13 +9,29 @@ package eu.univpm.TicketmasterEurope.model;
  */
 public class Event {
 	
+	/**
+	 *  Indica l'id dell'evento
+	 */
+	
 	private String id;
+	
+	/**
+	 *  Indica il nome dell'evento
+	 */	
+	
 	private String name;
+	
+	/**
+	 *  Indica l'info dell'evento
+	 */	
+	
 	private String info;
 	
 
-	/**
-	 * 
+	/** Costruttore vuoto che imposta tutti i parametri a null
+	 * @param id
+	 * @param name
+	 * @param info
 	 */
 	public Event() {
 		this.id = null;
@@ -24,8 +40,10 @@ public class Event {
 	}
 	
   
-	/**
+	/** Costruttore che imposta il parametro name e imposta gli altri parametri a null
+	 * @param id
 	 * @param name
+	 * @param info
 	 */
 	public Event(String name) {		
 		this.id = null;
@@ -34,9 +52,10 @@ public class Event {
 	}
 	
 
-	/**
+	/** Costruttore che imposta il parametro name e id e imposta il parametro info a null
 	 * @param id
 	 * @param name
+	 * @param info
 	 */
 	public Event(String id, String name) {		
 		this.id = id;
@@ -45,7 +64,7 @@ public class Event {
 	}
 
 
-	/**
+	/** Costruttore completo
 	 * @param id
 	 * @param name
 	 * @param info
@@ -58,7 +77,7 @@ public class Event {
 	
 
 	/**
-	 * @return the id
+	 * @return id dell'evento
 	 */
 	public String getId() {	
 		return id;		
@@ -66,7 +85,7 @@ public class Event {
 
 
 	/**
-	 * @param id the id to set
+	 * @param imposta l'id dell'evento
 	 */
 	public void setId(String id) {		
 		this.id = id;		
@@ -74,7 +93,7 @@ public class Event {
 
 
 	/**
-	 * @return the name
+	 * @return il nome dell'evento
 	 */
 	public String getName() {		
 		return name;		
@@ -82,7 +101,7 @@ public class Event {
 
 
 	/**
-	 * @param name the name to set
+	 * @param imposta il nome dell'evento
 	 */
 	public void setName(String name) {		
 		this.name = name;		
@@ -90,7 +109,7 @@ public class Event {
 
 
 	/**
-	 * @return the info
+	 * @return l'info dell'evento
 	 */
 	public String getInfo() {		
 		return info;		
@@ -98,7 +117,7 @@ public class Event {
 
 
 	/**
-	 * @param info the info to set
+	 * @param imposta l'info dell'evento
 	 */
 	public void setInfo(String info) {		
 		this.info = info;		

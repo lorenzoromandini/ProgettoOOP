@@ -11,14 +11,51 @@ import java.util.Vector;
  */
 public class Location {
 	
+	/**
+	 *  Indica il luogo dell'evento
+	 */
+	 
 	private String placement;
+	
+	/**
+	 *  Indica l'indirizzo dell'evento
+	 */
+	
 	private String address;
+	
+	/**
+	 *  Indica la città dell'evento
+	 */
+	
 	private String city;
+	
+	/**
+	 *  Indica lo stato dell'evento
+	 */
+	
 	private String country;
+	
+	/**
+	 *  Indica il codice dello stato dell'evento
+	 */
+	
 	private String countrycode;
+	
+	/**
+	 *  
+	 */
+	
 	private Vector<Event> evento = new Vector<Event>();
 	
 	
+	/**
+	 *  Costruttore vuoto che imposta tutti i parametri a null
+	 *  @param placement
+	 *  @param address
+	 *  @param city
+	 *  @param country
+	 *  @param countrycode
+	 */
 	public Location() {
 		super();
 		this.placement = null;
@@ -29,8 +66,12 @@ public class Location {
 	}
 
 
-	/**
+	/** Costruttore che imposta il parametro placement e imposta gli altri parametri a null
 	 * @param placement
+	 * @param address
+	 * @param city
+	 * @param country
+	 * @param countrycode
 	 */
 	public Location(String placement) {
 		this.placement = placement;
@@ -41,8 +82,11 @@ public class Location {
 	}
 
 
-	/**
+	/** Costruttore che imposta il parametro città e countrycode e imposta gli altri parametri a null
+	 * @param placement
+	 * @param address
 	 * @param city
+	 * @param country
 	 * @param countrycode
 	 */
 	public Location(String city, String countrycode) {
@@ -54,10 +98,12 @@ public class Location {
 	}
 
 
-	/**
+	/** Costruttore che imposta il parametro città, countrycode e l'indirizzo e imposta gli altri parametri a null
+	 * @param placement
 	 * @param address
 	 * @param city
 	 * @param country
+	 * @param countrycode
 	 */
 	public Location(String address, String city, String countrycode) {
 		this.placement = null;
@@ -68,7 +114,7 @@ public class Location {
 	}
 
 
-	/**
+	/** Costruttore completo
 	 * @param placement
 	 * @param address
 	 * @param city
@@ -86,7 +132,7 @@ public class Location {
 
 
 	/**
-	 * @return the placement
+	 * @return il luogo dell'evento
 	 */
 	public String getPlacement() {
 		return placement;
@@ -94,7 +140,7 @@ public class Location {
 
 
 	/**
-	 * @param placement the placement to set
+	 * @param imposta il luogo dell'evento
 	 */
 	public void setPlacement(String placement) {
 		this.placement = placement;
@@ -102,7 +148,7 @@ public class Location {
 
 
 	/**
-	 * @return the address
+	 * @return l'indirizzo dell'evento
 	 */
 	public String getAddress() {
 		return address;
@@ -110,7 +156,7 @@ public class Location {
 
 
 	/**
-	 * @param address the address to set
+	 * @param imposta l'indirizzo dell'evento
 	 */
 	public void setAddress(String address) {
 		this.address = address;
@@ -118,7 +164,7 @@ public class Location {
 
 
 	/**
-	 * @return the city
+	 * @return la città dell'evento
 	 */
 	public String getCity() {
 		return city;
@@ -126,7 +172,7 @@ public class Location {
 
 
 	/**
-	 * @param city the city to set
+	 * @param imposta la città dell'evento
 	 */
 	public void setCity(String city) {
 		this.city = city;
@@ -134,7 +180,7 @@ public class Location {
 
 
 	/**
-	 * @return the country
+	 * @return lo stato dell'evento
 	 */
 	public String getCountry() {
 		return country;
@@ -142,7 +188,7 @@ public class Location {
 
 
 	/**
-	 * @param country the country to set
+	 * @param imposta lo stato dell'evento
 	 */
 	public void setCountry(String country) {
 		this.country = country;
@@ -150,7 +196,7 @@ public class Location {
 	
 	
 	/**
-	 * @return the countrycode
+	 * @return il codice dello stato dell'evento
 	 */
 	public String getCountrycode() {
 		return countrycode;
@@ -158,7 +204,7 @@ public class Location {
 
 
 	/**
-	 * @param countrycode the countrycode to set
+	 * @param imposta il codice dello stato dell'evento 
 	 */
 	public void setCountrycode(String countrycode) {
 		this.countrycode = countrycode;

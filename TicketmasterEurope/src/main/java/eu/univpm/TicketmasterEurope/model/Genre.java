@@ -8,14 +8,30 @@ package eu.univpm.TicketmasterEurope.model;
  * @author Nicholas Urbanelli
  */
 public class Genre {
-
+	
+	/**
+	 *  Indica il genere dell'evento
+	 */	
+	
 	private String segmentName;		
-	private String genreName;		
+	
+	/**
+	 *  Indica 
+	 */	
+	
+	private String genreName;	
+	
+	/**
+	 *  Indica l'id dell'evento
+	 */	
+	
 	private String subGenreName;
 		
 	
-	/**
-	 * 
+	/** Costruttore vuoto che imposta tutti i parametri a null
+	 * @param segmentName
+	 * @param genreName
+	 * @param subGenreName
 	 */
 	public Genre() {
 		this.segmentName = null;
@@ -24,8 +40,10 @@ public class Genre {
 	}
 
 	
-	/**
+	/** Costruttore che imposta il parametro segmentName e imposta gli altri parametri a null
 	 * @param segmentName
+	 * @param genreName
+	 * @subgenreName
 	 */
 	public Genre(String segmentName) {		
 		this.segmentName = segmentName;
@@ -34,7 +52,8 @@ public class Genre {
 	}
 	
 	
-	/**
+	/** Costruttore che imposta il parametro genreName e subGenreName e imposta segmentName a null
+	 * @param segmentName
 	 * @param genreName
 	 * @param subGenreName
 	 */
@@ -44,8 +63,8 @@ public class Genre {
 		this.subGenreName = subGenreName;
 	}
 
-
-	/**
+ 
+	/** Costruttore completo
 	 * @param segmentName
 	 * @param genreName
 	 * @param subGenreName
