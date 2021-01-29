@@ -7,7 +7,7 @@ package eu.univpm.TicketmasterEurope.model;
  * @author Lorenzo Romandini
  * @author Nicholas Urbanelli
  */
-public class Details {
+public class Items {
 	
 	private String currency;   		
 	private double minPrince;   	
@@ -21,7 +21,7 @@ public class Details {
 	/**
 	 * 
 	 */
-	public Details() {
+	public Items() {
 		super();
 	}
 
@@ -29,7 +29,7 @@ public class Details {
 	/**
 	 * @param segmentName
 	 */
-	public Details(String segmentName) {
+	public Items(String segmentName) {
 		super();
 		this.segmentName = segmentName;
 	}
@@ -39,7 +39,7 @@ public class Details {
 	 * @param genreName
 	 * @param subGenreName
 	 */
-	public Details(String genreName, String subGenreName) {
+	public Items(String genreName, String subGenreName) {
 		super();
 		this.genreName = genreName;
 		this.subGenreName = subGenreName;
@@ -51,7 +51,7 @@ public class Details {
 	 * @param genreName
 	 * @param subGenreName
 	 */
-	public Details(String segmentName, String genreName, String subGenreName) {
+	public Items(String segmentName, String genreName, String subGenreName) {
 		super();
 		this.segmentName = segmentName;
 		this.genreName = genreName;
@@ -64,7 +64,7 @@ public class Details {
 	 * @param minPrince
 	 * @param maxPrice
 	 */
-	public Details(String currency, double minPrince, double maxPrice) {
+	public Items(String currency, double minPrince, double maxPrice) {
 		super();
 		this.currency = currency;
 		this.minPrince = minPrince;
@@ -80,7 +80,7 @@ public class Details {
 	 * @param genreName
 	 * @param subGenreName
 	 */
-	public Details(String currency, double minPrince, double maxPrice, String segmentName, String genreName,
+	public Items(String currency, double minPrince, double maxPrice, String segmentName, String genreName,
 			String subGenreName) {
 		super();
 		this.currency = currency;
@@ -220,7 +220,7 @@ public class Details {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Details other = (Details) obj;
+		Items other = (Items) obj;
 		if (currency == null) {
 			if (other.currency != null)
 				return false;
