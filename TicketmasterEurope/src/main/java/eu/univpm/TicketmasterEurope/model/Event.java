@@ -19,7 +19,10 @@ public class Event {
 	 * 
 	 */
 	public Event() {
-		super();
+		this.id = null;
+		this.name = null;
+		this.url = null;
+		this.info = null;
 	}
 	
   
@@ -53,7 +56,6 @@ public class Event {
 	 * @param info
 	 */
 	public Event(String id, String name, String url, String info) {
-		super();
 		this.id = id;
 		this.name = name;
 		this.url = url;
