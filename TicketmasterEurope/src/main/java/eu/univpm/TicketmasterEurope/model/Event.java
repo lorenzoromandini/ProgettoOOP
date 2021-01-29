@@ -3,7 +3,8 @@
  */
 package eu.univpm.TicketmasterEurope.model;
 
-/**
+/** Questa classe rappresenta le informazioni di ogni evento.
+ * 
  * @author Lorenzo Romandini
  * @author Nicholas Urbanelli
  */
@@ -20,7 +21,7 @@ public class Event {
 	private String name;
 	
 	/**
-	 *  Indica l'info dell'evento
+	 *  Indica le info dell'evento
 	 */	
 	private String info;
 	
@@ -35,12 +36,12 @@ public class Event {
 	private Genre genre;
 	
 	/**
-	 * Oggetto di tipo Items
+	 * Oggetto di tipo Features
 	 */
-	private Items items;
+	private Features features;
 	
 
-	/** Costruttore vuoto che imposta tutti i parametri a null
+	/** Costruttore dell'oggetto
 	 * @param id
 	 * @param name
 	 * @param info
@@ -49,10 +50,13 @@ public class Event {
 		this.id = null;
 		this.name = null;
 		this.info = null;
+		this.date = null;
+		this.genre = null;
+		this.features = null;
 	}
 	
   
-	/** Costruttore che imposta il parametro name e imposta gli altri parametri a null
+	/** Costruttore dell'oggetto
 	 * @param id
 	 * @param name
 	 * @param info
@@ -60,38 +64,53 @@ public class Event {
 	public Event(String name) {		
 		this.id = null;
 		this.name = name;
-		this.info = null;		
+		this.info = null;
+		this.date = null;
+		this.genre = null;
+		this.features = null;
 	}
 	
 
-	/**
+	/** Costruttore dell'oggetto
 	 * @param date
 	 */
 	public Event(Date date) {
-		super();
+		this.id = null;
+		this.name = null;
+		this.info = null;
 		this.date = date;
+		this.genre = null;
+		this.features = null;
 	}
 
 
-	/**
+	/** Costruttore dell'oggetto
 	 * @param genre
 	 */
 	public Event(Genre genre) {
-		super();
+		this.id = null;
+		this.name = null;
+		this.info = null;
+		this.date = null;
 		this.genre = genre;
+		this.features = null;
 	}
 
 
-	/**
-	 * @param items
+	/** Costruttore dell'oggetto
+	 * @param features
 	 */
-	public Event(Items items) {
-		super();
-		this.items = items;
+	public Event(Features features) {
+		this.id = null;
+		this.name = null;
+		this.info = null;
+		this.date = null;
+		this.genre = null;
+		this.features = features;
 	}
 
 
-	/** Costruttore che imposta il parametro name e id e imposta il parametro info a null
+	/** Costruttore dell'oggetto
 	 * @param id
 	 * @param name
 	 * @param info
@@ -99,11 +118,14 @@ public class Event {
 	public Event(String id, String name) {		
 		this.id = id;
 		this.name = name;
-		this.info = null;		
+		this.info = null;	
+		this.date = null;
+		this.genre = null;
+		this.features = null;
 	}
 
 
-	/** Costruttore completo
+	/** Costruttore dell'oggetto
 	 * @param id
 	 * @param name
 	 * @param info
@@ -111,133 +133,135 @@ public class Event {
 	public Event(String id, String name, String info) {
 		this.id = id;
 		this.name = name;
-		this.info = info;		
+		this.info = info;
+		this.date = null;
+		this.genre = null;
+		this.features = null;
 	}
 	
 
-	/**
+	/** Costruttore dell'oggetto
 	 * @param id
 	 * @param name
 	 * @param info
 	 * @param date
 	 * @param genre
-	 * @param items
+	 * @param features
 	 */
-	public Event(String id, String name, String info, Date date, Genre genre, Items items) {
-		super();
+	public Event(String id, String name, String info, Date date, Genre genre, Features features) {
 		this.id = id;
 		this.name = name;
 		this.info = info;
 		this.date = date;
 		this.genre = genre;
-		this.items = items;
+		this.features = features;
 	}
 
 
-	/**
-	 * @return id dell'evento
+	/** Restituisce l'id dell'evento
+	 * @return id 
 	 */
 	public String getId() {	
 		return id;		
 	}
 
 
-	/**
-	 * @param Imposta l'id dell'evento
+	/** Setta l'id dell'evento
+	 * @param String id
 	 */
 	public void setId(String id) {		
 		this.id = id;		
 	}
 
 
-	/**
-	 * @return Nome dell'evento
+	/** Restituisce il nome dell'evento
+	 * @return name
 	 */
 	public String getName() {		
 		return name;		
 	}
 
 
-	/**
-	 * @param Imposta il nome dell'evento
+	/** Setta il nome dell'evento
+	 * @param String name
 	 */
 	public void setName(String name) {		
 		this.name = name;		
 	}
 
 
-	/**
-	 * @return Info dell'evento
+	/** Restituisce le info dell'evento
+	 * @return info
 	 */
 	public String getInfo() {		
 		return info;		
 	}
 
 
-	/**
-	 * @param Imposta l'info dell'evento
+	/** Setta le info dell'evento
+	 * @param String info
 	 */
 	public void setInfo(String info) {		
 		this.info = info;		
 	}
 
 	
-	/**
-	 * @return the date
+	/** Restituisce la data e l'orario dell'evento
+	 * @return date
 	 */
 	public Date getDate() {
 		return date;
 	}
 
 
-	/**
-	 * @param date the date to set
+	/** Setta la data e l'orario dell'evento
+	 * @param Date date
 	 */
 	public void setDate(Date date) {
 		this.date = date;
 	}
 
 
-	/**
-	 * @return the genre
+	/** Restituisce il genere dell'evento
+	 * @return genre
 	 */
 	public Genre getGenre() {
 		return genre;
 	}
 
 
-	/**
-	 * @param genre the genre to set
+	/** Setta il genere dell'evento
+	 * @param Genre genre
 	 */
 	public void setGenre(Genre genre) {
 		this.genre = genre;
 	}
 
 
-	/**
-	 * @return the items
+	/** Restituisce le caratteristiche dell'evento
+	 * @return features
 	 */
-	public Items getItems() {
-		return items;
+	public Features getItems() {
+		return features;
 	}
 
 
-	/**
-	 * @param items the items to set
+	/** Setta le caratteristiche dell'evento
+	 * @param Features features
 	 */
-	public void setItems(Items items) {
-		this.items = items;
+	public void setItems(Features features) {
+		this.features = features;
 	}
 
 
 	/**
 	 * Override del metodo toString.
-	 * @return String che rappresenta le informazioni relative all'evento.
+	 * @return String - rappresenta le informazioni relative all'evento.
 	 */
 	@Override
 	public String toString() {
 		return "id = " + id + ", name = " + name + ", info = " + info + ", date = " + date + ", genre = " + genre
-				+ ", items = " + items;
+				+ ", features = " + features;
 	}
 	
 
