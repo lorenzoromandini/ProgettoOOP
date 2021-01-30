@@ -236,7 +236,7 @@ public class Event {
 	/** Restituisce le caratteristiche dell'evento
 	 * @return features
 	 */
-	public Features getItems() {
+	public Features getFeatures() {
 		return features;
 	}
 
@@ -244,7 +244,7 @@ public class Event {
 	/** Setta le caratteristiche dell'evento
 	 * @param Features features
 	 */
-	public void setItems(Features features) {
+	public void setFeatures(Features features) {
 		this.features = features;
 	}
 
