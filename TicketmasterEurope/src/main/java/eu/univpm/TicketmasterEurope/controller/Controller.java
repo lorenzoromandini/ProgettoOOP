@@ -42,7 +42,20 @@ public class Controller {
     }
 	
 	
-
+	@GetMapping(value = "/marketevents") 
+	public ResponseEntity<Object> getCountryEvents(@RequestParam String countryCode) {
+		
+		Location location = service.getCountryEventsSelectedfromApi(countryCode);
+		
+		JSONObject obj = new JSONObject();
+		JSON_Converter jsonconverter = new JSON_Converter();
+		
+		obj = jsonconverter.JSON_converter(location);
+		
+		return new ResponseEntity<> (obj.toString(), HttpStatus.OK);
+    }
+		
+	
 		
 }
 	
