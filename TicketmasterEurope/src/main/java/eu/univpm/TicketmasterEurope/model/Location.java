@@ -34,7 +34,17 @@ public class Location {
 	/**
 	 *  Indica il codice dello stato dell'evento
 	 */
-	private String countrycode;
+	private String countryCode;
+	
+	/**
+	 * Indica l'id del raggruppamento demografico regionale 
+	 */
+	private int marketId;
+	
+	/**
+	 * Indica il nome del raggruppamento demografico regionale 
+	 */
+	private String marketName;
 	
 	/**
 	 *  Vettore contentente le caratteristiche dei vari eventi che hanno luogo in una determinata location
@@ -50,7 +60,9 @@ public class Location {
 		this.address = null;
 		this.city = null;
 		this.country = null;
-		this.countrycode = null;
+		this.countryCode = null;
+		this.marketId = 0;
+		this.marketName = null;
 		//this.eventArray = null
 	}
 
@@ -63,8 +75,24 @@ public class Location {
 		this.address = null;
 		this.city = null;
 		this.country = null;
-		this.countrycode = null;
+		this.countryCode = null;
+		this.marketId = 0;
+		this.marketName = null;
 		//this.eventArray = null
+	}
+	
+
+	/**
+	 * @param marketId
+	 */
+	public Location(int marketId) {
+		this.placement = null;
+		this.address = null;
+		this.city = null;
+		this.country = null;
+		this.countryCode = null;
+		this.marketId = marketId;	
+		this.marketName = null;		
 	}
 
 
@@ -76,8 +104,8 @@ public class Location {
 		this.placement = null;
 		this.address = null;
 		this.city = city; 
-		this.country = null; 
-		this.country = country;
+		this.country = country; 
+		this.countryCode = null;
 		//this.eventArray = null
 	}
 
@@ -91,8 +119,8 @@ public class Location {
 		this.placement = null;
 		this.address = address;
 		this.city = city;
-		this.country = null;
 		this.country = country;
+		this.countryCode = null;
 		//this.eventArray = null
 	}
 
@@ -109,7 +137,7 @@ public class Location {
 		this.address = address;
 		this.city = city;
 		this.country = country;
-		this.countrycode = countrycode;
+		this.countryCode = countrycode;
 		//this.eventArray = null
 	}
 
@@ -182,7 +210,7 @@ public class Location {
 	 * @return countrycode
 	 */
 	public String getCountrycode() {
-		return countrycode;
+		return countryCode;
 	}
 
 
@@ -190,23 +218,56 @@ public class Location {
 	 * @param String countrycode 
 	 */
 	public void setCountrycode(String countrycode) {
-		this.countrycode = countrycode;
+		this.countryCode = countrycode;
 	}
 	
 	
+	/**
+	 * @return the marketId
+	 */
+	public int getMarketId() {
+		return marketId;
+	}
+
+
+	/**
+	 * @param marketId the marketId to set
+	 */
+	public void setMarketId(int marketId) {
+		this.marketId = marketId;
+	}
+
+
+	/**
+	 * @return the marketName
+	 */
+	public String getMarketName() {
+		return marketName;
+	}
+
+
+	/**
+	 * @param marketName the marketName to set
+	 */
+	public void setMarketName(String marketName) {
+		this.marketName = marketName;
+	}
+
+
 	/** Restituisce il vettore di Event della location
-     * @return vector
+     * @return evento
      */
-	public Vector<Event> getVector() {
+	public Vector<Event> getEvento() {
 		return evento;
 	}
 
 	/** Setta il vettore di Event della location
-     * @param Vector<Event> vector
+     * @param Vector<Event> evento
      */
-	public void setVector(Vector<Event> evento) {
+	public void setEvento(Vector<Event> evento) {
 		this.evento = evento;
 	}
+
 	
 	/**
 	 *  Scrive il vettore degli eventi come una stringa
@@ -219,24 +280,21 @@ public class Location {
 		return toReturn;
 	}
 
-	/**
-	 * Override del metodo toString.
-	 * @return String - rappresenta la location e i suoi eventi
-	 */
 	@Override
-	public String toString() {		
-		return "placement = " + placement + ", address = " + address + ", city = " + city + ", country =" + country +
-				", countrycode = " + countrycode + ", eventArray = " + toStringVector();
+	public String toString() {
+		return "placement = " + placement + ", address = " + address + ", city = " + city + ", country = " + country
+				+ ", countryCode = " + countryCode + ", marketId = " + marketId + ", marketName = " + marketName + 
+				", evento = " + evento;
 	}
-	
-	
+
+
 	/**
 	 * Override del metodo equals.
 	 * @param oggetto Location da confrontare.
 	 * @return true o false a seconda che i due oggetti siano uguali.
 	 */
 	@Override
-	public boolean equals(Object obj) {		
+	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
 		if (obj == null)
@@ -244,15 +302,10 @@ public class Location {
 		if (getClass() != obj.getClass())
 			return false;
 		Location other = (Location) obj;
-		if (placement == null) {
-			if (other.placement != null)
-				return false;
-		} else if (!placement.equals(other.placement))
-			return false;
 		if (address == null) {
 			if (other.address != null)
 				return false;
-	} else if (!address.equals(other.address))
+		} else if (!address.equals(other.address))
 			return false;
 		if (city == null) {
 			if (other.city != null)
@@ -262,12 +315,29 @@ public class Location {
 		if (country == null) {
 			if (other.country != null)
 				return false;
-	   } else if (!country.equals(other.country))
+		} else if (!country.equals(other.country))
 			return false;
-		if (countrycode == null) {
-			if (other.countrycode != null)
+		if (countryCode == null) {
+			if (other.countryCode != null)
 				return false;
-	   } else if (!countrycode.equals(other.countrycode))
+		} else if (!countryCode.equals(other.countryCode))
+			return false;
+		if (evento == null) {
+			if (other.evento != null)
+				return false;
+		} else if (!evento.equals(other.evento))
+			return false;
+		if (marketId != other.marketId)
+			return false;
+		if (marketName == null) {
+			if (other.marketName != null)
+				return false;
+		} else if (!marketName.equals(other.marketName))
+			return false;
+		if (placement == null) {
+			if (other.placement != null)
+				return false;
+		} else if (!placement.equals(other.placement))
 			return false;
 		return true;
 	}

@@ -90,7 +90,62 @@ public class Features {
 		this.maxPrice = maxPrice;
 		this.source = source;
 	}
- 
+
+	/**
+	 * @return the currency
+	 */
+	public String getCurrency() {
+		return currency;
+	}
+
+	/**
+	 * @param currency the currency to set
+	 */
+	public void setCurrency(String currency) {
+		this.currency = currency;
+	}
+
+	/**
+	 * @return the minPrice
+	 */
+	public double getMinPrice() {
+		return minPrice;
+	}
+
+	/**
+	 * @param minPrice the minPrice to set
+	 */
+	public void setMinPrice(double minPrice) {
+		this.minPrice = minPrice;
+	}
+
+	/**
+	 * @return the maxPrice
+	 */
+	public double getMaxPrice() {
+		return maxPrice;
+	}
+
+	/**
+	 * @param maxPrice the maxPrice to set
+	 */
+	public void setMaxPrice(double maxPrice) {
+		this.maxPrice = maxPrice;
+	}
+
+	/**
+	 * @return the source
+	 */
+	public String getSource() {
+		return source;
+	}
+
+	/**
+	 * @param source the source to set
+	 */
+	public void setSource(String source) {
+		this.source = source;
+	}
 
 	@Override
 	public String toString() {

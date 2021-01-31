@@ -8,15 +8,21 @@ import org.json.JSONObject;
 
 import eu.univpm.TicketmasterEurope.model.*;
 
-/**
- * @author loren
- *
+/** Questa classe permette di convertire un oggetto Location in un JSONObject
+ * 
+ * @author Lorenzo Romandini
+ * @author Nicholas Urbanelli
  */
-
 public class JSON_Converter {
 
 	Location location = new Location();
 	
+	/**
+	 * Restituisce il JSONObject corrispondente all'oggetto Location fornito in ingresso
+	 * 
+	 * @param location - luogo in cui si svolge l'evento
+	 * @return JSONObject obj
+	 */
 	public JSONObject JSON_converter(Location location) {
 		
 		JSONObject obj = new JSONObject();
@@ -51,7 +57,6 @@ public class JSON_Converter {
 		obj.put("Event", array);
 		return obj;
 	}
-	
 	
 	
 }

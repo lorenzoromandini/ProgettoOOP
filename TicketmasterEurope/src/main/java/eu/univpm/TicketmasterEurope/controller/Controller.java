@@ -11,10 +11,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import eu.univpm.TicketmasterEurope.model.*;
 import eu.univpm.TicketmasterEurope.service.JSON_Converter;
 import eu.univpm.TicketmasterEurope.service.Service;
-
+import eu.univpm.TicketmasterEurope.model.*;
 
 /**
  * @author Lorenzo Romandini
@@ -29,11 +28,10 @@ public class Controller {
 	Service service;
 	
 	
-	
-	@GetMapping(value = "/events") 
-	public ResponseEntity<Object> getCountryEvents(@RequestParam String country) {
+	@GetMapping(value = "/countryevents") 
+	public ResponseEntity<Object> getCountryEvents(@RequestParam String countryCode) {
 		
-		Location location = service.getCountryEventsfromApi(country);
+		Location location = service.getCountryEventsSelectedfromApi(countryCode);
 		
 		JSONObject obj = new JSONObject();
 		JSON_Converter jsonconverter = new JSON_Converter();
@@ -42,14 +40,9 @@ public class Controller {
 		
 		return new ResponseEntity<> (obj.toString(), HttpStatus.OK);
     }
-		
-	
-	
-		
-}
 	
 	
 
-	
-
+		
 }
+	

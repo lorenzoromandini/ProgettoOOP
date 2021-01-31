@@ -13,8 +13,10 @@ import org.json.JSONObject;
  */
 public interface Service {
 	
-	public abstract JSONObject getCountryEvents(String country);
-	public abstract Location getCountryEventsfromApi(String country);	
+	public abstract JSONObject getCountryEvents(String countryCode);
+	public abstract JSONObject getMarketEvents(int marketId);
+	public abstract Location getCountryEventsSelectedfromApi(String contryCode);
+	public abstract Location getMarketEventsSelectedfromApi(int marketId);	
 	
 
 }
