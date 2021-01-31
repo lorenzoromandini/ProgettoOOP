@@ -43,9 +43,9 @@ public class Controller {
 	
 	
 	@GetMapping(value = "/marketevents") 
-	public ResponseEntity<Object> getCountryEvents(@RequestParam String countryCode) {
+	public ResponseEntity<Object> getMarketEvents(@RequestParam int marketId) {
 		
-		Location location = service.getCountryEventsSelectedfromApi(countryCode);
+		Location location = service.getMarketEventsSelectedfromApi(marketId);
 		
 		JSONObject obj = new JSONObject();
 		JSON_Converter jsonconverter = new JSON_Converter();
