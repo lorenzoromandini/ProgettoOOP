@@ -22,7 +22,14 @@ public class Date {
 	private String orario;
 	
 	
-	/** Costruttore completo
+	/** Costruttore dell'oggetto
+	 */
+	public Date() {
+		this.data = null;
+		this.orario = null;	}
+
+
+	/** Costruttore dell'oggetto
 	 * @param data - data (di inizio e fine) dell'evento
 	 * @param orario - orario (di inizio e fine) dell'evento
 	 */

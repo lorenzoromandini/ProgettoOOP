@@ -280,6 +280,11 @@ public class Location {
 		return toReturn;
 	}
 
+	
+	/**
+	 * Override del metodo toString.
+	 * @return String - rappresenta le informazioni relative alla location.
+	 */
 	@Override
 	public String toString() {
 		return "placement = " + placement + ", address = " + address + ", city = " + city + ", country = " + country

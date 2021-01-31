@@ -21,6 +21,11 @@ public class Event {
 	private String name;
 	
 	/**
+	 * Indica l'url del source dell'evento
+	 */
+	private String url;
+	
+	/**
 	 *  Indica le info dell'evento
 	 */	
 	private String info;
@@ -36,9 +41,9 @@ public class Event {
 	private Genre genre;
 	
 	/**
-	 * Oggetto di tipo Features
+	 * Oggetto di tipo Prices
 	 */
-	private Features features;
+	private Prices prices;
 	
 
 	/** Costruttore dell'oggetto
@@ -47,10 +52,11 @@ public class Event {
 	public Event() {
 		this.id = null;
 		this.name = null;
+		this.url = null;
 		this.info = null;
 		this.date = null;
 		this.genre = null;
-		this.features = null;
+		this.prices = null;
 	}
 	
   
@@ -60,10 +66,11 @@ public class Event {
 	public Event(String name) {		
 		this.id = null;
 		this.name = name;
+		this.url = null;
 		this.info = null;
 		this.date = null;
 		this.genre = null;
-		this.features = null;
+		this.prices = null;
 	}
 	
 
@@ -73,10 +80,11 @@ public class Event {
 	public Event(Date date) {
 		this.id = null;
 		this.name = null;
+		this.url = null;
 		this.info = null;
 		this.date = date;
 		this.genre = null;
-		this.features = null;
+		this.prices = null;
 	}
 
 
@@ -86,23 +94,25 @@ public class Event {
 	public Event(Genre genre) {
 		this.id = null;
 		this.name = null;
+		this.url = null;
 		this.info = null;
 		this.date = null;
 		this.genre = genre;
-		this.features = null;
+		this.prices = null;
 	}
 
 
 	/** Costruttore dell'oggetto
-	 * @param features
+	 * @param prices
 	 */
-	public Event(Features features) {
+	public Event(Prices prices) {
 		this.id = null;
 		this.name = null;
+		this.url = null;
 		this.info = null;
 		this.date = null;
 		this.genre = null;
-		this.features = features;
+		this.prices = prices;
 	}
 
 
@@ -113,43 +123,47 @@ public class Event {
 	public Event(String id, String name) {		
 		this.id = id;
 		this.name = name;
+		this.url = null;
 		this.info = null;	
 		this.date = null;
 		this.genre = null;
-		this.features = null;
+		this.prices = null;
 	}
 
 
 	/** Costruttore dell'oggetto
 	 * @param id
 	 * @param name
-	 * @param info
+	 * @param url
 	 */
-	public Event(String id, String name, String info) {
+	public Event(String id, String name, String url) {
 		this.id = id;
 		this.name = name;
-		this.info = info;
+		this.url = url;
+		this.info = null;
 		this.date = null;
 		this.genre = null;
-		this.features = null;
+		this.prices = null;
 	}
 	
 
 	/** Costruttore dell'oggetto
 	 * @param id
 	 * @param name
+	 * @param url
 	 * @param info
 	 * @param date
 	 * @param genre
-	 * @param features
+	 * @param prices
 	 */
-	public Event(String id, String name, String info, Date date, Genre genre, Features features) {
+	public Event(String id, String name, String url, String info, Date date, Genre genre, Prices prices) {
 		this.id = id;
 		this.name = name;
+		this.url = url;
 		this.info = info;
 		this.date = date;
 		this.genre = genre;
-		this.features = features;
+		this.prices = prices;
 	}
 
 
@@ -182,6 +196,22 @@ public class Event {
 	 */
 	public void setName(String name) {		
 		this.name = name;		
+	}
+
+
+	/** Restituisce l'url del source dell'evento
+	 * @return the url
+	 */
+	public String getUrl() {
+		return url;
+	}
+
+
+	/** Setta l'url del source dell'evento
+	 * @param url the url to set
+	 */
+	public void setUrl(String url) {
+		this.url = url;
 	}
 
 
@@ -234,20 +264,20 @@ public class Event {
 
 
 	/** Restituisce le caratteristiche dell'evento
-	 * @return features
+	 * @return prices
 	 */
-	public Features getFeatures() {
-		return features;
+	public Prices getFeatures() {
+		return prices;
 	}
 
 
 	/** Setta le caratteristiche dell'evento
-	 * @param Features features
+	 * @param Prices prices
 	 */
-	public void setFeatures(Features features) {
-		this.features = features;
+	public void setFeatures(Prices prices) {
+		this.prices = prices;
 	}
-
+	
 
 	/**
 	 * Override del metodo toString.
@@ -255,10 +285,10 @@ public class Event {
 	 */
 	@Override
 	public String toString() {
-		return "id = " + id + ", name = " + name + ", info = " + info + ", date = " + date + ", genre = " + genre
-				+ ", features = " + features;
+		return "id = " + id + ", name = " + name + ", url = " + url + ", info = " + info + ", date = " + date + 
+				", genre = " + genre + ", prices = " + prices;
 	}
-	
+
 
 	/**
 	 * Override del metodo equals.
@@ -274,26 +304,47 @@ public class Event {
 		if (getClass() != obj.getClass())
 			return false;
 		Event other = (Event) obj;
+		if (date == null) {
+			if (other.date != null)
+				return false;
+		} else if (!date.equals(other.date))
+			return false;
+		if (prices == null) {
+			if (other.prices != null)
+				return false;
+		} else if (!prices.equals(other.prices))
+			return false;
+		if (genre == null) {
+			if (other.genre != null)
+				return false;
+		} else if (!genre.equals(other.genre))
+			return false;
 		if (id == null) {
 			if (other.id != null)
 				return false;
 		} else if (!id.equals(other.id))
+			return false;
+		if (info == null) {
+			if (other.info != null)
+				return false;
+		} else if (!info.equals(other.info))
 			return false;
 		if (name == null) {
 			if (other.name != null)
 				return false;
 		} else if (!name.equals(other.name))
 			return false;
-		if (info == null) {
-			if (other.info != null)
+		if (url == null) {
+			if (other.url != null)
 				return false;
-	   } else if (!info.equals(other.info))
+		} else if (!url.equals(other.url))
 			return false;
 		return true;
 	}
 
 
 	
+
 
 
 
