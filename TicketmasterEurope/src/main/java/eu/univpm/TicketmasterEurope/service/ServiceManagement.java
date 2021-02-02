@@ -161,6 +161,63 @@ public class ServiceManagement implements Service {
 	}
 
 	public Location getMarketEventsSelectedfromApi(String marketId) {
+		
+		JSONObject countryEventsSelectedObject = getCountryEvents(marketId);
+		
+		Location location = new Location(marketId);
+		
+		location = getCountryfromApi(marketId);
+		
+		JSONObject embeddedObject = countryEventsSelectedObject.getJSONObject("_embedded");
+		JSONArray countryEventsArray = embeddedObject.getJSONArray("events");
+		JSONObject object;
+		
+		Vector<Event> vector = new Vector<Event>(countryEventsArray.length());
+			
+		for (int i = 0; i < countryEventsArray.length(); i++) {
+			
+			Event event = new Event();
+			
+			object = countryEventsArray.getJSONObject(i);
+			event.setName(object.getString("name"));
+			event.setId(object.getString("id"));
+			event.setUrl(object.getString("url"));
+			event.setInfo(object.getString("info"));
+			
+			Date data = new Date();
+			JSONObject datesObject = object.getJSONObject("dates");
+			JSONObject startDateObject = datesObject.getJSONObject("start");
+			data.setData(startDateObject.getString("localDate"));
+			data.setOrario(startDateObject.getString("localTime"));
+			event.setDate(data);
+			
+			Prices prices = new Prices();
+			JSONArray pricesArray = object.getJSONArray("priceRanges");
+			JSONObject pricesObject = pricesArray.getJSONObject(0);
+			prices.setCurrency(pricesObject.getString("currency"));
+			prices.setMaxPrice(pricesObject.getDouble("max"));
+			prices.setMinPrice(pricesObject.getDouble("min"));
+			event.setFeatures(prices);
+			
+			Genre genre = new Genre();
+			JSONArray classificationsArray = object.getJSONArray("classifications");
+			JSONObject classificationsObject = classificationsArray.getJSONObject(0);
+			JSONObject segmentObject = classificationsObject.getJSONObject("segment");
+			genre.setSegmentName(segmentObject.getString("name"));
+			JSONObject genreObject = classificationsObject.getJSONObject("genre");
+			genre.setGenreName(genreObject.getString("name"));
+			JSONObject subGenreObject = classificationsObject.getJSONObject("subGenre");
+			genre.setSubGenreName(subGenreObject.getString("name"));	
+			event.setGenre(genre);
+			vector.add(event); 
+
+			}
+						
+		location.setEvento(vector);
+		
+		return location;
+		
+		
 	}
 	
 	
