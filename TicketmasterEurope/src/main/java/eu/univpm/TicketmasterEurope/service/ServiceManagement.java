@@ -9,6 +9,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.web.client.RestTemplate;
 
+import com.project.WeatherApp.model.Coordinates;
+
 import eu.univpm.TicketmasterEurope.model.*;
 
 /** Questa classe è l'implementazione dell'interfaccia Service
@@ -51,7 +53,9 @@ public class ServiceManagement implements Service {
 		
 		JSONObject countryEventsSelectedObject = getCountryEvents(countryCode);
 		
-		Location location = new Location();
+		Country country = new Country(countryCode);
+		
+		Location location = new Location(country);
 		
 		location = getCountryfromApi(countryCode);
 		
@@ -84,7 +88,7 @@ public class ServiceManagement implements Service {
 			prices.setCurrency(pricesObject.getString("currency"));
 			prices.setMaxPrice(pricesObject.getDouble("max"));
 			prices.setMinPrice(pricesObject.getDouble("min"));
-			event.setFeatures(prices);
+			event.setPrices(prices);
 			
 			Genre genre = new Genre();
 			JSONArray classificationsArray = object.getJSONArray("classifications");
@@ -111,7 +115,9 @@ public class ServiceManagement implements Service {
 		
 		JSONObject countryEventsObject = getCountryEvents(countryCode);
 		
-		Location location = new Location(countryCode);
+		Country countryX = new Country(countryCode);
+		
+		Location location = new Location(countryX);
 		
 		JSONObject embeddedObject = countryEventsObject.getJSONObject("_embedded");
 		JSONArray eventsArray = embeddedObject.getJSONArray("events");
@@ -119,21 +125,23 @@ public class ServiceManagement implements Service {
 		JSONObject lowerEmbeddedObj = firstObject.getJSONObject("_embedded");
 		JSONArray venuesArray = lowerEmbeddedObj.getJSONArray("venues");
 		JSONObject lowerFirstObject = venuesArray.getJSONObject(0);
-		location.setPlacement(lowerFirstObject.getString("name"));
 		
+		Place placement = new Place();
+		placement.setPlacement(lowerFirstObject.getString("name"));
+		JSONObject addressObject = lowerFirstObject.getJSONObject("address");
+		JSONObject addressNameObject = addressObject.getJSONObject("line1");
+		placement.setAddress(addressNameObject.getString("line1"));
 		JSONObject cityObject = lowerFirstObject.getJSONObject("city");
 		JSONObject cityNameObject = cityObject.getJSONObject("name");
-		location.setCity(cityNameObject.getString("name"));
+		placement.setCity(cityNameObject.getString("name"));
+		location.setPlace(placement);
 		
+		Country country = new Country();
 		JSONObject countryObject = lowerFirstObject.getJSONObject("country");
 		JSONObject countryNameObject = countryObject.getJSONObject("name");
 		JSONObject countryCodeObject = countryObject.getJSONObject("countryCode");
-		location.setCountry(countryNameObject.getString("name"));
-		location.setCountryCode(countryCodeObject.getString("countryCode"));
-		
-		JSONObject addressObject = lowerFirstObject.getJSONObject("address");
-		JSONObject addressNameObject = addressObject.getJSONObject("line1");
-		location.setAddress(addressNameObject.getString("line1"));
+		country.setCountry(countryNameObject.getString("name"));
+		country.setCountryCode(countryCodeObject.getString("countryCode"));
 		
 		JSONArray marketArray = lowerFirstObject.getJSONArray("markets");
 		JSONObject marketObject = marketArray.getJSONObject(0);
