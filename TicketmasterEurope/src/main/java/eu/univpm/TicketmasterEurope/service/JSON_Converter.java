@@ -31,7 +31,7 @@ public class JSON_Converter {
 		obj.put("address", location.getAddress());
 		obj.put("city", location.getCity());
 		obj.put("country", location.getCountry());
-		obj.put("countryCode", location.getCountrycode());
+		obj.put("countryCode", location.getCountryCode());
 		obj.put("marketId", location.getMarketId());
 		obj.put("marketName", location.getMarketName());
 		
