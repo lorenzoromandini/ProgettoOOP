@@ -39,7 +39,7 @@ public class Location {
 	/**
 	 * Indica l'id del raggruppamento demografico regionale 
 	 */
-	private int marketId;
+	private String marketId;
 	
 	/**
 	 * Indica il nome del raggruppamento demografico regionale 
@@ -61,40 +61,26 @@ public class Location {
 		this.city = null;
 		this.country = null;
 		this.countryCode = null;
-		this.marketId = 0;
+		this.marketId = null;
 		this.marketName = null;
 		//this.eventArray = null
 	}
 
 
 	/** Costruttore dell'oggetto
-	 * @param placement - luogo dell'evento
+	 * @param countryCode - paese in cui si tiene l'evento
 	 */
-	public Location(String placement) {
-		this.placement = placement;
+	public Location(String countryCode) {
+		this.placement = null;
 		this.address = null;
 		this.city = null;
 		this.country = null;
-		this.countryCode = null;
+		this.countryCode = countryCode;
 		this.marketId = 0;
 		this.marketName = null;
 		//this.eventArray = null
 	}
 	
-
-	/**
-	 * @param marketId
-	 */
-	public Location(int marketId) {
-		this.placement = null;
-		this.address = null;
-		this.city = null;
-		this.country = null;
-		this.countryCode = null;
-		this.marketId = marketId;	
-		this.marketName = null;		
-	}
-
 
 	/** Costruttore dell'oggetto
 	 * @param city - città dell'evento
@@ -104,8 +90,10 @@ public class Location {
 		this.placement = null;
 		this.address = null;
 		this.city = city; 
-		this.country = country; 
+		this.country = country;
 		this.countryCode = null;
+		this.marketId = null;
+		this.marketName = null;
 		//this.eventArray = null
 	}
 
@@ -209,7 +197,7 @@ public class Location {
 	/** Restituisce il codice dello stato dell'evento
 	 * @return countrycode
 	 */
-	public String getCountrycode() {
+	public String getCountryCode() {
 		return countryCode;
 	}
 
@@ -217,7 +205,7 @@ public class Location {
 	/** Setta il codice dello stato dell'evento
 	 * @param String countrycode 
 	 */
-	public void setCountrycode(String countrycode) {
+	public void setCountryCode(String countrycode) {
 		this.countryCode = countrycode;
 	}
 	
@@ -233,7 +221,7 @@ public class Location {
 	/**
 	 * @param marketId the marketId to set
 	 */
-	public void setMarketId(int marketId) {
+	public void setMarketId(String marketId) {
 		this.marketId = marketId;
 	}
 
