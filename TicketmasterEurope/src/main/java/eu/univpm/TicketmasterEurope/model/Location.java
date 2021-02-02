@@ -11,234 +11,122 @@ import java.util.Vector;
  */
 public class Location {
 	
-	/**
-	 *  Indica il luogo dell'evento
-	 */
-	private String placement;
+	private Place place;
 	
-	/**
-	 *  Indica l'indirizzo dell'evento
-	 */
-	private String address;
+	private Country country;
 	
-	/**
-	 *  Indica la città dell'evento
-	 */
-	private String city;
-	
-	/**
-	 *  Indica lo stato dell'evento
-	 */
-	private String country;
-	
-	/**
-	 *  Indica il codice dello stato dell'evento
-	 */
-	private String countryCode;
-	
-	/**
-	 * Indica l'id del raggruppamento demografico regionale 
-	 */
-	private String marketId;
-	
-	/**
-	 * Indica il nome del raggruppamento demografico regionale 
-	 */
-	private String marketName;
+	private Market market;
 	
 	/**
 	 *  Vettore contentente le caratteristiche dei vari eventi che hanno luogo in una determinata location
 	 */
 	private Vector<Event> evento = new Vector<Event>();
 	
-	
+
 	/**
-	 * Costruttore dell'oggetto
+	 * 
 	 */
 	public Location() {
-		this.placement = null;
-		this.address = null;
-		this.city = null;
-		this.country = null;
-		this.countryCode = null;
-		this.marketId = null;
-		this.marketName = null;
-		//this.eventArray = null
-	}
-
-
-	/** Costruttore dell'oggetto
-	 * @param countryCode - paese in cui si tiene l'evento
-	 */
-	public Location(String countryCode) {
-		this.placement = null;
-		this.address = null;
-		this.city = null;
-		this.country = null;
-		this.countryCode = countryCode;
-		this.marketId = 0;
-		this.marketName = null;
-		//this.eventArray = null
+		super();
 	}
 	
 
-	/** Costruttore dell'oggetto
-	 * @param city - città dell'evento
-	 * @param country - stato dell'evento
+	/**
+	 * @param place
 	 */
-	public Location(String city, String country) {
-		this.placement = null;
-		this.address = null;
-		this.city = city; 
+	public Location(Place place) {
+		super();
+		this.place = place;
+	}
+
+
+	/**
+	 * @param country
+	 */
+	public Location(Country country) {
+		super();
 		this.country = country;
-		this.countryCode = null;
-		this.marketId = null;
-		this.marketName = null;
-		//this.eventArray = null
 	}
 
 
-	/** Costruttore dell'oggetto
-	 * @param address - indirizzo dell'evento
-	 * @param city - città dell'evento
-	 * @param country - stato dell'evento
+	/**
+	 * @param market
 	 */
-	public Location(String address, String city, String country) {
-		this.placement = null;
-		this.address = address;
-		this.city = city;
+	public Location(Market market) {
+		super();
+		this.market = market;
+	}
+
+
+	/**
+	 * @param evento
+	 */
+	public Location(Vector<Event> evento) {
+		super();
+		this.evento = evento;
+	}
+
+
+	/**
+	 * @param place
+	 * @param country
+	 * @param market
+	 * @param evento
+	 */
+	public Location(Place place, Country country, Market market, Vector<Event> evento) {
+		super();
+		this.place = place;
 		this.country = country;
-		this.countryCode = null;
-		//this.eventArray = null
+		this.market = market;
+		this.evento = evento;
 	}
 
 
-	/** Costruttore dell'oggetto
-	 * @param placement - luogo dell'evento
-	 * @param address - indirizzo dell'evento
-	 * @param city - città dell'evento
-	 * @param country - stato dell'evento
-	 * @param countrycode - codice dello stato dell'evento
+	/**
+	 * @return the place
 	 */
-	public Location(String placement, String address, String city, String country, String countrycode) {
-		this.placement = placement;
-		this.address = address;
-		this.city = city;
-		this.country = country;
-		this.countryCode = countrycode;
-		//this.eventArray = null
+	public Place getPlace() {
+		return place;
 	}
 
 
-	/** Restituisce il luogo dell'evento
-	 * @return placement
+	/**
+	 * @param place the place to set
 	 */
-	public String getPlacement() {
-		return placement;
+	public void setPlace(Place place) {
+		this.place = place;
 	}
 
 
-	/** Setta il luogo dell'eventp
-	 * @param String placement
+	/**
+	 * @return the country
 	 */
-	public void setPlacement(String placement) {
-		this.placement = placement;
-	}
-
-
-	/** Resituisce l'indirizzo dell'evento
-	 * @return address
-	 */
-	public String getAddress() {
-		return address;
-	}
-
-
-	/** Setta l'indirizzo dell'evento
-	 * @param String address
-	 */
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-
-	/** Restituisce la città dell'evento
-	 * @return city
-	 */
-	public String getCity() {
-		return city;
-	}
-
-
-	/** Setta la città dell'evento
-	 * @param String city
-	 */
-	public void setCity(String city) {
-		this.city = city;
-	}
-
-
-	/** Restituisce lo stato dell'evento
-	 * @return country
-	 */
-	public String getCountry() {
+	public Country getCountry() {
 		return country;
 	}
 
 
-	/** Setta lo stato dell'evento
-	 * @param String country
+	/**
+	 * @param country the country to set
 	 */
-	public void setCountry(String country) {
+	public void setCountry(Country country) {
 		this.country = country;
 	}
-	
-	
-	/** Restituisce il codice dello stato dell'evento
-	 * @return countrycode
-	 */
-	public String getCountryCode() {
-		return countryCode;
-	}
 
 
-	/** Setta il codice dello stato dell'evento
-	 * @param String countrycode 
-	 */
-	public void setCountryCode(String countrycode) {
-		this.countryCode = countrycode;
-	}
-	
-	
 	/**
-	 * @return the marketId
+	 * @return the market
 	 */
-	public int getMarketId() {
-		return marketId;
+	public Market getMarket() {
+		return market;
 	}
 
 
 	/**
-	 * @param marketId the marketId to set
+	 * @param market the market to set
 	 */
-	public void setMarketId(String marketId) {
-		this.marketId = marketId;
-	}
-
-
-	/**
-	 * @return the marketName
-	 */
-	public String getMarketName() {
-		return marketName;
-	}
-
-
-	/**
-	 * @param marketName the marketName to set
-	 */
-	public void setMarketName(String marketName) {
-		this.marketName = marketName;
+	public void setMarket(Market market) {
+		this.market = market;
 	}
 
 
@@ -268,24 +156,13 @@ public class Location {
 		return toReturn;
 	}
 
-	
-	/**
-	 * Override del metodo toString.
-	 * @return String - rappresenta le informazioni relative alla location.
-	 */
+
 	@Override
 	public String toString() {
-		return "placement = " + placement + ", address = " + address + ", city = " + city + ", country = " + country
-				+ ", countryCode = " + countryCode + ", marketId = " + marketId + ", marketName = " + marketName + 
-				", evento = " + evento;
+		return "Location [place=" + place + ", country=" + country + ", market=" + market + ", evento=" + toStringVector() + "]";
 	}
 
 
-	/**
-	 * Override del metodo equals.
-	 * @param oggetto Location da confrontare.
-	 * @return true o false a seconda che i due oggetti siano uguali.
-	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -295,46 +172,29 @@ public class Location {
 		if (getClass() != obj.getClass())
 			return false;
 		Location other = (Location) obj;
-		if (address == null) {
-			if (other.address != null)
-				return false;
-		} else if (!address.equals(other.address))
-			return false;
-		if (city == null) {
-			if (other.city != null)
-				return false;
-		} else if (!city.equals(other.city))
-			return false;
 		if (country == null) {
 			if (other.country != null)
 				return false;
 		} else if (!country.equals(other.country))
-			return false;
-		if (countryCode == null) {
-			if (other.countryCode != null)
-				return false;
-		} else if (!countryCode.equals(other.countryCode))
 			return false;
 		if (evento == null) {
 			if (other.evento != null)
 				return false;
 		} else if (!evento.equals(other.evento))
 			return false;
-		if (marketId != other.marketId)
-			return false;
-		if (marketName == null) {
-			if (other.marketName != null)
+		if (market == null) {
+			if (other.market != null)
 				return false;
-		} else if (!marketName.equals(other.marketName))
+		} else if (!market.equals(other.market))
 			return false;
-		if (placement == null) {
-			if (other.placement != null)
+		if (place == null) {
+			if (other.place != null)
 				return false;
-		} else if (!placement.equals(other.placement))
+		} else if (!place.equals(other.place))
 			return false;
 		return true;
 	}
 	
-	
-
 }
+
+	

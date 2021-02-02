@@ -24,9 +24,9 @@ public class Country {
 		super();
 		}
 	
-	public Country(String country) {
+	public Country(String countryCode) {
 		super();
-		this.country = country;
+		this.countryCode = countryCode;
 	}
 	
 	public Country(String country, String countryCode) {

@@ -28,9 +28,9 @@ public class Place {
 		super();
 		}
 	
-	private Place(String placement) {
+	private Place(String city) {
 		super();
-		this.placement = placement;
+		this.city = city;
 		}
 	
 	private Place(String placement, String address) {

@@ -51,7 +51,7 @@ public class ServiceManagement implements Service {
 		
 		JSONObject countryEventsSelectedObject = getCountryEvents(countryCode);
 		
-		Location location = new Location(countryCode);
+		Location location = new Location();
 		
 		location = getCountryfromApi(countryCode);
 		
