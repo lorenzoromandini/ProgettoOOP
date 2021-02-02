@@ -20,6 +20,23 @@ public class Country {
 	private String countryCode;
 	
 	
+	private Country() {
+		super();
+		}
+	
+	public Country(String country) {
+		super();
+		this.country = country;
+	}
+	
+	public Country(String country, String countryCode) {
+		super();
+		this.country = country;
+		this.countryCode = countryCode;
+	}
+	
+	
+	
 	/** Restituisce lo stato dell'evento
 	 * @return country
 	 */
@@ -35,4 +52,40 @@ public class Country {
 		this.country = country;
 	}
 
+	public String getCountryCode() {
+		return countryCode;
+	}
+	
+	public void setCountryCode(String countryCode) {  
+		this.countryCode = countryCode;
+	}
+	
+	
+	@Override
+	public String toString() {
+		return "Country [country=" + country + ", countryCode=" + countryCode + "]";
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Country other = (Country) obj;
+		if (country == null) {
+			if (other.country != null)
+				return false;
+		} else if (!country.equals(other.country))
+			return false;
+		if (countryCode == null) {
+			if (other.countryCode != null)
+				return false;
+		} else if (!countryCode.equals(other.countryCode))
+			return false;
+		return true;
+	}
+	
 }

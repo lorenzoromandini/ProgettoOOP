@@ -24,6 +24,29 @@ public class Place {
 	 */
 	private String city;
 	
+	private Place() {
+		super();
+		}
+	
+	private Place(String placement) {
+		super();
+		this.placement = placement;
+		}
+	
+	private Place(String placement, String address) {
+		super();
+		this.placement = placement;
+		this.address = address;
+		}
+	
+	private Place(String placement, String address, String city) {
+		super();
+		this.placement = placement;
+		this.address = address;
+		this.city = city;
+		}
+	
+	
 	
 	/** Restituisce il luogo dell'evento
 	 * @return placement
@@ -70,5 +93,40 @@ public class Place {
 	public void setCity(String city) {
 		this.city = city;
 	}
+	
+	@Override
+	public String toString() {
+		return "Place [placement=" + placement + ", address=" + address + ", city=" + city +"]";
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Place other = (Place) obj;
+		if (address == null) {
+			if (other.address != null)
+				return false;
+		} else if (!address.equals(other.address))
+			return false;
+		if (city == null) {
+			if (other.city != null)
+				return false;
+		} else if (!city.equals(other.city))
+			return false;
+		if (placement == null) {
+			if (other.placement != null)
+				return false;
+		} else if (!placement.equals(other.placement))
+			return false;
+		return true;
+	}
+	
+	
 
 }
