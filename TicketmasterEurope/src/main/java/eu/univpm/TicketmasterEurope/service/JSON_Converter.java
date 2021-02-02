@@ -46,11 +46,11 @@ public class JSON_Converter {
 			event.put("subGenreName", (location.getEvento()).get(i).getGenre().getSubGenreName());
 			event.put("id", (location.getEvento()).get(i).getId());
 			event.put("name", (location.getEvento()).get(i).getName());
+			event.put("url", (location.getEvento()).get(i).getUrl());
 			event.put("info", (location.getEvento()).get(i).getInfo());
 			event.put("currency", (location.getEvento()).get(i).getFeatures().getCurrency());
 			event.put("minPrice", (location.getEvento()).get(i).getFeatures().getMinPrice());
 			event.put("maxPrice", (location.getEvento()).get(i).getFeatures().getMaxPrice());
-			event.put("source", (location.getEvento()).get(i).getFeatures().getSource());
 			array.put(event);
 		}
 		
