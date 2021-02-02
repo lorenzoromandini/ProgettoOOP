@@ -3,8 +3,6 @@
  */
 package eu.univpm.TicketmasterEurope.model;
 
-import java.util.Vector;
-
 /** Questa classe rappresenta le proprietà di ogni location e i relativi eventi che si svolgono in quel luogo.
  * @author Lorenzo Romandini
  * @author Nicholas Urbanelli
@@ -16,11 +14,6 @@ public class Location {
 	private Country country;
 	
 	private Market market;
-	
-	/**
-	 *  Vettore contentente le caratteristiche dei vari eventi che hanno luogo in una determinata location
-	 */
-	private Vector<Event> evento = new Vector<Event>();
 	
 
 	/**
@@ -59,26 +52,15 @@ public class Location {
 
 
 	/**
-	 * @param evento
-	 */
-	public Location(Vector<Event> evento) {
-		super();
-		this.evento = evento;
-	}
-
-
-	/**
 	 * @param place
 	 * @param country
 	 * @param market
 	 * @param evento
 	 */
-	public Location(Place place, Country country, Market market, Vector<Event> evento) {
-		super();
+	public Location(Place place, Country country, Market market) {
 		this.place = place;
 		this.country = country;
 		this.market = market;
-		this.evento = evento;
 	}
 
 
@@ -130,36 +112,9 @@ public class Location {
 	}
 
 
-	/** Restituisce il vettore di Event della location
-     * @return evento
-     */
-	public Vector<Event> getEvento() {
-		return evento;
-	}
-
-	/** Setta il vettore di Event della location
-     * @param Vector<Event> evento
-     */
-	public void setEvento(Vector<Event> evento) {
-		this.evento = evento;
-	}
-
-	
-	/**
-	 *  Scrive il vettore degli eventi come una stringa
-     * @return String toReturn - rappresenta le informazioni relative all'evento.
-     */
-	public String toStringVector() {
-		String toReturn = "";
-		for (int i = 0; i < evento.size(); i++)
-			toReturn += evento.get(i).toString();
-		return toReturn;
-	}
-
-
 	@Override
 	public String toString() {
-		return "Location [place=" + place + ", country=" + country + ", market=" + market + ", evento=" + toStringVector() + "]";
+		return "Location [place=" + place + ", country=" + country + ", market=" + market + "]";
 	}
 
 
@@ -176,11 +131,6 @@ public class Location {
 			if (other.country != null)
 				return false;
 		} else if (!country.equals(other.country))
-			return false;
-		if (evento == null) {
-			if (other.evento != null)
-				return false;
-		} else if (!evento.equals(other.evento))
 			return false;
 		if (market == null) {
 			if (other.market != null)

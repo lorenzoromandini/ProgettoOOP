@@ -45,6 +45,11 @@ public class Event {
 	 */
 	private Prices prices;
 	
+	/** 
+	 * Oggetto di tipo Location
+	 */
+	private Location location;
+	
 
 	/** Costruttore dell'oggetto
 	 * 
@@ -57,6 +62,7 @@ public class Event {
 		this.date = null;
 		this.genre = null;
 		this.prices = null;
+		this.location = null;
 	}
 	
   
@@ -71,6 +77,7 @@ public class Event {
 		this.date = null;
 		this.genre = null;
 		this.prices = null;
+		this.location = null;
 	}
 	
 
@@ -85,6 +92,7 @@ public class Event {
 		this.date = date;
 		this.genre = null;
 		this.prices = null;
+		this.location = null;
 	}
 
 
@@ -99,6 +107,7 @@ public class Event {
 		this.date = null;
 		this.genre = genre;
 		this.prices = null;
+		this.location = null;
 	}
 
 
@@ -113,6 +122,22 @@ public class Event {
 		this.date = null;
 		this.genre = null;
 		this.prices = prices;
+		this.location = null;
+	}
+
+
+	/**
+	 * @param location
+	 */
+	public Event(Location location) {
+		this.id = null;
+		this.name = null;
+		this.url = null;
+		this.info = null;
+		this.date = null;
+		this.genre = null;
+		this.prices = null;
+		this.location = location;
 	}
 
 
@@ -128,6 +153,7 @@ public class Event {
 		this.date = null;
 		this.genre = null;
 		this.prices = null;
+		this.location = null;
 	}
 
 
@@ -144,6 +170,7 @@ public class Event {
 		this.date = null;
 		this.genre = null;
 		this.prices = null;
+		this.location = null;
 	}
 	
 
@@ -156,7 +183,7 @@ public class Event {
 	 * @param genre
 	 * @param prices
 	 */
-	public Event(String id, String name, String url, String info, Date date, Genre genre, Prices prices) {
+	public Event(String id, String name, String url, String info, Date date, Genre genre, Prices prices, Location location) {
 		this.id = id;
 		this.name = name;
 		this.url = url;
@@ -164,6 +191,7 @@ public class Event {
 		this.date = date;
 		this.genre = genre;
 		this.prices = prices;
+		this.location = null;
 	}
 
 
@@ -280,13 +308,29 @@ public class Event {
 	
 
 	/**
+	 * @return the location
+	 */
+	public Location getLocation() {
+		return location;
+	}
+
+
+	/**
+	 * @param location the location to set
+	 */
+	public void setLocation(Location location) {
+		this.location = location;
+	}
+
+
+	/**
 	 * Override del metodo toString.
 	 * @return String - rappresenta le informazioni relative all'evento.
 	 */
 	@Override
 	public String toString() {
-		return "id = " + id + ", name = " + name + ", url = " + url + ", info = " + info + ", date = " + date + 
-				", genre = " + genre + ", prices = " + prices;
+		return "Event [id=" + id + ", name=" + name + ", url=" + url + ", info=" + info + ", date=" + date + ", genre="
+				+ genre + ", prices=" + prices + ", location=" + location + "]";
 	}
 
 
@@ -309,11 +353,6 @@ public class Event {
 				return false;
 		} else if (!date.equals(other.date))
 			return false;
-		if (prices == null) {
-			if (other.prices != null)
-				return false;
-		} else if (!prices.equals(other.prices))
-			return false;
 		if (genre == null) {
 			if (other.genre != null)
 				return false;
@@ -329,10 +368,20 @@ public class Event {
 				return false;
 		} else if (!info.equals(other.info))
 			return false;
+		if (location == null) {
+			if (other.location != null)
+				return false;
+		} else if (!location.equals(other.location))
+			return false;
 		if (name == null) {
 			if (other.name != null)
 				return false;
 		} else if (!name.equals(other.name))
+			return false;
+		if (prices == null) {
+			if (other.prices != null)
+				return false;
+		} else if (!prices.equals(other.prices))
 			return false;
 		if (url == null) {
 			if (other.url != null)
@@ -341,19 +390,6 @@ public class Event {
 			return false;
 		return true;
 	}
-
-
+		
 	
-
-
-
-
-
-	
-	
-	
-
-	
-
-
 }
