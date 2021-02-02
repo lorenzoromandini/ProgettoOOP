@@ -24,22 +24,23 @@ public class Place {
 	 */
 	private String city;
 	
-	private Place() {
+	
+	public Place() {
 		super();
 		}
 	
-	private Place(String city) {
+	public Place(String city) {
 		super();
 		this.city = city;
 		}
 	
-	private Place(String placement, String address) {
+	public Place(String placement, String address) {
 		super();
 		this.placement = placement;
 		this.address = address;
 		}
 	
-	private Place(String placement, String address, String city) {
+	public Place(String placement, String address, String city) {
 		super();
 		this.placement = placement;
 		this.address = address;

@@ -266,7 +266,7 @@ public class Event {
 	/** Restituisce le caratteristiche dell'evento
 	 * @return prices
 	 */
-	public Prices getFeatures() {
+	public Prices getPrices() {
 		return prices;
 	}
 
@@ -274,7 +274,7 @@ public class Event {
 	/** Setta le caratteristiche dell'evento
 	 * @param Prices prices
 	 */
-	public void setFeatures(Prices prices) {
+	public void setPrices(Prices prices) {
 		this.prices = prices;
 	}
 	

@@ -20,7 +20,7 @@ public class Country {
 	private String countryCode;
 	
 	
-	private Country() {
+	public Country() {
 		super();
 		}
 	
