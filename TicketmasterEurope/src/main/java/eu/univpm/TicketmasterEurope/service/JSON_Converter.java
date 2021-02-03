@@ -25,11 +25,12 @@ public class JSON_Converter {
 	 */
 	public JSONObject JSON_converter(EventsArray eventsArray) {
 		
-		JSONObject obj = new JSONObject();
 		JSONArray array = new JSONArray();
 		JSONObject events = new JSONObject();
 		
 	    for(int i = 0; i < (eventsArray.getVector()).size(); i++) {
+	    	
+	    	JSONObject obj = new JSONObject();
 	    
 		    obj.put("placement", (eventsArray.getVector()).get(i).getLocation().getPlace().getPlacement());
 		    obj.put("address", (eventsArray.getVector()).get(i).getLocation().getPlace().getAddress());
