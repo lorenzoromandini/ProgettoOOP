@@ -15,7 +15,7 @@ import eu.univpm.TicketmasterEurope.model.*;
  */
 public class JSON_Converter {
 
-	EventsArray eventsArray = new EventsArray();
+	//EventsArray eventsArray = new EventsArray();
 	
 	/**
 	 * Restituisce il JSONObject corrispondente all'oggetto EventsArray fornito in ingresso
@@ -27,6 +27,7 @@ public class JSON_Converter {
 		
 		JSONObject obj = new JSONObject();
 		JSONArray array = new JSONArray();
+		JSONObject events = new JSONObject();
 		
 	    for(int i = 0; i < (eventsArray.getVector()).size(); i++) {
 	    
@@ -37,11 +38,11 @@ public class JSON_Converter {
 		    obj.put("countryCode", (eventsArray.getVector()).get(i).getLocation().getCountry().getCountryCode());
 		    obj.put("marketId",  (eventsArray.getVector()).get(i).getLocation().getMarket().getMarketId());
 		    obj.put("marketName", (eventsArray.getVector()).get(i).getLocation().getMarket().getMarketName());
-			obj.put("data", (eventsArray.getVector()).get(i).getDate().getData());
-			obj.put("orario", (eventsArray.getVector()).get(i).getDate().getOrario());
-			obj.put("segmentName", (eventsArray.getVector()).get(i).getGenre().getSegmentName());
-			obj.put("genreName", (eventsArray.getVector()).get(i).getGenre().getGenreName());
-			obj.put("subGenreName", (eventsArray.getVector()).get(i).getGenre().getSubGenreName());
+			obj.put("date", (eventsArray.getVector()).get(i).getDate().getData());
+			obj.put("time", (eventsArray.getVector()).get(i).getDate().getOrario());
+			obj.put("segment", (eventsArray.getVector()).get(i).getGenre().getSegmentName());
+			obj.put("genre", (eventsArray.getVector()).get(i).getGenre().getGenreName());
+			obj.put("subGenre", (eventsArray.getVector()).get(i).getGenre().getSubGenreName());
 			obj.put("id", (eventsArray.getVector()).get(i).getId());
 			obj.put("name", (eventsArray.getVector()).get(i).getName());
 			obj.put("url", (eventsArray.getVector()).get(i).getUrl());
@@ -49,11 +50,12 @@ public class JSON_Converter {
 			obj.put("currency", (eventsArray.getVector()).get(i).getPrices().getCurrency());
 			obj.put("minPrice", (eventsArray.getVector()).get(i).getPrices().getMinPrice());
 			obj.put("maxPrice", (eventsArray.getVector()).get(i).getPrices().getMaxPrice());
-			array.put(eventsArray);
+			array.put(obj);
 		}
 	    
-		obj.put("Events", array);
-		return obj;
+		events.put("Events", array);
+		
+		return events;
 		
 	}
 	

@@ -29,7 +29,7 @@ public class Controller {
 	
 	
 	@GetMapping(value = "/countryevents") 
-	public ResponseEntity<Object> getCountryEvents(@RequestParam String countryCode) {
+	public ResponseEntity<Object> getCountryEvent(@RequestParam String countryCode) {
 		
 		EventsArray eventsArray = service.getCountryEventsSelectedfromApi(countryCode);
 		
@@ -41,7 +41,7 @@ public class Controller {
 		return new ResponseEntity<> (obj.toString(), HttpStatus.OK);
     }
 	
-	
+	/*
 	@GetMapping(value = "/marketevents") 
 	public ResponseEntity<Object> getMarketEvents(@RequestParam String marketId) {
 		
@@ -54,9 +54,8 @@ public class Controller {
 		
 		return new ResponseEntity<> (obj.toString(), HttpStatus.OK);
 		
-
     }
-		
+	*/	
 	
 		
 }

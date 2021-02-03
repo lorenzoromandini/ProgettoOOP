@@ -329,10 +329,9 @@ public class Event {
 	 */
 	@Override
 	public String toString() {
-		return "Event [id=" + id + ", name=" + name + ", url=" + url + ", info=" + info + ", date=" + date + ", genre="
-				+ genre + ", prices=" + prices + ", location=" + location + "]";
+		return "id=" + id + ", name=" + name + ", url=" + url + ", info=" + info + ", date=" + date + ", genre="
+				+ genre + ", prices=" + prices + ", location=" + location + "";
 	}
-
 
 	/**
 	 * Override del metodo equals.

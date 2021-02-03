@@ -111,10 +111,9 @@ public class Location {
 		this.market = market;
 	}
 
-
 	@Override
 	public String toString() {
-		return "Location [place=" + place + ", country=" + country + ", market=" + market + "]";
+		return "place=" + place + ", country=" + country + ", market=" + market + "";
 	}
 
 

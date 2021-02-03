@@ -79,12 +79,10 @@ public class Market {
 		this.marketName = marketName;
 	}
 
-
 	@Override
 	public String toString() {
-		return "Market [marketId=" + marketId + ", marketName=" + marketName + "]";
+		return "marketId=" + marketId + ", marketName=" + marketName + "";
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {

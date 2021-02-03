@@ -60,10 +60,9 @@ public class Country {
 		this.countryCode = countryCode;
 	}
 	
-	
 	@Override
 	public String toString() {
-		return "Country [country=" + country + ", countryCode=" + countryCode + "]";
+		return "country=" + country + ", countryCode=" + countryCode + "";
 	}
 
 	@Override

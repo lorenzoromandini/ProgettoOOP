@@ -128,9 +128,8 @@ public class Genre {
 	 */
 	@Override
 	public String toString() {
-		return "segmentName = " + segmentName + ", genreName = " + genreName + ", subGenreName = " + subGenreName;
+		return "segmentName= " + segmentName + ", genreName= " + genreName + ", subGenreName= " + subGenreName + "";
 	}
-
 
 	/**
 	 * Override del metodo equals.

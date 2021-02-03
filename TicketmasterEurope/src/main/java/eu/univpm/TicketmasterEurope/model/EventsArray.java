@@ -90,7 +90,7 @@ public class EventsArray {
 
 	@Override
 	public String toString() {
-		return "EventsArray [event=" + event + ", vector=" + vector + "]";
+		return "event=" + event + ", vector=" + vector + "";
 	}
 
 

@@ -94,12 +94,12 @@ public class Place {
 	public void setCity(String city) {
 		this.city = city;
 	}
+
 	
 	@Override
 	public String toString() {
-		return "Place [placement=" + placement + ", address=" + address + ", city=" + city +"]";
+		return "placement=" + placement + ", address=" + address + ", city=" + city +"";
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {

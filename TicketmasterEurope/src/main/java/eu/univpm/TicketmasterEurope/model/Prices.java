@@ -117,7 +117,7 @@ public class Prices {
 	 */
 	@Override
 	public String toString() {
-		return "currency = " + currency + ", minPrice = " + minPrice + ", maxPrice = " + maxPrice;
+		return "currency = " + currency + ", minPrice = " + minPrice + ", maxPrice = " + maxPrice + "";
 	}
 
 	
