@@ -45,6 +45,8 @@ public class Event {
 	 */
 	private Prices prices;
 	
+	private Pages pages;
+	
 	/** 
 	 * Oggetto di tipo Location
 	 */
@@ -63,6 +65,7 @@ public class Event {
 		this.genre = null;
 		this.prices = null;
 		this.location = null;
+		this.pages = null;
 	}
 	
   
@@ -77,6 +80,7 @@ public class Event {
 		this.date = null;
 		this.genre = null;
 		this.prices = null;
+		this.pages = null;
 		this.location = null;
 	}
 	
@@ -92,6 +96,7 @@ public class Event {
 		this.date = date;
 		this.genre = null;
 		this.prices = null;
+		this.pages = null;
 		this.location = null;
 	}
 
@@ -107,6 +112,7 @@ public class Event {
 		this.date = null;
 		this.genre = genre;
 		this.prices = null;
+		this.pages = null;
 		this.location = null;
 	}
 
@@ -122,6 +128,7 @@ public class Event {
 		this.date = null;
 		this.genre = null;
 		this.prices = prices;
+		this.pages = null;
 		this.location = null;
 	}
 
@@ -137,6 +144,7 @@ public class Event {
 		this.date = null;
 		this.genre = null;
 		this.prices = null;
+		this.pages = null;
 		this.location = location;
 	}
 
@@ -153,6 +161,7 @@ public class Event {
 		this.date = null;
 		this.genre = null;
 		this.prices = null;
+		this.pages = null;
 		this.location = null;
 	}
 
@@ -170,9 +179,25 @@ public class Event {
 		this.date = null;
 		this.genre = null;
 		this.prices = null;
+		this.pages = null;
 		this.location = null;
 	}
 	
+	
+	/**
+	 * @param pages
+	 */
+	public Event(Pages pages) {
+		this.id = null;
+		this.name = null;
+		this.url = null;
+		this.info = null;
+		this.date = null;
+		this.genre = null;
+		this.prices = null;
+		this.pages = pages;
+		this.location = null;
+	}
 
 	/** Costruttore dell'oggetto
 	 * @param id
@@ -183,7 +208,7 @@ public class Event {
 	 * @param genre
 	 * @param prices
 	 */
-	public Event(String id, String name, String url, String info, Date date, Genre genre, Prices prices, Location location) {
+	public Event(String id, String name, String url, String info, Date date, Genre genre, Prices prices, Pages pages, Location location) {
 		this.id = id;
 		this.name = name;
 		this.url = url;
@@ -191,7 +216,8 @@ public class Event {
 		this.date = date;
 		this.genre = genre;
 		this.prices = prices;
-		this.location = null;
+		this.pages = pages;
+		this.location = location;
 	}
 
 
@@ -308,6 +334,22 @@ public class Event {
 	
 
 	/**
+	 * @return the pages
+	 */
+	public Pages getPages() {
+		return pages;
+	}
+
+
+	/**
+	 * @param pages the pages to set
+	 */
+	public void setPages(Pages pages) {
+		this.pages = pages;
+	}
+
+
+	/**
 	 * @return the location
 	 */
 	public Location getLocation() {
@@ -330,7 +372,7 @@ public class Event {
 	@Override
 	public String toString() {
 		return "id=" + id + ", name=" + name + ", url=" + url + ", info=" + info + ", date=" + date + ", genre="
-				+ genre + ", prices=" + prices + ", location=" + location + "";
+				+ genre + ", prices=" + prices + ", pages=" + pages + ", location=" + location + "";
 	}
 
 	/**

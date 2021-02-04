@@ -41,7 +41,7 @@ public class ServiceManagement implements eu.univpm.TicketmasterEurope.service.S
 		
 		countryEventsObject = new JSONObject(restTemplate.getForObject(Url, String.class));
 		
-		return countryEventsObject;
+		return countryEventsObject; 
 		
 	}
 
@@ -51,7 +51,7 @@ public class ServiceManagement implements eu.univpm.TicketmasterEurope.service.S
 	 * @param countryCode - codice del paese in cui ha luogo l'evento
 	 * @return Location location - oggetto contenente le informazioni desiderate dell'evento e il luogo in cui si svolge
 	 */
-	public EventsArray getCountryEventsSelectedfromApi(String countryCode) {
+	public EventsArray getCountryEventsSelectedfromApi(String countryCode) {	
 		
 		JSONObject countryEventsSelectedObject = getCountryEvents(countryCode);
 						
@@ -64,28 +64,50 @@ public class ServiceManagement implements eu.univpm.TicketmasterEurope.service.S
 		*/					
 		EventsArray eventsArray = new EventsArray();		
 		
-		JSONObject embeddedObject = countryEventsSelectedObject.getJSONObject("_embedded");
-		JSONArray countryEventsArray = embeddedObject.getJSONArray("events");
-		JSONObject object;
+		//JSONObject embeddedObject = countryEventsSelectedObject.getJSONObject("_embedded");
+		JSONObject pageObject = countryEventsSelectedObject.getJSONObject("page");
+		int totalPages = pageObject.getInt("totalPages");
+		int totalElements = pageObject.getInt("totalElements");
+		int totalSize = pageObject.getInt("size");
+		//JSONArray countryEventsArray = embeddedObject.getJSONArray("events");
+		//JSONObject object;
 		
-		Vector<Event> vector = new Vector<Event>(countryEventsArray.length()); 
-					
-		for (int i = 0; i < countryEventsArray.length(); i++) {
-				
+		Vector<Event> vector = new Vector<Event>(totalElements); 
+		
+		for(int j = 0; j < totalPages; j++) {
+			
+			JSONObject countryEventsObject;
+			String Url = "https://app.ticketmaster.com/discovery/v2/events.json?&countryCode=" + countryCode + 
+					"&page=" + j + "&apikey="+ apikey;
+			
+			RestTemplate restTemplate = new RestTemplate();
+			
+			countryEventsObject = new JSONObject(restTemplate.getForObject(Url, String.class));
+			
+			JSONObject countryPage = countryEventsObject;
+			
+			JSONObject embeddedObjectX = countryPage.getJSONObject("_embedded");
+			JSONArray countryEventsArray = embeddedObjectX.getJSONArray("events");
+			
+			while ((totalElements - (j*totalSize) >= 20)) {
+		
+		for (int i = 0; i < totalSize; i++) {
+			
 			Event evento = new Event();
-			object = countryEventsArray.getJSONObject(i);
+			
+			JSONObject object = countryEventsArray.getJSONObject(i);
 			evento.setName(object.getString("name"));
 			evento.setId(object.getString("id"));
 			evento.setUrl(object.getString("url"));
-			evento.setInfo(object.getString("info"));
+			//evento.setInfo(object.getString("info"));
 			
 			Date data = new Date();
 			JSONObject datesObject = object.getJSONObject("dates");
 			JSONObject startDateObject = datesObject.getJSONObject("start");
 			data.setData(startDateObject.getString("localDate"));
-			data.setOrario(startDateObject.getString("localTime"));
+			//data.setOrario(startDateObject.getString("localTime"));
 			evento.setDate(data);
-			
+			/*
 			Prices prices = new Prices();
 			JSONArray pricesArray = object.getJSONArray("priceRanges");
 			JSONObject pricesObject = pricesArray.getJSONObject(0);
@@ -93,7 +115,9 @@ public class ServiceManagement implements eu.univpm.TicketmasterEurope.service.S
 			prices.setMaxPrice(pricesObject.getDouble("max"));
 			prices.setMinPrice(pricesObject.getDouble("min"));
 			evento.setPrices(prices);
+			*/
 			
+			/*
 			Genre genre = new Genre();
 			JSONArray classificationsArray = object.getJSONArray("classifications");
 			JSONObject classificationsObject = classificationsArray.getJSONObject(0);
@@ -104,6 +128,7 @@ public class ServiceManagement implements eu.univpm.TicketmasterEurope.service.S
 			JSONObject subGenreObject = classificationsObject.getJSONObject("subGenre");
 			genre.setSubGenreName(subGenreObject.getString("name"));	
 			evento.setGenre(genre);
+			*/
 			
 		    JSONObject lowerEmbeddedObj = object.getJSONObject("_embedded");
 		    JSONArray venuesArray = lowerEmbeddedObj.getJSONArray("venues");
@@ -112,8 +137,8 @@ public class ServiceManagement implements eu.univpm.TicketmasterEurope.service.S
 		    Location locationX = new Location();
 		    Place placement = new Place();
 		    placement.setPlacement(lowerFirstObject.getString("name"));
-		    JSONObject addressObject = lowerFirstObject.getJSONObject("address");
-		    placement.setAddress(addressObject.getString("line1"));
+		   // JSONObject addressObject = lowerFirstObject.getJSONObject("address");
+		    //placement.setAddress(addressObject.getString("line1"));
 		    JSONObject cityObject = lowerFirstObject.getJSONObject("city");
 		    placement.setCity(cityObject.getString("name"));
 		    locationX.setPlace(placement);
@@ -123,19 +148,100 @@ public class ServiceManagement implements eu.univpm.TicketmasterEurope.service.S
 		    countryX.setCountry(countryObject.getString("name"));
 		    countryX.setCountryCode(countryObject.getString("countryCode"));
 		    locationX.setCountry(countryX);
-		    
+		    /*
 		    Market market = new Market();
 		    JSONArray marketArray = lowerFirstObject.getJSONArray("markets");
 		    JSONObject marketObject = marketArray.getJSONObject(0);
 		    market.setMarketName(marketObject.getString("name"));
 		    market.setMarketId(marketObject.getString("id"));
 		    locationX.setMarket(market);
+		    */
 		    
 		    evento.setLocation(locationX);
 		    
 			vector.add(evento);
 
 			}
+			
+			};
+			
+			if ((totalElements - (j*totalSize)) < 20) {
+				
+				for (int i = 0; i < (totalElements - (j*totalSize)); i++) {
+					
+					Event evento = new Event();
+					
+					JSONObject object = countryEventsArray.getJSONObject(i);
+					evento.setName(object.getString("name"));
+					evento.setId(object.getString("id"));
+					evento.setUrl(object.getString("url"));
+					//evento.setInfo(object.getString("info"));
+					
+					Date data = new Date();
+					JSONObject datesObject = object.getJSONObject("dates");
+					JSONObject startDateObject = datesObject.getJSONObject("start");
+					data.setData(startDateObject.getString("localDate"));
+					//data.setOrario(startDateObject.getString("localTime"));
+					evento.setDate(data);
+					/*
+					Prices prices = new Prices();
+					JSONArray pricesArray = object.getJSONArray("priceRanges");
+					JSONObject pricesObject = pricesArray.getJSONObject(0);
+					prices.setCurrency(pricesObject.getString("currency"));
+					prices.setMaxPrice(pricesObject.getDouble("max"));
+					prices.setMinPrice(pricesObject.getDouble("min"));
+					evento.setPrices(prices);
+					*/
+					
+					/*
+					Genre genre = new Genre();
+					JSONArray classificationsArray = object.getJSONArray("classifications");
+					JSONObject classificationsObject = classificationsArray.getJSONObject(0);
+					JSONObject segmentObject = classificationsObject.getJSONObject("segment");
+					genre.setSegmentName(segmentObject.getString("name"));
+					JSONObject genreObject = classificationsObject.getJSONObject("genre");
+					genre.setGenreName(genreObject.getString("name"));
+					JSONObject subGenreObject = classificationsObject.getJSONObject("subGenre");
+					genre.setSubGenreName(subGenreObject.getString("name"));	
+					evento.setGenre(genre);
+					*/
+					
+				    JSONObject lowerEmbeddedObj = object.getJSONObject("_embedded");
+				    JSONArray venuesArray = lowerEmbeddedObj.getJSONArray("venues");
+				    JSONObject lowerFirstObject = venuesArray.getJSONObject(0);
+				   
+				    Location locationX = new Location();
+				    Place placement = new Place();
+				    placement.setPlacement(lowerFirstObject.getString("name"));
+				   // JSONObject addressObject = lowerFirstObject.getJSONObject("address");
+				    //placement.setAddress(addressObject.getString("line1"));
+				    JSONObject cityObject = lowerFirstObject.getJSONObject("city");
+				    placement.setCity(cityObject.getString("name"));
+				    locationX.setPlace(placement);
+				
+				    Country countryX = new Country();
+				    JSONObject countryObject = lowerFirstObject.getJSONObject("country");
+				    countryX.setCountry(countryObject.getString("name"));
+				    countryX.setCountryCode(countryObject.getString("countryCode"));
+				    locationX.setCountry(countryX);
+				    /*
+				    Market market = new Market();
+				    JSONArray marketArray = lowerFirstObject.getJSONArray("markets");
+				    JSONObject marketObject = marketArray.getJSONObject(0);
+				    market.setMarketName(marketObject.getString("name"));
+				    market.setMarketId(marketObject.getString("id"));
+				    locationX.setMarket(market);
+				    */
+				    
+				    evento.setLocation(locationX);
+				    
+					vector.add(evento);
+				
+			}
+				
+			}
+		
+		}
 		
 		eventsArray.setVector(vector);
 		

@@ -25,6 +25,7 @@ public class JSON_Converter {
 	 */
 	public JSONObject JSON_converter(EventsArray eventsArray) {
 		
+		
 		JSONArray array = new JSONArray();
 		JSONObject events = new JSONObject();
 		
