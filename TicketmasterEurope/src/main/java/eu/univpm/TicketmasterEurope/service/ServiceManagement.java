@@ -77,87 +77,191 @@ public class ServiceManagement implements eu.univpm.TicketmasterEurope.service.S
 		
 		Vector<Event> vector = new Vector<Event>(dimensione); 
 		
+	
+		
 		for (int i = 0; i < dimensione; i++) {
+			
+			
 			
 			Event evento = new Event();
 			
 			object = countryEventsArray.getJSONObject(i);
+			
+			try {
 			evento.setName(object.getString("name"));
+			
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+			
+			try {
 			evento.setId(object.getString("id"));
+			
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+			
+			try {
 			evento.setUrl(object.getString("url"));
-			//evento.setInfo(object.getString("info"));
+			
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+			
+			try {
+			evento.setInfo(object.getString("info"));
+			
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+			
 			
 			Date data = new Date();
+			
+			try {
 			JSONObject datesObject = object.getJSONObject("dates");
+			
+			
+			
+			
 			JSONObject startDateObject = datesObject.getJSONObject("start");
-			data.setData(startDateObject.getString("localDate"));
-			//data.setOrario(startDateObject.getString("localTime"));
-			evento.setDate(data);
-			/*
+						
+			data.setData(startDateObject.getString("localDate"));		
+			data.setOrario(startDateObject.getString("localTime"));
+			
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+			evento.setDate(data);				
 			Prices prices = new Prices();
+			
+			try {
 			JSONArray pricesArray = object.getJSONArray("priceRanges");
 			JSONObject pricesObject = pricesArray.getJSONObject(0);
-			prices.setCurrency(pricesObject.getString("currency"));
-			prices.setMaxPrice(pricesObject.getDouble("max"));
-			prices.setMinPrice(pricesObject.getDouble("min"));
-			evento.setPrices(prices);
-			*/
 			
-			/*
+			
+			prices.setCurrency(pricesObject.getString("currency"));
+			
+			
+			prices.setMaxPrice(pricesObject.getDouble("max"));
+			
+			
+			prices.setMinPrice(pricesObject.getDouble("min"));
+			
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+			evento.setPrices(prices);						
+			
 			Genre genre = new Genre();
+			
+			try {
 			JSONArray classificationsArray = object.getJSONArray("classifications");
 			JSONObject classificationsObject = classificationsArray.getJSONObject(0);
-			JSONObject segmentObject = classificationsObject.getJSONObject("segment");
-			genre.setSegmentName(segmentObject.getString("name"));
-			JSONObject genreObject = classificationsObject.getJSONObject("genre");
-			genre.setGenreName(genreObject.getString("name"));
-			JSONObject subGenreObject = classificationsObject.getJSONObject("subGenre");
-			genre.setSubGenreName(subGenreObject.getString("name"));	
-			evento.setGenre(genre);
-			*/
 			
+			
+			JSONObject segmentObject = classificationsObject.getJSONObject("segment");
+			
+			
+			genre.setSegmentName(segmentObject.getString("name"));
+			
+			
+			JSONObject genreObject = classificationsObject.getJSONObject("genre");
+			
+			
+			genre.setGenreName(genreObject.getString("name"));
+			
+			
+			JSONObject subGenreObject = classificationsObject.getJSONObject("subGenre");
+			
+			
+			genre.setSubGenreName(subGenreObject.getString("name"));
+			
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+			evento.setGenre(genre);
+			
+			
+			 Location locationX = new Location();
+			 
 		    JSONObject lowerEmbeddedObj = object.getJSONObject("_embedded");
+		   
+		    try {
 		    JSONArray venuesArray = lowerEmbeddedObj.getJSONArray("venues");
 		    JSONObject lowerFirstObject = venuesArray.getJSONObject(0);
+		 
 		   
-		    Location locationX = new Location();
 		    Place placement = new Place();
 		    
-            if ()
+            try {
+		    
 		    placement.setPlacement(lowerFirstObject.getString("name"));
+		    
+		    
 		    JSONObject addressObject = lowerFirstObject.getJSONObject("address");
+		    
+		    
 		    placement.setAddress(addressObject.getString("line1"));
+		    
+		   
 		    JSONObject cityObject = lowerFirstObject.getJSONObject("city");
+		    
+		    
 		    placement.setCity(cityObject.getString("name"));
 		    locationX.setPlace(placement);
+		    } catch(Exception e) {
+				e.printStackTrace();
+			}
+		    
+		    
 		
 		    Country countryX = new Country();
+		    
+		    try {
 		    JSONObject countryObject = lowerFirstObject.getJSONObject("country");
 		    
-		    if(countryObject.length() > 0) {
 		    	
 		    countryX.setCountry(countryObject.getString("name"));
+		    
+		    
 		    countryX.setCountryCode(countryObject.getString("countryCode"));
 		    locationX.setCountry(countryX);
-		    }
+		    
+		    } catch(Exception e) {
+				e.printStackTrace();
+			}
+		    
 		    
 		    Market market = new Market();
+		    
+		    try {
 		    JSONArray marketArray = lowerFirstObject.getJSONArray("markets");
 		    
-		    if(marketArray.length() > 0) {
 		    	
 		    JSONObject marketObject = marketArray.getJSONObject(0);
+		    
 		    market.setMarketName(marketObject.getString("name"));
+		    
 		    market.setMarketId(marketObject.getString("id"));
 		    locationX.setMarket(market);
 		    
-		    }
+		    } catch(Exception e) {
+				e.printStackTrace();
+			}
+		    
 		    
 		    evento.setLocation(locationX);
 		    
+		    } catch(Exception e) {
+				e.printStackTrace();
+			}
+		    
 			vector.add(evento);
 				
+			
 			}
+		
 		
 		eventsArray.setVector(vector);
 		

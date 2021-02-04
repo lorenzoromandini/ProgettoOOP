@@ -33,25 +33,44 @@ public class JSON_Converter {
 	    	
 	    	JSONObject obj = new JSONObject();
 	    
+	    	if ((eventsArray.getVector()).get(i).getLocation().getPlace().getPlacement() != null) 
 		    obj.put("placement", (eventsArray.getVector()).get(i).getLocation().getPlace().getPlacement());
+	    	if ((eventsArray.getVector()).get(i).getLocation().getPlace().getAddress() != null)
 		    obj.put("address", (eventsArray.getVector()).get(i).getLocation().getPlace().getAddress());
+	    	if ((eventsArray.getVector()).get(i).getLocation().getPlace().getCity() != null)
 		    obj.put("city", (eventsArray.getVector()).get(i).getLocation().getPlace().getCity());
+	    	if ((eventsArray.getVector()).get(i).getLocation().getCountry().getCountry() != null)
 		    obj.put("country", (eventsArray.getVector()).get(i).getLocation().getCountry().getCountry());
+	    	if ((eventsArray.getVector()).get(i).getLocation().getCountry().getCountryCode() != null)
 		    obj.put("countryCode", (eventsArray.getVector()).get(i).getLocation().getCountry().getCountryCode());
-		    //obj.put("marketId",  (eventsArray.getVector()).get(i).getLocation().getMarket().getMarketId());
-		    //obj.put("marketName", (eventsArray.getVector()).get(i).getLocation().getMarket().getMarketName());
+	    	if ((eventsArray.getVector()).get(i).getLocation().getMarket().getMarketId() != null)
+		    obj.put("marketId",  (eventsArray.getVector()).get(i).getLocation().getMarket().getMarketId());
+	    	if ((eventsArray.getVector()).get(i).getLocation().getMarket().getMarketName() != null)
+		    obj.put("marketName", (eventsArray.getVector()).get(i).getLocation().getMarket().getMarketName());
+	    	if ((eventsArray.getVector()).get(i).getDate().getData() != null)
 			obj.put("date", (eventsArray.getVector()).get(i).getDate().getData());
-			//obj.put("time", (eventsArray.getVector()).get(i).getDate().getOrario());
-			//obj.put("segment", (eventsArray.getVector()).get(i).getGenre().getSegmentName());
-			//obj.put("genre", (eventsArray.getVector()).get(i).getGenre().getGenreName());
-			//obj.put("subGenre", (eventsArray.getVector()).get(i).getGenre().getSubGenreName());
+	    	if ((eventsArray.getVector()).get(i).getDate().getOrario() != null)
+			obj.put("time", (eventsArray.getVector()).get(i).getDate().getOrario());
+	    	if ((eventsArray.getVector()).get(i).getGenre().getSegmentName() != null)
+			obj.put("segment", (eventsArray.getVector()).get(i).getGenre().getSegmentName());
+	    	if ((eventsArray.getVector()).get(i).getGenre().getGenreName() != null)
+			obj.put("genre", (eventsArray.getVector()).get(i).getGenre().getGenreName());
+	    	if ((eventsArray.getVector()).get(i).getGenre().getSubGenreName() != null)
+			obj.put("subGenre", (eventsArray.getVector()).get(i).getGenre().getSubGenreName());
+	    	if ((eventsArray.getVector()).get(i).getId() != null)
 			obj.put("id", (eventsArray.getVector()).get(i).getId());
+	    	if ((eventsArray.getVector()).get(i).getName() != null)
 			obj.put("eventName", (eventsArray.getVector()).get(i).getName());
+	    	if ((eventsArray.getVector()).get(i).getUrl() != null)
 			obj.put("url", (eventsArray.getVector()).get(i).getUrl());
+	    	if ((eventsArray.getVector()).get(i).getInfo() != null)
 			obj.put("info", (eventsArray.getVector()).get(i).getInfo());
-			//obj.put("currency", (eventsArray.getVector()).get(i).getPrices().getCurrency());
-			//obj.put("minPrice", (eventsArray.getVector()).get(i).getPrices().getMinPrice());
-			//obj.put("maxPrice", (eventsArray.getVector()).get(i).getPrices().getMaxPrice());
+	    	if ((eventsArray.getVector()).get(i).getPrices().getCurrency() != null)
+			obj.put("currency", (eventsArray.getVector()).get(i).getPrices().getCurrency());
+	    	if ((eventsArray.getVector()).get(i).getPrices().getMinPrice() != 0)
+			obj.put("minPrice", (eventsArray.getVector()).get(i).getPrices().getMinPrice());
+	        if ((eventsArray.getVector()).get(i).getPrices().getMaxPrice() != 0)
+			obj.put("maxPrice", (eventsArray.getVector()).get(i).getPrices().getMaxPrice());
 			array.put(obj);
 		}
 	    
