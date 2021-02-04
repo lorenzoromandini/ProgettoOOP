@@ -35,7 +35,7 @@ public class ServiceManagement implements eu.univpm.TicketmasterEurope.service.S
 	public JSONObject getCountryEvents(String countryCode) {
 		
 		JSONObject countryEventsObject;
-		String Url = "https://app.ticketmaster.com/discovery/v2/events?size=200&countryCode=" + countryCode + "&apikey="+ apikey;
+		String Url = "https://app.ticketmaster.com/discovery/v2/events?size=200&sort=date,asc&countryCode=" + countryCode + "&apikey="+ apikey;
 		
 		RestTemplate restTemplate = new RestTemplate();
 		
@@ -122,27 +122,36 @@ public class ServiceManagement implements eu.univpm.TicketmasterEurope.service.S
 		   
 		    Location locationX = new Location();
 		    Place placement = new Place();
+		    
+            if ()
 		    placement.setPlacement(lowerFirstObject.getString("name"));
-		   // JSONObject addressObject = lowerFirstObject.getJSONObject("address");
-		    //placement.setAddress(addressObject.getString("line1"));
+		    JSONObject addressObject = lowerFirstObject.getJSONObject("address");
+		    placement.setAddress(addressObject.getString("line1"));
 		    JSONObject cityObject = lowerFirstObject.getJSONObject("city");
 		    placement.setCity(cityObject.getString("name"));
 		    locationX.setPlace(placement);
 		
 		    Country countryX = new Country();
 		    JSONObject countryObject = lowerFirstObject.getJSONObject("country");
+		    
+		    if(countryObject.length() > 0) {
+		    	
 		    countryX.setCountry(countryObject.getString("name"));
 		    countryX.setCountryCode(countryObject.getString("countryCode"));
 		    locationX.setCountry(countryX);
+		    }
 		    
-		    /*
 		    Market market = new Market();
 		    JSONArray marketArray = lowerFirstObject.getJSONArray("markets");
+		    
+		    if(marketArray.length() > 0) {
+		    	
 		    JSONObject marketObject = marketArray.getJSONObject(0);
 		    market.setMarketName(marketObject.getString("name"));
 		    market.setMarketId(marketObject.getString("id"));
 		    locationX.setMarket(market);
-		    */
+		    
+		    }
 		    
 		    evento.setLocation(locationX);
 		    

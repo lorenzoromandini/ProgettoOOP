@@ -46,7 +46,7 @@ public class JSON_Converter {
 			//obj.put("genre", (eventsArray.getVector()).get(i).getGenre().getGenreName());
 			//obj.put("subGenre", (eventsArray.getVector()).get(i).getGenre().getSubGenreName());
 			obj.put("id", (eventsArray.getVector()).get(i).getId());
-			obj.put("name", (eventsArray.getVector()).get(i).getName());
+			obj.put("eventName", (eventsArray.getVector()).get(i).getName());
 			obj.put("url", (eventsArray.getVector()).get(i).getUrl());
 			obj.put("info", (eventsArray.getVector()).get(i).getInfo());
 			//obj.put("currency", (eventsArray.getVector()).get(i).getPrices().getCurrency());
