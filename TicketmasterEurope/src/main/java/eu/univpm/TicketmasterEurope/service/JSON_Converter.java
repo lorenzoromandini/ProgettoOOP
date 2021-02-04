@@ -34,25 +34,119 @@ public class JSON_Converter {
 	    	
 	    	try {
 	    
+	    	try {
 		    obj.put("placement", (eventsArray.getVector()).get(i).getLocation().getPlace().getPlacement());
+	    	} catch(Exception e) {
+				e.printStackTrace();
+			}
+		    
+		    try {
 		    obj.put("address", (eventsArray.getVector()).get(i).getLocation().getPlace().getAddress());
+		    } catch(Exception e) {
+				e.printStackTrace();
+			}
+		    
+		    try {
 		    obj.put("city", (eventsArray.getVector()).get(i).getLocation().getPlace().getCity());
+		    } catch(Exception e) {
+				e.printStackTrace();
+			}
+		    
+		    try {
 		    obj.put("country", (eventsArray.getVector()).get(i).getLocation().getCountry().getCountry());
+		    } catch(Exception e) {
+				e.printStackTrace();
+			}
+		    
+		    try {
 		    obj.put("countryCode", (eventsArray.getVector()).get(i).getLocation().getCountry().getCountryCode());
+		    } catch(Exception e) {
+				e.printStackTrace();
+			}
+		    
+		    try {
 		    obj.put("marketId",  (eventsArray.getVector()).get(i).getLocation().getMarket().getMarketId());
+		    } catch(Exception e) {
+				e.printStackTrace();
+			}
+		    
+		    try {
 		    obj.put("marketName", (eventsArray.getVector()).get(i).getLocation().getMarket().getMarketName());
+		    } catch(Exception e) {
+				e.printStackTrace();
+			}
+		    
+		    try {
 			obj.put("date", (eventsArray.getVector()).get(i).getDate().getData());
+		    } catch(Exception e) {
+				e.printStackTrace();
+			}
+			
+			try {
 			obj.put("time", (eventsArray.getVector()).get(i).getDate().getOrario());
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+			
+			try {
 			obj.put("segment", (eventsArray.getVector()).get(i).getGenre().getSegmentName());
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+			
+			try {
 			obj.put("genre", (eventsArray.getVector()).get(i).getGenre().getGenreName());
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+			
+			try {
 			obj.put("subGenre", (eventsArray.getVector()).get(i).getGenre().getSubGenreName());
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+			
+			try {
 			obj.put("id", (eventsArray.getVector()).get(i).getId());
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+			
+			try {
 			obj.put("eventName", (eventsArray.getVector()).get(i).getName());
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+			
+			try {
 			obj.put("url", (eventsArray.getVector()).get(i).getUrl());
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+			
+			try {
 			obj.put("info", (eventsArray.getVector()).get(i).getInfo());
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+			
+			try {
 			obj.put("currency", (eventsArray.getVector()).get(i).getPrices().getCurrency());
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+			
+			try {
 			obj.put("minPrice", (eventsArray.getVector()).get(i).getPrices().getMinPrice());
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+			
+			try {
 			obj.put("maxPrice", (eventsArray.getVector()).get(i).getPrices().getMaxPrice());
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
 			
 	    	 } catch(Exception e) {
 					e.printStackTrace();

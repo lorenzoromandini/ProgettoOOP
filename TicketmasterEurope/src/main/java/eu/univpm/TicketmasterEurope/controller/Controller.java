@@ -28,7 +28,7 @@ public class Controller {
 	Service service;
 	
 	
-	@GetMapping(value = "/countryevents") 
+	@GetMapping(value = "/countryEvents") 
 	public ResponseEntity<Object> getCountryEvent(@RequestParam String countryCode) {
 		
 		EventsArray eventsArray = service.getCountryEventsSelectedfromApi(countryCode);
@@ -41,21 +41,34 @@ public class Controller {
 		return new ResponseEntity<> (obj.toString(), HttpStatus.OK);
     }
 	
-	/*
-	@GetMapping(value = "/marketevents") 
-	public ResponseEntity<Object> getMarketEvents(@RequestParam String marketId) {
+	
+	@GetMapping(value = "/marketEvents") 
+	public ResponseEntity<Object> getMarketEvent(@RequestParam String marketId) {
 		
-		EventsArray eventsArray = service.getMarketEventsSelectedfromApi(marketId);
-		
+        EventsArray eventsArray = service.getMarketEventsSelectedfromApi(marketId);		
 		JSONObject obj = new JSONObject();
 		JSON_Converter jsonconverter = new JSON_Converter();
 		
 		obj = jsonconverter.JSON_converter(eventsArray);
 		
 		return new ResponseEntity<> (obj.toString(), HttpStatus.OK);
-		
     }
-	*/	
+	
+	
+	@GetMapping(value = "/sourceEvents") 
+	public ResponseEntity<Object> getSourceEvent(@RequestParam String source) {
+		
+        EventsArray eventsArray = service.getSourceEventsSelectedfromApi(source);		
+		JSONObject obj = new JSONObject();
+		JSON_Converter jsonconverter = new JSON_Converter();
+		
+		obj = jsonconverter.JSON_converter(eventsArray);
+		
+		return new ResponseEntity<> (obj.toString(), HttpStatus.OK);
+    }
+	
+	
+	
 	
 		
 }

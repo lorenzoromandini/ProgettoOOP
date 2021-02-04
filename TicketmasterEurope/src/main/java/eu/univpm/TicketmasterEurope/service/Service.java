@@ -14,10 +14,10 @@ import org.json.JSONObject;
 public interface Service {
 	
 	public abstract JSONObject getCountryEvents(String countryCode);
-	//public abstract JSONObject getMarketEvents(String marketId);
 	public abstract EventsArray getCountryEventsSelectedfromApi(String contryCode);
-	//public abstract EventsArray getMarketEventsSelectedfromApi(String marketId);	
-	//public abstract EventsArray getMarketInfofromApi(String marketId);
-	
+	public abstract JSONObject getMarketEvents(String marketId);
+	public abstract EventsArray getMarketEventsSelectedfromApi(String marketId);
+	public abstract JSONObject getSourceEvents(String source);
+	public abstract EventsArray getSourceEventsSelectedfromApi(String source);
 
 }
