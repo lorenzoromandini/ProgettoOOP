@@ -38,20 +38,20 @@ public class JSON_Converter {
 		    obj.put("city", (eventsArray.getVector()).get(i).getLocation().getPlace().getCity());
 		    obj.put("country", (eventsArray.getVector()).get(i).getLocation().getCountry().getCountry());
 		    obj.put("countryCode", (eventsArray.getVector()).get(i).getLocation().getCountry().getCountryCode());
-		    obj.put("marketId",  (eventsArray.getVector()).get(i).getLocation().getMarket().getMarketId());
-		    obj.put("marketName", (eventsArray.getVector()).get(i).getLocation().getMarket().getMarketName());
+		    //obj.put("marketId",  (eventsArray.getVector()).get(i).getLocation().getMarket().getMarketId());
+		    //obj.put("marketName", (eventsArray.getVector()).get(i).getLocation().getMarket().getMarketName());
 			obj.put("date", (eventsArray.getVector()).get(i).getDate().getData());
-			obj.put("time", (eventsArray.getVector()).get(i).getDate().getOrario());
-			obj.put("segment", (eventsArray.getVector()).get(i).getGenre().getSegmentName());
-			obj.put("genre", (eventsArray.getVector()).get(i).getGenre().getGenreName());
-			obj.put("subGenre", (eventsArray.getVector()).get(i).getGenre().getSubGenreName());
+			//obj.put("time", (eventsArray.getVector()).get(i).getDate().getOrario());
+			//obj.put("segment", (eventsArray.getVector()).get(i).getGenre().getSegmentName());
+			//obj.put("genre", (eventsArray.getVector()).get(i).getGenre().getGenreName());
+			//obj.put("subGenre", (eventsArray.getVector()).get(i).getGenre().getSubGenreName());
 			obj.put("id", (eventsArray.getVector()).get(i).getId());
 			obj.put("name", (eventsArray.getVector()).get(i).getName());
 			obj.put("url", (eventsArray.getVector()).get(i).getUrl());
 			obj.put("info", (eventsArray.getVector()).get(i).getInfo());
-			obj.put("currency", (eventsArray.getVector()).get(i).getPrices().getCurrency());
-			obj.put("minPrice", (eventsArray.getVector()).get(i).getPrices().getMinPrice());
-			obj.put("maxPrice", (eventsArray.getVector()).get(i).getPrices().getMaxPrice());
+			//obj.put("currency", (eventsArray.getVector()).get(i).getPrices().getCurrency());
+			//obj.put("minPrice", (eventsArray.getVector()).get(i).getPrices().getMinPrice());
+			//obj.put("maxPrice", (eventsArray.getVector()).get(i).getPrices().getMaxPrice());
 			array.put(obj);
 		}
 	    
