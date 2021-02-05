@@ -64,7 +64,7 @@ public class ServiceManagement implements eu.univpm.TicketmasterEurope.service.S
 		JSONArray countryEventsArray = embeddedObject.getJSONArray("events");
 		JSONObject object;
 		
-		int dimensione;
+		int dimensione = 0;
 		
 		if(totalElements < 200) dimensione = totalElements;
 		else dimensione = 200;
@@ -125,9 +125,9 @@ public class ServiceManagement implements eu.univpm.TicketmasterEurope.service.S
 			try {
 				
 			JSONObject datesObject = object.getJSONObject("dates");               //creo un JSONArray che corrisponde all'array "dates"
-			JSONObject startDateObject = datesObject.getJSONObject("start");	  //creo un JSONArray che corrisponde all'array "start"	
+			JSONObject startDateObject = datesObject.getJSONObject("start");      //creo un JSONArray che corrisponde all'array "start"	
 			data.setDataInizio(startDateObject.getString("localDate"));		          //setto la data della data con la stringa che corrisponde a "localDate"
-			data.setOrarioInizio(startDateObject.getString("localTime"));               //setto l'orario della data con la stringa che corrisponde a "localTime"
+			data.setOrarioInizio(startDateObject.getString("localTime"));         //setto l'orario della data con la stringa che corrisponde a "localTime"			
 			
 			} catch(Exception e) {
 				e.printStackTrace();
@@ -320,8 +320,8 @@ public class ServiceManagement implements eu.univpm.TicketmasterEurope.service.S
 				
 			JSONObject datesObject = object.getJSONObject("dates");
 			JSONObject startDateObject = datesObject.getJSONObject("start");		
-			data.setData(startDateObject.getString("localDate"));		
-			data.setOrario(startDateObject.getString("localTime"));
+			data.setDataInizio(startDateObject.getString("localDate"));		
+			data.setOrarioInizio(startDateObject.getString("localTime"));
 			
 			} catch(Exception e) {
 				e.printStackTrace();
@@ -516,8 +516,8 @@ public class ServiceManagement implements eu.univpm.TicketmasterEurope.service.S
 				
 			JSONObject datesObject = object.getJSONObject("dates");
 			JSONObject startDateObject = datesObject.getJSONObject("start");		
-			data.setData(startDateObject.getString("localDate"));		
-			data.setOrario(startDateObject.getString("localTime"));
+			data.setDataInizio(startDateObject.getString("localDate"));		
+			data.setOrarioInizio(startDateObject.getString("localTime"));
 			
 			} catch(Exception e) {
 				e.printStackTrace();

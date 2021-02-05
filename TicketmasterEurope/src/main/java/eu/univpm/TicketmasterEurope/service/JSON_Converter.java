@@ -83,13 +83,13 @@ public class JSON_Converter {
 			}
 		    
 		    try {
-			obj.put("date", (eventsArray.getVector()).get(i).getDate().getData());
+			obj.put("startDate", (eventsArray.getVector()).get(i).getDate().getDataInizio());
 		    } catch(Exception e) {
 				e.printStackTrace();
 			}
 			
 			try {
-			obj.put("time", (eventsArray.getVector()).get(i).getDate().getOrario());
+			obj.put("startTime", (eventsArray.getVector()).get(i).getDate().getOrarioInizio());
 			} catch(Exception e) {
 				e.printStackTrace();
 			}
