@@ -33,6 +33,12 @@ public class JSON_Converter {
 	    	JSONObject obj = new JSONObject();
 	    	
 	    	try {
+	    		
+	    	try {
+			obj.put("source", (eventsArray.getVector()).get(i).getDealer().getSource());
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
 	    
 	    	try {
 		    obj.put("placement", (eventsArray.getVector()).get(i).getLocation().getPlace().getPlacement());

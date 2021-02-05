@@ -73,13 +73,13 @@ public class ServiceManagement implements eu.univpm.TicketmasterEurope.service.S
 		
 		for (int i = 0; i < dimensione; i++) {
 			
-			Event evento = new Event();      //creo un nuovo oggetto di tipo event
+			Event event = new Event();      //creo un nuovo oggetto di tipo event
 			
 			object = countryEventsArray.getJSONObject(i);   //i-esimo blocco nel vettore degli eventi
 			
 			try {
 				
-			evento.setName(object.getString("name"));   //setto il nome dell'evento con la stringa che corrisponde a "name"
+			event.setName(object.getString("name"));   //setto il nome dell'evento con la stringa che corrisponde a "name"
 			
 			} catch(Exception e) {
 				e.printStackTrace();
@@ -87,7 +87,7 @@ public class ServiceManagement implements eu.univpm.TicketmasterEurope.service.S
 			
 			try {
 				
-			evento.setId(object.getString("id"));   //setto l'id dell'evento con la stringa che corrisponde a "id"
+			event.setId(object.getString("id"));   //setto l'id dell'evento con la stringa che corrisponde a "id"
 			
 			} catch(Exception e) {
 				e.printStackTrace();
@@ -95,15 +95,26 @@ public class ServiceManagement implements eu.univpm.TicketmasterEurope.service.S
 			
 			try {
 				
-			evento.setUrl(object.getString("url"));  //setto l'url dell'evento con la stringa che corrisponde a "url"
+			event.setUrl(object.getString("url"));  //setto l'url dell'evento con la stringa che corrisponde a "url"
 			
 			} catch(Exception e) {
 				e.printStackTrace();
 			}
 			
+			Dealer dealer = new Dealer();			//creo un ogetto di tipo informations
+			String url = object.getString("url");
+			String source = null;
+			if(url.contains("universe")) source = "universe";
+			else if(url.contains("ticketmaster")) source = "ticketmaster";
+			else if(url.contains("tmr")) source = "tmr";
+			else if(url.contains("frontgate")) source = "frontgate";
+			dealer.setSource(source);
+			
+			event.setDealer(dealer);
+			
 			try {
 				
-			evento.setInfo(object.getString("info"));   //setto l'info dell'evento con la stringa che corrisponde a "info"
+			event.setInfo(object.getString("info"));   //setto l'info dell'evento con la stringa che corrisponde a "info"
 			
 			} catch(Exception e) {
 				e.printStackTrace();
@@ -115,14 +126,14 @@ public class ServiceManagement implements eu.univpm.TicketmasterEurope.service.S
 				
 			JSONObject datesObject = object.getJSONObject("dates");               //creo un JSONArray che corrisponde all'array "dates"
 			JSONObject startDateObject = datesObject.getJSONObject("start");	  //creo un JSONArray che corrisponde all'array "start"	
-			data.setData(startDateObject.getString("localDate"));		          //setto la data della data con la stringa che corrisponde a "localDate"
-			data.setOrario(startDateObject.getString("localTime"));               //setto l'orario della data con la stringa che corrisponde a "localTime"
+			data.setDataInizio(startDateObject.getString("localDate"));		          //setto la data della data con la stringa che corrisponde a "localDate"
+			data.setOrarioInizio(startDateObject.getString("localTime"));               //setto l'orario della data con la stringa che corrisponde a "localTime"
 			
 			} catch(Exception e) {
 				e.printStackTrace();
 			}
 			
-			evento.setDate(data);	          //setto la data dell'evento con l'oggetto di tipo data appena creato
+			event.setDate(data);	          //setto la data dell'evento con l'oggetto di tipo data appena creato
 			
 			Prices prices = new Prices();     //creo un nuovo oggetto di tipo prices
 			
@@ -138,7 +149,7 @@ public class ServiceManagement implements eu.univpm.TicketmasterEurope.service.S
 				e.printStackTrace();
 			}
 			
-			evento.setPrices(prices);				//setto le informations dell'evento con l'oggetto di tipo infromations appena creato		
+			event.setPrices(prices);				//setto le informations dell'evento con l'oggetto di tipo infromations appena creato		
 			
 			Genre genre = new Genre();              //creo un ogetto di tipo Genre
 			
@@ -157,7 +168,7 @@ public class ServiceManagement implements eu.univpm.TicketmasterEurope.service.S
 				e.printStackTrace();
 			}
 			
-			evento.setGenre(genre);                                      //setto il genere dell'evento con l'oggetto genre appena creato
+			event.setGenre(genre);                                      //setto il genere dell'evento con l'oggetto genre appena creato
 			
 			Location location = new Location();                          //creo un ogetto di tipo location
 			 
@@ -210,13 +221,13 @@ public class ServiceManagement implements eu.univpm.TicketmasterEurope.service.S
 				e.printStackTrace();
 			}
 		    
-		    evento.setLocation(location);      //setto l'evento dell'evento con l'oggetto location appena creato
+		    event.setLocation(location);      //setto l'evento dell'evento con l'oggetto location appena creato
 		    
 		    } catch(Exception e) {
 				e.printStackTrace();
 			}
 		    
-			vector.add(evento);	
+			vector.add(event);	
 			
 		}
 		
