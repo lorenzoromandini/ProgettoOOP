@@ -55,10 +55,10 @@ public class Controller {
     }
 	
 	
-	@GetMapping(value = "/sourceEvents") 
-	public ResponseEntity<Object> getSourceEvent(@RequestParam String source) {
+	@GetMapping(value = "/sourceCountryEvents") 
+	public ResponseEntity<Object> getSourceEvent(@RequestParam String source, String countryCode) {
 		
-        EventsArray eventsArray = service.getSourceEventsSelectedfromApi(source);		
+        EventsArray eventsArray = service.getSourceEventsSelectedfromApi(source, countryCode);		
 		JSONObject obj = new JSONObject();
 		JSON_Converter jsonconverter = new JSON_Converter();
 		

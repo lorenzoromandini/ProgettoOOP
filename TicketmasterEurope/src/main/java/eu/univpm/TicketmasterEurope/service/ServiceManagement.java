@@ -106,8 +106,8 @@ public class ServiceManagement implements eu.univpm.TicketmasterEurope.service.S
 			String source = null;
 			if(url.contains("universe")) source = "universe";
 			else if(url.contains("ticketmaster")) source = "ticketmaster";
-			else if(url.contains("tmr")) source = "tmr";
 			else if(url.contains("frontgate")) source = "frontgate";
+			else  source = "tmr";
 			dealer.setSource(source);
 			
 			event.setDealer(dealer);
@@ -269,7 +269,7 @@ public class ServiceManagement implements eu.univpm.TicketmasterEurope.service.S
 		JSONArray marketEventsArray = embeddedObject.getJSONArray("events");
 		JSONObject object;
 		
-		int dimensione;
+		int dimensione = 0;
 		
 		if(totalElements < 200) dimensione = totalElements;
 		else dimensione = 200;
@@ -278,13 +278,13 @@ public class ServiceManagement implements eu.univpm.TicketmasterEurope.service.S
 		
 		for (int i = 0; i < dimensione; i++) {
 			
-			Event evento = new Event();
+			Event event = new Event();
 			
 			object = marketEventsArray.getJSONObject(i);
 			
 			try {
 				
-			evento.setName(object.getString("name"));
+			event.setName(object.getString("name"));
 			
 			} catch(Exception e) {
 				e.printStackTrace();
@@ -292,7 +292,7 @@ public class ServiceManagement implements eu.univpm.TicketmasterEurope.service.S
 			
 			try {
 				
-			evento.setId(object.getString("id"));
+			event.setId(object.getString("id"));
 			
 			} catch(Exception e) {
 				e.printStackTrace();
@@ -300,15 +300,26 @@ public class ServiceManagement implements eu.univpm.TicketmasterEurope.service.S
 			
 			try {
 				
-			evento.setUrl(object.getString("url"));
+			event.setUrl(object.getString("url"));
 			
 			} catch(Exception e) {
 				e.printStackTrace();
 			}
+						
+			Dealer dealer = new Dealer();			
+			String url = object.getString("url");
+			String source = null;
+			if(url.contains("universe")) source = "universe";
+			else if(url.contains("ticketmaster")) source = "ticketmaster";
+			else if(url.contains("frontgate")) source = "frontgate";
+			else  source = "tmr";
+			dealer.setSource(source);
+			
+			event.setDealer(dealer);
 			
 			try {
 				
-			evento.setInfo(object.getString("info"));
+			event.setInfo(object.getString("info"));
 			
 			} catch(Exception e) {
 				e.printStackTrace();
@@ -327,7 +338,7 @@ public class ServiceManagement implements eu.univpm.TicketmasterEurope.service.S
 				e.printStackTrace();
 			}
 			
-			evento.setDate(data);	
+			event.setDate(data);	
 			
 			Prices prices = new Prices();
 			
@@ -343,7 +354,7 @@ public class ServiceManagement implements eu.univpm.TicketmasterEurope.service.S
 				e.printStackTrace();
 			}
 			
-			evento.setPrices(prices);						
+			event.setPrices(prices);						
 			
 			Genre genre = new Genre();
 			
@@ -362,7 +373,7 @@ public class ServiceManagement implements eu.univpm.TicketmasterEurope.service.S
 				e.printStackTrace();
 			}
 			
-			evento.setGenre(genre);
+			event.setGenre(genre);
 			
 			Location location = new Location();
 			 
@@ -417,13 +428,13 @@ public class ServiceManagement implements eu.univpm.TicketmasterEurope.service.S
 				e.printStackTrace();
 			}
 		    
-		    evento.setLocation(location);
+		    event.setLocation(location);
 		    
 		    } catch(Exception e) {
 				e.printStackTrace();
 			}
 		    
-			vector.add(evento);	
+			vector.add(event);	
 			
 		}
 		
@@ -433,11 +444,11 @@ public class ServiceManagement implements eu.univpm.TicketmasterEurope.service.S
 	}
 	
 	
-     public JSONObject getSourceEvents(String source) {
+     public JSONObject getSourceEvents(String source, String countryCode) {
 		
 		JSONObject sourceEventsObject;
 		String Url = "https://app.ticketmaster.com/discovery/v2/events?size=200&sort=date,asc&source="
-		              + source + "&apikey="+ apikey;
+		              + source + "&countryCode=" + countryCode + "&apikey="+ apikey;
 		
 		RestTemplate restTemplate = new RestTemplate();
 		
@@ -453,9 +464,9 @@ public class ServiceManagement implements eu.univpm.TicketmasterEurope.service.S
 	 * @param countryCode - codice del paese in cui ha luogo l'evento
 	 * @return Location location - oggetto contenente le informazioni desiderate dell'evento e il luogo in cui si svolge
 	 */
-	public EventsArray getSourceEventsSelectedfromApi(String source) {	
+	public EventsArray getSourceEventsSelectedfromApi(String sourceX, String countryCodeX) {	
 		
-		JSONObject sourceEventsSelectedObject = getSourceEvents(source);
+		JSONObject sourceEventsSelectedObject = getSourceEvents(sourceX, countryCodeX);
 									
 		EventsArray eventsArray = new EventsArray();		
 		
@@ -465,7 +476,7 @@ public class ServiceManagement implements eu.univpm.TicketmasterEurope.service.S
 		JSONArray sourceEventsArray = embeddedObject.getJSONArray("events");
 		JSONObject object;
 		
-		int dimensione;
+		int dimensione = 0;
 		
 		if(totalElements < 200) dimensione = totalElements;
 		else dimensione = 200;
@@ -474,13 +485,13 @@ public class ServiceManagement implements eu.univpm.TicketmasterEurope.service.S
 		
 		for (int i = 0; i < dimensione; i++) {
 			
-			Event evento = new Event();
+			Event event = new Event();
 			
 			object = sourceEventsArray.getJSONObject(i);
 			
 			try {
 				
-			evento.setName(object.getString("name"));
+			event.setName(object.getString("name"));
 			
 			} catch(Exception e) {
 				e.printStackTrace();
@@ -488,7 +499,7 @@ public class ServiceManagement implements eu.univpm.TicketmasterEurope.service.S
 			
 			try {
 				
-			evento.setId(object.getString("id"));
+			event.setId(object.getString("id"));
 			
 			} catch(Exception e) {
 				e.printStackTrace();
@@ -496,15 +507,26 @@ public class ServiceManagement implements eu.univpm.TicketmasterEurope.service.S
 			
 			try {
 				
-			evento.setUrl(object.getString("url"));
+			event.setUrl(object.getString("url"));
 			
 			} catch(Exception e) {
 				e.printStackTrace();
 			}
 			
+			Dealer dealer = new Dealer();			//creo un ogetto di tipo informations
+			String url = object.getString("url");
+			String source = null;
+			if(url.contains("universe")) source = "universe";
+			else if(url.contains("ticketmaster")) source = "ticketmaster";
+			else if(url.contains("frontgate")) source = "frontgate";
+			else source = "tmr"; 
+			dealer.setSource(source);
+			
+			event.setDealer(dealer);
+			
 			try {
 				
-			evento.setInfo(object.getString("info"));
+			event.setInfo(object.getString("info"));
 			
 			} catch(Exception e) {
 				e.printStackTrace();
@@ -523,7 +545,7 @@ public class ServiceManagement implements eu.univpm.TicketmasterEurope.service.S
 				e.printStackTrace();
 			}
 			
-			evento.setDate(data);	
+			event.setDate(data);	
 			
 			Prices prices = new Prices();
 			
@@ -539,7 +561,7 @@ public class ServiceManagement implements eu.univpm.TicketmasterEurope.service.S
 				e.printStackTrace();
 			}
 			
-			evento.setPrices(prices);						
+			event.setPrices(prices);						
 			
 			Genre genre = new Genre();
 			
@@ -558,7 +580,7 @@ public class ServiceManagement implements eu.univpm.TicketmasterEurope.service.S
 				e.printStackTrace();
 			}
 			
-			evento.setGenre(genre);
+			event.setGenre(genre);
 			
 			Location location = new Location();
 			
@@ -615,7 +637,7 @@ public class ServiceManagement implements eu.univpm.TicketmasterEurope.service.S
 				e.printStackTrace();
 			}
 		    
-		    evento.setLocation(location);
+		    event.setLocation(location);
 		    
 		    } catch(Exception e) {
 				e.printStackTrace();
@@ -625,7 +647,7 @@ public class ServiceManagement implements eu.univpm.TicketmasterEurope.service.S
 					e.printStackTrace();
 				}
 		    
-			vector.add(evento);	
+			vector.add(event);	
 			
 		}
 		

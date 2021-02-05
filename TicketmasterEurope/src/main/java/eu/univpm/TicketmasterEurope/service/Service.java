@@ -17,7 +17,7 @@ public interface Service {
 	public abstract EventsArray getCountryEventsSelectedfromApi(String contryCode);
 	public abstract JSONObject getMarketEvents(String marketId);
 	public abstract EventsArray getMarketEventsSelectedfromApi(String marketId);
-	public abstract JSONObject getSourceEvents(String source);
-	public abstract EventsArray getSourceEventsSelectedfromApi(String source);
+	public abstract JSONObject getSourceEvents(String source, String countryCode);
+	public abstract EventsArray getSourceEventsSelectedfromApi(String source, String countryCode);
 
 }
