@@ -107,7 +107,7 @@ public class ServiceManagement implements eu.univpm.TicketmasterEurope.service.S
 			if(url.contains("universe")) source = "universe";
 			else if(url.contains("ticketmaster")) source = "ticketmaster";
 			else if(url.contains("frontgate")) source = "frontgate";
-			else  source = "tmr";
+			else source = "tmr";
 			dealer.setSource(source);
 			
 			event.setDealer(dealer);
@@ -312,7 +312,7 @@ public class ServiceManagement implements eu.univpm.TicketmasterEurope.service.S
 			if(url.contains("universe")) source = "universe";
 			else if(url.contains("ticketmaster")) source = "ticketmaster";
 			else if(url.contains("frontgate")) source = "frontgate";
-			else  source = "tmr";
+			else source = "tmr";
 			dealer.setSource(source);
 			
 			event.setDealer(dealer);
