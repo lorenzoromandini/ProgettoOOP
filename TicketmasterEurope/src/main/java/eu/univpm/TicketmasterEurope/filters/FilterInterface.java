@@ -23,4 +23,4 @@ public interface FilterInterface {
 	public abstract JSONArray SixMonths(Vector<String> countries, String value) throws WrongValueException;
 	public abstract JSONArray TwelveMonths(Vector<String> countries, String value) throws WrongValueException;
 
-}
+} 

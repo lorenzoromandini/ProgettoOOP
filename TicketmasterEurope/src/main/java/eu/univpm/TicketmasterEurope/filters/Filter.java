@@ -50,22 +50,22 @@ public class Filter {
 		if(period == 1) {
 			
 			else if (param.equals("marketId")) {
-				FilterFeelsLike filter = new FilterFeelsLike();
+				MarketFilter filter = new MarketFilter();
 				array = filter.OneMonth(countries, value);
 			}
 			
 			else if (param.equals("segment")) {
-				FilterVisibility filter = new FilterVisibility();
+				SegmentFilter filter = new SegmentFilter();
 				array = filter.OneMonth(countries, value);
 			}
 			
 			else if (param.equals("genre")) {
-				FilterVisibility filter = new FilterVisibility();
+				GenreFilter filter = new GenreFilter();
 				array = filter.OneMonth(countries, value);
 			}
 			
 			else if (param.equals("subGenre")) {
-				FilterVisibility filter = new FilterVisibility();
+				SubGenreFilter filter = new SubGenreFilter();
 				array = filter.OneMonth(countries, value);
 				
 			}
@@ -78,22 +78,22 @@ public class Filter {
 		if(period == 3) {
 			
 			else if (param.equals("marketId")) {
-				FilterFeelsLike filter = new FilterFeelsLike();
+				MarketFilter filter = new MarketFilter();
 				array = filter.ThreeMonths(countries, value);
 			}
 			
 			else if (param.equals("segment")) {
-				FilterVisibility filter = new FilterVisibility();
+				SegmentFilter filter = new SegmentFilter();
 				array = filter.ThreeMonths(countries, value);
 			}
 			
 			else if (param.equals("genre")) {
-				FilterVisibility filter = new FilterVisibility();
+				GenreFilter filter = new GenreFilter();
 				array = filter.ThreeMonths(countries, value);
 			}
 			
 			else if (param.equals("subGenre")) {
-				FilterVisibility filter = new FilterVisibility();
+				SubGenreFilter filter = new SubGenreFilter();
 				array = filter.ThreeMonths(countries, value);
 				
 			}
@@ -106,22 +106,22 @@ public class Filter {
 		if(period == 6) {
 			
 			else if (param.equals("marketId")) {
-				FilterFeelsLike filter = new FilterFeelsLike();
+				MarketFilter filter = new MarketFilter();
 				array = filter.SixMonths(countries, value);
 			}
 			
 			else if (param.equals("segment")) {
-				FilterVisibility filter = new FilterVisibility();
+				SegmentFilter filter = new SegmentFilter();
 				array = filter.SixMonths(countries, value);
 			}
 			
 			else if (param.equals("genre")) {
-				FilterVisibility filter = new FilterVisibility();
+				GenreFilter filter = new GenreFilter();
 				array = filter.SixMonths(countries, value);
 			}
 			
 			else if (param.equals("subGenre")) {
-				FilterVisibility filter = new FilterVisibility();
+				SubGenreFilter filter = new SubGenreFilter();
 				array = filter.SixMonths(countries, value);
 				
 			}
@@ -134,22 +134,22 @@ public class Filter {
 		if(period == 12) {
 			
 			else if (param.equals("marketId")) {
-				FilterFeelsLike filter = new FilterFeelsLike();
+				MarketFilter filter = new MarketFilter();
 				array = filter.TwelveMonths(countries, value);
 			}
 			
 			else if (param.equals("segment")) {
-				FilterVisibility filter = new FilterVisibility();
+				SegmentFilter filter = new SegmentFilter();
 				array = filter.TwelveMonths(countries, value);
 			}
 			
 			else if (param.equals("genre")) {
-				FilterVisibility filter = new FilterVisibility();
+				GenreFilter filter = new GenreFilter();
 				array = filter.TwelveMonths(countries, value);
 			}
 			
 			else if (param.equals("subGenre")) {
-				FilterVisibility filter = new FilterVisibility();
+				SubGenreFilter filter = new SubGenreFilter();
 				array = filter.TwelveMonths(countries, value);
 				
 			}

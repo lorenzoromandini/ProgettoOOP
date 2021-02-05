@@ -30,5 +30,5 @@ public class SegmentFilter implements FilterInterface {
 	public JSONArray TwelveMonths(Vector<String> countries, String value) throws WrongValueException {
 		return null;
 	}
-
+ 
 }
