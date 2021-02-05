@@ -44,6 +44,11 @@ public class Event {
 	 * Oggetto di tipo Prices
 	 */
 	private Prices prices;
+	
+	/**
+	 * Oggetto di tipo Dealer
+	 */
+	private Dealer dealer;
 		
 	/** 
 	 * Oggetto di tipo Location
@@ -62,6 +67,7 @@ public class Event {
 		this.date = null;
 		this.genre = null;
 		this.prices = null;
+		this.dealer = null;
 		this.location = null;
 	}
 	
@@ -77,6 +83,7 @@ public class Event {
 		this.date = null;
 		this.genre = null;
 		this.prices = null;
+		this.dealer = null;
 		this.location = null;
 	}
 	
@@ -92,6 +99,7 @@ public class Event {
 		this.date = date;
 		this.genre = null;
 		this.prices = null;
+		this.dealer = null;
 		this.location = null;
 	}
 
@@ -107,6 +115,7 @@ public class Event {
 		this.date = null;
 		this.genre = genre;
 		this.prices = null;
+		this.dealer = null;
 		this.location = null;
 	}
 
@@ -122,6 +131,23 @@ public class Event {
 		this.date = null;
 		this.genre = null;
 		this.prices = prices;
+		this.dealer = null;
+		this.location = null;
+	}
+
+
+	/** Costruttore dell'oggetto
+	 * @param dealer
+	 */
+	public Event(Dealer dealer) {
+		this.id = null;
+		this.name = null;
+		this.url = null;
+		this.info = null;
+		this.date = null;
+		this.genre = null;
+		this.prices = null;
+		this.dealer = dealer;
 		this.location = null;
 	}
 
@@ -140,39 +166,6 @@ public class Event {
 		this.location = location;
 	}
 
-
-	/** Costruttore dell'oggetto
-	 * @param id
-	 * @param name
-	 */
-	public Event(String id, String name) {		
-		this.id = id;
-		this.name = name;
-		this.url = null;
-		this.info = null;	
-		this.date = null;
-		this.genre = null;
-		this.prices = null;
-		this.location = null;
-	}
-
-
-	/** Costruttore dell'oggetto
-	 * @param id
-	 * @param name
-	 * @param url
-	 */
-	public Event(String id, String name, String url) {
-		this.id = id;
-		this.name = name;
-		this.url = url;
-		this.info = null;
-		this.date = null;
-		this.genre = null;
-		this.prices = null;
-		this.location = null;
-	}
-	
 	
 	/** Costruttore dell'oggetto
 	 * @param id
@@ -183,7 +176,7 @@ public class Event {
 	 * @param genre
 	 * @param prices
 	 */
-	public Event(String id, String name, String url, String info, Date date, Genre genre, Prices prices, Location location) {
+	public Event(String id, String name, String url, String info, Date date, Genre genre, Prices prices, Dealer dealer, Location location) {
 		this.id = id;
 		this.name = name;
 		this.url = url;
@@ -191,6 +184,7 @@ public class Event {
 		this.date = date;
 		this.genre = genre;
 		this.prices = prices;
+		this.dealer = dealer;
 		this.location = location;
 	}
 
@@ -307,6 +301,22 @@ public class Event {
 	}
 
 
+	/** Restituisce il distributore dei biglietti dell'evento
+	 * @return dealer
+	 */
+	public Dealer getDealer() {
+		return dealer;
+	}
+
+
+	/** Setta il distributore dei biglietti dell'evento
+	 * @param Dealer dealer
+	 */
+	public void setDealer(Dealer dealer) {
+		this.dealer = dealer;
+	}
+
+
 	/**
 	 * @return the location
 	 */
@@ -330,7 +340,7 @@ public class Event {
 	@Override
 	public String toString() {
 		return "id=" + id + ", name=" + name + ", url=" + url + ", info=" + info + ", date=" + date + ", genre="
-				+ genre + ", prices=" + prices + ", location=" + location + "";
+				+ genre + ", prices=" + prices + "dealer=" + dealer + ", location=" + location + "";
 	}
 
 	/**
@@ -381,6 +391,11 @@ public class Event {
 			if (other.prices != null)
 				return false;
 		} else if (!prices.equals(other.prices))
+			return false;
+		if (dealer == null) {
+			if (other.dealer != null)
+				return false;
+		} else if (!dealer.equals(other.dealer))
 			return false;
 		if (url == null) {
 			if (other.url != null)
