@@ -14,8 +14,6 @@ import eu.univpm.TicketmasterEurope.model.*;
  * @author Nicholas Urbanelli
  */
 public class JSON_Converter {
-
-	//EventsArray eventsArray = new EventsArray();
 	
 	/**
 	 * Restituisce il JSONObject corrispondente all'oggetto EventsArray fornito in ingresso
@@ -162,6 +160,8 @@ public class JSON_Converter {
 		}
 	    
 		events.put("Events", array);
+		events.put("totalEvents", eventsArray.getTotalEvents());
+		events.put("showedEvents", eventsArray.getTotalEvents());
 		
 		return events;
 		

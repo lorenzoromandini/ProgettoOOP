@@ -232,6 +232,8 @@ public class ServiceManagement implements eu.univpm.TicketmasterEurope.service.S
 		}
 		
 		eventsArray.setVector(vector);
+		eventsArray.setTotalEvents(totalElements);
+		eventsArray.setShowedEvents(dimensione);
 		
 		return eventsArray;
 	}
@@ -439,6 +441,8 @@ public class ServiceManagement implements eu.univpm.TicketmasterEurope.service.S
 		}
 		
 		eventsArray.setVector(vector);
+		eventsArray.setTotalEvents(totalElements);
+		eventsArray.setShowedEvents(dimensione);
 		
 		return eventsArray;
 	}
@@ -652,6 +656,8 @@ public class ServiceManagement implements eu.univpm.TicketmasterEurope.service.S
 		}
 		
 		eventsArray.setVector(vector);
+		eventsArray.setTotalEvents(totalElements);
+		eventsArray.setShowedEvents(dimensione);
 		
 		return eventsArray;
 	}

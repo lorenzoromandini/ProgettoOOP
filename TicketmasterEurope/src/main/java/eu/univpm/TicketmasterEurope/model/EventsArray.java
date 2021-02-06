@@ -11,7 +11,9 @@ import java.util.Vector;
  */
 public class EventsArray {
 	
-	private Event event;
+	private int totalEvents;
+	
+	private int showedEvents;
 	
 	/**
 	 *  Vettore contentente le caratteristiche dei vari eventi che hanno luogo in una determinata location
@@ -25,15 +27,6 @@ public class EventsArray {
 	public EventsArray() {
 		super();
 	}
-	
-	
-	/**
-	 * @param event
-	 */
-	public EventsArray(Event event) {
-		super();
-		this.event = event;
-	}
 
 
 	/**
@@ -43,20 +36,36 @@ public class EventsArray {
 		this.vector = vector;
 	}
 	
-	
+
 	/**
-	 * @return the event
+	 * @return the totalEvents
 	 */
-	public Event getEvent() {
-		return event;
+	public int getTotalEvents() {
+		return totalEvents;
 	}
 
 
 	/**
-	 * @param event the event to set
+	 * @param totalEvents the totalEvents to set
 	 */
-	public void setEvent(Event event) {
-		this.event = event;
+	public void setTotalEvents(int totalEvents) {
+		this.totalEvents = totalEvents;
+	}
+
+
+	/**
+	 * @return the showedEvents
+	 */
+	public int getShowedEvents() {
+		return showedEvents;
+	}
+
+
+	/**
+	 * @param showedElvents the showedEvents to set
+	 */
+	public void setShowedEvents(int showedEvents) {
+		this.showedEvents = showedEvents;
 	}
 
 
@@ -90,7 +99,8 @@ public class EventsArray {
 
 	@Override
 	public String toString() {
-		return "event=" + event + ", vector=" + vector + "";
+		return "EventsArray [totalEvents=" + totalEvents + ", showedEvents=" + showedEvents + ", vector="
+				+ vector + "]";
 	}
 
 
@@ -103,10 +113,9 @@ public class EventsArray {
 		if (getClass() != obj.getClass())
 			return false;
 		EventsArray other = (EventsArray) obj;
-		if (event == null) {
-			if (other.event != null)
-				return false;
-		} else if (!event.equals(other.event))
+		if (showedEvents != other.showedEvents)
+			return false;
+		if (totalEvents != other.totalEvents)
 			return false;
 		if (vector == null) {
 			if (other.vector != null)
