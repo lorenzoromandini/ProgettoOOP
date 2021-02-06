@@ -17,6 +17,8 @@ public class Filter {
 	
 	private Vector<String> countries = new Vector<String>();
 	
+	private Vector<String> markets = new Vector<String>();
+	
 	private String param;
 	
 	private String value;
@@ -27,15 +29,25 @@ public class Filter {
 
 	
 	/**
+	 * 
+	 */
+	public Filter() {
+		super();
+	}
+
+
+	/**
 	 * @param countries
+	 * @param markets
 	 * @param param
 	 * @param value
 	 * @param data
 	 * @param period
 	 */
-	public Filter(Vector<String> countries, String param, String value, LocalDate data, int period) {
+	public Filter(Vector<String> countries, Vector<String> markets, String param, String value, LocalDate data, int period) {
 		super();
 		this.countries = countries;
+		this.markets = markets;
 		this.param = param;
 		this.value = value;
 		this.data = data;
@@ -51,13 +63,13 @@ public class Filter {
 			
 			else if (param.equals("marketId")) {
 				MarketFilter filter = new MarketFilter();
-				array = filter.OneMonth(countries, value);
+				array = filter.OneMonth(markets, value);
 			}
 			
 			else if (param.equals("segment")) {
 				SegmentFilter filter = new SegmentFilter();
 				array = filter.OneMonth(countries, value);
-			}
+			} 
 			
 			else if (param.equals("genre")) {
 				GenreFilter filter = new GenreFilter();
@@ -68,10 +80,16 @@ public class Filter {
 				SubGenreFilter filter = new SubGenreFilter();
 				array = filter.OneMonth(countries, value);
 				
+            }
+			
+			else if (param.equals("source")) {
+				SourceFilter filter = new SourceFilter();
+				array = filter.OneMonth(countries, value);
+				
 			}
 			
-		    else  throw new WrongParameterException (param + " non è un ammesso. Inserisci una stringa tra placement,"
-					                                       + " city, marketId, segment, genre, subGenre");
+		    else  throw new WrongParameterException (param + " non è un ammesso. Inserisci una stringa tra marketId, "
+                                                           + "segment, genre, subGenre, source");
 			
 		}
 			
@@ -79,7 +97,7 @@ public class Filter {
 			
 			else if (param.equals("marketId")) {
 				MarketFilter filter = new MarketFilter();
-				array = filter.ThreeMonths(countries, value);
+				array = filter.ThreeMonths(markets, value);
 			}
 			
 			else if (param.equals("segment")) {
@@ -98,8 +116,14 @@ public class Filter {
 				
 			}
 			
-		    else  throw new WrongParameterException (param + " non è un ammesso. Inserisci una stringa tra placement,"
-					                                       + " city, marketId, segment, genre, subGenre");
+			else if (param.equals("source")) {
+				SourceFilter filter = new SourceFilter();
+				array = filter.ThreeMonths(countries, value);
+				
+			}
+			
+		    else  throw new WrongParameterException (param + " non è un ammesso. Inserisci una stringa tra marketId, "
+                                                           + "segment, genre, subGenre, source");
 			
 		}
 				
@@ -107,7 +131,7 @@ public class Filter {
 			
 			else if (param.equals("marketId")) {
 				MarketFilter filter = new MarketFilter();
-				array = filter.SixMonths(countries, value);
+				array = filter.SixMonths(markets, value);
 			}
 			
 			else if (param.equals("segment")) {
@@ -126,8 +150,14 @@ public class Filter {
 				
 			}
 			
-		    else  throw new WrongParameterException (param + " non è un ammesso. Inserisci una stringa tra placement,"
-					                                       + " city, marketId, segment, genre, subGenre");
+			else if (param.equals("source")) {
+				SourceFilter filter = new SourceFilter();
+				array = filter.SixMonths(countries, value);
+				
+			}
+			
+		    else  throw new WrongParameterException (param + " non è un ammesso. Inserisci una stringa tra marketId, "
+		    		                                       + "segment, genre, subGenre, source");
 			
 		}
 		
@@ -135,7 +165,7 @@ public class Filter {
 			
 			else if (param.equals("marketId")) {
 				MarketFilter filter = new MarketFilter();
-				array = filter.TwelveMonths(countries, value);
+				array = filter.TwelveMonths(markets, value);
 			}
 			
 			else if (param.equals("segment")) {
@@ -154,12 +184,18 @@ public class Filter {
 				
 			}
 			
-		    else throw new WrongParameterException (param + " non è una stringa ammessa. Inserisci una stringa tra placement,"
-					                                       + " city, marketId, segment, genre, subGenre");
+			else if (param.equals("source")) {
+				SourceFilter filter = new SourceFilter();
+				array = filter.TwelveMonth(countries, value);
+				
+			}
+			
+		    else throw new WrongParameterException (param + " non è un ammesso. Inserisci una stringa tra marketId, "
+                                                          + "segment, genre, subGenre, source");
 			
 		}
 		
-        else throw new WrongPeriodException (period + " non è un numero ammesso. Inserisci un numero che sia o 1 o 3 o 6 o 12.");
+        else throw new WrongPeriodException (period + " non è un numero ammesso. Inserisci un numero tra 1, 3, 6 oppure 12.");
 		
 		return array;
 	
