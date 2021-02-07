@@ -9,7 +9,6 @@ import java.util.Vector;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import eu.univpm.TicketmasterEurope.exception.WrongValueException;
 import eu.univpm.TicketmasterEurope.stats.Stats;
 
 /**
@@ -17,14 +16,14 @@ import eu.univpm.TicketmasterEurope.stats.Stats;
  * @author Nicholas Urbanelli
  *
  */
-public class GenreFilter implements FilterInterface {
+public class CountryFilter implements CountryMarketFilterInterface {
 	
 	Stats stats;
 	
 
-	public JSONArray OneMonth(Vector<String> countries, String genre) throws WrongValueException {
+	public JSONArray OneMonthCountryMarket(Vector<String> countries)  {
 		
-		JSONArray genreEvents = new JSONArray();
+        JSONArray countryEvents = new JSONArray();
 		
 		Vector<JSONObject> countryVector = new Vector<JSONObject>();
 		Vector<Integer> totalEvents = new Vector<Integer>();
@@ -42,7 +41,7 @@ public class GenreFilter implements FilterInterface {
 		while(it.hasNext()) {
 			
 			JSONObject object = new JSONObject();
-			object = stats.getGenreEvents(it.next(), genre, 1);
+			object = stats.getCountryEvents(it.next(), 1);
 			countryVector.add(object);
 			int totalElements = object.getInt("totalElements");
 			totalEvents.add(totalElements);
@@ -51,7 +50,7 @@ public class GenreFilter implements FilterInterface {
 			couple.put("Country: ", countries.get(i));
 			couple.put("totalEvents: ", totalElements);
 			country_totalEvents.add(couple);
-			genreEvents.put(couple);
+			countryEvents.put(couple);
 			
 			if(totalElements <= minEvent) {
 				minEvent=totalElements;
@@ -74,16 +73,16 @@ public class GenreFilter implements FilterInterface {
 		minCountryEvents.put("Country with least events: ", minCountry);
 		minCountryEvents.put("totalEvents: ", minEvent);
 		
-		genreEvents.put(maxCountryEvents);
-		genreEvents.put(minCountryEvents);
+		countryEvents.put(maxCountryEvents);
+		countryEvents.put(minCountryEvents);
 		
-		return genreEvents;
+		return countryEvents;
 
     }
 
-	public JSONArray ThreeMonths(Vector<String> countries, String genre) throws WrongValueException {
+	public JSONArray ThreeMonthsCountryMarket(Vector<String> countries) {
 		
-		JSONArray genreEvents = new JSONArray();
+        JSONArray countryEvents = new JSONArray();
 		
 		Vector<JSONObject> countryVector = new Vector<JSONObject>();
 		Vector<Integer> totalEvents = new Vector<Integer>();
@@ -101,7 +100,7 @@ public class GenreFilter implements FilterInterface {
 		while(it.hasNext()) {
 			
 			JSONObject object = new JSONObject();
-			object = stats.getGenreEvents(it.next(), genre, 3);
+			object = stats.getCountryEvents(it.next(), 3);
 			countryVector.add(object);
 			int totalElements = object.getInt("totalElements");
 			totalEvents.add(totalElements);
@@ -110,7 +109,7 @@ public class GenreFilter implements FilterInterface {
 			couple.put("Country: ", countries.get(i));
 			couple.put("totalEvents: ", totalElements);
 			country_totalEvents.add(couple);
-			genreEvents.put(couple);
+			countryEvents.put(couple);
 			
 			if(totalElements <= minEvent) {
 				minEvent=totalElements;
@@ -133,17 +132,16 @@ public class GenreFilter implements FilterInterface {
 		minCountryEvents.put("Country with least events: ", minCountry);
 		minCountryEvents.put("totalEvents: ", minEvent);
 		
-		genreEvents.put(maxCountryEvents);
-		genreEvents.put(minCountryEvents);
+		countryEvents.put(maxCountryEvents);
+		countryEvents.put(minCountryEvents);
 		
-		return genreEvents;
-
+		return countryEvents;
 		
 	}
 
-	public JSONArray SixMonths(Vector<String> countries, String genre) throws WrongValueException {
+	public JSONArray SixMonthsCountryMarket(Vector<String> countries) {
 		
-        JSONArray genreEvents = new JSONArray();
+        JSONArray countryEvents = new JSONArray();
 		
 		Vector<JSONObject> countryVector = new Vector<JSONObject>();
 		Vector<Integer> totalEvents = new Vector<Integer>();
@@ -161,7 +159,7 @@ public class GenreFilter implements FilterInterface {
 		while(it.hasNext()) {
 			
 			JSONObject object = new JSONObject();
-			object = stats.getGenreEvents(it.next(), genre, 6);
+			object = stats.getCountryEvents(it.next(), 6);
 			countryVector.add(object);
 			int totalElements = object.getInt("totalElements");
 			totalEvents.add(totalElements);
@@ -170,7 +168,7 @@ public class GenreFilter implements FilterInterface {
 			couple.put("Country: ", countries.get(i));
 			couple.put("totalEvents: ", totalElements);
 			country_totalEvents.add(couple);
-			genreEvents.put(couple);
+			countryEvents.put(couple);
 			
 			if(totalElements <= minEvent) {
 				minEvent=totalElements;
@@ -193,16 +191,16 @@ public class GenreFilter implements FilterInterface {
 		minCountryEvents.put("Country with least events: ", minCountry);
 		minCountryEvents.put("totalEvents: ", minEvent);
 		
-		genreEvents.put(maxCountryEvents);
-		genreEvents.put(minCountryEvents);
+		countryEvents.put(maxCountryEvents);
+		countryEvents.put(minCountryEvents);
 		
-		return genreEvents;
+		return countryEvents;
 		
 	}
 
-	public JSONArray TwelveMonths(Vector<String> countries, String genre) throws WrongValueException {
+	public JSONArray TwelveMonthsCountryMarket(Vector<String> countries) {
 		
-        JSONArray genreEvents = new JSONArray();
+        JSONArray countryEvents = new JSONArray();
 		
 		Vector<JSONObject> countryVector = new Vector<JSONObject>();
 		Vector<Integer> totalEvents = new Vector<Integer>();
@@ -220,7 +218,7 @@ public class GenreFilter implements FilterInterface {
 		while(it.hasNext()) {
 			
 			JSONObject object = new JSONObject();
-			object = stats.getGenreEvents(it.next(), genre, 12);
+			object = stats.getCountryEvents(it.next(), 12);
 			countryVector.add(object);
 			int totalElements = object.getInt("totalElements");
 			totalEvents.add(totalElements);
@@ -229,7 +227,7 @@ public class GenreFilter implements FilterInterface {
 			couple.put("Country: ", countries.get(i));
 			couple.put("totalEvents: ", totalElements);
 			country_totalEvents.add(couple);
-			genreEvents.put(couple);
+			countryEvents.put(couple);
 			
 			if(totalElements <= minEvent) {
 				minEvent=totalElements;
@@ -252,13 +250,12 @@ public class GenreFilter implements FilterInterface {
 		minCountryEvents.put("Country with least events: ", minCountry);
 		minCountryEvents.put("totalEvents: ", minEvent);
 		
-		genreEvents.put(maxCountryEvents);
-		genreEvents.put(minCountryEvents);
+		countryEvents.put(maxCountryEvents);
+		countryEvents.put(minCountryEvents);
 		
-		return genreEvents;
+		return countryEvents;
 		
 	}
- 
-	
+
+
 }
-

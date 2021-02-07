@@ -1,0 +1,203 @@
+
+
+TicketmasterEurope Codes and Names
+
+This file has the purpose to help the user providing codes and names to insert in the execution of this program.
+
+- COUNTRY CODES
+  
+  AT (Austria)
+  BE (Belgium)
+  BG (Bulgaria)
+  HR (Croatia)
+  CY (Cyprus)
+  CZ (Czech Republic)
+  DK (Denmark)
+  FO (Faroe Islands)
+  FI (Finland)
+  FR (France)
+  GE (Georgia)
+  DE (Germany)
+  GI (Gibraltar)
+  GB (Great Britain)
+  GR (Greece)
+  HU (Hungary)
+  IS (Iceland)
+  IE (Ireland)
+  IT (Italy)
+  LT (Lithuania)
+  LU (Luxembourg)
+  MT (Malta)
+  MC (Monaco)
+  ME (Montenegro)
+  NL (Netherlands)
+  ND (Northern Ireland)
+  NO (Norway)
+  PL (Poland)
+  PT (Portugal)
+  RO (Romania)
+  RU (Russian Federation)
+  RS (Serbia)
+  SK (Slovakia)
+  SI (Slovenia)
+  ES (Spain)
+  SE (Sweden)
+  CH (Switzerland)
+  UA (Ukraine)  
+
+- MARKET ID CODES 
+
+  202 - London (UK)
+  203 - South (UK)
+  204 - Midlands and Central (UK)
+  205 - Wales and North West (UK)
+  206 - North and North East (UK)
+  207 - Scotland
+  208 - Ireland
+  209 - Northern Ireland
+  210 - Germany
+  211 - Netherlands
+  500 - Sweden
+  501 - Spain
+  502 - Barcelona (Spain)
+  503 - Madrid (Spain)
+  600 - Turkey
+
+- SOURCE NAMES
+  
+  - ticketmaster
+  - universe
+  - frontgate
+  - tmr
+  
+- SEGMENT NAMES
+
+  - Arts & Theatre
+  - Miscellaneous
+  - Music
+  - Sports
+
+- GENRE ID Names for Codes
+  
+  Alternative - KnvZfZ7vAvv
+  Aquatics - KnvZfZ7vAeI
+  Athletic Races - KnvZfZ7vAet
+  Basketball - KnvZfZ7vAde
+  Blues - KnvZfZ7vAvd
+  Boxing - KnvZfZ7vAdA
+  Children's Theatre - KnvZfZ7v7na
+  Circus & Specialty Acts - KnvZfZ7v7n1
+  Classical - KnvZfZ7vAeJ
+  Comedy - KnvZfZ7vAe1
+  Community/Civic - KnvZfZ7vAAE
+  Country - KnvZfZ7vAv6
+  Cricket - KnvZfZ7vAdk
+  Cycling - KnvZfZ7vAda
+  Dance - KnvZfZ7v7nI
+  Dance/Electronic - KnvZfZ7vAvF
+  Equestrian - KnvZfZ7vAd1
+  Family - KnvZfZ7vA1n
+  Fashion - KnvZfZ7v7nn
+  Folk - KnvZfZ7vAva
+  Hip-Hop/Rap - KnvZfZ7vAv1
+  Hobby/Special Interest Expos - KnvZfZ7vAAJ
+  Ice Shows - KnvZfZ7v7lI
+  Jazz - KnvZfZ7vAvE
+  Magic & Illusion - KnvZfZ7v7lv
+  Martial Arts - KnvZfZ7vA7d
+  Metal - KnvZfZ7vAvt
+  Miscellaneous - KnvZfZ7vA7A
+  Miscellaneous Theatre - KnvZfZ7v7ld
+  Motorsports/Racing - KnvZfZ7vA7k
+  Performance Art - KnvZfZ7v7l6
+  Pop - KnvZfZ7vAev
+  Reggae - KnvZfZ7vAed
+  Rock - KnvZfZ7vAeA
+  Rugby - KnvZfZ7vA71
+  R&B - KnvZfZ7vAee
+  Spectacular - KnvZfZ7v7la
+  Theatre - KnvZfZ7v7l1
+  Undefined - KnvZfZ7v7ll
+  Variety - KnvZfZ7v7lJ
+  Volleyball - KnvZfZ7vAA7
+  World - KnvZfZ7vAeF
+  Wrestling - KnvZfZ7vAAk
+  
+  
+- SUBGENRE ID Names for Codes
+  
+  Adult Contemporary - KZazBEonSMnZfZ7vk1l
+  Alternative - KZazBEonSMnZfZ7vAvJ
+  Alternative Rock - KZazBEonSMnZfZ7v6dt
+  Aquatics - KZazBEonSMnZfZ7vF1a
+  Athletic Races - KZazBEonSMnZfZ7vF11
+  Blues - KZazBEonSMnZfZ7vAAd
+  Blues-Rock - KZazBEonSMnZfZ7v676
+  Boxing - KZazBEonSMnZfZ7vFJJ
+  British Folk-Rock - KZazBEonSMnZfZ7v671
+  Burlesque - KZazBEonSMnZfZ7vaaE
+  Cabaret - KZazBEonSMnZfZ7vAv7
+  Children's Theatre - KZazBEonSMnZfZ7v7na
+  Circus - KZazBEonSMnZfZ7v7n1
+  Classical/Vocal - KZazBEonSMnZfZ7vF1A
+  Club Dance - KZazBEonSMnZfZ7vAJ1
+  Comedy - KZazBEonSMnZfZ7vF17
+  Community/Civic - KZazBEonSMnZfZ7vFlv
+  Country - KZazBEonSMnZfZ7vAFa
+  Cricket - KZazBEonSMnZfZ7vFJE
+  Cycling - KZazBEonSMnZfZ7vFEv
+  Dance - KZazBEonSMnZfZ7v7nl
+  Disco - KZazBEonSMnZfZ7vAJn
+  Drama - KZazBEonSMnZfZ7v7lt
+  Dressage - KZazBEonSMnZfZ7vFEe
+  Equestrian - KZazBEonSMnZfZ7vFEd
+  European Pop - KZazBEonSMnZfZ7v6At
+  Fashion - KZazBEonSMnZfZ7v7le
+  Folk - KZazBEonSMnZfZ7vAn7
+  French Rap - KZazBEonSMnZfZ7vaa1
+  Hard Rock - KZazBEonSMnZfZ7v6kl
+  Heavy Metal - KZazBEonSMnZfZ7vkFd
+  Hobby/Special Interest Expos - KZazBEonSMnZfZ7vFnl
+  Ice Shows - KZazBEonSMnZfZ7vAv6
+  Indie Pop - KZazBEonSMnZfZ7vkEk
+  Indie Rock - KZazBEonSMnZfZ7vAde
+  Jazz - KZazBEonSMnZfZ7vkda
+  Latin - KZazBEonSMnZfZ7vFdJ
+  Magic - KZazBEonSMnZfZ7v7l7
+  Men Professional - KZazBEonSMnZfZ7vFJ6
+  Metalcore - KZazBEonSMnZfZ7vaJk
+  Miscellaneous - KZazBEonSMnZfZ7vFIt
+  Miscellaneous Theatre - KZazBEonSMnZfZ7v7lk
+  Mixed Martial Arts - KZazBEonSMnZfZ7vFIE
+  MLB - KZazBEonSMnZfZ7vF1n
+  Musical - KnvZfZ7v7l1
+  Nu-Metal - KZazBEonSMnZfZ7vaJ6
+  Other - KZazBEonSMnZfZ7vaav
+  Performance Art - KZazBEonSMnZfZ7v7l1
+  Pop - KZazBEonSMnZfZ7v6F1
+  Rap-Rock - KZazBEonSMnZfZ7vkel
+  Reggae - KZazBEonSMnZfZ7vknl
+  Rugby Union - KZazBEonSMnZfZ7vFtJ
+  Rock - KZazBEonSMnZfZ7v6da
+  Rock & Roll - KZazBEonSMnZfZ7v6an
+  R&B - KZazBEonSMnZfZ7vkIt
+  Scandinavia - KZazBEonSMnZfZ7vF6E
+  Soul - KZazBEonSMnZfZ7vknE
+  Southern Rock - KZazBEonSMnZfZ7v61J
+  Spectacular - KZazBEonSMnZfZ7v7lE
+  Undefined - KZazBEonSMnZfZ7vAv1
+  Urban - KZazBEonSMnZfZ7vkdA
+  Variety - KZazBEonSMnZfZ7vAvA
+  Witchstep - KZazBEonSMnZfZ7va1k
+  Volleyball - KZazBEonSMnZfZ7vFn6
+  World - KZazBEonSMnZfZ7v6Jt
+  Wrestling - KZazBEonSMnZfZ7vFna
+  
+  
+  
+  
+  
+  
+  
+  
+  

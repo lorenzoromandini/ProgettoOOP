@@ -10,6 +10,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import eu.univpm.TicketmasterEurope.exception.WrongValueException;
+import eu.univpm.TicketmasterEurope.stats.Stats;
 
 /**
  * @author Lorenzo Romandini
@@ -18,7 +19,7 @@ import eu.univpm.TicketmasterEurope.exception.WrongValueException;
  */
 public class SegmentFilter implements FilterInterface {
 	
-	Stats stats = new Stats();
+	Stats stats;
 	
 
 	public JSONArray OneMonth(Vector<String> countries, String value) throws WrongValueException {

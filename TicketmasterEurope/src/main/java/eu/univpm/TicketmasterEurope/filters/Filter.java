@@ -23,8 +23,6 @@ public class Filter {
 	
 	private String value;
 	
-	private LocalDate data = java.time.LocalDate.now();
-	
 	private int period;
 
 	
@@ -44,13 +42,12 @@ public class Filter {
 	 * @param data
 	 * @param period
 	 */
-	public Filter(Vector<String> countries, Vector<String> markets, String param, String value, LocalDate data, int period) {
+	public Filter(Vector<String> countries, Vector<String> markets, String param, String value, int period) {
 		super();
 		this.countries = countries;
 		this.markets = markets;
 		this.param = param;
 		this.value = value;
-		this.data = data;
 		this.period = period;
 	}
 	
@@ -61,9 +58,9 @@ public class Filter {
 		
 		if(period == 1) {
 			
-			else if (param.equals("marketId")) {
+			if (param.equals("marketId")) {
 				MarketFilter filter = new MarketFilter();
-				array = filter.OneMonth(markets, value);
+				array = filter.OneMonthCountryMarket(markets);
 			}
 			
 			else if (param.equals("segment")) {
@@ -88,16 +85,16 @@ public class Filter {
 				
 			}
 			
-		    else  throw new WrongParameterException (param + " non è un ammesso. Inserisci una stringa tra marketId, "
-                                                           + "segment, genre, subGenre, source");
+		    else throw new WrongParameterException (param + " non è un ammesso. Inserisci una stringa tra marketId, "
+                                                          + "segment, genre, subGenre, source");
 			
 		}
 			
-		if(period == 3) {
+		else if(period == 3) {
 			
-			else if (param.equals("marketId")) {
+			if (param.equals("marketId")) {
 				MarketFilter filter = new MarketFilter();
-				array = filter.ThreeMonths(markets, value);
+				array = filter.ThreeMonthsCountryMarket(markets);
 			}
 			
 			else if (param.equals("segment")) {
@@ -122,16 +119,16 @@ public class Filter {
 				
 			}
 			
-		    else  throw new WrongParameterException (param + " non è un ammesso. Inserisci una stringa tra marketId, "
-                                                           + "segment, genre, subGenre, source");
+		    else throw new WrongParameterException (param + " non è un ammesso. Inserisci una stringa tra marketId, "
+                                                          + "segment, genre, subGenre, source");
 			
 		}
 				
-		if(period == 6) {
+		else if(period == 6) {
 			
-			else if (param.equals("marketId")) {
+			if (param.equals("marketId")) {
 				MarketFilter filter = new MarketFilter();
-				array = filter.SixMonths(markets, value);
+				array = filter.SixMonthsCountryMarket(markets);
 			}
 			
 			else if (param.equals("segment")) {
@@ -156,16 +153,16 @@ public class Filter {
 				
 			}
 			
-		    else  throw new WrongParameterException (param + " non è un ammesso. Inserisci una stringa tra marketId, "
-		    		                                       + "segment, genre, subGenre, source");
+		    else throw new WrongParameterException (param + " non è un ammesso. Inserisci una stringa tra marketId, "
+		    		                                      + "segment, genre, subGenre, source");
 			
 		}
 		
-		if(period == 12) {
+		else if(period == 12) {
 			
-			else if (param.equals("marketId")) {
+			if (param.equals("marketId")) {
 				MarketFilter filter = new MarketFilter();
-				array = filter.TwelveMonths(markets, value);
+				array = filter.TwelveMonthsCountryMarket(markets);
 			}
 			
 			else if (param.equals("segment")) {
@@ -186,7 +183,7 @@ public class Filter {
 			
 			else if (param.equals("source")) {
 				SourceFilter filter = new SourceFilter();
-				array = filter.TwelveMonth(countries, value);
+				array = filter.TwelveMonths(countries, value);
 				
 			}
 			

@@ -9,19 +9,19 @@ import java.util.Vector;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import eu.univpm.TicketmasterEurope.exception.WrongValueException;
+import eu.univpm.TicketmasterEurope.stats.Stats;
 
 /**
  * @author Lorenzo Romandini
  * @author Nicholas Urbanelli
  *
  */
-public class MarketFilter implements FilterInterface {
+public class MarketFilter implements CountryMarketFilterInterface {
 	
-	Stats stats = new Stats();
+	Stats stats;
 	
 
-	public JSONArray OneMonth(Vector<String> markets, String value) throws WrongValueException {
+	public JSONArray OneMonthCountryMarket(Vector<String> markets)  {
 		
         JSONArray marketEvents = new JSONArray();
 		
@@ -41,7 +41,7 @@ public class MarketFilter implements FilterInterface {
 		while(it.hasNext()) {
 			
 			JSONObject object = new JSONObject();
-			object = stats.totalMarketEvents(it.next(), value);
+			object = stats.getMarketEvents(it.next(), 1);
 			marketVector.add(object);
 			int totalElements = object.getInt("totalElements");
 			totalEvents.add(totalElements);
@@ -75,10 +75,12 @@ public class MarketFilter implements FilterInterface {
 		
 		marketEvents.put(maxMarketEvents);
 		marketEvents.put(minMarketEvents);
+		
+		return marketEvents;
 
     }
 
-	public JSONArray ThreeMonths(Vector<String> markets, String value) throws WrongValueException {
+	public JSONArray ThreeMonthsCountryMarket(Vector<String> markets) {
 		
         JSONArray marketEvents = new JSONArray();
 		
@@ -98,7 +100,7 @@ public class MarketFilter implements FilterInterface {
 		while(it.hasNext()) {
 			
 			JSONObject object = new JSONObject();
-			object = stats.totalMarketEvents(it.next(), value);
+			object = stats.getMarketEvents(it.next(), 3);
 			marketVector.add(object);
 			int totalElements = object.getInt("totalElements");
 			totalEvents.add(totalElements);
@@ -133,9 +135,11 @@ public class MarketFilter implements FilterInterface {
 		marketEvents.put(maxMarketEvents);
 		marketEvents.put(minMarketEvents);
 		
+		return marketEvents;
+		
 	}
 
-	public JSONArray SixMonths(Vector<String> markets, String value) throws WrongValueException {
+	public JSONArray SixMonthsCountryMarket(Vector<String> markets) {
 		
         JSONArray marketEvents = new JSONArray();
 		
@@ -155,7 +159,7 @@ public class MarketFilter implements FilterInterface {
 		while(it.hasNext()) {
 			
 			JSONObject object = new JSONObject();
-			object = stats.totalMarketEvents(it.next(), value);
+			object = stats.getMarketEvents(it.next(), 6);
 			marketVector.add(object);
 			int totalElements = object.getInt("totalElements");
 			totalEvents.add(totalElements);
@@ -190,9 +194,11 @@ public class MarketFilter implements FilterInterface {
 		marketEvents.put(maxMarketEvents);
 		marketEvents.put(minMarketEvents);
 		
+		return marketEvents;
+		
 	}
 
-	public JSONArray TwelveMonths(Vector<String> markets, String value) throws WrongValueException {
+	public JSONArray TwelveMonthsCountryMarket(Vector<String> markets) {
 		
         JSONArray marketEvents = new JSONArray();
 		
@@ -212,7 +218,7 @@ public class MarketFilter implements FilterInterface {
 		while(it.hasNext()) {
 			
 			JSONObject object = new JSONObject();
-			object = stats.totalMarketEvents(it.next(), value);
+			object = stats.getMarketEvents(it.next(), 12);
 			marketVector.add(object);
 			int totalElements = object.getInt("totalElements");
 			totalEvents.add(totalElements);
@@ -247,7 +253,9 @@ public class MarketFilter implements FilterInterface {
 		marketEvents.put(maxMarketEvents);
 		marketEvents.put(minMarketEvents);
 		
+		return marketEvents;
+		
 	}
- 
-	
+
+
 }

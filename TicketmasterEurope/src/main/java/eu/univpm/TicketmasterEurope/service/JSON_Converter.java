@@ -161,7 +161,7 @@ public class JSON_Converter {
 	    
 		events.put("Events", array);
 		events.put("totalEvents", eventsArray.getTotalEvents());
-		events.put("showedEvents", eventsArray.getTotalEvents());
+		events.put("showedEvents", eventsArray.getShowedEvents());
 		
 		return events;
 		
