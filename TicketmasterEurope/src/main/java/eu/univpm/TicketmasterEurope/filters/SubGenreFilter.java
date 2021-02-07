@@ -22,7 +22,7 @@ public class SubGenreFilter implements FilterInterface {
 	Stats stats;
 	
 
-	public JSONArray OneMonth(Vector<String> countries, String value) throws WrongValueException {
+	public JSONArray OneMonth(Vector<String> countries, String subGenre) throws WrongValueException {
 		
 		JSONArray subGenreEvents = new JSONArray();
 		
@@ -42,7 +42,7 @@ public class SubGenreFilter implements FilterInterface {
 		while(it.hasNext()) {
 			
 			JSONObject object = new JSONObject();
-			object = stats.totalSubGenreEvents(it.next(), value);
+			object = stats.getSubGenreEvents(it.next(), subGenre, 1);
 			countryVector.add(object);
 			int totalElements = object.getInt("totalElements");
 			totalEvents.add(totalElements);
@@ -76,10 +76,12 @@ public class SubGenreFilter implements FilterInterface {
 		
 		subGenreEvents.put(maxCountryEvents);
 		subGenreEvents.put(minCountryEvents);
+		
+		return subGenreEvents;
 
     }
 
-	public JSONArray ThreeMonths(Vector<String> countries, String value) throws WrongValueException {
+	public JSONArray ThreeMonths(Vector<String> countries, String subGenre) throws WrongValueException {
 		
 		JSONArray subGenreEvents = new JSONArray();
 		
@@ -99,7 +101,7 @@ public class SubGenreFilter implements FilterInterface {
 		while(it.hasNext()) {
 			
 			JSONObject object = new JSONObject();
-			object = stats.totalSubGenreEvents(it.next(), value);
+			object = stats.getSubGenreEvents(it.next(), subGenre, 3);
 			countryVector.add(object);
 			int totalElements = object.getInt("totalElements");
 			totalEvents.add(totalElements);
@@ -134,9 +136,11 @@ public class SubGenreFilter implements FilterInterface {
 		subGenreEvents.put(maxCountryEvents);
 		subGenreEvents.put(minCountryEvents);
 		
+		return subGenreEvents;
+		
 	}
 
-	public JSONArray SixMonths(Vector<String> countries, String value) throws WrongValueException {
+	public JSONArray SixMonths(Vector<String> countries, String subGenre) throws WrongValueException {
 		
         JSONArray subGenreEvents = new JSONArray();
 		
@@ -156,7 +160,7 @@ public class SubGenreFilter implements FilterInterface {
 		while(it.hasNext()) {
 			
 			JSONObject object = new JSONObject();
-			object = stats.totalSubGenreEvents(it.next(), value);
+			object = stats.getSubGenreEvents(it.next(), subGenre, 6);
 			countryVector.add(object);
 			int totalElements = object.getInt("totalElements");
 			totalEvents.add(totalElements);
@@ -191,9 +195,11 @@ public class SubGenreFilter implements FilterInterface {
 		subGenreEvents.put(maxCountryEvents);
 		subGenreEvents.put(minCountryEvents);
 		
+		return subGenreEvents;
+		
 	}
 
-	public JSONArray TwelveMonths(Vector<String> countries, String value) throws WrongValueException {
+	public JSONArray TwelveMonths(Vector<String> countries, String subGenre) throws WrongValueException {
 		
         JSONArray subGenreEvents = new JSONArray();
 		
@@ -213,7 +219,7 @@ public class SubGenreFilter implements FilterInterface {
 		while(it.hasNext()) {
 			
 			JSONObject object = new JSONObject();
-			object = stats.totalSubGenreEvents(it.next(), value);
+			object = stats.getSubGenreEvents(it.next(), subGenre, 12);
 			countryVector.add(object);
 			int totalElements = object.getInt("totalElements");
 			totalEvents.add(totalElements);
@@ -248,6 +254,8 @@ public class SubGenreFilter implements FilterInterface {
 		subGenreEvents.put(maxCountryEvents);
 		subGenreEvents.put(minCountryEvents);
 		
+		return subGenreEvents;
+
 	}
  
 	

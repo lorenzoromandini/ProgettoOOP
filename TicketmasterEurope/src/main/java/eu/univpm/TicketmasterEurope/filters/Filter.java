@@ -3,7 +3,6 @@
  */
 package eu.univpm.TicketmasterEurope.filters;
 
-import java.time.LocalDate;
 import java.util.Vector;
 import org.json.JSONArray;
 
@@ -15,10 +14,8 @@ import eu.univpm.TicketmasterEurope.exception.*;
  */
 public class Filter {
 	
-	private Vector<String> countries = new Vector<String>();
-	
-	private Vector<String> markets = new Vector<String>();
-	
+	private Vector<String> countriesmarkets = new Vector<String>();
+		
 	private String param;
 	
 	private String value;
@@ -35,17 +32,15 @@ public class Filter {
 
 
 	/**
-	 * @param countries
-	 * @param markets
+	 * @param countriesmarkets
 	 * @param param
 	 * @param value
 	 * @param data
 	 * @param period
 	 */
-	public Filter(Vector<String> countries, Vector<String> markets, String param, String value, int period) {
-		super();
-		this.countries = countries;
-		this.markets = markets;
+	public Filter(Vector<String> countriesmarkets, String param, String value, int period) {
+		
+		this.countriesmarkets = countriesmarkets;
 		this.param = param;
 		this.value = value;
 		this.period = period;
@@ -58,30 +53,35 @@ public class Filter {
 		
 		if(period == 1) {
 			
-			if (param.equals("marketId")) {
+			if (param.equals("country")) {
+				CountryFilter filter = new CountryFilter();
+				array = filter.OneMonthCountryMarket(countriesmarkets);
+			}
+			
+			if (param.equals("market")) {
 				MarketFilter filter = new MarketFilter();
-				array = filter.OneMonthCountryMarket(markets);
+				array = filter.OneMonthCountryMarket(countriesmarkets);
 			}
 			
 			else if (param.equals("segment")) {
 				SegmentFilter filter = new SegmentFilter();
-				array = filter.OneMonth(countries, value);
+				array = filter.OneMonth(countriesmarkets, value);
 			} 
 			
 			else if (param.equals("genre")) {
 				GenreFilter filter = new GenreFilter();
-				array = filter.OneMonth(countries, value);
+				array = filter.OneMonth(countriesmarkets, value);
 			}
 			
 			else if (param.equals("subGenre")) {
 				SubGenreFilter filter = new SubGenreFilter();
-				array = filter.OneMonth(countries, value);
+				array = filter.OneMonth(countriesmarkets, value);
 				
             }
 			
 			else if (param.equals("source")) {
 				SourceFilter filter = new SourceFilter();
-				array = filter.OneMonth(countries, value);
+				array = filter.OneMonth(countriesmarkets, value);
 				
 			}
 			
@@ -92,30 +92,35 @@ public class Filter {
 			
 		else if(period == 3) {
 			
-			if (param.equals("marketId")) {
+			if (param.equals("country")) {
+				CountryFilter filter = new CountryFilter();
+				array = filter.OneMonthCountryMarket(countriesmarkets);
+			}
+			
+			if (param.equals("market")) {
 				MarketFilter filter = new MarketFilter();
-				array = filter.ThreeMonthsCountryMarket(markets);
+				array = filter.OneMonthCountryMarket(countriesmarkets);
 			}
 			
 			else if (param.equals("segment")) {
 				SegmentFilter filter = new SegmentFilter();
-				array = filter.ThreeMonths(countries, value);
+				array = filter.ThreeMonths(countriesmarkets, value);
 			}
 			
 			else if (param.equals("genre")) {
 				GenreFilter filter = new GenreFilter();
-				array = filter.ThreeMonths(countries, value);
+				array = filter.ThreeMonths(countriesmarkets, value);
 			}
 			
 			else if (param.equals("subGenre")) {
 				SubGenreFilter filter = new SubGenreFilter();
-				array = filter.ThreeMonths(countries, value);
+				array = filter.ThreeMonths(countriesmarkets, value);
 				
 			}
 			
 			else if (param.equals("source")) {
 				SourceFilter filter = new SourceFilter();
-				array = filter.ThreeMonths(countries, value);
+				array = filter.ThreeMonths(countriesmarkets, value);
 				
 			}
 			
@@ -126,30 +131,35 @@ public class Filter {
 				
 		else if(period == 6) {
 			
-			if (param.equals("marketId")) {
+			if (param.equals("country")) {
+				CountryFilter filter = new CountryFilter();
+				array = filter.OneMonthCountryMarket(countriesmarkets);
+			}
+			
+			if (param.equals("market")) {
 				MarketFilter filter = new MarketFilter();
-				array = filter.SixMonthsCountryMarket(markets);
+				array = filter.OneMonthCountryMarket(countriesmarkets);
 			}
 			
 			else if (param.equals("segment")) {
 				SegmentFilter filter = new SegmentFilter();
-				array = filter.SixMonths(countries, value);
+				array = filter.SixMonths(countriesmarkets, value);
 			}
 			
 			else if (param.equals("genre")) {
 				GenreFilter filter = new GenreFilter();
-				array = filter.SixMonths(countries, value);
+				array = filter.SixMonths(countriesmarkets, value);
 			}
 			
 			else if (param.equals("subGenre")) {
 				SubGenreFilter filter = new SubGenreFilter();
-				array = filter.SixMonths(countries, value);
+				array = filter.SixMonths(countriesmarkets, value);
 				
 			}
 			
 			else if (param.equals("source")) {
 				SourceFilter filter = new SourceFilter();
-				array = filter.SixMonths(countries, value);
+				array = filter.SixMonths(countriesmarkets, value);
 				
 			}
 			
@@ -160,30 +170,35 @@ public class Filter {
 		
 		else if(period == 12) {
 			
-			if (param.equals("marketId")) {
+			if (param.equals("country")) {
+				CountryFilter filter = new CountryFilter();
+				array = filter.OneMonthCountryMarket(countriesmarkets);
+			}
+			
+			if (param.equals("market")) {
 				MarketFilter filter = new MarketFilter();
-				array = filter.TwelveMonthsCountryMarket(markets);
+				array = filter.OneMonthCountryMarket(countriesmarkets);
 			}
 			
 			else if (param.equals("segment")) {
 				SegmentFilter filter = new SegmentFilter();
-				array = filter.TwelveMonths(countries, value);
+				array = filter.TwelveMonths(countriesmarkets, value);
 			}
 			
 			else if (param.equals("genre")) {
 				GenreFilter filter = new GenreFilter();
-				array = filter.TwelveMonths(countries, value);
+				array = filter.TwelveMonths(countriesmarkets, value);
 			}
 			
 			else if (param.equals("subGenre")) {
 				SubGenreFilter filter = new SubGenreFilter();
-				array = filter.TwelveMonths(countries, value);
+				array = filter.TwelveMonths(countriesmarkets, value);
 				
 			}
 			
 			else if (param.equals("source")) {
 				SourceFilter filter = new SourceFilter();
-				array = filter.TwelveMonths(countries, value);
+				array = filter.TwelveMonths(countriesmarkets, value);
 				
 			}
 			

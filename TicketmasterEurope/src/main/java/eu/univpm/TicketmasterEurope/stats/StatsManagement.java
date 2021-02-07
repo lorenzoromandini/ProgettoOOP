@@ -6,7 +6,7 @@ package eu.univpm.TicketmasterEurope.stats;
 import java.time.LocalDate;
 import java.util.Vector;
 
-import org.json.JSONArray;
+import org.json.JSONArray; 
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -94,7 +94,7 @@ public class StatsManagement implements Stats {
 		
 		JSONObject object = new JSONObject();
 		
-		object.put("Country: ", segment);
+		object.put("Country: ", countryCode);
 		object.put("totalEvents: ", totalElements);
 
 		return object;
@@ -176,50 +176,73 @@ public class StatsManagement implements Stats {
 
         String subGenreId = null;
 		
-		if (subGenre == "Alternative") subGenreId = "KnvZfZ7vAvv";
-		else if (subGenre == "Aquatics") subGenreId = "KnvZfZ7vAeI";
-		else if (subGenre == "Athletic Races") subGenreId = "KnvZfZ7vAet";
-		else if (subGenre == "Basketball") subGenreId = "KnvZfZ7vAde";
-		else if (subGenre == "Blues") subGenreId = "KnvZfZ7vAvd";
-		else if (subGenre == "Boxing") subGenreId = "KnvZfZ7vAdA";
-		else if (subGenre == "Children's Theatre") subGenreId = "KnvZfZ7v7na";
-		else if (subGenre == "Circus & Specialty Acts") subGenreId = "KnvZfZ7v7n1";
-		else if (subGenre == "Classical") subGenreId = "KnvZfZ7vAeJ";
-		else if (subGenre == "Comedy") subGenreId = "KnvZfZ7vAe1";
-		else if (subGenre == "Community/Civic") subGenreId = "KnvZfZ7vAAE";
-		else if (subGenre == "Country") subGenreId = "KnvZfZ7vAv6";
-		else if (subGenre == "Cricket") subGenreId = "KnvZfZ7vAdk";
-		else if (subGenre == "Cycling") subGenreId = "KnvZfZ7vAda";
-		else if (subGenre == "Dance") subGenreId = "KnvZfZ7v7nI";
-		else if (subGenre == "Dance/Electronic") subGenreId = "KnvZfZ7vAvF";
-		else if (subGenre == "Equestrian") subGenreId = "KnvZfZ7vAd1";
-		else if (subGenre == "Family") subGenreId = "KnvZfZ7vA1n";
-		else if (subGenre == "Fashion") subGenreId = "KnvZfZ7v7nn";
-		else if (subGenre == "Folk") subGenreId = "KnvZfZ7vAva";
-		else if (subGenre == "Hip-Hop/Rap") subGenreId = "KnvZfZ7vAv1";
-		else if (subGenre == "Hobby/Special Interest Expos") subGenreId = "KnvZfZ7vAAJ";
-		else if (subGenre == "Ice Shows") subGenreId = "KnvZfZ7v7lI";
-		else if (subGenre == "Jazz") subGenreId = "KnvZfZ7vAvE";
-		else if (subGenre == "Magic & Illusion") subGenreId = "KnvZfZ7v7lv";
-		else if (subGenre == "Martial Arts") subGenreId = "KnvZfZ7vA7d";
-		else if (subGenre == "Metal") subGenreId = "KnvZfZ7vAvt";
-		else if (subGenre == "Miscellaneous") subGenreId = "KnvZfZ7vA7A";
-		else if (subGenre == "Miscellaneous Theatre") subGenreId = "KnvZfZ7v7ld";
-		else if (subGenre == "Motorsports/Racing") subGenreId = "KnvZfZ7vA7k";
-		else if (subGenre == "Performance Art") subGenreId = "KnvZfZ7v7l6";
-		else if (subGenre == "Pop") subGenreId = "KnvZfZ7vAev";
-		else if (subGenre == "Reggae") subGenreId = "KnvZfZ7vAed";
-		else if (subGenre == "Rock") subGenreId = "KnvZfZ7vAeA";
-		else if (subGenre == "Rugby") subGenreId = "KnvZfZ7vA71";
-		else if (subGenre == "R&B") subGenreId = "KnvZfZ7vAee";
-		else if (subGenre == "Spectacular") subGenreId = "KnvZfZ7v7la";
-		else if (subGenre == "Theatre") subGenreId = "KnvZfZ7v7l1";
-		else if (subGenre == "Undefined") subGenreId = "KnvZfZ7v7ll";
-		else if (subGenre == "Variety") subGenreId = "KnvZfZ7v7lJ";
-		else if (subGenre == "Volleyball") subGenreId = "KnvZfZ7vAA7";
-		else if (subGenre == "World") subGenreId = "KnvZfZ7vAeF";
-		else if (subGenre == "Wrestling") subGenreId = "KnvZfZ7vAAk";
-		
+		if (subGenre == "Adult Contemporary") subGenreId = "KZazBEonSMnZfZ7vk1l";
+		else if (subGenre == "Alternative") subGenreId = "KZazBEonSMnZfZ7vAvJ";
+		else if (subGenre == "Alternative Rock") subGenreId = "KZazBEonSMnZfZ7v6dt";
+		else if (subGenre == "Aquatics") subGenreId = "KZazBEonSMnZfZ7vF1a";
+		else if (subGenre == "Athletic Races") subGenreId = "KZazBEonSMnZfZ7vF11";
+		else if (subGenre == "Blues") subGenreId = "KZazBEonSMnZfZ7vAAd";
+		else if (subGenre == "Blues-Rock") subGenreId = "KZazBEonSMnZfZ7v676";
+		else if (subGenre == "Boxing") subGenreId = "KZazBEonSMnZfZ7vFJJ";
+		else if (subGenre == "British Folk-Rock") subGenreId = "KZazBEonSMnZfZ7v671";
+		else if (subGenre == "Burlesque") subGenreId = "KZazBEonSMnZfZ7vaaE";
+		else if (subGenre == "Cabaret") subGenreId = "KZazBEonSMnZfZ7vAv7";
+		else if (subGenre == "Children's Theatre") subGenreId = "KZazBEonSMnZfZ7v7na";
+		else if (subGenre == "Circus") subGenreId = "KZazBEonSMnZfZ7v7n1";
+		else if (subGenre == "Classical/Vocal") subGenreId = "KZazBEonSMnZfZ7vF1A";
+		else if (subGenre == "Club Dance") subGenreId = "KZazBEonSMnZfZ7vAJ1";
+		else if (subGenre == "Comedy") subGenreId = "KZazBEonSMnZfZ7vF17";
+		else if (subGenre == "Community/Civic") subGenreId = "KZazBEonSMnZfZ7vFlv";
+		else if (subGenre == "Country") subGenreId = "KZazBEonSMnZfZ7vAFa";
+		else if (subGenre == "Cricket") subGenreId = "KZazBEonSMnZfZ7vFJE";
+		else if (subGenre == "Cycling") subGenreId = "KZazBEonSMnZfZ7vFEv";
+		else if (subGenre == "Dance") subGenreId = "KZazBEonSMnZfZ7v7nl";
+		else if (subGenre == "Disco") subGenreId = "KZazBEonSMnZfZ7vAJn";
+		else if (subGenre == "Drama") subGenreId = "KZazBEonSMnZfZ7v7lt";
+		else if (subGenre == "Dressage") subGenreId = "KZazBEonSMnZfZ7vFEe";
+		else if (subGenre == "Equestrian") subGenreId = "KZazBEonSMnZfZ7vFEd";
+		else if (subGenre == "European Pop") subGenreId = "KZazBEonSMnZfZ7v6At";
+		else if (subGenre == "Fashion") subGenreId = "KZazBEonSMnZfZ7v7le";
+		else if (subGenre == "Folk") subGenreId = "KZazBEonSMnZfZ7vAn7";
+		else if (subGenre == "French Rap") subGenreId = "KZazBEonSMnZfZ7vaa1";
+		else if (subGenre == "Hard Rock") subGenreId = "KZazBEonSMnZfZ7v6kl";
+		else if (subGenre == "Heavy Metal") subGenreId = "KZazBEonSMnZfZ7vkFd";
+		else if (subGenre == "Hobby/Special Interest Expos") subGenreId = "KZazBEonSMnZfZ7vFnl";
+		else if (subGenre == "Ice Shows") subGenreId = "KZazBEonSMnZfZ7vAv6";
+		else if (subGenre == "Indie Pop") subGenreId = "KZazBEonSMnZfZ7vkEk";
+		else if (subGenre == "Indie Rock") subGenreId = "KZazBEonSMnZfZ7vAde";
+		else if (subGenre == "Jazz") subGenreId = "KZazBEonSMnZfZ7vkda";
+		else if (subGenre == "Latin") subGenreId = "KZazBEonSMnZfZ7vFdJ";
+		else if (subGenre == "Magic") subGenreId = "KZazBEonSMnZfZ7v7l7";
+		else if (subGenre == "Men Professional") subGenreId = "KZazBEonSMnZfZ7vFJ6";
+		else if (subGenre == "Metalcore") subGenreId = "KZazBEonSMnZfZ7vaJk";
+		else if (subGenre == "Miscellaneous") subGenreId = "KZazBEonSMnZfZ7vFIt";
+		else if (subGenre == "Miscellaneous Theatre") subGenreId = "KZazBEonSMnZfZ7v7lk";
+		else if (subGenre == "Mixed Martial Arts") subGenreId = "KZazBEonSMnZfZ7vFIE";
+		else if (subGenre == "Musical") subGenreId = "KnvZfZ7v7l1";
+		else if (subGenre == "Nu-Metal") subGenreId = "KZazBEonSMnZfZ7vaJ6";
+		else if (subGenre == "Other") subGenreId = "KZazBEonSMnZfZ7vaav";
+		else if (subGenre == "Performance Art") subGenreId = "KZazBEonSMnZfZ7v7l1";
+		else if (subGenre == "Pop") subGenreId = "KZazBEonSMnZfZ7v6F1";
+		else if (subGenre == "Rap-Rock") subGenreId = "KZazBEonSMnZfZ7vkel";
+		else if (subGenre == "Reggae") subGenreId = "KZazBEonSMnZfZ7vknl";
+		else if (subGenre == "Rugby Union") subGenreId = "KZazBEonSMnZfZ7vFtJ";
+		else if (subGenre == "Rock") subGenreId = "KZazBEonSMnZfZ7v6da";
+		else if (subGenre == "Rock & Roll") subGenreId = "KZazBEonSMnZfZ7v6an";
+		else if (subGenre == "R&B") subGenreId = "KZazBEonSMnZfZ7vkIt";
+		else if (subGenre == "Scandinavia") subGenreId = "KZazBEonSMnZfZ7vF6E";
+		else if (subGenre == "Soul") subGenreId = "KZazBEonSMnZfZ7vknE";
+		else if (subGenre == "Southern Rock") subGenreId = "KZazBEonSMnZfZ7v61J";
+		else if (subGenre == "Spectacular") subGenreId = "KZazBEonSMnZfZ7v7lE";
+		else if (subGenre == "Undefined") subGenreId = "KZazBEonSMnZfZ7vAv1";
+		else if (subGenre == "Urban") subGenreId = "KZazBEonSMnZfZ7vkdA";
+		else if (subGenre == "Variety") subGenreId = "KZazBEonSMnZfZ7vAvA";
+		else if (subGenre == "Volleyball") subGenreId = "KZazBEonSMnZfZ7vFn6";
+		else if (subGenre == "Witchstep") subGenreId = "KZazBEonSMnZfZ7va1k";
+		else if (subGenre == "World") subGenreId = "KZazBEonSMnZfZ7v6Jt";
+		else if (subGenre == "Wrestling") subGenreId = "KZazBEonSMnZfZ7vFna";
+		else if (subGenre == "") subGenreId = "";
+
 		JSONObject subGenreEventsObject;
 		
 		String Url = "https://app.ticketmaster.com/discovery/v2/events?&countryCode="
@@ -230,6 +253,30 @@ public class StatsManagement implements Stats {
 		subGenreEventsObject = new JSONObject(restTemplate.getForObject(Url, String.class));
 		
 		JSONObject pageObject = subGenreEventsObject.getJSONObject("page");
+		int totalElements = pageObject.getInt("totalElements");
+		
+		JSONObject object = new JSONObject();
+		
+		object.put("Country: ", countryCode);
+		object.put("totalEvents: ", totalElements);
+
+		return object;
+		
+	}
+	
+	
+    public JSONObject getSourceEvents(String countryCode, String source, int period) {
+		
+		JSONObject sourceEventsObject;
+		
+		String Url = "https://app.ticketmaster.com/discovery/v2/events?&countryCode="
+	              + countryCode + "&source="+ source + "&=endDateTime" + datanow.plusMonths(period) + "&apikey="+ apikey;
+		
+		RestTemplate restTemplate = new RestTemplate();
+		
+		sourceEventsObject = new JSONObject(restTemplate.getForObject(Url, String.class));
+		
+		JSONObject pageObject = sourceEventsObject.getJSONObject("page");
 		int totalElements = pageObject.getInt("totalElements");
 		
 		JSONObject object = new JSONObject();

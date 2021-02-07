@@ -22,7 +22,7 @@ public class SegmentFilter implements FilterInterface {
 	Stats stats;
 	
 
-	public JSONArray OneMonth(Vector<String> countries, String value) throws WrongValueException {
+	public JSONArray OneMonth(Vector<String> countries, String segment) throws WrongValueException {
 		
 		JSONArray segmentEvents = new JSONArray();
 		
@@ -42,7 +42,7 @@ public class SegmentFilter implements FilterInterface {
 		while(it.hasNext()) {
 			
 			JSONObject object = new JSONObject();
-			object = stats.totalSegmentEvents(it.next(), value);
+			object = stats.getSegmentEvents(it.next(), segment, 1);
 			countryVector.add(object);
 			int totalElements = object.getInt("totalElements");
 			totalEvents.add(totalElements);
@@ -76,10 +76,12 @@ public class SegmentFilter implements FilterInterface {
 		
 		segmentEvents.put(maxCountryEvents);
 		segmentEvents.put(minCountryEvents);
+
+		return segmentEvents;
 
     }
 
-	public JSONArray ThreeMonths(Vector<String> countries, String value) throws WrongValueException {
+	public JSONArray ThreeMonths(Vector<String> countries, String segment) throws WrongValueException {
 		
 		JSONArray segmentEvents = new JSONArray();
 		
@@ -99,7 +101,7 @@ public class SegmentFilter implements FilterInterface {
 		while(it.hasNext()) {
 			
 			JSONObject object = new JSONObject();
-			object = stats.totalSegmentEvents(it.next(), value);
+			object = stats.getSegmentEvents(it.next(), segment, 3);
 			countryVector.add(object);
 			int totalElements = object.getInt("totalElements");
 			totalEvents.add(totalElements);
@@ -134,9 +136,11 @@ public class SegmentFilter implements FilterInterface {
 		segmentEvents.put(maxCountryEvents);
 		segmentEvents.put(minCountryEvents);
 		
+		return segmentEvents;
+		
 	}
 
-	public JSONArray SixMonths(Vector<String> countries, String value) throws WrongValueException {
+	public JSONArray SixMonths(Vector<String> countries, String segment) throws WrongValueException {
 		
         JSONArray segmentEvents = new JSONArray();
 		
@@ -156,7 +160,7 @@ public class SegmentFilter implements FilterInterface {
 		while(it.hasNext()) {
 			
 			JSONObject object = new JSONObject();
-			object = stats.totalSegmentEvents(it.next(), value);
+			object = stats.getSegmentEvents(it.next(), segment, 6);
 			countryVector.add(object);
 			int totalElements = object.getInt("totalElements");
 			totalEvents.add(totalElements);
@@ -191,9 +195,11 @@ public class SegmentFilter implements FilterInterface {
 		segmentEvents.put(maxCountryEvents);
 		segmentEvents.put(minCountryEvents);
 		
+		return segmentEvents;
+		
 	}
 
-	public JSONArray TwelveMonths(Vector<String> countries, String value) throws WrongValueException {
+	public JSONArray TwelveMonths(Vector<String> countries, String segment) throws WrongValueException {
 		
         JSONArray segmentEvents = new JSONArray();
 		
@@ -213,12 +219,12 @@ public class SegmentFilter implements FilterInterface {
 		while(it.hasNext()) {
 			
 			JSONObject object = new JSONObject();
-			object = stats.totalSegmentEvents(it.next(), value);
+			object = stats.getSegmentEvents(it.next(), segment, 12);
 			countryVector.add(object);
 			int totalElements = object.getInt("totalElements");
 			totalEvents.add(totalElements);
 			
-			JSONObject couple = new JSONObject();
+			JSONObject couple = new JSONObject(); 
 			couple.put("Country: ", countries.get(i));
 			couple.put("totalEvents: ", totalElements);
 			country_totalEvents.add(couple);
@@ -247,6 +253,8 @@ public class SegmentFilter implements FilterInterface {
 		
 		segmentEvents.put(maxCountryEvents);
 		segmentEvents.put(minCountryEvents);
+		
+		return segmentEvents;
 		
 	}
  
