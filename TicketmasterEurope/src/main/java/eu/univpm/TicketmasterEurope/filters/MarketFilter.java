@@ -27,7 +27,6 @@ public class MarketFilter implements CountryMarketFilterInterface {
 		
 		Vector<JSONObject> marketVector = new Vector<JSONObject>();
 		Vector<Integer> totalEvents = new Vector<Integer>();
-		Vector<JSONObject> market_totalEvents = new Vector<JSONObject>();
 		
 		Iterator<String> it = markets.iterator();
 		
@@ -49,7 +48,6 @@ public class MarketFilter implements CountryMarketFilterInterface {
 			JSONObject couple = new JSONObject();
 			couple.put("Market: ", markets.get(i));
 			couple.put("totalEvents: ", totalElements);
-			market_totalEvents.add(couple);
 			marketEvents.put(couple);
 			
 			if(totalElements <= minEvent) {
@@ -86,7 +84,6 @@ public class MarketFilter implements CountryMarketFilterInterface {
 		
 		Vector<JSONObject> marketVector = new Vector<JSONObject>();
 		Vector<Integer> totalEvents = new Vector<Integer>();
-		Vector<JSONObject> market_totalEvents = new Vector<JSONObject>();
 		
 		Iterator<String> it = markets.iterator();
 		
@@ -108,7 +105,6 @@ public class MarketFilter implements CountryMarketFilterInterface {
 			JSONObject couple = new JSONObject();
 			couple.put("Market: ", markets.get(i));
 			couple.put("totalEvents: ", totalElements);
-			market_totalEvents.add(couple);
 			marketEvents.put(couple);
 			
 			if(totalElements <= minEvent) {
@@ -145,7 +141,6 @@ public class MarketFilter implements CountryMarketFilterInterface {
 		
 		Vector<JSONObject> marketVector = new Vector<JSONObject>();
 		Vector<Integer> totalEvents = new Vector<Integer>();
-		Vector<JSONObject> market_totalEvents = new Vector<JSONObject>();
 		
 		Iterator<String> it = markets.iterator();
 		
@@ -167,7 +162,6 @@ public class MarketFilter implements CountryMarketFilterInterface {
 			JSONObject couple = new JSONObject();
 			couple.put("Market: ", markets.get(i));
 			couple.put("totalEvents: ", totalElements);
-			market_totalEvents.add(couple);
 			marketEvents.put(couple);
 			
 			if(totalElements <= minEvent) {
@@ -204,7 +198,6 @@ public class MarketFilter implements CountryMarketFilterInterface {
 		
 		Vector<JSONObject> marketVector = new Vector<JSONObject>();
 		Vector<Integer> totalEvents = new Vector<Integer>();
-		Vector<JSONObject> market_totalEvents = new Vector<JSONObject>();
 		
 		Iterator<String> it = markets.iterator();
 		
@@ -226,7 +219,6 @@ public class MarketFilter implements CountryMarketFilterInterface {
 			JSONObject couple = new JSONObject();
 			couple.put("Market: ", markets.get(i));
 			couple.put("totalEvents: ", totalElements);
-			market_totalEvents.add(couple);
 			marketEvents.put(couple);
 			
 			if(totalElements <= minEvent) {

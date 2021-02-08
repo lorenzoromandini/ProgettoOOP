@@ -4,14 +4,10 @@
 package eu.univpm.TicketmasterEurope.stats;
 
 import java.time.LocalDate;
-import java.util.Vector;
 
-import org.json.JSONArray; 
 import org.json.JSONObject;
-import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import eu.univpm.TicketmasterEurope.model.*;
 
 /** Questa classe è l'implementazione dell'interfaccia Stats
  * 
@@ -19,7 +15,7 @@ import eu.univpm.TicketmasterEurope.model.*;
  * @author Nicholas Urbanelli
  */
 
-
+ 
 public class StatsManagement implements Stats {
 	
 	private LocalDate datanow = java.time.LocalDate.now();
@@ -46,7 +42,7 @@ public class StatsManagement implements Stats {
 		
 		JSONObject object = new JSONObject();
 		
-		object.put("Country: ", countryCode);
+		object.put("country: ", countryCode);
 		object.put("totalEvents: ", totalElements);
 
 		return object;
@@ -70,7 +66,7 @@ public class StatsManagement implements Stats {
 		
 		JSONObject object = new JSONObject();
 		
-		object.put("Market: ", marketId);
+		object.put("market: ", marketId);
 		object.put("totalEvents: ", totalElements);
 
 		return object;
@@ -94,7 +90,8 @@ public class StatsManagement implements Stats {
 		
 		JSONObject object = new JSONObject();
 		
-		object.put("Country: ", countryCode);
+		object.put("country: ", countryCode);
+		object.put("segment", segment);
 		object.put("totalEvents: ", totalElements);
 
 		return object;
@@ -164,7 +161,8 @@ public class StatsManagement implements Stats {
 		
 		JSONObject object = new JSONObject();
 		
-		object.put("Country: ", countryCode);
+		object.put("country: ", countryCode);
+		object.put("genre", genre);
 		object.put("totalEvents: ", totalElements);
 
 		return object;
@@ -257,7 +255,8 @@ public class StatsManagement implements Stats {
 		
 		JSONObject object = new JSONObject();
 		
-		object.put("Country: ", countryCode);
+		object.put("country: ", countryCode);
+		object.put("subgenre", subGenre);
 		object.put("totalEvents: ", totalElements);
 
 		return object;
@@ -281,7 +280,8 @@ public class StatsManagement implements Stats {
 		
 		JSONObject object = new JSONObject();
 		
-		object.put("Country: ", countryCode);
+		object.put("country: ", countryCode);
+		object.put("source", source);
 		object.put("totalEvents: ", totalElements);
 
 		return object;

@@ -28,7 +28,6 @@ public class GenreFilter implements FilterInterface {
 		
 		Vector<JSONObject> countryVector = new Vector<JSONObject>();
 		Vector<Integer> totalEvents = new Vector<Integer>();
-		Vector<JSONObject> country_totalEvents = new Vector<JSONObject>();
 		
 		Iterator<String> it = countries.iterator();
 		
@@ -50,7 +49,6 @@ public class GenreFilter implements FilterInterface {
 			JSONObject couple = new JSONObject();
 			couple.put("Country: ", countries.get(i));
 			couple.put("totalEvents: ", totalElements);
-			country_totalEvents.add(couple);
 			genreEvents.put(couple);
 			
 			if(totalElements <= minEvent) {
@@ -87,7 +85,6 @@ public class GenreFilter implements FilterInterface {
 		
 		Vector<JSONObject> countryVector = new Vector<JSONObject>();
 		Vector<Integer> totalEvents = new Vector<Integer>();
-		Vector<JSONObject> country_totalEvents = new Vector<JSONObject>();
 		
 		Iterator<String> it = countries.iterator();
 		
@@ -109,7 +106,6 @@ public class GenreFilter implements FilterInterface {
 			JSONObject couple = new JSONObject();
 			couple.put("Country: ", countries.get(i));
 			couple.put("totalEvents: ", totalElements);
-			country_totalEvents.add(couple);
 			genreEvents.put(couple);
 			
 			if(totalElements <= minEvent) {
@@ -147,7 +143,6 @@ public class GenreFilter implements FilterInterface {
 		
 		Vector<JSONObject> countryVector = new Vector<JSONObject>();
 		Vector<Integer> totalEvents = new Vector<Integer>();
-		Vector<JSONObject> country_totalEvents = new Vector<JSONObject>();
 		
 		Iterator<String> it = countries.iterator();
 		
@@ -169,7 +164,6 @@ public class GenreFilter implements FilterInterface {
 			JSONObject couple = new JSONObject();
 			couple.put("Country: ", countries.get(i));
 			couple.put("totalEvents: ", totalElements);
-			country_totalEvents.add(couple);
 			genreEvents.put(couple);
 			
 			if(totalElements <= minEvent) {
@@ -206,7 +200,6 @@ public class GenreFilter implements FilterInterface {
 		
 		Vector<JSONObject> countryVector = new Vector<JSONObject>();
 		Vector<Integer> totalEvents = new Vector<Integer>();
-		Vector<JSONObject> country_totalEvents = new Vector<JSONObject>();
 		
 		Iterator<String> it = countries.iterator();
 		
@@ -228,7 +221,6 @@ public class GenreFilter implements FilterInterface {
 			JSONObject couple = new JSONObject();
 			couple.put("Country: ", countries.get(i));
 			couple.put("totalEvents: ", totalElements);
-			country_totalEvents.add(couple);
 			genreEvents.put(couple);
 			
 			if(totalElements <= minEvent) {

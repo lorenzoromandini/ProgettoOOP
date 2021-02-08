@@ -28,7 +28,6 @@ public class SourceFilter implements FilterInterface {
 		
 		Vector<JSONObject> countryVector = new Vector<JSONObject>();
 		Vector<Integer> totalEvents = new Vector<Integer>();
-		Vector<JSONObject> country_totalEvents = new Vector<JSONObject>();
 		
 		Iterator<String> it = countries.iterator();
 		
@@ -50,11 +49,10 @@ public class SourceFilter implements FilterInterface {
 			JSONObject couple = new JSONObject();
 			couple.put("Country: ", countries.get(i));
 			couple.put("totalEvents: ", totalElements);
-			country_totalEvents.add(couple);
 			sourceEvents.put(couple);
 			
 			if(totalElements <= minEvent) {
-				minEvent=totalElements;
+				minEvent = totalElements;
 				minCountry = countries.get(i);
 			}
 			
@@ -87,7 +85,6 @@ public class SourceFilter implements FilterInterface {
 		
 		Vector<JSONObject> countryVector = new Vector<JSONObject>();
 		Vector<Integer> totalEvents = new Vector<Integer>();
-		Vector<JSONObject> country_totalEvents = new Vector<JSONObject>();
 		
 		Iterator<String> it = countries.iterator();
 		
@@ -109,11 +106,10 @@ public class SourceFilter implements FilterInterface {
 			JSONObject couple = new JSONObject();
 			couple.put("Country: ", countries.get(i));
 			couple.put("totalEvents: ", totalElements);
-			country_totalEvents.add(couple);
 			sourceEvents.put(couple);
 			
 			if(totalElements <= minEvent) {
-				minEvent=totalElements;
+				minEvent = totalElements;
 				minCountry = countries.get(i);
 			}
 			
@@ -147,7 +143,6 @@ public class SourceFilter implements FilterInterface {
 		
 		Vector<JSONObject> countryVector = new Vector<JSONObject>();
 		Vector<Integer> totalEvents = new Vector<Integer>();
-		Vector<JSONObject> country_totalEvents = new Vector<JSONObject>();
 		
 		Iterator<String> it = countries.iterator();
 		
@@ -169,11 +164,10 @@ public class SourceFilter implements FilterInterface {
 			JSONObject couple = new JSONObject();
 			couple.put("Country: ", countries.get(i));
 			couple.put("totalEvents: ", totalElements);
-			country_totalEvents.add(couple);
 			sourceEvents.put(couple);
 			
 			if(totalElements <= minEvent) {
-				minEvent=totalElements;
+				minEvent = totalElements;
 				minCountry = countries.get(i);
 			}
 			
@@ -206,7 +200,6 @@ public class SourceFilter implements FilterInterface {
 		
 		Vector<JSONObject> countryVector = new Vector<JSONObject>();
 		Vector<Integer> totalEvents = new Vector<Integer>();
-		Vector<JSONObject> country_totalEvents = new Vector<JSONObject>();
 		
 		Iterator<String> it = countries.iterator();
 		
@@ -228,7 +221,6 @@ public class SourceFilter implements FilterInterface {
 			JSONObject couple = new JSONObject();
 			couple.put("Country: ", countries.get(i));
 			couple.put("totalEvents: ", totalElements);
-			country_totalEvents.add(couple);
 			sourceEvents.put(couple);
 			
 			if(totalElements <= minEvent) {
