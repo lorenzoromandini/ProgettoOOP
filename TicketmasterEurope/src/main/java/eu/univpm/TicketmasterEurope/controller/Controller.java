@@ -83,9 +83,9 @@ public class Controller {
 		
 		JSONObject object = new JSONObject(body);
         JSONArray array = new JSONArray();
-        String comparison;
         
-        comparison = object.getString("comparison");
+        String comparison = object.getString("comparison");
+        
         array = object.getJSONArray("elements");
         
         Vector<String> elements = new Vector<String>(array.length());
