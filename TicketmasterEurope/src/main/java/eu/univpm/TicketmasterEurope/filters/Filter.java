@@ -447,5 +447,3 @@ public class Filter {
 	
 	
 }
-		
-		

@@ -255,4 +255,3 @@ public class GenreComparison implements FilterInterface {
  
 	
 }
-

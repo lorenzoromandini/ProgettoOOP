@@ -253,4 +253,3 @@ public class GenreFilter implements FilterInterface {
  
 	
 }
-

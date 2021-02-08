@@ -252,4 +252,3 @@ public class SubGenreFilter implements FilterInterface {
  
 	
 }
-

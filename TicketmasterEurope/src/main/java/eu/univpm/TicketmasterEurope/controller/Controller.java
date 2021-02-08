@@ -21,7 +21,6 @@ import eu.univpm.TicketmasterEurope.service.*;
 import eu.univpm.TicketmasterEurope.exception.*;
 import eu.univpm.TicketmasterEurope.filters.Filter;
 import eu.univpm.TicketmasterEurope.model.*;
-import eu.univpm.TicketmasterEurope.stats.*;
 
 /**
  * @author Lorenzo Romandini
@@ -34,8 +33,6 @@ public class Controller {
 	
 	@Autowired
 	Service service;
-	
-	Stats stats;
 	
 	
 	@GetMapping(value = "/countryEvents") 
