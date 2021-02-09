@@ -11,6 +11,7 @@ import org.json.JSONObject;
 
 import eu.univpm.TicketmasterEurope.exception.WrongValueException;
 import eu.univpm.TicketmasterEurope.stats.Stats;
+import eu.univpm.TicketmasterEurope.stats.StatsManagement;
 
 /**
  * @author Lorenzo Romandini
@@ -19,15 +20,12 @@ import eu.univpm.TicketmasterEurope.stats.Stats;
  */
 public class SubGenreComparison implements FilterInterface {
 	
-	Stats stats;
+	Stats stats = new StatsManagement();
 	
 
 	public JSONArray OneMonth(Vector<String> subGenres, String country) throws WrongValueException {
 		
 		JSONArray subGenreEvents = new JSONArray();
-		
-		Vector<JSONObject> subGenreVector = new Vector<JSONObject>();
-		Vector<Integer> totalEvents = new Vector<Integer>();
 		
 		Iterator<String> it = subGenres.iterator();
 		
@@ -42,12 +40,10 @@ public class SubGenreComparison implements FilterInterface {
 			
 			JSONObject object = new JSONObject();
 			object = stats.getSubGenreEvents(country, it.next(), 1);
-			subGenreVector.add(object);
-			int totalElements = object.getInt("totalElements");
-			totalEvents.add(totalElements);
+			int totalElements = object.getInt("totalEvents");
 			
 			JSONObject couple = new JSONObject();
-			couple.put("Country: ", subGenres.get(i));
+			couple.put("subGenre: ", subGenres.get(i));
 			couple.put("totalEvents: ", totalElements);
 			subGenreEvents.put(couple);
 			
@@ -84,9 +80,6 @@ public class SubGenreComparison implements FilterInterface {
 		
         JSONArray subGenreEvents = new JSONArray();
 		
-		Vector<JSONObject> subGenreVector = new Vector<JSONObject>();
-		Vector<Integer> totalEvents = new Vector<Integer>();
-		
 		Iterator<String> it = subGenres.iterator();
 		
 		int i = 0;
@@ -100,12 +93,10 @@ public class SubGenreComparison implements FilterInterface {
 			
 			JSONObject object = new JSONObject();
 			object = stats.getSubGenreEvents(country, it.next(), 3);
-			subGenreVector.add(object);
-			int totalElements = object.getInt("totalElements");
-			totalEvents.add(totalElements);
+			int totalElements = object.getInt("totalEvents");
 			
 			JSONObject couple = new JSONObject();
-			couple.put("Country: ", subGenres.get(i));
+			couple.put("subGenre: ", subGenres.get(i));
 			couple.put("totalEvents: ", totalElements);
 			subGenreEvents.put(couple);
 			
@@ -142,9 +133,6 @@ public class SubGenreComparison implements FilterInterface {
 		
         JSONArray subGenreEvents = new JSONArray();
 		
-		Vector<JSONObject> subGenreVector = new Vector<JSONObject>();
-		Vector<Integer> totalEvents = new Vector<Integer>();
-		
 		Iterator<String> it = subGenres.iterator();
 		
 		int i = 0;
@@ -158,12 +146,10 @@ public class SubGenreComparison implements FilterInterface {
 			
 			JSONObject object = new JSONObject();
 			object = stats.getSubGenreEvents(country, it.next(), 6);
-			subGenreVector.add(object);
-			int totalElements = object.getInt("totalElements");
-			totalEvents.add(totalElements);
+			int totalElements = object.getInt("totalEvents");
 			
 			JSONObject couple = new JSONObject();
-			couple.put("Country: ", subGenres.get(i));
+			couple.put("subGenre: ", subGenres.get(i));
 			couple.put("totalEvents: ", totalElements);
 			subGenreEvents.put(couple);
 			
@@ -200,9 +186,6 @@ public class SubGenreComparison implements FilterInterface {
 		
         JSONArray subGenreEvents = new JSONArray();
 		
-		Vector<JSONObject> subGenreVector = new Vector<JSONObject>();
-		Vector<Integer> totalEvents = new Vector<Integer>();
-		
 		Iterator<String> it = subGenres.iterator();
 		
 		int i = 0;
@@ -216,12 +199,10 @@ public class SubGenreComparison implements FilterInterface {
 			
 			JSONObject object = new JSONObject();
 			object = stats.getSubGenreEvents(country, it.next(), 12);
-			subGenreVector.add(object);
-			int totalElements = object.getInt("totalElements");
-			totalEvents.add(totalElements);
+			int totalElements = object.getInt("totalEvents");
 			
 			JSONObject couple = new JSONObject();
-			couple.put("Country: ", subGenres.get(i));
+			couple.put("subGenre: ", subGenres.get(i));
 			couple.put("totalEvents: ", totalElements);
 			subGenreEvents.put(couple);
 			

@@ -45,7 +45,7 @@ public class Controller {
 		
 		obj = jsonconverter.JSON_converter(eventsArray);
 		
-		return new ResponseEntity<> (obj.toString(), HttpStatus.OK);
+		return new ResponseEntity<>(obj.toString(), HttpStatus.OK);
     }
 	
 	
@@ -75,7 +75,7 @@ public class Controller {
     }
 	
 	
-	@PostMapping("/filters")
+	@PostMapping(value = "/filters")
 	public ResponseEntity<Object> filters(@RequestBody String body) throws WrongComparisonException, WrongPeriodException, WrongValueException, WrongParameterException {
 		
 		JSONObject object = new JSONObject(body);

@@ -11,6 +11,7 @@ import org.json.JSONObject;
 
 import eu.univpm.TicketmasterEurope.exception.WrongValueException;
 import eu.univpm.TicketmasterEurope.stats.Stats;
+import eu.univpm.TicketmasterEurope.stats.StatsManagement;
 
 /**
  * @author Lorenzo Romandini
@@ -19,15 +20,12 @@ import eu.univpm.TicketmasterEurope.stats.Stats;
  */
 public class SegmentComparison implements FilterInterface {
 	
-	Stats stats;
+	Stats stats = new StatsManagement();
 	
 
 	public JSONArray OneMonth(Vector<String> segments, String country) throws WrongValueException {
 		
 		JSONArray segmentEvents = new JSONArray();
-		
-		Vector<JSONObject> segmentVector = new Vector<JSONObject>();
-		Vector<Integer> totalEvents = new Vector<Integer>();
 		
 		Iterator<String> it = segments.iterator();
 		
@@ -42,12 +40,10 @@ public class SegmentComparison implements FilterInterface {
 			
 			JSONObject object = new JSONObject();
 			object = stats.getSegmentEvents(country, it.next(), 1);
-			segmentVector.add(object);
-			int totalElements = object.getInt("totalElements");
-			totalEvents.add(totalElements);
+			int totalElements = object.getInt("totalEvents");
 			
 			JSONObject couple = new JSONObject();
-			couple.put("Country: ", segments.get(i));
+			couple.put("segment: ", segments.get(i));
 			couple.put("totalEvents: ", totalElements);
 			segmentEvents.put(couple);
 			
@@ -84,9 +80,6 @@ public class SegmentComparison implements FilterInterface {
 		
         JSONArray segmentEvents = new JSONArray();
 		
-		Vector<JSONObject> segmentVector = new Vector<JSONObject>();
-		Vector<Integer> totalEvents = new Vector<Integer>();
-		
 		Iterator<String> it = segments.iterator();
 		
 		int i = 0;
@@ -100,12 +93,10 @@ public class SegmentComparison implements FilterInterface {
 			
 			JSONObject object = new JSONObject();
 			object = stats.getSegmentEvents(country, it.next(), 3);
-			segmentVector.add(object);
-			int totalElements = object.getInt("totalElements");
-			totalEvents.add(totalElements);
+			int totalElements = object.getInt("totalEvents");
 			
 			JSONObject couple = new JSONObject();
-			couple.put("Country: ", segments.get(i));
+			couple.put("segment: ", segments.get(i));
 			couple.put("totalEvents: ", totalElements);
 			segmentEvents.put(couple);
 			
@@ -142,9 +133,6 @@ public class SegmentComparison implements FilterInterface {
 		
         JSONArray segmentEvents = new JSONArray();
 		
-		Vector<JSONObject> segmentVector = new Vector<JSONObject>();
-		Vector<Integer> totalEvents = new Vector<Integer>();
-		
 		Iterator<String> it = segments.iterator();
 		
 		int i = 0;
@@ -158,12 +146,10 @@ public class SegmentComparison implements FilterInterface {
 			
 			JSONObject object = new JSONObject();
 			object = stats.getSegmentEvents(country, it.next(), 6);
-			segmentVector.add(object);
-			int totalElements = object.getInt("totalElements");
-			totalEvents.add(totalElements);
+			int totalElements = object.getInt("totalEvents");
 			
 			JSONObject couple = new JSONObject();
-			couple.put("Country: ", segments.get(i));
+			couple.put("segment: ", segments.get(i));
 			couple.put("totalEvents: ", totalElements);
 			segmentEvents.put(couple);
 			
@@ -200,9 +186,6 @@ public class SegmentComparison implements FilterInterface {
 		
         JSONArray segmentEvents = new JSONArray();
 		
-		Vector<JSONObject> segmentVector = new Vector<JSONObject>();
-		Vector<Integer> totalEvents = new Vector<Integer>();
-		
 		Iterator<String> it = segments.iterator();
 		
 		int i = 0;
@@ -216,12 +199,10 @@ public class SegmentComparison implements FilterInterface {
 			
 			JSONObject object = new JSONObject();
 			object = stats.getSegmentEvents(country, it.next(), 12);
-			segmentVector.add(object);
-			int totalElements = object.getInt("totalElements");
-			totalEvents.add(totalElements);
+			int totalElements = object.getInt("totalEvents");
 			
 			JSONObject couple = new JSONObject();
-			couple.put("Country: ", segments.get(i));
+			couple.put("segment: ", segments.get(i));
 			couple.put("totalEvents: ", totalElements);
 			segmentEvents.put(couple);
 			

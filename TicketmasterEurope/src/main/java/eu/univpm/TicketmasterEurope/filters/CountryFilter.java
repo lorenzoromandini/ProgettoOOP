@@ -10,24 +10,24 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import eu.univpm.TicketmasterEurope.stats.Stats;
+import eu.univpm.TicketmasterEurope.stats.StatsManagement;
 
 /**
  * @author Lorenzo Romandini
  * @author Nicholas Urbanelli
  *
  */
+
 public class CountryFilter implements CountryMarketFilterInterface {
 	
-	Stats stats;
 	
-
+	Stats stats = new StatsManagement();
+	
+	
 	public JSONArray OneMonthCountryMarket(Vector<String> countries)  {
 		
         JSONArray countryEvents = new JSONArray();
-		
-		Vector<JSONObject> countryVector = new Vector<JSONObject>();
-		Vector<Integer> totalEvents = new Vector<Integer>();
-		
+				
 		Iterator<String> it = countries.iterator();
 		
 		int i = 0;
@@ -36,18 +36,17 @@ public class CountryFilter implements CountryMarketFilterInterface {
 		String minCountry = null;
 		int maxEvent = 0;
 		int minEvent = 999999;
-		
+				
 		while(it.hasNext()) {
 			
 			JSONObject object = new JSONObject();
 			object = stats.getCountryEvents(it.next(), 1);
-			countryVector.add(object);
-			int totalElements = object.getInt("totalElements");
-			totalEvents.add(totalElements);
+			int totalElements = object.getInt("totalEvents");
 			
 			JSONObject couple = new JSONObject();
-			couple.put("Country: ", countries.get(i));
+			couple.put("country: ", countries.get(i));
 			couple.put("totalEvents: ", totalElements);
+			
 			countryEvents.put(couple);
 			
 			if(totalElements <= minEvent) {
@@ -75,15 +74,13 @@ public class CountryFilter implements CountryMarketFilterInterface {
 		countryEvents.put(minCountryEvents);
 		
 		return countryEvents;
-
-    }
+		
+		}
+    
 
 	public JSONArray ThreeMonthsCountryMarket(Vector<String> countries) {
 		
         JSONArray countryEvents = new JSONArray();
-		
-		Vector<JSONObject> countryVector = new Vector<JSONObject>();
-		Vector<Integer> totalEvents = new Vector<Integer>();
 		
 		Iterator<String> it = countries.iterator();
 		
@@ -98,12 +95,10 @@ public class CountryFilter implements CountryMarketFilterInterface {
 			
 			JSONObject object = new JSONObject();
 			object = stats.getCountryEvents(it.next(), 3);
-			countryVector.add(object);
 			int totalElements = object.getInt("totalElements");
-			totalEvents.add(totalElements);
 			
 			JSONObject couple = new JSONObject();
-			couple.put("Country: ", countries.get(i));
+			couple.put("country: ", countries.get(i));
 			couple.put("totalEvents: ", totalElements);
 			countryEvents.put(couple);
 			
@@ -139,9 +134,6 @@ public class CountryFilter implements CountryMarketFilterInterface {
 		
         JSONArray countryEvents = new JSONArray();
 		
-		Vector<JSONObject> countryVector = new Vector<JSONObject>();
-		Vector<Integer> totalEvents = new Vector<Integer>();
-		
 		Iterator<String> it = countries.iterator();
 		
 		int i = 0;
@@ -155,12 +147,10 @@ public class CountryFilter implements CountryMarketFilterInterface {
 			
 			JSONObject object = new JSONObject();
 			object = stats.getCountryEvents(it.next(), 6);
-			countryVector.add(object);
 			int totalElements = object.getInt("totalElements");
-			totalEvents.add(totalElements);
 			
 			JSONObject couple = new JSONObject();
-			couple.put("Country: ", countries.get(i));
+			couple.put("country: ", countries.get(i));
 			couple.put("totalEvents: ", totalElements);
 			countryEvents.put(couple);
 			
@@ -196,9 +186,6 @@ public class CountryFilter implements CountryMarketFilterInterface {
 		
         JSONArray countryEvents = new JSONArray();
 		
-		Vector<JSONObject> countryVector = new Vector<JSONObject>();
-		Vector<Integer> totalEvents = new Vector<Integer>();
-		
 		Iterator<String> it = countries.iterator();
 		
 		int i = 0;
@@ -212,12 +199,10 @@ public class CountryFilter implements CountryMarketFilterInterface {
 			
 			JSONObject object = new JSONObject();
 			object = stats.getCountryEvents(it.next(), 12);
-			countryVector.add(object);
 			int totalElements = object.getInt("totalElements");
-			totalEvents.add(totalElements);
 			
 			JSONObject couple = new JSONObject();
-			couple.put("Country: ", countries.get(i));
+			couple.put("country: ", countries.get(i));
 			couple.put("totalEvents: ", totalElements);
 			countryEvents.put(couple);
 			

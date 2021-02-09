@@ -101,7 +101,7 @@ public class ServiceManagement implements eu.univpm.TicketmasterEurope.service.S
 				e.printStackTrace();
 			}
 			
-			Dealer dealer = new Dealer();			//creo un ogetto di tipo informations
+			Dealer dealer = new Dealer();			//creo un ogetto di tipo Dealer
 			String url = object.getString("url");
 			String source = null;
 			if(url.contains("universe")) source = "universe";
@@ -120,13 +120,13 @@ public class ServiceManagement implements eu.univpm.TicketmasterEurope.service.S
 				e.printStackTrace();
 			}
 			
-			Date data = new Date();        //creo un nuovo oggetto di tipo date
+			Date data = new Date();        //creo un nuovo oggetto di tipo Date
 			
 			try {
 				
 			JSONObject datesObject = object.getJSONObject("dates");               //creo un JSONArray che corrisponde all'array "dates"
 			JSONObject startDateObject = datesObject.getJSONObject("start");      //creo un JSONArray che corrisponde all'array "start"	
-			data.setDataInizio(startDateObject.getString("localDate"));		          //setto la data della data con la stringa che corrisponde a "localDate"
+			data.setDataInizio(startDateObject.getString("localDate"));		      //setto la data della data con la stringa che corrisponde a "localDate"
 			data.setOrarioInizio(startDateObject.getString("localTime"));         //setto l'orario della data con la stringa che corrisponde a "localTime"			
 			
 			} catch(Exception e) {

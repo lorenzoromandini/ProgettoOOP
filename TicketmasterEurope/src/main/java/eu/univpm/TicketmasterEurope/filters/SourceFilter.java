@@ -11,6 +11,7 @@ import org.json.JSONObject;
 
 import eu.univpm.TicketmasterEurope.exception.WrongValueException;
 import eu.univpm.TicketmasterEurope.stats.Stats;
+import eu.univpm.TicketmasterEurope.stats.StatsManagement;
 
 /**
  * @author Lorenzo Romandini
@@ -19,15 +20,12 @@ import eu.univpm.TicketmasterEurope.stats.Stats;
  */
 public class SourceFilter implements FilterInterface {
 	
-	Stats stats;
+	Stats stats = new StatsManagement();
 	
 
 	public JSONArray OneMonth(Vector<String> countries, String source) throws WrongValueException {
 		
 		JSONArray sourceEvents = new JSONArray();
-		
-		Vector<JSONObject> countryVector = new Vector<JSONObject>();
-		Vector<Integer> totalEvents = new Vector<Integer>();
 		
 		Iterator<String> it = countries.iterator();
 		
@@ -42,12 +40,10 @@ public class SourceFilter implements FilterInterface {
 			
 			JSONObject object = new JSONObject();
 			object = stats.getSourceEvents(it.next(), source, 1);
-			countryVector.add(object);
-			int totalElements = object.getInt("totalElements");
-			totalEvents.add(totalElements);
+			int totalElements = object.getInt("totalEvents");
 			
 			JSONObject couple = new JSONObject();
-			couple.put("Country: ", countries.get(i));
+			couple.put("country: ", countries.get(i));
 			couple.put("totalEvents: ", totalElements);
 			sourceEvents.put(couple);
 			
@@ -83,9 +79,6 @@ public class SourceFilter implements FilterInterface {
 		
         JSONArray sourceEvents = new JSONArray();
 		
-		Vector<JSONObject> countryVector = new Vector<JSONObject>();
-		Vector<Integer> totalEvents = new Vector<Integer>();
-		
 		Iterator<String> it = countries.iterator();
 		
 		int i = 0;
@@ -99,12 +92,10 @@ public class SourceFilter implements FilterInterface {
 			
 			JSONObject object = new JSONObject();
 			object = stats.getSourceEvents(it.next(), source, 3);
-			countryVector.add(object);
-			int totalElements = object.getInt("totalElements");
-			totalEvents.add(totalElements);
+			int totalElements = object.getInt("totalEvents");
 			
 			JSONObject couple = new JSONObject();
-			couple.put("Country: ", countries.get(i));
+			couple.put("country: ", countries.get(i));
 			couple.put("totalEvents: ", totalElements);
 			sourceEvents.put(couple);
 			
@@ -141,9 +132,6 @@ public class SourceFilter implements FilterInterface {
 		
         JSONArray sourceEvents = new JSONArray();
 		
-		Vector<JSONObject> countryVector = new Vector<JSONObject>();
-		Vector<Integer> totalEvents = new Vector<Integer>();
-		
 		Iterator<String> it = countries.iterator();
 		
 		int i = 0;
@@ -157,12 +145,10 @@ public class SourceFilter implements FilterInterface {
 			
 			JSONObject object = new JSONObject();
 			object = stats.getSourceEvents(it.next(), source, 6);
-			countryVector.add(object);
-			int totalElements = object.getInt("totalElements");
-			totalEvents.add(totalElements);
+			int totalElements = object.getInt("totalEvents");
 			
 			JSONObject couple = new JSONObject();
-			couple.put("Country: ", countries.get(i));
+			couple.put("country: ", countries.get(i));
 			couple.put("totalEvents: ", totalElements);
 			sourceEvents.put(couple);
 			
@@ -198,9 +184,6 @@ public class SourceFilter implements FilterInterface {
 		
         JSONArray sourceEvents = new JSONArray();
 		
-		Vector<JSONObject> countryVector = new Vector<JSONObject>();
-		Vector<Integer> totalEvents = new Vector<Integer>();
-		
 		Iterator<String> it = countries.iterator();
 		
 		int i = 0;
@@ -214,12 +197,10 @@ public class SourceFilter implements FilterInterface {
 			
 			JSONObject object = new JSONObject();
 			object = stats.getSourceEvents(it.next(), source, 12);
-			countryVector.add(object);
-			int totalElements = object.getInt("totalElements");
-			totalEvents.add(totalElements);
+			int totalElements = object.getInt("totalEvents");
 			
 			JSONObject couple = new JSONObject();
-			couple.put("Country: ", countries.get(i));
+			couple.put("country: ", countries.get(i));
 			couple.put("totalEvents: ", totalElements);
 			sourceEvents.put(couple);
 			

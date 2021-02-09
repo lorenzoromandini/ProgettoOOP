@@ -10,6 +10,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import eu.univpm.TicketmasterEurope.stats.Stats;
+import eu.univpm.TicketmasterEurope.stats.StatsManagement;
 
 /**
  * @author Lorenzo Romandini
@@ -18,15 +19,12 @@ import eu.univpm.TicketmasterEurope.stats.Stats;
  */
 public class MarketFilter implements CountryMarketFilterInterface {
 	
-	Stats stats;
+	Stats stats = new StatsManagement();
 	
 
 	public JSONArray OneMonthCountryMarket(Vector<String> markets)  {
 		
         JSONArray marketEvents = new JSONArray();
-		
-		Vector<JSONObject> marketVector = new Vector<JSONObject>();
-		Vector<Integer> totalEvents = new Vector<Integer>();
 		
 		Iterator<String> it = markets.iterator();
 		
@@ -41,12 +39,10 @@ public class MarketFilter implements CountryMarketFilterInterface {
 			
 			JSONObject object = new JSONObject();
 			object = stats.getMarketEvents(it.next(), 1);
-			marketVector.add(object);
-			int totalElements = object.getInt("totalElements");
-			totalEvents.add(totalElements);
+			int totalElements = object.getInt("totalEvents");
 			
 			JSONObject couple = new JSONObject();
-			couple.put("Market: ", markets.get(i));
+			couple.put("market: ", markets.get(i));
 			couple.put("totalEvents: ", totalElements);
 			marketEvents.put(couple);
 			
@@ -82,9 +78,6 @@ public class MarketFilter implements CountryMarketFilterInterface {
 		
         JSONArray marketEvents = new JSONArray();
 		
-		Vector<JSONObject> marketVector = new Vector<JSONObject>();
-		Vector<Integer> totalEvents = new Vector<Integer>();
-		
 		Iterator<String> it = markets.iterator();
 		
 		int i = 0;
@@ -98,12 +91,10 @@ public class MarketFilter implements CountryMarketFilterInterface {
 			
 			JSONObject object = new JSONObject();
 			object = stats.getMarketEvents(it.next(), 3);
-			marketVector.add(object);
-			int totalElements = object.getInt("totalElements");
-			totalEvents.add(totalElements);
+			int totalElements = object.getInt("totalEvents");
 			
 			JSONObject couple = new JSONObject();
-			couple.put("Market: ", markets.get(i));
+			couple.put("market: ", markets.get(i));
 			couple.put("totalEvents: ", totalElements);
 			marketEvents.put(couple);
 			
@@ -139,9 +130,6 @@ public class MarketFilter implements CountryMarketFilterInterface {
 		
         JSONArray marketEvents = new JSONArray();
 		
-		Vector<JSONObject> marketVector = new Vector<JSONObject>();
-		Vector<Integer> totalEvents = new Vector<Integer>();
-		
 		Iterator<String> it = markets.iterator();
 		
 		int i = 0;
@@ -155,12 +143,10 @@ public class MarketFilter implements CountryMarketFilterInterface {
 			
 			JSONObject object = new JSONObject();
 			object = stats.getMarketEvents(it.next(), 6);
-			marketVector.add(object);
-			int totalElements = object.getInt("totalElements");
-			totalEvents.add(totalElements);
+			int totalElements = object.getInt("totalEvents");
 			
 			JSONObject couple = new JSONObject();
-			couple.put("Market: ", markets.get(i));
+			couple.put("market: ", markets.get(i));
 			couple.put("totalEvents: ", totalElements);
 			marketEvents.put(couple);
 			
@@ -196,9 +182,6 @@ public class MarketFilter implements CountryMarketFilterInterface {
 		
         JSONArray marketEvents = new JSONArray();
 		
-		Vector<JSONObject> marketVector = new Vector<JSONObject>();
-		Vector<Integer> totalEvents = new Vector<Integer>();
-		
 		Iterator<String> it = markets.iterator();
 		
 		int i = 0;
@@ -212,12 +195,10 @@ public class MarketFilter implements CountryMarketFilterInterface {
 			
 			JSONObject object = new JSONObject();
 			object = stats.getMarketEvents(it.next(), 12);
-			marketVector.add(object);
-			int totalElements = object.getInt("totalElements");
-			totalEvents.add(totalElements);
+			int totalElements = object.getInt("totalEvents");
 			
 			JSONObject couple = new JSONObject();
-			couple.put("Market: ", markets.get(i));
+			couple.put("market: ", markets.get(i));
 			couple.put("totalEvents: ", totalElements);
 			marketEvents.put(couple);
 			

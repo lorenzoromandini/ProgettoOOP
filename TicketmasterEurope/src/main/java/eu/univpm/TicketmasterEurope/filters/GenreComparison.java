@@ -11,6 +11,7 @@ import org.json.JSONObject;
 
 import eu.univpm.TicketmasterEurope.exception.WrongValueException;
 import eu.univpm.TicketmasterEurope.stats.Stats;
+import eu.univpm.TicketmasterEurope.stats.StatsManagement;
 
 /**
  * @author Lorenzo Romandini
@@ -19,15 +20,12 @@ import eu.univpm.TicketmasterEurope.stats.Stats;
  */
 public class GenreComparison implements FilterInterface {
 	
-	Stats stats;
+	Stats stats = new StatsManagement();
 	
 
 	public JSONArray OneMonth(Vector<String> genres, String country) throws WrongValueException {
 		
 		JSONArray genreEvents = new JSONArray();
-		
-		Vector<JSONObject> genreVector = new Vector<JSONObject>();
-		Vector<Integer> totalEvents = new Vector<Integer>();
 		
 		Iterator<String> it = genres.iterator();
 		
@@ -42,12 +40,10 @@ public class GenreComparison implements FilterInterface {
 			
 			JSONObject object = new JSONObject();
 			object = stats.getGenreEvents(country, it.next(), 1);
-			genreVector.add(object);
-			int totalElements = object.getInt("totalElements");
-			totalEvents.add(totalElements);
+			int totalElements = object.getInt("totalEvents");
 			
 			JSONObject couple = new JSONObject();
-			couple.put("Country: ", genres.get(i));
+			couple.put("genre: ", genres.get(i));
 			couple.put("totalEvents: ", totalElements);
 			genreEvents.put(couple);
 			
@@ -84,9 +80,6 @@ public class GenreComparison implements FilterInterface {
 		
         JSONArray genreEvents = new JSONArray();
 		
-		Vector<JSONObject> genreVector = new Vector<JSONObject>();
-		Vector<Integer> totalEvents = new Vector<Integer>();
-		
 		Iterator<String> it = genres.iterator();
 		
 		int i = 0;
@@ -100,12 +93,10 @@ public class GenreComparison implements FilterInterface {
 			
 			JSONObject object = new JSONObject();
 			object = stats.getGenreEvents(country, it.next(), 3);
-			genreVector.add(object);
-			int totalElements = object.getInt("totalElements");
-			totalEvents.add(totalElements);
+			int totalElements = object.getInt("totalEvents");
 			
 			JSONObject couple = new JSONObject();
-			couple.put("Country: ", genres.get(i));
+			couple.put("genre: ", genres.get(i));
 			couple.put("totalEvents: ", totalElements);
 			genreEvents.put(couple);
 			
@@ -142,9 +133,6 @@ public class GenreComparison implements FilterInterface {
 		
         JSONArray genreEvents = new JSONArray();
 		
-		Vector<JSONObject> genreVector = new Vector<JSONObject>();
-		Vector<Integer> totalEvents = new Vector<Integer>();
-		
 		Iterator<String> it = genres.iterator();
 		
 		int i = 0;
@@ -158,12 +146,10 @@ public class GenreComparison implements FilterInterface {
 			
 			JSONObject object = new JSONObject();
 			object = stats.getGenreEvents(country, it.next(), 6);
-			genreVector.add(object);
-			int totalElements = object.getInt("totalElements");
-			totalEvents.add(totalElements);
+			int totalElements = object.getInt("totalEvents");
 			
 			JSONObject couple = new JSONObject();
-			couple.put("Country: ", genres.get(i));
+			couple.put("genre: ", genres.get(i));
 			couple.put("totalEvents: ", totalElements);
 			genreEvents.put(couple);
 			
@@ -200,9 +186,6 @@ public class GenreComparison implements FilterInterface {
 		
         JSONArray genreEvents = new JSONArray();
 		
-		Vector<JSONObject> genreVector = new Vector<JSONObject>();
-		Vector<Integer> totalEvents = new Vector<Integer>();
-		
 		Iterator<String> it = genres.iterator();
 		
 		int i = 0;
@@ -216,12 +199,10 @@ public class GenreComparison implements FilterInterface {
 			
 			JSONObject object = new JSONObject();
 			object = stats.getGenreEvents(country, it.next(), 12);
-			genreVector.add(object);
-			int totalElements = object.getInt("totalElements");
-			totalEvents.add(totalElements);
+			int totalElements = object.getInt("totalEvents");
 			
 			JSONObject couple = new JSONObject();
-			couple.put("Country: ", genres.get(i));
+			couple.put("genre: ", genres.get(i));
 			couple.put("totalEvents: ", totalElements);
 			genreEvents.put(couple);
 			
