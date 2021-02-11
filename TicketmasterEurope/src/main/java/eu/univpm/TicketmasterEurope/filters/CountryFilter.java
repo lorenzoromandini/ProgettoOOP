@@ -95,7 +95,7 @@ public class CountryFilter implements CountryMarketFilterInterface {
 			
 			JSONObject object = new JSONObject();
 			object = stats.getCountryEvents(it.next(), 3);
-			int totalElements = object.getInt("totalElements");
+			int totalElements = object.getInt("totalEvents");
 			
 			JSONObject couple = new JSONObject();
 			couple.put("country: ", countries.get(i));
@@ -147,7 +147,7 @@ public class CountryFilter implements CountryMarketFilterInterface {
 			
 			JSONObject object = new JSONObject();
 			object = stats.getCountryEvents(it.next(), 6);
-			int totalElements = object.getInt("totalElements");
+			int totalElements = object.getInt("totalEvents");
 			
 			JSONObject couple = new JSONObject();
 			couple.put("country: ", countries.get(i));
@@ -199,7 +199,7 @@ public class CountryFilter implements CountryMarketFilterInterface {
 			
 			JSONObject object = new JSONObject();
 			object = stats.getCountryEvents(it.next(), 12);
-			int totalElements = object.getInt("totalElements");
+			int totalElements = object.getInt("totalEvents");
 			
 			JSONObject couple = new JSONObject();
 			couple.put("country: ", countries.get(i));

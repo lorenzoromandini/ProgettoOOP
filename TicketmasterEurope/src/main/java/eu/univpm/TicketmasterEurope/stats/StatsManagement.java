@@ -37,7 +37,7 @@ public class StatsManagement implements Stats {
 	
 	public JSONObject getCountryEvents(String countryCode, int period) {
 
-       JSONObject countryEventsObject;
+        JSONObject countryEventsObject;
 		
         String Url = "https://app.ticketmaster.com/discovery/v2/events?&countryCode=" + countryCode 
                    + "&endDateTime=" + data.plusMonths(period) + time + "&apikey="+ apikey;
