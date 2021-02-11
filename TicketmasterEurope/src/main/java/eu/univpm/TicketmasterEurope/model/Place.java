@@ -34,11 +34,6 @@ public class Place {
 		this.city = city;
 		}
 	
-	public Place(String placement, String address) {
-		super();
-		this.placement = placement;
-		this.address = address;
-		}
 	
 	public Place(String placement, String address, String city) {
 		super();
@@ -46,7 +41,6 @@ public class Place {
 		this.address = address;
 		this.city = city;
 		}
-	
 	
 	
 	/** Restituisce il luogo dell'evento

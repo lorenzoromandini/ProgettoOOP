@@ -44,18 +44,7 @@ public class Prices {
 		this.minPrice = 0;
 		this.maxPrice = 0;
 	}
-
 	
-	/** Costruttore dell'oggetto
-	 * @param minPrice - prezzo minimo
-	 * @param maxPrice - prezzo massimo
-	 */
-	public Prices(double minPrice, double maxPrice) {
-		this.currency = null;
-		this.minPrice = minPrice;
-		this.maxPrice = maxPrice;
-	}
-
 
 	/** Costruttore dell'oggetto
 	 * @param currency - valuta con cui pagare il biglietto
@@ -67,6 +56,7 @@ public class Prices {
 		this.minPrice = minPrice;
 		this.maxPrice = maxPrice;
 	}
+	
 
 	/**
 	 * @return the currency
@@ -75,6 +65,7 @@ public class Prices {
 		return currency;
 	}
 
+	
 	/**
 	 * @param currency the currency to set
 	 */
@@ -82,6 +73,7 @@ public class Prices {
 		this.currency = currency;
 	}
 
+	
 	/**
 	 * @return the minPrice
 	 */
@@ -89,6 +81,7 @@ public class Prices {
 		return minPrice;
 	}
 
+	
 	/**
 	 * @param minPrice the minPrice to set
 	 */
@@ -96,6 +89,7 @@ public class Prices {
 		this.minPrice = minPrice;
 	}
 
+	
 	/**
 	 * @return the maxPrice
 	 */
@@ -103,6 +97,7 @@ public class Prices {
 		return maxPrice;
 	}
 
+	
 	/**
 	 * @param maxPrice the maxPrice to set
 	 */

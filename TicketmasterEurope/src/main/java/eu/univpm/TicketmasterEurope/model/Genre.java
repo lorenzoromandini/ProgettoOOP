@@ -49,18 +49,6 @@ public class Genre {
 		this.subGenreName = null;
 	}
 	
-	
-	/** Costruttore dell'oggetto
-	 * @param segmentName - tipologia dell'evento
-	 * @param genreName - genere dell'evento
-	 * @param subGenreName - sottogenere dell'evento
-	 */
-	public Genre(String genreName, String subGenreName) {
-		this.segmentName = null;
-		this.genreName = genreName;
-		this.subGenreName = subGenreName;
-	}
-
  
 	/** Costruttore dell'oggetto
 	 * @param segmentName - tipologia dell'evento

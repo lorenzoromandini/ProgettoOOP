@@ -99,8 +99,7 @@ public class EventsArray {
 
 	@Override
 	public String toString() {
-		return "EventsArray [totalEvents=" + totalEvents + ", showedEvents=" + showedEvents + ", vector="
-				+ vector + "]";
+		return "totalEvents=" + totalEvents + ", showedEvents=" + showedEvents + ", vector=" + vector + "";
 	}
 
 
