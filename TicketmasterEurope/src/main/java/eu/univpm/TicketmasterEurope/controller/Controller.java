@@ -3,6 +3,7 @@
  */
 package eu.univpm.TicketmasterEurope.controller;
 
+import java.io.IOException;
 import java.util.Vector;
 
 import org.json.JSONArray;
@@ -21,6 +22,7 @@ import eu.univpm.TicketmasterEurope.service.*;
 import eu.univpm.TicketmasterEurope.exception.*;
 import eu.univpm.TicketmasterEurope.filters.Filter;
 import eu.univpm.TicketmasterEurope.model.*;
+import eu.univpm.TicketmasterEurope.saves.SaveRelevantEvents;
 
 /**
  * @author Lorenzo Romandini
@@ -119,6 +121,17 @@ public class Controller {
 		
 	}
 	
+	
+	@GetMapping(value = "/saveEvents") 
+	public ResponseEntity<Object> saveCountryEvents(@RequestParam String countryCode) throws IOException {
+		
+		SaveRelevantEvents save = new SaveRelevantEvents();
+		
+        String path = save.StoreCountryEvents(countryCode);
+		
+		return new ResponseEntity<>(path, HttpStatus.OK);
+		
+    }
 	
 	
 		
