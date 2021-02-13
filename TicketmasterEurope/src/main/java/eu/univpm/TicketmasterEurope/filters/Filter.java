@@ -8,32 +8,48 @@ import org.json.JSONArray;
 
 import eu.univpm.TicketmasterEurope.exception.*;
 
-/**
+/** Questa classe contiene i metodi necessari al filtraggio
+ * 
  * @author Lorenzo Romandini
  * @author Nicholas Urbanelli
  */
 public class Filter {
 	
+	/**
+	 * Indica il tipo di elementi che si vogliono confrontare
+	 */
 	private String comparison;
 	
+	/**
+	 * Indica il vettore degli elementi da confrontare
+	 */
 	private Vector<String> elements = new Vector<String>();
 		
+	/**
+	 * Indica il parametro su cui si vuole effettuare il confronto
+	 */
 	private String param;
 	
+	/**
+	 * Indica il valore del parametro su cui si vuole effettuare il confronto
+	 */
 	private String value;
 	
+	/**
+	 * Indica il periodo temporale (in mesi) su cui si vuole effettuare il confronto
+	 */
 	private int period;
 
 
-	/**
-	 * @param comparison
-	 * @param elements
-	 * @param param
-	 * @param value
-	 * @param period
+	/** Costruttore della classe
+	 * 
+	 * @param comparison è una String che rappresenta il tipo di elementi che si vogliono confrontare
+	 * @param elements é un Vector di String che rappresenta il vettore degli elementi da confrontare
+	 * @param param è una String che rappresenta il parametro su cui si vuole effettuare il confronto
+	 * @param value è una String che rappresenta il valore del parametro su cui si vuole effettuare il confronto
+	 * @param period è un int che rappresenta il periodo temporale (in mesi) su cui si vuole effettuare il confronto
 	 */
 	public Filter(String comparison, Vector<String> elements, String param, String value, int period) {
-		super();
 		this.comparison = comparison;
 		this.elements = elements;
 		this.param = param;
@@ -42,7 +58,16 @@ public class Filter {
 	}
 
 	
-	public JSONArray getFilter() throws WrongComparisonException, WrongPeriodException, WrongParameterException, WrongValueException {
+	/** Questo metodo filtra il comparison, il param e il period. Richiama altri metodi per filtrare il value.
+	 * 
+	 * @return array - JSONArray contenente gli elementi filtrati e le statische relative al numero di eventi
+	 * @throws WrongComparisonException se la String inserita non è una tra country, market, source, segment, genre o subgenre
+	 * @throws WrongPeriodException se l'int inserito non è uno tra 1, 3, 6 o 12
+	 * @throws WrongParameterException se la String inserita non è una tra country, segment, genre, subGenre, source
+	 * @throws WrongValueException se la String inserita per value è errata
+	 * @throws WrongCountryException 
+	 */
+	public JSONArray getFilter() throws WrongComparisonException, WrongPeriodException, WrongParameterException, WrongValueException, WrongCountryException {
 		
 		JSONArray array = new JSONArray();
 		
@@ -50,30 +75,30 @@ public class Filter {
 			
 			if(period == 1) {
 				
-				if (param.equals("total")) {
+				if (param.equals("total")) { 
 					CountryFilter filter = new CountryFilter();
-					array = filter.OneMonthCountryMarket(elements);
+					array = filter.MonthsCountryMarket(elements, 1);
 				}
 				
 				else if (param.equals("segment")) {
 					SegmentFilter filter = new SegmentFilter();
-					array = filter.OneMonth(elements, value);
+					array = filter.Months(elements, value, 1);
 				} 
 				
 				else if (param.equals("genre")) {
 					GenreFilter filter = new GenreFilter();
-					array = filter.OneMonth(elements, value);
+					array = filter.Months(elements, value, 1);
 				}
 				
 				else if (param.equals("subGenre")) {
 					SubGenreFilter filter = new SubGenreFilter();
-					array = filter.OneMonth(elements, value);
+					array = filter.Months(elements, value, 1);
 					
 	            }
 				
 				else if (param.equals("source")) {
 					SourceFilter filter = new SourceFilter();
-					array = filter.OneMonth(elements, value);
+					array = filter.Months(elements, value, 1);
 					
 				}
 				
@@ -86,28 +111,28 @@ public class Filter {
 				
 				if (param.equals("total")) {
 					CountryFilter filter = new CountryFilter();
-					array = filter.ThreeMonthsCountryMarket(elements);
+					array = filter.MonthsCountryMarket(elements, 3);
 				}
 				
 				else if (param.equals("segment")) {
 					SegmentFilter filter = new SegmentFilter();
-					array = filter.ThreeMonths(elements, value);
+					array = filter.Months(elements, value, 3);
 				}
 				
 				else if (param.equals("genre")) {
 					GenreFilter filter = new GenreFilter();
-					array = filter.ThreeMonths(elements, value);
+					array = filter.Months(elements, value, 3);
 				}
 				
 				else if (param.equals("subGenre")) {
 					SubGenreFilter filter = new SubGenreFilter();
-					array = filter.ThreeMonths(elements, value);
+					array = filter.Months(elements, value, 3);
 					
 				}
 				
 				else if (param.equals("source")) {
 					SourceFilter filter = new SourceFilter();
-					array = filter.ThreeMonths(elements, value);
+					array = filter.Months(elements, value, 3);
 					
 				}
 				
@@ -120,28 +145,28 @@ public class Filter {
 				
 				if (param.equals("total")) {
 					CountryFilter filter = new CountryFilter();
-					array = filter.SixMonthsCountryMarket(elements);
+					array = filter.MonthsCountryMarket(elements, 6);
 				}
 				
 				else if (param.equals("segment")) {
 					SegmentFilter filter = new SegmentFilter();
-					array = filter.SixMonths(elements, value);
+					array = filter.Months(elements, value, 6);
 				}
 				
 				else if (param.equals("genre")) {
 					GenreFilter filter = new GenreFilter();
-					array = filter.SixMonths(elements, value);
+					array = filter.Months(elements, value, 6);
 				}
 				
 				else if (param.equals("subGenre")) {
 					SubGenreFilter filter = new SubGenreFilter();
-					array = filter.SixMonths(elements, value);
+					array = filter.Months(elements, value, 6);
 					
 				}
 				
 				else if (param.equals("source")) {
 					SourceFilter filter = new SourceFilter();
-					array = filter.SixMonths(elements, value);
+					array = filter.Months(elements, value, 6);
 					
 				}
 				
@@ -154,28 +179,28 @@ public class Filter {
 				
 				if (param.equals("total")) {
 					CountryFilter filter = new CountryFilter();
-					array = filter.TwelveMonthsCountryMarket(elements);
+					array = filter.MonthsCountryMarket(elements, 12);
 				}
 				
 				else if (param.equals("segment")) {
 					SegmentFilter filter = new SegmentFilter();
-					array = filter.TwelveMonths(elements, value);
+					array = filter.Months(elements, value, 12);
 				}
 				
 				else if (param.equals("genre")) {
 					GenreFilter filter = new GenreFilter();
-					array = filter.TwelveMonths(elements, value);
+					array = filter.Months(elements, value, 12);
 				}
 				
 				else if (param.equals("subGenre")) {
 					SubGenreFilter filter = new SubGenreFilter();
-					array = filter.TwelveMonths(elements, value);
+					array = filter.Months(elements, value, 12);
 					
 				}
 				
 				else if (param.equals("source")) {
 					SourceFilter filter = new SourceFilter();
-					array = filter.TwelveMonths(elements, value);
+					array = filter.Months(elements, value, 12);
 					
 				}
 				
@@ -194,7 +219,7 @@ public class Filter {
 				
 				if (param.equals("total")) {
 					MarketFilter filter = new MarketFilter();
-					array = filter.OneMonthCountryMarket(elements);
+					array = filter.MonthsCountryMarket(elements, 1);
 				}
 				
 				else throw new WrongParameterException (param + " non è un parametro ammesso. Puoi inserire solo la stringa total.");
@@ -205,7 +230,7 @@ public class Filter {
 				
 				if (param.equals("total")) {
 					MarketFilter filter = new MarketFilter();
-					array = filter.ThreeMonthsCountryMarket(elements);
+					array = filter.MonthsCountryMarket(elements, 3);
 				}
 				
 				else throw new WrongParameterException (param + " non è un parametro ammesso. Puoi inserire solo la stringa total.");
@@ -216,7 +241,7 @@ public class Filter {
 				
 				if (param.equals("total")) {
 					MarketFilter filter = new MarketFilter();
-					array = filter.SixMonthsCountryMarket(elements);
+					array = filter.MonthsCountryMarket(elements, 6);
 				}
 				
 				else throw new WrongParameterException (param + " non è un parametro ammesso. Puoi inserire solo la stringa total.");
@@ -227,7 +252,7 @@ public class Filter {
 				
 				if (param.equals("total")) {
 					MarketFilter filter = new MarketFilter();
-					array = filter.TwelveMonthsCountryMarket(elements);
+					array = filter.MonthsCountryMarket(elements, 12);
 				}
 				
 				else throw new WrongParameterException (param + " non è un parametro ammesso. Puoi inserire solo la stringa total.");
@@ -244,7 +269,7 @@ public class Filter {
 				
 				if (param.equals("country")) {
 					SourceComparison filter = new SourceComparison();
-					array = filter.OneMonth(elements, value);
+					array = filter.Months(elements, value, 1);
 				}
 			
 			else throw new WrongParameterException (param + " non è un parametro ammesso. Puoi inserire solo la stringa country.");
@@ -255,7 +280,7 @@ public class Filter {
 			
         	if (param.equals("country")) {
 				SourceComparison filter = new SourceComparison();
-				array = filter.ThreeMonths(elements, value);
+				array = filter.Months(elements, value, 3);
 			}
 			
 			else throw new WrongParameterException (param + " non è un parametro ammesso. Puoi inserire solo la stringa country.");
@@ -266,7 +291,7 @@ public class Filter {
 			
         	if (param.equals("country")) {
 				SourceComparison filter = new SourceComparison();
-				array = filter.SixMonths(elements, value);
+				array = filter.Months(elements, value, 6);
 			}
 			
 			else throw new WrongParameterException (param + " non è un parametro ammesso. Puoi inserire solo la stringa country.");
@@ -277,7 +302,7 @@ public class Filter {
 			
         	if (param.equals("country")) {
 				SourceComparison filter = new SourceComparison();
-				array = filter.TwelveMonths(elements, value);
+				array = filter.Months(elements, value, 12);
 			}
 			
 			else throw new WrongParameterException (param + " non è un parametro ammesso. Puoi inserire solo la stringa country.");
@@ -294,7 +319,7 @@ public class Filter {
 				
 				if (param.equals("country")) {
 					SegmentComparison filter = new SegmentComparison();
-					array = filter.OneMonth(elements, value);
+					array = filter.Months(elements, value, 1);
 				}
 			
 			else throw new WrongParameterException (param + " non è un parametro ammesso. Puoi inserire solo la stringa country.");
@@ -305,7 +330,7 @@ public class Filter {
 			
         	if (param.equals("country")) {
         		SegmentComparison filter = new SegmentComparison();
-				array = filter.ThreeMonths(elements, value);
+				array = filter.Months(elements, value, 3);
 			}
 			
 			else throw new WrongParameterException (param + " non è un parametro ammesso. Puoi inserire solo la stringa country.");
@@ -316,7 +341,7 @@ public class Filter {
 			
         	if (param.equals("country")) {
         		SegmentComparison filter = new SegmentComparison();
-				array = filter.SixMonths(elements, value);
+				array = filter.Months(elements, value, 6);
 			}
 			
 			else throw new WrongParameterException (param + " non è un parametro ammesso. Puoi inserire solo la stringa country.");
@@ -327,7 +352,7 @@ public class Filter {
 			
         	if (param.equals("country")) {
         		SegmentComparison filter = new SegmentComparison();
-				array = filter.TwelveMonths(elements, value);
+				array = filter.Months(elements, value, 12);
 			}
 			
 			else throw new WrongParameterException (param + " non è un parametro ammesso. Puoi inserire solo la stringa country.");
@@ -344,7 +369,7 @@ public class Filter {
 				
 				if (param.equals("country")) {
 					GenreComparison filter = new GenreComparison();
-					array = filter.OneMonth(elements, value);
+					array = filter.Months(elements, value, 1);
 				}
 			
 			else throw new WrongParameterException (param + " non è un parametro ammesso. Puoi inserire solo la stringa country.");
@@ -355,7 +380,7 @@ public class Filter {
 			
         	if (param.equals("country")) {
         		GenreComparison filter = new GenreComparison();
-				array = filter.ThreeMonths(elements, value);
+				array = filter.Months(elements, value, 3);
 			}
 			
 			else throw new WrongParameterException (param + " non è un parametro ammesso. Puoi inserire solo la stringa country.");
@@ -366,7 +391,7 @@ public class Filter {
 			
         	if (param.equals("country")) {
         		GenreComparison filter = new GenreComparison();
-				array = filter.SixMonths(elements, value);
+				array = filter.Months(elements, value, 6);
 			}
 			
 			else throw new WrongParameterException (param + " non è un parametro ammesso. Puoi inserire solo la stringa country.");
@@ -377,7 +402,7 @@ public class Filter {
 			
         	if (param.equals("country")) {
         		GenreComparison filter = new GenreComparison();
-				array = filter.TwelveMonths(elements, value);
+				array = filter.Months(elements, value, 12);
 			}
 			
 			else throw new WrongParameterException (param + " non è un parametro ammesso. Puoi inserire solo la stringa country.");
@@ -394,7 +419,7 @@ public class Filter {
 				
 				if (param.equals("country")) {
 					SubGenreComparison filter = new SubGenreComparison();
-					array = filter.OneMonth(elements, value);
+					array = filter.Months(elements, value, 1);
 				}
 			
 			else throw new WrongParameterException (param + " non è un parametro ammesso. Puoi inserire solo la stringa country.");
@@ -405,7 +430,7 @@ public class Filter {
 			
         	if (param.equals("country")) {
         		SubGenreComparison filter = new SubGenreComparison();
-				array = filter.ThreeMonths(elements, value);
+				array = filter.Months(elements, value, 3);
 			}
 			
 			else throw new WrongParameterException (param + " non è un parametro ammesso. Puoi inserire solo la stringa country.");
@@ -416,7 +441,7 @@ public class Filter {
 			
         	if (param.equals("country")) {
         		SubGenreComparison filter = new SubGenreComparison();
-				array = filter.SixMonths(elements, value);
+				array = filter.Months(elements, value, 6);
 			}
 			
 			else throw new WrongParameterException (param + " non è un parametro ammesso. Puoi inserire solo la stringa country.");
@@ -427,7 +452,7 @@ public class Filter {
 			
         	if (param.equals("country")) {
         		SubGenreComparison filter = new SubGenreComparison();
-				array = filter.TwelveMonths(elements, value);
+				array = filter.Months(elements, value, 12);
 			}
 			
 			else throw new WrongParameterException (param + " non è un parametro ammesso. Puoi inserire solo la stringa country.");
