@@ -4,7 +4,7 @@
 package eu.univpm.TicketmasterEurope.model;
 
 
-/** Questa classe rappresenta le date e gli orari di ogni evento.
+/** Questa classe rappresenta le date e gli orari di ogni evento
  * 
  * @author Lorenzo Romandini
  * @author Nicholas Urbanelli
@@ -22,7 +22,7 @@ public class Date {
 	private String orarioInizio;
 	
 	
-	/** Costruttore dell'oggetto
+	/** Costruttore della classe
 	 */
 	public Date() {
 		this.dataInizio = null;
@@ -31,7 +31,7 @@ public class Date {
 	
 	
 	/** Restituisce la data di inizio dell'evento
-	 * @return dataInizio
+	 * @return la data di inizio dell'evento 
 	 */
 	public String getDataInizio() {
 		return dataInizio;
@@ -39,7 +39,7 @@ public class Date {
  
 
 	/** Setta la data di inizio dell'evento
-	 * @param String dataInizio
+	 * @param dataInizio data di inizio dell'evento
 	 */
 	public void setDataInizio(String dataInizio) {
 		this.dataInizio = dataInizio;
@@ -47,7 +47,7 @@ public class Date {
 
 
 	/** Restituisce l'orario di inizio dell'evento
-	 * @return orarioInizio
+	 * @return l'orario di inizio dell'evento
 	 */
 	public String getOrarioInizio() {
 		return orarioInizio;
@@ -55,16 +55,15 @@ public class Date {
 
 
 	/** Setta l'orario di terminazione dell'evento
-	 * @param String orarioInizio
+	 * @param orarioInizio orario di inizio dell'evento
 	 */
 	public void setOrarioInizio(String orarioInizio) {
 		this.orarioInizio = orarioInizio;
 	}
 
 	
-	/**
-	 * Override del metodo toString.
-	 * @return Date - rappresenta data e orario dell'evento
+	/** Override del metodo toString
+	 * @return stringa che rappresenta data e orario dell'evento
 	 */
 	@Override
 	public String toString() {
@@ -72,10 +71,9 @@ public class Date {
 	}
 
 
-	/**
-	 * Override del metodo equals.
-	 * @param oggetto Date da confrontare.
-	 * @return true o false a seconda che i due oggetti siano uguali.
+	/** Override del metodo equals
+	 * @param obj oggetto Date da confrontare
+	 * @return true o false a seconda che i due oggetti siano uguali
 	 */
 	@Override
 	public boolean equals(Object obj) {

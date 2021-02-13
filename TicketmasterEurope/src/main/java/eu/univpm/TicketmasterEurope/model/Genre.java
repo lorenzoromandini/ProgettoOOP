@@ -27,9 +27,6 @@ public class Genre {
 		
 	
 	/** Costruttore dell'oggetto
-	 * @param segmentName -  tipologia dell'evento
-	 * @param genreName - genere dell'evento
-	 * @param subGenreName - sottogenere dell'evento
 	 */
 	public Genre() {
 		this.segmentName = null;
@@ -38,32 +35,8 @@ public class Genre {
 	}
 
 	
-	/** Costruttore dell'oggetto
-	 * @param segmentName - tipologia dell'evento
-	 * @param genreName - genere dell'evento
-	 * @param subGenreName - sottogenere dell'evento
-	 */
-	public Genre(String segmentName) {		
-		this.segmentName = segmentName;
-		this.genreName = null;
-		this.subGenreName = null;
-	}
-	
- 
-	/** Costruttore dell'oggetto
-	 * @param segmentName - tipologia dell'evento
-	 * @param genreName - genere dell'evento
-	 * @param subGenreName - sottogenere dell'evento
-	 */
-	public Genre(String segmentName, String genreName, String subGenreName) {
-		this.segmentName = segmentName;
-		this.genreName = genreName;
-		this.subGenreName = subGenreName;
-	}
-
-
 	/** Restituisce la tipologia dell'evento
-	 * @return segmentName
+	 * @return la tipologia dell'evento
 	 */
 	public String getSegmentName() {
 		return segmentName;
@@ -71,7 +44,7 @@ public class Genre {
 
 
 	/** Setta la tipologia dell'evento
-	 * @param String segmentName
+	 * @param segmentName tipologia dell'evento
 	 */
 	public void setSegmentName(String segmentName) {
 		this.segmentName = segmentName;
@@ -79,7 +52,7 @@ public class Genre {
 
 
 	/** Restituisce il genere dell'evento
-	 * @return genreName
+	 * @return il genere dell'evento
 	 */
 	public String getGenreName() {
 		return genreName;
@@ -87,7 +60,7 @@ public class Genre {
 
 
 	/** Setta il genere dell'evento
-	 * @param String genreName
+	 * @param genreName genere dell'evento
 	 */
 	public void setGenreName(String genreName) {
 		this.genreName = genreName;
@@ -95,7 +68,7 @@ public class Genre {
 
 
 	/** Restituisce il sottogenere dell'evento
-	 * @return subGenreName
+	 * @return il sottogenere dell'evento
 	 */
 	public String getSubGenreName() {
 		return subGenreName;
@@ -103,26 +76,25 @@ public class Genre {
 
 
 	/** Setta il sottogenere dell'evento
-	 * @param String subGenreName
+	 * @param subGenreName sottogenere dell'evento
 	 */
 	public void setSubGenreName(String subGenreName) {
 		this.subGenreName = subGenreName;
 	}
 
 
-	/**
-	 * Override del metodo toString.
-	 * @return String - rappresenta tipologia, genere e sottogenere relativi all'evento.
+	/** Override del metodo toString
+	 * @return stringa che rappresenta tipologia, genere e sottogenere dell'evento
 	 */
 	@Override
 	public String toString() {
 		return "segmentName= " + segmentName + ", genreName= " + genreName + ", subGenreName= " + subGenreName + "";
 	}
 
-	/**
-	 * Override del metodo equals.
-	 * @param oggetto Genre da confrontare.
-	 * @return true o false a seconda che i due oggetti siano uguali.
+	
+	/** Override del metodo equals
+	 * @param obj oggetto Genre da confrontare
+	 * @return true o false a seconda che i due oggetti siano uguali
 	 */
 	@Override
 	public boolean equals(Object obj) {
@@ -150,7 +122,6 @@ public class Genre {
 			return false;
 		return true;
 	}
-	
 	
 	
 	

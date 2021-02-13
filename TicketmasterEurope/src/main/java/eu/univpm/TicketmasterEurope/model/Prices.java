@@ -4,10 +4,11 @@
 package eu.univpm.TicketmasterEurope.model;
 
 
-/** Questa classe rappresenta delle caratteristiche di ogni evento
+/** Questa classe rappresenta le caratteristiche relative ai prezzi dei biglietti dell'evento
  * 
  * @author Lorenzo Romandini
  * @author Nicholas Urbanelli
+ * 
  */
 public class Prices {
 	
@@ -28,87 +29,64 @@ public class Prices {
 	
 	
 	/** Costruttore dell'oggetto
-	 * 
 	 */
 	public Prices() {
 		this.currency = null;
 		this.minPrice = 0;
 		this.maxPrice = 0;
 	}
-	
-    /** Costruttore dell'oggetto
-	 * @param currency - valuta del prezzo del biglietto
-	 */
-	public Prices(String currency) {
-		this.currency = null;
-		this.minPrice = 0;
-		this.maxPrice = 0;
-	}
-	
 
-	/** Costruttore dell'oggetto
-	 * @param currency - valuta con cui pagare il biglietto
-	 * @param minPrince - prezzo minimo
-	 * @param maxPrice - prezzo massimo
-	 */
-	public Prices(String currency, double minPrice, double maxPrice) {
-		this.currency = currency;
-		this.minPrice = minPrice;
-		this.maxPrice = maxPrice;
-	}
 	
-
-	/**
-	 * @return the currency
+	/** Restituisce la valuta del prezzo del biglietto
+	 * @return la valuta del prezzo del biglietto
 	 */
 	public String getCurrency() {
 		return currency;
 	}
 
 	
-	/**
-	 * @param currency the currency to set
+	/** Setta la valuta del prezzo del biglietto
+	 * @param currency valuta del prezzo del biglietto
 	 */
 	public void setCurrency(String currency) {
 		this.currency = currency;
 	}
 
 	
-	/**
-	 * @return the minPrice
+	/** Restituisce il prezzo minimo del biglietto
+	 * @return il prezzo minimo del biglietto
 	 */
 	public double getMinPrice() {
 		return minPrice;
 	}
 
 	
-	/**
-	 * @param minPrice the minPrice to set
+	/** Setta il prezzo minimo del biglietto
+	 * @param minPrice prezzo minimo del biglietto
 	 */
 	public void setMinPrice(double minPrice) {
 		this.minPrice = minPrice;
 	}
 
 	
-	/**
-	 * @return the maxPrice
+	/** Restituisce il prezzo massimo del biglietto
+	 * @return il prezzo massimo del biglietto
 	 */
 	public double getMaxPrice() {
 		return maxPrice;
 	}
 
 	
-	/**
-	 * @param maxPrice the maxPrice to set
+	/** Setta il prezzo massimo del biglietto
+	 * @param maxPrice prezzo massimo del biglietto
 	 */
 	public void setMaxPrice(double maxPrice) {
 		this.maxPrice = maxPrice;
 	}
 
 
-	/**
-	 * Override del metodo toString.
-	 * @return Prices - rappresenta data e orario dell'evento
+	/** Override del metodo toString
+	 * @return stringa che rappresenta valuta, prezzo minimo e prezzo massimo del biglietto
 	 */
 	@Override
 	public String toString() {
@@ -116,10 +94,9 @@ public class Prices {
 	}
 
 	
-	/**
-	 * Override del metodo equals.
-	 * @param oggetto Prices da confrontare.
-	 * @return true o false a seconda che i due oggetti siano uguali.
+	/** Override del metodo equals
+	 * @param obj oggetto Prices da confrontare
+	 * @return true o false a seconda che i due oggetti siano uguali
 	 */
 	@Override
 	public boolean equals(Object obj) {
@@ -141,6 +118,7 @@ public class Prices {
 			return false;
 		return true;
 	}
+	
 	
 	
 }

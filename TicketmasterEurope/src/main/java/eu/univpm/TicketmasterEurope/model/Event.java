@@ -3,7 +3,8 @@
  */
 package eu.univpm.TicketmasterEurope.model;
 
-/** Questa classe rappresenta le informazioni di ogni evento.
+
+/** Questa classe rappresenta le informazioni di ogni evento
  * 
  * @author Lorenzo Romandini
  * @author Nicholas Urbanelli
@@ -21,7 +22,7 @@ public class Event {
 	private String name;
 	
 	/**
-	 * Indica l'url del source dell'evento
+	 * Indica l'url dell'evento
 	 */
 	private String url;
 	
@@ -57,7 +58,6 @@ public class Event {
 	
 
 	/** Costruttore della classe
-	 * 
 	 */
 	public Event() {
 		this.id = null;
@@ -70,127 +70,10 @@ public class Event {
 		this.dealer = null;
 		this.location = null;
 	}
-	
-  
-	/** Costruttore della classe
-	 * @param name
-	 */
-	public Event(String name) {		
-		this.id = null;
-		this.name = name;
-		this.url = null;
-		this.info = null;
-		this.date = null;
-		this.genre = null;
-		this.prices = null;
-		this.dealer = null;
-		this.location = null;
-	}
-	
-
-	/** Costruttore della classe
-	 * @param date
-	 */
-	public Event(Date date) {
-		this.id = null;
-		this.name = null;
-		this.url = null;
-		this.info = null;
-		this.date = date;
-		this.genre = null;
-		this.prices = null;
-		this.dealer = null;
-		this.location = null;
-	}
-
-
-	/** Costruttore della classe
-	 * @param genre
-	 */
-	public Event(Genre genre) {
-		this.id = null;
-		this.name = null;
-		this.url = null;
-		this.info = null;
-		this.date = null;
-		this.genre = genre;
-		this.prices = null;
-		this.dealer = null;
-		this.location = null;
-	}
-
-
-	/** Costruttore della classe
-	 * @param prices
-	 */
-	public Event(Prices prices) {
-		this.id = null;
-		this.name = null;
-		this.url = null;
-		this.info = null;
-		this.date = null;
-		this.genre = null;
-		this.prices = prices;
-		this.dealer = null;
-		this.location = null;
-	}
-
-
-	/** Costruttore della classe
-	 * @param dealer
-	 */
-	public Event(Dealer dealer) {
-		this.id = null;
-		this.name = null;
-		this.url = null;
-		this.info = null;
-		this.date = null;
-		this.genre = null;
-		this.prices = null;
-		this.dealer = dealer;
-		this.location = null;
-	}
-
-
-	/** Costruttore della classe
-	 * @param location
-	 */
-	public Event(Location location) {
-		this.id = null;
-		this.name = null;
-		this.url = null;
-		this.info = null;
-		this.date = null;
-		this.genre = null;
-		this.prices = null;
-		this.location = location;
-	}
-
-	
-	/** Costruttore della classe
-	 * @param id
-	 * @param name
-	 * @param url
-	 * @param info
-	 * @param date
-	 * @param genre
-	 * @param prices
-	 */
-	public Event(String id, String name, String url, String info, Date date, Genre genre, Prices prices, Dealer dealer, Location location) {
-		this.id = id;
-		this.name = name;
-		this.url = url;
-		this.info = info;
-		this.date = date;
-		this.genre = genre;
-		this.prices = prices;
-		this.dealer = dealer;
-		this.location = location;
-	}
 
 
 	/** Restituisce l'id dell'evento
-	 * @return id 
+	 * @return l'id dell'evento
 	 */
 	public String getId() {	
 		return id;		
@@ -198,7 +81,7 @@ public class Event {
 
 
 	/** Setta l'id dell'evento
-	 * @param String id
+	 * @param id id dell'evento
 	 */
 	public void setId(String id) {		
 		this.id = id;		
@@ -206,7 +89,7 @@ public class Event {
 
 
 	/** Restituisce il nome dell'evento
-	 * @return name
+	 * @return il nome dell'evento
 	 */
 	public String getName() {		
 		return name;		
@@ -214,23 +97,23 @@ public class Event {
 
 
 	/** Setta il nome dell'evento
-	 * @param String name
+	 * @param name nome dell'evento
 	 */
 	public void setName(String name) {		
 		this.name = name;		
 	}
 
 
-	/** Restituisce l'url del source dell'evento
-	 * @return the url
+	/** Restituisce l'url dell'evento
+	 * @return l'url dell'evento
 	 */
 	public String getUrl() {
 		return url;
 	}
 
 
-	/** Setta l'url del source dell'evento
-	 * @param url the url to set
+	/** Setta l'url dell'evento
+	 * @param url url dell'evento
 	 */
 	public void setUrl(String url) {
 		this.url = url;
@@ -238,7 +121,7 @@ public class Event {
 
 
 	/** Restituisce le info dell'evento
-	 * @return info
+	 * @return le info dell'evento
 	 */
 	public String getInfo() {		
 		return info;		
@@ -246,55 +129,55 @@ public class Event {
 
 
 	/** Setta le info dell'evento
-	 * @param String info
+	 * @param info info dell'evento
 	 */
 	public void setInfo(String info) {		
 		this.info = info;		
 	}
 
 	
-	/** Restituisce la data e l'orario dell'evento
-	 * @return date
+	/** Restituisce la data e l'orario di inizio dell'evento
+	 * @return data e orario di inizio dell'evento
 	 */
 	public Date getDate() {
 		return date;
 	}
 
 
-	/** Setta la data e l'orario dell'evento
-	 * @param Date date
+	/** Setta la data e l'orario di inizio dell'evento
+	 * @param date data e orario di inizio dell'evento
 	 */
 	public void setDate(Date date) {
 		this.date = date;
 	}
 
 
-	/** Restituisce il genere dell'evento
-	 * @return genre
+	/** Restituisce i generi dell'evento
+	 * @return i generi dell'evento
 	 */
 	public Genre getGenre() {
 		return genre;
 	}
 
 
-	/** Setta il genere dell'evento
-	 * @param Genre genre
+	/** Setta i generi dell'evento
+	 * @param genre generi dell'evento
 	 */
 	public void setGenre(Genre genre) {
 		this.genre = genre;
 	}
 
 
-	/** Restituisce le caratteristiche dell'evento
-	 * @return prices
+	/** Restituisce le infomazioni relative ai costi del biglietto dell'evento
+	 * @return le infomazioni relative ai costi del biglietto dell'evento
 	 */
 	public Prices getPrices() {
 		return prices;
 	}
 
 
-	/** Setta le caratteristiche dell'evento
-	 * @param Prices prices
+	/** Setta le infomazioni relative ai costi del biglietto dell'evento
+	 * @param prices infomazioni relative ai costi del biglietto dell'evento
 	 */
 	public void setPrices(Prices prices) {
 		this.prices = prices;
@@ -302,7 +185,7 @@ public class Event {
 
 
 	/** Restituisce il distributore dei biglietti dell'evento
-	 * @return dealer
+	 * @return il distributore dei biglietti dell'evento
 	 */
 	public Dealer getDealer() {
 		return dealer;
@@ -310,43 +193,42 @@ public class Event {
 
 
 	/** Setta il distributore dei biglietti dell'evento
-	 * @param Dealer dealer
+	 * @param dealer distributore dei biglietti dell'evento
 	 */
 	public void setDealer(Dealer dealer) {
 		this.dealer = dealer;
 	}
 
 
-	/**
-	 * @return the location
+	/** Restituisce il luogo in cui si svolge l'evento
+	 * @return il luogo in cui si svolge l'evento
 	 */
 	public Location getLocation() {
 		return location;
 	}
 
 
-	/**
-	 * @param location the location to set
+	/** Setta il luogo in cui si svolge l'evento
+	 * @param location luogo in cui si svolge l'evento
 	 */
 	public void setLocation(Location location) {
 		this.location = location;
 	}
 
 
-	/**
-	 * Override del metodo toString.
-	 * @return String - rappresenta le informazioni relative all'evento.
+	/** Override del metodo toString.
+	 * @return stringa che rappresenta le informazioni relative all'evento
 	 */
 	@Override
 	public String toString() {
 		return "id=" + id + ", name=" + name + ", url=" + url + ", info=" + info + ", date=" + date + ", genre="
 				+ genre + ", prices=" + prices + "dealer=" + dealer + ", location=" + location + "";
 	}
+	
 
-	/**
-	 * Override del metodo equals.
-	 * @param oggetto Event da confrontare.
-	 * @return true o false a seconda che i due oggetti siano uguali.
+	/** Override del metodo equals
+	 * @param obj oggetto Event da confrontare
+	 * @return true o false a seconda che i due oggetti siano uguali
 	 */
 	@Override
 	public boolean equals(Object obj) {
@@ -405,5 +287,6 @@ public class Event {
 		return true;
 	}
 		
+	
 	
 }

@@ -3,120 +3,101 @@
  */
 package eu.univpm.TicketmasterEurope.model;
 
-/** Questa classe rappresenta le proprietà di ogni location e i relativi eventi che si svolgono in quel luogo.
+
+/** Questa classe rappresenta le proprietà di ogni location in cui si svolge l'evento
+ * 
  * @author Lorenzo Romandini
  * @author Nicholas Urbanelli
+ * 
  */
 public class Location {
 	
+	/**
+	 * Oggetto di tipo Place
+	 */
 	private Place place;
 	
+	/**
+	 * Oggetto di tipo Country
+	 */
 	private Country country;
 	
+	/**
+	 * Oggetto di tipo Market
+	 */
 	private Market market;
 	
 
-	/**
-	 * 
+	/** Costruttore della classe
 	 */
 	public Location() {
-		super();
+		this.place = null;
+		this.country = null;
+		this.market = null;
 	}
 	
 
-	/**
-	 * @param place
-	 */
-	public Location(Place place) {
-		super();
-		this.place = place;
-	}
-
-
-	/**
-	 * @param country
-	 */
-	public Location(Country country) {
-		super();
-		this.country = country;
-	}
-
-
-	/**
-	 * @param market
-	 */
-	public Location(Market market) {
-		super();
-		this.market = market;
-	}
-
-
-	/**
-	 * @param place
-	 * @param country
-	 * @param market
-	 * @param evento
-	 */
-	public Location(Place place, Country country, Market market) {
-		this.place = place;
-		this.country = country;
-		this.market = market;
-	}
-
-
-	/**
-	 * @return the place
+	/** Restituisce il posto in cui si svolge l'evento
+	 * @return il posto in cui si svolge l'evento
 	 */
 	public Place getPlace() {
 		return place;
 	}
 
 
-	/**
-	 * @param place the place to set
+	/** Setta il posto in cui si svolge l'evento
+	 * @param place posto in cui si svolge l'evento
 	 */
 	public void setPlace(Place place) {
 		this.place = place;
 	}
 
 
-	/**
-	 * @return the country
+	/** Restituisce il paese in cui si svolge l'evento
+	 * @return il paese in cui si svolge l'evento
 	 */
 	public Country getCountry() {
 		return country;
 	}
 
 
-	/**
-	 * @param country the country to set
+	/** Setta il paese in cui si svolge l'evento
+	 * @param country paese in cui si svolge l'evento
 	 */
 	public void setCountry(Country country) {
 		this.country = country;
 	}
 
 
-	/**
-	 * @return the market
+	/** Restituisce il market in cui si svolge l'evento
+	 * @return il market in cui si svolge l'evento
 	 */
 	public Market getMarket() {
 		return market;
 	}
 
 
-	/**
-	 * @param market the market to set
+	/** Setta il market in cui si svolge l'evento
+	 * @param market market in cui si svolge l'evento
 	 */
 	public void setMarket(Market market) {
 		this.market = market;
 	}
 
+	
+	/** Override del metodo toString
+	 * @return stringa che rappresenta posto, paese e market in cui si svolge l'evento
+	 */
 	@Override
 	public String toString() {
 		return "place=" + place + ", country=" + country + ", market=" + market + "";
 	}
 
 
+	/** Override del metodo equals
+	 * @param obj oggetto Location da confrontare
+	 * @return true o false a seconda che i due oggetti siano uguali
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -143,6 +124,9 @@ public class Location {
 			return false;
 		return true;
 	}
+	
+	
+	
 	
 }
 

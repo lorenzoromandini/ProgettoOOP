@@ -3,9 +3,12 @@
  */
 package eu.univpm.TicketmasterEurope.model;
 
-/**
- * @author loren
- *
+
+/** Questa classe descrive il market in cui si svolge l'evento
+ * 
+ * @author Lorenzo Romandini
+ * @author Nicholas Urbanelli
+ * 
  */
 public class Market {
 	
@@ -20,70 +23,59 @@ public class Market {
 	private String marketName;
 	
 	
-	/**
-	 * 
+	/** Costruttore della classe
 	 */
 	public Market() {
-		super();
+		this.marketId = null;
+		this.marketName = null;
 	}
 
 
-	/**
-	 * @param marketId
-	 */
-	public Market(String marketId) {
-		super();
-		this.marketId = marketId;
-	}
-
-
-	/**
-	 * @param marketId
-	 * @param marketName
-	 */
-	public Market(String marketId, String marketName) {
-		super();
-		this.marketId = marketId;
-		this.marketName = marketName;
-	}
-
-
-	/**
-	 * @return the marketId
+	/** Restituisce il codice del market in cui si svolge l'evento
+	 * @return il codice del market in cui si svolge l'evento
 	 */
 	public String getMarketId() {
 		return marketId;
 	}
 
 
-	/**
-	 * @param marketId the marketId to set
+	/** Setta il codice del market in cui si svolge l'evento
+	 * @param marketId codice del market in cui si svolge l'evento
 	 */
 	public void setMarketId(String marketId) {
 		this.marketId = marketId;
 	}
 
 
-	/**
-	 * @return the marketName
+	/** Restituisce il nome del market in cui si svolge l'evento
+	 * @return il nome del market in cui si svolge l'evento
 	 */
 	public String getMarketName() {
 		return marketName;
 	}
 
 
-	/**
-	 * @param marketName the marketName to set
+	/** Setta il nome del market in cui si svolge l'evento
+	 * @param marketName nome del market in cui si svolge l'evento
 	 */
 	public void setMarketName(String marketName) {
 		this.marketName = marketName;
 	}
 
+	
+	/** Override del metodo toString
+	 * @return stringa che rappresenta marketId e marketName in cui si svolge l'evento
+	 */
 	@Override
 	public String toString() {
 		return "marketId=" + marketId + ", marketName=" + marketName + "";
 	}
 
+	
+	/** Override del metodo equals
+	 * @param obj oggetto Market da confrontare
+	 * @return true o false a seconda che i due oggetti siano uguali
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
