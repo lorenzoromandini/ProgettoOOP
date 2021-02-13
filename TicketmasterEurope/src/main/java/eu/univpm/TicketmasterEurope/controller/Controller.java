@@ -79,7 +79,7 @@ public class Controller {
 		
 		obj = jsonconverter.JSON_converter(eventsArray);
 		
-		return new ResponseEntity<> (obj.toString(), HttpStatus.OK);
+		return new ResponseEntity<>(obj.toString(), HttpStatus.OK);
     }
 	
 	
@@ -102,7 +102,7 @@ public class Controller {
 		
 		obj = jsonconverter.JSON_converter(eventsArray);
 		
-		return new ResponseEntity<> (obj.toString(), HttpStatus.OK);
+		return new ResponseEntity<>(obj.toString(), HttpStatus.OK);
 	
     }
 	
@@ -126,7 +126,7 @@ public class Controller {
 		
 		obj = jsonconverter.JSON_converter(eventsArray);
 		
-		return new ResponseEntity<> (obj.toString(), HttpStatus.OK);
+		return new ResponseEntity<>(obj.toString(), HttpStatus.OK);
 	
     }
 	
@@ -150,7 +150,7 @@ public class Controller {
 		
 		obj = jsonconverter.JSON_converter(eventsArray);
 		
-		return new ResponseEntity<> (obj.toString(), HttpStatus.OK);
+		return new ResponseEntity<>(obj.toString(), HttpStatus.OK);
 	
     }
 	
@@ -174,7 +174,29 @@ public class Controller {
 		
 		obj = jsonconverter.JSON_converter(eventsArray);
 		
-		return new ResponseEntity<> (obj.toString(), HttpStatus.OK);
+		return new ResponseEntity<>(obj.toString(), HttpStatus.OK);
+	
+    }
+	
+	/** Rotta di tipo GET che mostra gli eventi che hanno luogo nel paese scelto tramite la parola chiave inserita dall'utente,
+	 * con le proprie caratteristiche selezionate dallo sviluppatore 
+	 * 
+	 * @param keyword parola chiave
+	 * @param countryCode countryCode rappresenta il codice del paese di cui si vogliono visualizzare gli eventi (sono ammessi solo codici di paesi europei)
+	 * @return gli eventi in ordine cronologico che hanno luogo nel paese scelto tramite la parola chiave inserita
+	 * @throws WrongCountryException se viene inserito il codice di un paese non europeo (la lista dei codici ammessi è disponibile nel file "Codes and Names")
+	 */
+	@GetMapping(value = "/keywordCountryEvents") 
+	public ResponseEntity<Object> getKeywordEvent(@RequestParam String keyword, String countryCode) throws WrongCountryException {
+		
+        EventsArray eventsArray = service.getKeywordEventsSelectedfromApi(keyword, countryCode);		
+        
+		JSONObject obj = new JSONObject();
+		JSON_Converter jsonconverter = new JSON_Converter();
+		
+		obj = jsonconverter.JSON_converter(eventsArray);
+		
+		return new ResponseEntity<>(obj.toString(), HttpStatus.OK);
 	
     }
 	
@@ -229,7 +251,8 @@ public class Controller {
 	 * valore tra 1, 3, 6 oppure 12).
      *  	 
 	 * @param body è un JSONObject del tipo riportato sopra
-	 * @return
+	 * @return un JSONArray di JSONObject che mostrano i vari elements con il relativo numero di eventi e infine quali tra
+	 * questi presentano il maggiore ed il minor numero di eventi
 	 * @throws WrongComparisonException se viene inserito un comparison diverso da country, market, source, segment, genre o subgenre
 	 * @throws WrongPeriodException se il periodo inserito non è uno tra 1, 3, 6 o 12
 	 * @throws WrongParameterException se il parametro inserito non è uno tra country, segment, genre, subGenre, source
