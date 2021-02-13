@@ -27,7 +27,7 @@ public class StatsManagement implements Stats {
 	
 	ID_Converter converter = new ID_Converter();
 	
-	private static LocalDate data = java.time.LocalDate.now();
+	LocalDate data = java.time.LocalDate.now();
 			
 	LocalDateTime now = LocalDateTime.now();
 	
@@ -43,7 +43,7 @@ public class StatsManagement implements Stats {
 	private String apikey = "GP6psuWJBWvDCvq13mLNVDY3ktVMdHRI";
 	
 	
-	/** Questo metodo va a prendere da Ticketmaster gli eventi in un paese tramite il codice di tale paese
+	/** Questo metodo va a prendere da Ticketmaster gli eventi in un paese tramite il codice di tale paese e in base al periodo scelto
 	 * 
 	 * @param countryCode codice del paese in cui ha luogo l'evento
 	 * @param period indica il periodo temporale (in mesi) su cui si vuole effettuare il confronto
@@ -77,6 +77,14 @@ public class StatsManagement implements Stats {
 	}
 	
 	
+	/** Questo metodo va a prendere da Ticketmaster gli eventi in un market tramite il suo codice e in base al periodo scelto
+	 * 
+	 * @param marketId codice del market in cui ha luogo l'evento
+	 * @param period indica il periodo temporale (in mesi) su cui si vuole effettuare il confronto
+	 * @return un JSONObject contenente tutti gli eventi che si svolgono in un market in un dato periodo e 
+	 * tutte le relative informazioni
+	 * @throws WrongValueException se viene inserito un market non ammesso
+	 */
 	public JSONObject getMarketEvents(String marketId, int period) throws WrongValueException {
 		
 		Exception.marketStringException(marketId);
@@ -103,6 +111,17 @@ public class StatsManagement implements Stats {
 	}
 	
 	
+	/** Questo metodo va a prendere da Ticketmaster gli eventi in un paese tramite il suo codice e li filtra in base 
+	 * alla tipologia scelta e al periodo indicato
+	 * 
+	 * @param segment tipologia di evento 
+	 * @param countryCode codice del paese in cui ha luogo l'evento
+	 * @param period indica il periodo temporale (in mesi) su cui si vuole effettuare il confronto
+	 * @return un JSONObject contenente tutti gli eventi che si svolgono in un paese e in base alla tipologia desiderata, 
+	 * con tutte le relative informazioni	 
+	 * @throws WrongValueException se viene inserita una tipologia di evento non ammessa
+	 * @throws WrongCountryException se viene inserito il codice di un paese non europeo 
+	 */
    public JSONObject getSegmentEvents(String countryCode, String segment, int period) throws WrongCountryException, WrongValueException {
 	   
 	   Exception.countryStringException(countryCode);
@@ -131,6 +150,17 @@ public class StatsManagement implements Stats {
 	}
 	
 	
+	/** Questo metodo va a prendere da Ticketmaster gli eventi in un paese tramite il suo codice e li filtra in base 
+	 * al genere scelto e al periodo indicato
+	 * 
+	 * @param genre genere di evento 
+	 * @param countryCode codice del paese in cui ha luogo l'evento
+	 * @param period indica il periodo temporale (in mesi) su cui si vuole effettuare il confronto
+	 * @return un JSONObject contenente tutti gli eventi che si svolgono in un paese e in base al genere desiderato, 
+	 * con tutte le relative informazioni	 
+	 * @throws WrongValueException se viene inserito un genere di evento non ammesso
+	 * @throws WrongCountryException se viene inserito il codice di un paese non europeo 
+	 */
 	public JSONObject getGenreEvents(String countryCode, String genre, int period) throws WrongCountryException, WrongValueException {
 		
 		Exception.countryStringException(countryCode);
@@ -161,6 +191,17 @@ public class StatsManagement implements Stats {
 	}
 
 
+	/** Questo metodo va a prendere da Ticketmaster gli eventi in un paese tramite il suo codice e li filtra in base 
+	 * al sottogenere scelto e al periodo indicato
+	 * 
+	 * @param subGenre sottogenere di evento 
+	 * @param countryCode codice del paese in cui ha luogo l'evento
+	 * @param period indica il periodo temporale (in mesi) su cui si vuole effettuare il confronto
+	 * @return un JSONObject contenente tutti gli eventi che si svolgono in un paese e in base al sottogenere desiderato, 
+	 * con tutte le relative informazioni	 
+	 * @throws WrongValueException se viene inserito un sottogenere di evento non ammesso
+	 * @throws WrongCountryException se viene inserito il codice di un paese non europeo 
+	 */
 	public JSONObject getSubGenreEvents(String countryCode, String subGenre, int period) throws WrongCountryException, WrongValueException {
 		
 		Exception.countryStringException(countryCode);
@@ -191,6 +232,17 @@ public class StatsManagement implements Stats {
 	}
 	
 	
+	/** Questo metodo va a prendere da Ticketmaster gli eventi in un paese tramite il suo codice e li filtra in base 
+	 * al distributore scelto e al periodo indicato
+	 * 
+	 * @param source distributore dei biglietti dell'evento 
+	 * @param countryCode codice del paese in cui ha luogo l'evento
+	 * @param period indica il periodo temporale (in mesi) su cui si vuole effettuare il confronto
+	 * @return un JSONObject contenente tutti gli eventi che si svolgono in un paese e in base al distributore desiderato, 
+	 * con tutte le relative informazioni	 
+	 * @throws WrongValueException se viene inserito un distributore non ammesso
+	 * @throws WrongCountryException se viene inserito il codice di un paese non europeo 
+	 */
     public JSONObject getSourceEvents(String countryCode, String source, int period) throws WrongCountryException, WrongValueException {
     	
     	Exception.countryStringException(countryCode);

@@ -8,10 +8,12 @@ import org.json.JSONArray;
 
 import eu.univpm.TicketmasterEurope.exception.*;
 
+
 /** Questa classe contiene i metodi necessari al filtraggio
  * 
  * @author Lorenzo Romandini
  * @author Nicholas Urbanelli
+ * 
  */
 public class Filter {
 	
@@ -469,6 +471,7 @@ public class Filter {
 		return array;
 		
 	}
+	
 	
 	
 }

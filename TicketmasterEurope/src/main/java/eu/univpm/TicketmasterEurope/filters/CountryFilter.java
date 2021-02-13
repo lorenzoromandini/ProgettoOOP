@@ -28,9 +28,14 @@ public class CountryFilter implements CountryMarketFilterInterface {
 	
 	VoidGetException Exception = new VoidGetException();
 	
-	/**
-	 * @throws WrongCountryException 
+	
+	 /** Questo metodo calcola il numero totale di eventi che hanno luogo nei paesi inseriti in un dato periodo.
+	 * Restituisce un JSONArray contenente JSONObject che rappresentano i paesi e il numero totale di eventi di ciasccuno,
+	 * oltre a mostrare quale di essi ospita il maggior numero di eventi e quale il minor numero di eventi
 	 * 
+	 * @param countries vettore di paesi
+	 * @param period indica il periodo temporale (in mesi) su cui si vuole effettuare il confronto
+	 * @throws WrongCountryException se viene inserito il codice di un paese non europeo 
 	 */
 	public JSONArray MonthsCountryMarket(Vector<String> countries, int period) throws WrongCountryException  {
 		

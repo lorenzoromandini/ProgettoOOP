@@ -29,6 +29,16 @@ public class SegmentComparison implements FilterMonthInterface {
 	VoidGetException Exception = new VoidGetException();
 	
 
+	 /** Questo metodo calcola il numero totale di eventi di una determinata tipologia in un determinato paese in un dato periodo.
+	 * Restituisce un JSONArray contenente JSONObject che rappresentano le tipologie e il numero totale di eventi di ciascuno, 
+	 * oltre a mostrare quale di essi costituisce il maggior numero di eventi e quale il minor numero di eventi
+	 * 
+	 * @param segments vettore di tipologie
+	 * @param country paese in cui si svolgono gli eventi
+	 * @param period indica il periodo temporale (in mesi) su cui si vuole effettuare il confronto
+	 * @throws WrongValueException se viene inserita una tipologia di evento non ammessa 
+	 * @throws WrongCountryException se viene inserito il codice di un paese non europeo
+	 */
 	public JSONArray Months(Vector<String> segments, String country, int period) throws WrongValueException, WrongCountryException {
 		
 		Exception.segmentVectorException(segments);

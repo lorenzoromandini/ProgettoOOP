@@ -15,6 +15,7 @@ import eu.univpm.TicketmasterEurope.exception.WrongValueException;
 import eu.univpm.TicketmasterEurope.stats.Stats;
 import eu.univpm.TicketmasterEurope.stats.StatsManagement;
 
+
 /** Questa classe implementa CountryMarketFilterInterface e contiene i metodi per il filtraggio degli eventi in 
  *  un market in funzione del periodo su cui si vuole effettuare tale ricerca
  * 
@@ -29,6 +30,14 @@ public class MarketFilter implements CountryMarketFilterInterface {
 	VoidGetException Exception = new VoidGetException();
 	
 
+	 /** Questo metodo calcola il numero totale di eventi che hanno luogo nei market inseriti in un dato periodo.
+	 * Restituisce un JSONArray contenente JSONObject che rappresentano i market e il numero totale di eventi di ciascuno, 
+	 * oltre a mostrare quale di essi ospita il maggior numero di eventi e quale il minor numero di eventi
+	 * 
+	 * @param markets vettore di market
+	 * @param period indica il periodo temporale (in mesi) su cui si vuole effettuare il confronto
+     * @throws WrongValueException se viene inserito il codice di un market non europeo 
+	 */
 	public JSONArray MonthsCountryMarket(Vector<String> markets, int period) throws WrongValueException, WrongCountryException  {
 		
 		Exception.marketVectorException(markets);
