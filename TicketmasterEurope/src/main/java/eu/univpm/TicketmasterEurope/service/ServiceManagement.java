@@ -3,37 +3,44 @@
  */
 package eu.univpm.TicketmasterEurope.service;
 
-import java.util.Vector;
-
-import org.json.JSONArray;
 import org.json.JSONObject;
-import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import eu.univpm.TicketmasterEurope.exception.VoidGetException;
+import eu.univpm.TicketmasterEurope.exception.WrongCountryException;
+import eu.univpm.TicketmasterEurope.exception.WrongValueException;
 import eu.univpm.TicketmasterEurope.model.*;
 
-/** Questa classe è l'implementazione dell'interfaccia Service
+
+/** Questa classe implementa l'interfaccia Service
  * 
  * @author Lorenzo Romandini
  * @author Nicholas Urbanelli
  */
-
-@Service
-
-public class ServiceManagement implements eu.univpm.TicketmasterEurope.service.Service {
+public class ServiceManagement implements Service {
+	
+	VoidGetException Exception = new VoidGetException();
+	
+	ID_Converter converter = new ID_Converter();
+	
+	ServiceEventsInformations events = new ServiceEventsInformations();
 	
 	/**
 	 * apikey è la key necessaria per ottenere informazioni da Ticketmaster
 	 */
 	private String apikey = "GP6psuWJBWvDCvq13mLNVDY3ktVMdHRI";
 	
-	/**
-	 * Questo metodo va a prendere da Ticketmaster gli eventi in un paese tramite il codice di tale paese
-	 * @param countryCode - codice del paese in cui ha luogo l'evento
-	 * @return JSONObject object
+	
+	/** Questo metodo va a prendere da Ticketmaster gli eventi in un paese tramite il codice di tale paese
+	 * 
+	 * @param countryCode codice del paese in cui ha luogo l'evento
+	 * @return un JSONObject contenente tutti gli eventi che si svolgono in un paese e tutte le relative informazioni
+	 * @throws WrongCountryException se viene inserito il codice di un paese non europeo 
 	 */
-	public JSONObject getCountryEvents(String countryCode) {
+	public JSONObject getCountryEvents(String countryCode) throws WrongCountryException {
 		
+		Exception.countryStringException(countryCode);
+						
 		JSONObject countryEventsObject;
 		String Url = "https://app.ticketmaster.com/discovery/v2/events?size=200&sort=date,asc&countryCode="
 		              + countryCode + "&apikey="+ apikey;
@@ -46,200 +53,34 @@ public class ServiceManagement implements eu.univpm.TicketmasterEurope.service.S
 	}
 
 	
-	/**
-	 * Questo metodo utilizza getCountryEvents per andare a selezionare le informazioni desiderate relative ad un evento
-	 * (id, nome, url, info, data, orario, valuta, prezzo minimo, prezzo massimo, tipologia, genere e sottogenere)
-	 * @param countryCode - codice del paese in cui ha luogo l'evento
-	 * @return Location location - oggetto contenente le informazioni desiderate dell'evento e il luogo in cui si svolge
+	/** Questo metodo utilizza getCountryEvents per andare a selezionare le informazioni desiderate relative ad un evento
+	 * (id, nome, url, source, info, data, orario, valuta, paese, città, indirizzo, placement, market, prezzo minimo, prezzo massimo, 
+	 * tipologia, genere, sottogenere, eventi mostrati, eventi totali)
+	 * 
+	 * @param countryCode codice del paese in cui ha luogo l'evento
+	 * @return un vettore di eventi contenente le informazioni desiderate degli eventi che hanno luogo nel paese indicato
+	 * @throws WrongCountryException se viene inserito il codice di un paese non europeo 
 	 */
-	public EventsArray getCountryEventsSelectedfromApi(String countryCode) {	
-		
+	public EventsArray getCountryEventsSelectedfromApi(String countryCode) throws WrongCountryException {	
+						
 		JSONObject countryEventsSelectedObject = getCountryEvents(countryCode);
-									
-		EventsArray eventsArray = new EventsArray();		
 		
-		JSONObject embeddedObject = countryEventsSelectedObject.getJSONObject("_embedded");
-		JSONObject pageObject = countryEventsSelectedObject.getJSONObject("page");
-		int totalElements = pageObject.getInt("totalElements");
-		JSONArray countryEventsArray = embeddedObject.getJSONArray("events");
-		JSONObject object;
-		
-		int dimensione = 0;
-		
-		if(totalElements < 200) dimensione = totalElements;
-		else dimensione = 200;
-		
-		Vector<Event> vector = new Vector<Event>(dimensione); 
-		
-		for (int i = 0; i < dimensione; i++) {
-			
-			Event event = new Event();      //creo un nuovo oggetto di tipo event
-			
-			object = countryEventsArray.getJSONObject(i);   //i-esimo blocco nel vettore degli eventi
-			
-			try {
+		return events.getServiceEventsInformations(countryEventsSelectedObject);
 				
-			event.setName(object.getString("name"));   //setto il nome dell'evento con la stringa che corrisponde a "name"
-			
-			} catch(Exception e) {
-				e.printStackTrace();
-			}
-			
-			try {
-				
-			event.setId(object.getString("id"));   //setto l'id dell'evento con la stringa che corrisponde a "id"
-			
-			} catch(Exception e) {
-				e.printStackTrace();
-			}
-			
-			try {
-				
-			event.setUrl(object.getString("url"));  //setto l'url dell'evento con la stringa che corrisponde a "url"
-			
-			} catch(Exception e) {
-				e.printStackTrace();
-			}
-			
-			Dealer dealer = new Dealer();			//creo un ogetto di tipo Dealer
-			String url = object.getString("url");
-			String source = null;
-			if(url.contains("universe")) source = "universe";
-			else if(url.contains("ticketmaster")) source = "ticketmaster";
-			else if(url.contains("frontgate")) source = "frontgate";
-			else source = "tmr";
-			dealer.setSource(source);
-			
-			event.setDealer(dealer);
-			
-			try {
-				
-			event.setInfo(object.getString("info"));   //setto l'info dell'evento con la stringa che corrisponde a "info"
-			
-			} catch(Exception e) {
-				e.printStackTrace();
-			}
-			
-			Date data = new Date();        //creo un nuovo oggetto di tipo Date
-			
-			try {
-				
-			JSONObject datesObject = object.getJSONObject("dates");               //creo un JSONArray che corrisponde all'array "dates"
-			JSONObject startDateObject = datesObject.getJSONObject("start");      //creo un JSONArray che corrisponde all'array "start"	
-			data.setDataInizio(startDateObject.getString("localDate"));		      //setto la data della data con la stringa che corrisponde a "localDate"
-			data.setOrarioInizio(startDateObject.getString("localTime"));         //setto l'orario della data con la stringa che corrisponde a "localTime"			
-			
-			} catch(Exception e) {
-				e.printStackTrace();
-			}
-			
-			event.setDate(data);	          //setto la data dell'evento con l'oggetto di tipo data appena creato
-			
-			Prices prices = new Prices();     //creo un nuovo oggetto di tipo prices
-			
-			try {
-				
-			JSONArray pricesArray = object.getJSONArray("priceRanges");    //creo un JSONArray che corrisponde all'array "priceRanges"
-			JSONObject pricesObject = pricesArray.getJSONObject(0);        //creo un JSONObject a partire dal informationsArray precedente
-			prices.setCurrency(pricesObject.getString("currency"));        //setto la valuta con la stringa che corrisponde a "currency"
-			prices.setMaxPrice(pricesObject.getDouble("max"));             //setto il prezzo massimo con la stringa che corrisponde a "max"
-			prices.setMinPrice(pricesObject.getDouble("min"));             //setto il prezzo minimo con la stringa che corrisponde a "min"
-			
-			} catch(Exception e) {
-				e.printStackTrace();
-			}
-			
-			event.setPrices(prices);				//setto le informations dell'evento con l'oggetto di tipo infromations appena creato		
-			
-			Genre genre = new Genre();              //creo un ogetto di tipo Genre
-			
-			try {
-				
-			JSONArray classificationsArray = object.getJSONArray("classifications");      //creo un JSONArray che corrisponde all'array "classifications"
-			JSONObject classificationsObject = classificationsArray.getJSONObject(0);     //creo un JSONObject a partire dal informationsArray precedente
-			JSONObject segmentObject = classificationsObject.getJSONObject("segment");    //creo un JSONArray che corrisponde all'array "segment"
-			genre.setSegmentName(segmentObject.getString("name"));                        //setto il nome del tipologia con la stringa che corrisponde a "name"
-			JSONObject genreObject = classificationsObject.getJSONObject("genre");        //creo un JSONArray che corrisponde all'array "genre"
-			genre.setGenreName(genreObject.getString("name"));                            //setto il nome del genre con la stringa che corrisponde a "name"
-			JSONObject subGenreObject = classificationsObject.getJSONObject("subGenre");  //creo un JSONArray che corrisponde all'array "subGenre"
-			genre.setSubGenreName(subGenreObject.getString("name"));                      //setto il nome del sottogenere con la stringa che corrisponde a "name"
-			
-			} catch(Exception e) {
-				e.printStackTrace();
-			}
-			
-			event.setGenre(genre);                                      //setto il genere dell'evento con l'oggetto genre appena creato
-			
-			Location location = new Location();                          //creo un ogetto di tipo location
-			 
-		    JSONObject lowerEmbeddedObj = object.getJSONObject("_embedded");  //creo un JSONobject che corrisponde al oggetto "embedded"
-		   
-		    try {
-		    	
-		    JSONArray venuesArray = lowerEmbeddedObj.getJSONArray("venues");   //creo un JSONArray che corrisponde all'array "vanues"
-		    JSONObject lowerFirstObject = venuesArray.getJSONObject(0);        //creo un JSONObject a partire dal venuesArray precedente
-		   
-		    Place placement = new Place();                               //creo un ogetto di tipo place
-		    
-            try {
-		    
-		    placement.setPlacement(lowerFirstObject.getString("name"));         //setto il nome del tipologia con la stringa che corrisponde a "name"
-		    JSONObject addressObject = lowerFirstObject.getJSONObject("address");
-		    placement.setAddress(addressObject.getString("line1"));            //setto la linea con la stringa che corrisponde a "line1"
-		    JSONObject cityObject = lowerFirstObject.getJSONObject("city");
-		    placement.setCity(cityObject.getString("name"));
-		    location.setPlace(placement);                   //setto il luogo dell'evento con l'oggetto placement appena creato
-		    
-		    } catch(Exception e) {
-				e.printStackTrace();
-			}
-		
-		    Country country = new Country();                         //creo un ogetto di tipo Country
-		    
-		    try {
-		    	
-		    JSONObject countryObject = lowerFirstObject.getJSONObject("country");
-		    country.setCountry(countryObject.getString("name"));
-		    country.setCountryCode(countryObject.getString("countryCode"));
-		    location.setCountry(country);             //setto lo stato  dell'evento con l'oggetto country appena creato
-		    
-		    } catch(Exception e) {
-				e.printStackTrace();
-			}
-		    
-		    Market market = new Market();                         //creo un ogetto di tipo Market
-		    
-		    try {
-		    	
-		    JSONArray marketArray = lowerFirstObject.getJSONArray("markets");
-		    JSONObject marketObject = marketArray.getJSONObject(0);	    
-		    market.setMarketName(marketObject.getString("name"));		    
-		    market.setMarketId(marketObject.getString("id"));
-		    location.setMarket(market);         //setto il market dell'evento con l'oggetto location appena creato
-		    
-		    } catch(Exception e) {
-				e.printStackTrace();
-			}
-		    
-		    event.setLocation(location);      //setto l'evento dell'evento con l'oggetto location appena creato
-		    
-		    } catch(Exception e) {
-				e.printStackTrace();
-			}
-		    
-			vector.add(event);	
-			
-		}
-		
-		eventsArray.setVector(vector);
-		eventsArray.setTotalEvents(totalElements);
-		eventsArray.setShowedEvents(dimensione);
-		
-		return eventsArray;
 	}
+									
+		
 	
 	
-    public JSONObject getMarketEvents(String marketId) {
+	/** Questo metodo va a prendere da Ticketmaster gli eventi in un market tramite il codice di tale market
+	 * 
+	 * @param marketId codice del market in cui ha luogo l'evento
+	 * @return un JSONObject contenente tutti gli eventi che si svolgono in un market e tutte le relative informazioni	 
+	 * @throws WrongValueException se viene inserito un market non ammesso
+	 */
+    public JSONObject getMarketEvents(String marketId) throws WrongValueException {
+    	
+    	Exception.marketStringException(marketId);
 		
 		JSONObject marketEventsObject;
 		String Url = "https://app.ticketmaster.com/discovery/v2/events?size=200&sort=date,asc&marketId="
@@ -253,202 +94,182 @@ public class ServiceManagement implements eu.univpm.TicketmasterEurope.service.S
 	}
 
     
-	/**
-	 * Questo metodo utilizza getCountryEvents per andare a selezionare le informazioni desiderate relative ad un evento
-	 * (id, nome, url, info, data, orario, valuta, prezzo minimo, prezzo massimo, tipologia, genere e sottogenere)
-	 * @param countryCode - codice del paese in cui ha luogo l'evento
-	 * @return Location location - oggetto contenente le informazioni desiderate dell'evento e il luogo in cui si svolge
+	/** Questo metodo utilizza getMarketEvents per andare a selezionare le informazioni desiderate relative ad un evento
+	 * (id, nome, url, source, info, data, orario, valuta, paese, città, indirizzo, placement, market, prezzo minimo, prezzo massimo, 
+	 * tipologia, genere, sottogenere, eventi mostrati, eventi totali)
+	 * 
+	 * @param marketId codice del market in cui ha luogo l'evento
+	 * @return un vettore di eventi contenente le informazioni desiderate degli eventi che hanno luogo nel market indicato
+	 * @throws WrongValueException se viene inserito un market non ammesso
 	 */
-	public EventsArray getMarketEventsSelectedfromApi(String marketId) {	
+	public EventsArray getMarketEventsSelectedfromApi(String marketId) throws WrongValueException {	
 		
 		JSONObject marketEventsSelectedObject = getMarketEvents(marketId);
 									
-		EventsArray eventsArray = new EventsArray();		
-		
-		JSONObject embeddedObject = marketEventsSelectedObject.getJSONObject("_embedded");
-		JSONObject pageObject = marketEventsSelectedObject.getJSONObject("page");
-		int totalElements = pageObject.getInt("totalElements");
-		JSONArray marketEventsArray = embeddedObject.getJSONArray("events");
-		JSONObject object;
-		
-		int dimensione = 0;
-		
-		if(totalElements < 200) dimensione = totalElements;
-		else dimensione = 200;
-		
-		Vector<Event> vector = new Vector<Event>(dimensione); 
-		
-		for (int i = 0; i < dimensione; i++) {
-			
-			Event event = new Event();
-			
-			object = marketEventsArray.getJSONObject(i);
-			
-			try {
-				
-			event.setName(object.getString("name"));
-			
-			} catch(Exception e) {
-				e.printStackTrace();
-			}
-			
-			try {
-				
-			event.setId(object.getString("id"));
-			
-			} catch(Exception e) {
-				e.printStackTrace();
-			}
-			
-			try {
-				
-			event.setUrl(object.getString("url"));
-			
-			} catch(Exception e) {
-				e.printStackTrace();
-			}
-						
-			Dealer dealer = new Dealer();			
-			String url = object.getString("url");
-			String source = null;
-			if(url.contains("universe")) source = "universe";
-			else if(url.contains("ticketmaster")) source = "ticketmaster";
-			else if(url.contains("frontgate")) source = "frontgate";
-			else source = "tmr";
-			dealer.setSource(source);
-			
-			event.setDealer(dealer);
-			
-			try {
-				
-			event.setInfo(object.getString("info"));
-			
-			} catch(Exception e) {
-				e.printStackTrace();
-			}
-			
-			Date data = new Date();
-			
-			try {
-				
-			JSONObject datesObject = object.getJSONObject("dates");
-			JSONObject startDateObject = datesObject.getJSONObject("start");		
-			data.setDataInizio(startDateObject.getString("localDate"));		
-			data.setOrarioInizio(startDateObject.getString("localTime"));
-			
-			} catch(Exception e) {
-				e.printStackTrace();
-			}
-			
-			event.setDate(data);	
-			
-			Prices prices = new Prices();
-			
-			try {
-				
-			JSONArray pricesArray = object.getJSONArray("priceRanges");
-			JSONObject pricesObject = pricesArray.getJSONObject(0);
-			prices.setCurrency(pricesObject.getString("currency"));
-			prices.setMaxPrice(pricesObject.getDouble("max"));
-			prices.setMinPrice(pricesObject.getDouble("min"));
-			
-			} catch(Exception e) {
-				e.printStackTrace();
-			}
-			
-			event.setPrices(prices);						
-			
-			Genre genre = new Genre();
-			
-			try {
-				
-			JSONArray classificationsArray = object.getJSONArray("classifications");
-			JSONObject classificationsObject = classificationsArray.getJSONObject(0);
-			JSONObject segmentObject = classificationsObject.getJSONObject("segment");
-			genre.setSegmentName(segmentObject.getString("name"));
-			JSONObject genreObject = classificationsObject.getJSONObject("genre");
-			genre.setGenreName(genreObject.getString("name"));
-			JSONObject subGenreObject = classificationsObject.getJSONObject("subGenre");
-			genre.setSubGenreName(subGenreObject.getString("name"));
-			
-			} catch(Exception e) {
-				e.printStackTrace();
-			}
-			
-			event.setGenre(genre);
-			
-			Location location = new Location();
-			 
-		    JSONObject lowerEmbeddedObj = object.getJSONObject("_embedded");
-		   
-		    try {
-		    	
-		    JSONArray venuesArray = lowerEmbeddedObj.getJSONArray("venues");
-		    JSONObject lowerFirstObject = venuesArray.getJSONObject(0);
-		   
-		    Place placement = new Place();
-		    
-            try {
-		    
-		    placement.setPlacement(lowerFirstObject.getString("name"));
-		    JSONObject addressObject = lowerFirstObject.getJSONObject("address");
-		    placement.setAddress(addressObject.getString("line1"));
-		    JSONObject cityObject = lowerFirstObject.getJSONObject("city");
-		    placement.setCity(cityObject.getString("name"));
-		    location.setPlace(placement);
-		    
-		    } catch(Exception e) {
-				e.printStackTrace();
-			}
-		
-		    Country country = new Country();
-		    
-		    try {
-		    	
-		    JSONObject countryObject = lowerFirstObject.getJSONObject("country");
-		    country.setCountry(countryObject.getString("name"));
-		    country.setCountryCode(countryObject.getString("countryCode"));
-		    location.setCountry(country);
-		    
-		    } catch(Exception e) {
-				e.printStackTrace();
-			}
-		    
-		    Market market = new Market();
-		    
-		    try {
-		    	
-		    JSONArray marketArray = lowerFirstObject.getJSONArray("markets");
-		    JSONObject marketObject = marketArray.getJSONObject(0);
-		    
-		    market.setMarketName(marketObject.getString("name"));
-		    
-		    market.setMarketId(marketObject.getString("id"));
-		    location.setMarket(market);
-		    
-		    } catch(Exception e) {
-				e.printStackTrace();
-			}
-		    
-		    event.setLocation(location);
-		    
-		    } catch(Exception e) {
-				e.printStackTrace();
-			}
-		    
-			vector.add(event);	
-			
-		}
-		
-		eventsArray.setVector(vector);
-		eventsArray.setTotalEvents(totalElements);
-		eventsArray.setShowedEvents(dimensione);
-		
-		return eventsArray;
+		return events.getServiceEventsInformations(marketEventsSelectedObject);
+
 	}
 	
 	
-     public JSONObject getSourceEvents(String source, String countryCode) {
+	/** Questo metodo va a prendere da Ticketmaster gli eventi in un paese tramite il suo codice e li filtra in base 
+	 * alla tipologia scelta
+	 * 
+	 * @param segment tipologia di evento 
+	 * @param countryCode codice del paese in cui ha luogo l'evento
+	 * @return un JSONObject contenente tutti gli eventi che si svolgono in un paese e in base alla tipologia desiderata, 
+	 * con tutte le relative informazioni	 
+	 * @throws WrongValueException se viene inserita una tipologia di evento non ammessa
+	 * @throws WrongCountryException se viene inserito il codice di un paese non europeo 
+	 */
+    public JSONObject getSegmentEvents(String segment, String countryCode) throws WrongValueException, WrongCountryException {
+    	 
+    	 Exception.countryStringException(countryCode);
+    	 Exception.segmentStringException(segment);
+		
+		JSONObject segmentEventsObject;
+		String Url = "https://app.ticketmaster.com/discovery/v2/events?size=200&sort=date,asc&segmentName="
+		              + segment + "&countryCode=" + countryCode + "&apikey="+ apikey;
+		
+		RestTemplate restTemplate = new RestTemplate();
+		
+		segmentEventsObject = new JSONObject(restTemplate.getForObject(Url, String.class));
+		
+		return segmentEventsObject; 
+	}
+     
+     
+	/** Questo metodo utilizza getMarketEvents per andare a selezionare le informazioni desiderate relative ad un evento
+	 * (id, nome, url, source, info, data, orario, valuta, paese, città, indirizzo, placement, market, prezzo minimo, prezzo massimo, 
+	 * tipologia, genere, sottogenere, eventi mostrati, eventi totali)
+	 * 
+	 * @param segment tipologia di evento 
+	 * @param countryCode codice del paese in cui ha luogo l'evento
+	 * @return un vettore di eventi contenente le informazioni desiderate degli eventi che hanno luogo nel paese indicato e
+	 * in base alla tipologia di evento scelta
+	 * @throws WrongValueException se viene inserita una tipologia di evento non ammessa
+	 * @throws WrongCountryException se viene inserito il codice di un paese non europeo 
+	 */
+	public EventsArray getSegmentEventsSelectedfromApi(String segment, String countryCode) throws WrongValueException, WrongCountryException {	
+		
+		JSONObject segmentEventsSelectedObject = getSegmentEvents(segment, countryCode);
+		
+		return events.getServiceEventsInformations(segmentEventsSelectedObject);
+
+	}
+	
+	
+	/** Questo metodo va a prendere da Ticketmaster gli eventi in un paese tramite il suo codice e li filtra in base 
+	 * al genere scelto
+	 * 
+	 * @param genre genere di evento 
+	 * @param countryCode codice del paese in cui ha luogo l'evento
+	 * @return un JSONObject contenente tutti gli eventi che si svolgono in un paese e in base al genere desiderato, 
+	 * con tutte le relative informazioni	 
+	 * @throws WrongValueException se viene inserito un genere di evento non ammesso
+	 * @throws WrongCountryException se viene inserito il codice di un paese non europeo 
+	 */
+    public JSONObject getGenreEvents(String genre, String countryCode) throws WrongValueException, WrongCountryException {
+   	 
+   	 Exception.countryStringException(countryCode);
+   	 Exception.genreStringException(genre);
+   	 
+   	 String genreId = converter.genreIdConverter(genre);
+		
+		JSONObject genreEventsObject;
+		String Url = "https://app.ticketmaster.com/discovery/v2/events?size=200&sort=date,asc&genreId="
+		              + genreId + "&countryCode=" + countryCode + "&apikey="+ apikey;
+		
+		RestTemplate restTemplate = new RestTemplate();
+		
+		genreEventsObject = new JSONObject(restTemplate.getForObject(Url, String.class));
+		
+		return genreEventsObject; 
+	}
+    
+    
+	/** Questo metodo utilizza getGenreEvents per andare a selezionare le informazioni desiderate relative ad un evento
+	 * (id, nome, url, source, info, data, orario, valuta, paese, città, indirizzo, placement, market, prezzo minimo, prezzo massimo, 
+	 * tipologia, genere, sottogenere, eventi mostrati, eventi totali)
+	 * 
+	 * @param genre genere di evento 
+	 * @param countryCode codice del paese in cui ha luogo l'evento
+	 * @return un vettore di eventi contenente le informazioni desiderate degli eventi che hanno luogo nel paese indicato e
+	 * in base al genere di evento scelto
+	 * @throws WrongValueException se viene inserito un genere di evento non ammesso
+	 * @throws WrongCountryException se viene inserito il codice di un paese non europeo 
+	 */
+	public EventsArray getGenreEventsSelectedfromApi(String genre, String countryCode) throws WrongValueException, WrongCountryException {	
+		
+		JSONObject genreEventsSelectedObject = getSourceEvents(genre, countryCode);
+									
+		return events.getServiceEventsInformations(genreEventsSelectedObject);
+
+	}
+	
+	
+	/** Questo metodo va a prendere da Ticketmaster gli eventi in un paese tramite il suo codice e li filtra in base 
+	 * al sottogenere scelto
+	 * 
+	 * @param subGenre sottogenere di evento 
+	 * @param countryCode codice del paese in cui ha luogo l'evento
+	 * @return un JSONObject contenente tutti gli eventi che si svolgono in un paese e in base al sottogenere desiderato, 
+	 * con tutte le relative informazioni	 
+	 * @throws WrongValueException se viene inserito un sottogenere di evento non ammesso
+	 * @throws WrongCountryException se viene inserito il codice di un paese non europeo 
+	 */
+    public JSONObject getSubGenreEvents(String subGenre, String countryCode) throws WrongValueException, WrongCountryException {
+   	 
+   	 Exception.countryStringException(countryCode);
+   	 Exception.subgenreStringException(subGenre);
+   	 
+   	 String subGenreId = converter.subGenreIdConverter(subGenre);
+		
+		JSONObject subGenreEventsObject;
+		String Url = "https://app.ticketmaster.com/discovery/v2/events?size=200&sort=date,asc&subGenreId="
+		              + subGenreId + "&countryCode=" + countryCode + "&apikey="+ apikey;
+		
+		RestTemplate restTemplate = new RestTemplate();
+		
+		subGenreEventsObject = new JSONObject(restTemplate.getForObject(Url, String.class));
+		
+		return subGenreEventsObject; 
+	}
+    
+    
+	/** Questo metodo utilizza getSubGenreEvents per andare a selezionare le informazioni desiderate relative ad un evento
+	 * (id, nome, url, source, info, data, orario, valuta, paese, città, indirizzo, placement, market, prezzo minimo, prezzo massimo, 
+	 * tipologia, genere, sottogenere, eventi mostrati, eventi totali)
+	 * 
+	 * @param subGenre sottogenere di evento 
+	 * @param countryCode codice del paese in cui ha luogo l'evento
+	 * @return un vettore di eventi contenente le informazioni desiderate degli eventi che hanno luogo nel paese indicato e
+	 * in base al sottogenere di evento scelto
+	 * @throws WrongValueException se viene inserito un sottogenere di evento non ammesso
+	 * @throws WrongCountryException se viene inserito il codice di un paese non europeo 
+	 */
+	public EventsArray getSubGenreEventsSelectedfromApi(String subGenre, String countryCode) throws WrongValueException, WrongCountryException {	
+		
+		JSONObject subGenreEventsSelectedObject = getSubGenreEvents(subGenre, countryCode);
+		
+		return events.getServiceEventsInformations(subGenreEventsSelectedObject);
+
+	}
+	
+	
+	/** Questo metodo va a prendere da Ticketmaster gli eventi in un paese tramite il suo codice e li filtra in base 
+	 * al distributore scelto
+	 * 
+	 * @param source distributore dei biglietti dell'evento 
+	 * @param countryCode codice del paese in cui ha luogo l'evento
+	 * @return un JSONObject contenente tutti gli eventi che si svolgono in un paese e in base al distributore desiderato, 
+	 * con tutte le relative informazioni	 
+	 * @throws WrongValueException se viene inserito un distributore non ammesso
+	 * @throws WrongCountryException se viene inserito il codice di un paese non europeo 
+	 */
+    public JSONObject getSourceEvents(String source, String countryCode) throws WrongValueException, WrongCountryException {
+   	 
+   	 Exception.countryStringException(countryCode);
+   	 Exception.sourceStringException(source);
 		
 		JSONObject sourceEventsObject;
 		String Url = "https://app.ticketmaster.com/discovery/v2/events?size=200&sort=date,asc&source="
@@ -460,209 +281,27 @@ public class ServiceManagement implements eu.univpm.TicketmasterEurope.service.S
 		
 		return sourceEventsObject; 
 	}
-     
-     
-	/**
-	 * Questo metodo utilizza getCountryEvents per andare a selezionare le informazioni desiderate relative ad un evento
-	 * (id, nome, url, info, data, orario, valuta, prezzo minimo, prezzo massimo, tipologia, genere e sottogenere)
-	 * @param countryCode - codice del paese in cui ha luogo l'evento
-	 * @return Location location - oggetto contenente le informazioni desiderate dell'evento e il luogo in cui si svolge
+    
+    
+	/** Questo metodo utilizza getSourceEvents per andare a selezionare le informazioni desiderate relative ad un evento
+	 * (id, nome, url, source, info, data, orario, valuta, paese, città, indirizzo, placement, market, prezzo minimo, prezzo massimo, 
+	 * tipologia, genere, sottogenere, eventi mostrati, eventi totali)
+	 * 
+	 * @param source distributore di biglietti dell'evento 
+	 * @param countryCode codice del paese in cui ha luogo l'evento
+	 * @return un vettore di eventi contenente le informazioni desiderate degli eventi che hanno luogo nel paese indicato e
+	 * in base al distributore di biglietti scelto
+	 * @throws WrongValueException se viene inserito un distributore non ammesso
+	 * @throws WrongCountryException se viene inserito il codice di un paese non europeo 
 	 */
-	public EventsArray getSourceEventsSelectedfromApi(String sourceX, String countryCodeX) {	
+	public EventsArray getSourceEventsSelectedfromApi(String source, String countryCode) throws WrongValueException, WrongCountryException {	
 		
-		JSONObject sourceEventsSelectedObject = getSourceEvents(sourceX, countryCodeX);
-									
-		EventsArray eventsArray = new EventsArray();		
+		JSONObject sourceEventsSelectedObject = getSourceEvents(source, countryCode);
 		
-		JSONObject embeddedObject = sourceEventsSelectedObject.getJSONObject("_embedded");
-		JSONObject pageObject = sourceEventsSelectedObject.getJSONObject("page");
-		int totalElements = pageObject.getInt("totalElements");
-		JSONArray sourceEventsArray = embeddedObject.getJSONArray("events");
-		JSONObject object;
-		
-		int dimensione = 0;
-		
-		if(totalElements < 200) dimensione = totalElements;
-		else dimensione = 200;
-		
-		Vector<Event> vector = new Vector<Event>(dimensione); 
-		
-		for (int i = 0; i < dimensione; i++) {
-			
-			Event event = new Event();
-			
-			object = sourceEventsArray.getJSONObject(i);
-			
-			try {
-				
-			event.setName(object.getString("name"));
-			
-			} catch(Exception e) {
-				e.printStackTrace();
-			}
-			
-			try {
-				
-			event.setId(object.getString("id"));
-			
-			} catch(Exception e) {
-				e.printStackTrace();
-			}
-			
-			try {
-				
-			event.setUrl(object.getString("url"));
-			
-			} catch(Exception e) {
-				e.printStackTrace();
-			}
-			
-			Dealer dealer = new Dealer();			//creo un ogetto di tipo informations
-			String url = object.getString("url");
-			String source = null;
-			if(url.contains("universe")) source = "universe";
-			else if(url.contains("ticketmaster")) source = "ticketmaster";
-			else if(url.contains("frontgate")) source = "frontgate";
-			else source = "tmr"; 
-			dealer.setSource(source);
-			
-			event.setDealer(dealer);
-			
-			try {
-				
-			event.setInfo(object.getString("info"));
-			
-			} catch(Exception e) {
-				e.printStackTrace();
-			}
-			
-			Date data = new Date();
-			
-			try {
-				
-			JSONObject datesObject = object.getJSONObject("dates");
-			JSONObject startDateObject = datesObject.getJSONObject("start");		
-			data.setDataInizio(startDateObject.getString("localDate"));		
-			data.setOrarioInizio(startDateObject.getString("localTime"));
-			
-			} catch(Exception e) {
-				e.printStackTrace();
-			}
-			
-			event.setDate(data);	
-			
-			Prices prices = new Prices();
-			
-			try {
-				
-			JSONArray pricesArray = object.getJSONArray("priceRanges");
-			JSONObject pricesObject = pricesArray.getJSONObject(0);
-			prices.setCurrency(pricesObject.getString("currency"));
-			prices.setMaxPrice(pricesObject.getDouble("max"));
-			prices.setMinPrice(pricesObject.getDouble("min"));
-			
-			} catch(Exception e) {
-				e.printStackTrace();
-			}
-			
-			event.setPrices(prices);						
-			
-			Genre genre = new Genre();
-			
-			try {
-				
-			JSONArray classificationsArray = object.getJSONArray("classifications");
-			JSONObject classificationsObject = classificationsArray.getJSONObject(0);
-			JSONObject segmentObject = classificationsObject.getJSONObject("segment");
-			genre.setSegmentName(segmentObject.getString("name"));
-			JSONObject genreObject = classificationsObject.getJSONObject("genre");
-			genre.setGenreName(genreObject.getString("name"));
-			JSONObject subGenreObject = classificationsObject.getJSONObject("subGenre");
-			genre.setSubGenreName(subGenreObject.getString("name"));
-			
-			} catch(Exception e) {
-				e.printStackTrace();
-			}
-			
-			event.setGenre(genre);
-			
-			Location location = new Location();
-			
-			try {
-			 
-		    JSONObject lowerEmbeddedObj = object.getJSONObject("_embedded");
-		   
-		    try {
-		    	
-		    JSONArray venuesArray = lowerEmbeddedObj.getJSONArray("venues");
-		    JSONObject lowerFirstObject = venuesArray.getJSONObject(0);
-		   
-		    Place placement = new Place();
-		    
-            try {
-		    
-		    placement.setPlacement(lowerFirstObject.getString("name"));
-		    JSONObject addressObject = lowerFirstObject.getJSONObject("address");
-		    placement.setAddress(addressObject.getString("line1"));
-		    JSONObject cityObject = lowerFirstObject.getJSONObject("city");
-		    placement.setCity(cityObject.getString("name"));
-		    location.setPlace(placement);
-		    
-		    } catch(Exception e) {
-				e.printStackTrace();
-			}
-		
-		    Country country = new Country();
-		    
-		    try {
-		    	
-		    JSONObject countryObject = lowerFirstObject.getJSONObject("country");
-		    country.setCountry(countryObject.getString("name"));
-		    country.setCountryCode(countryObject.getString("countryCode"));
-		    location.setCountry(country);
-		    
-		    } catch(Exception e) {
-				e.printStackTrace();
-			}
-		    
-		    Market market = new Market();
-		    
-		    try {
-		    	
-		    JSONArray marketArray = lowerFirstObject.getJSONArray("markets");
-		    JSONObject marketObject = marketArray.getJSONObject(0);
-		    
-		    market.setMarketName(marketObject.getString("name"));
-		    
-		    market.setMarketId(marketObject.getString("id"));
-		    location.setMarket(market);
-		    
-		    } catch(Exception e) {
-				e.printStackTrace();
-			}
-		    
-		    event.setLocation(location);
-		    
-		    } catch(Exception e) {
-				e.printStackTrace();
-			}
-		    
-			 } catch(Exception e) {
-					e.printStackTrace();
-				}
-		    
-			vector.add(event);	
-			
-		}
-		
-		eventsArray.setVector(vector);
-		eventsArray.setTotalEvents(totalElements);
-		eventsArray.setShowedEvents(dimensione);
-		
-		return eventsArray;
+		return events.getServiceEventsInformations(sourceEventsSelectedObject);
+
 	}
 
-	
 	
 	
 
