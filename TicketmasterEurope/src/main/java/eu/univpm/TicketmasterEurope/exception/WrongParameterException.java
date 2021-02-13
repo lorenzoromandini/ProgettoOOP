@@ -3,8 +3,8 @@
  */
 package eu.univpm.TicketmasterEurope.exception;
 
-/**
- * Questa classe contiene il metodo che segnala l'eccezione riguardante una stringa non ammessa per param
+/** Questa classe contiene il metodo che segnala l'eccezione riguardante una stringa non ammessa per param
+ * 
  * @author Lorenzo Romandini
  * @author Nicholas Urbanelli
  *
