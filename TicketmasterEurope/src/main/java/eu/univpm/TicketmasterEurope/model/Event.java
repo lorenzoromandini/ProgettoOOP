@@ -56,7 +56,7 @@ public class Event {
 	private Location location;
 	
 
-	/** Costruttore dell'oggetto
+	/** Costruttore della classe
 	 * 
 	 */
 	public Event() {
@@ -72,7 +72,7 @@ public class Event {
 	}
 	
   
-	/** Costruttore dell'oggetto
+	/** Costruttore della classe
 	 * @param name
 	 */
 	public Event(String name) {		
@@ -88,7 +88,7 @@ public class Event {
 	}
 	
 
-	/** Costruttore dell'oggetto
+	/** Costruttore della classe
 	 * @param date
 	 */
 	public Event(Date date) {
@@ -104,7 +104,7 @@ public class Event {
 	}
 
 
-	/** Costruttore dell'oggetto
+	/** Costruttore della classe
 	 * @param genre
 	 */
 	public Event(Genre genre) {
@@ -120,7 +120,7 @@ public class Event {
 	}
 
 
-	/** Costruttore dell'oggetto
+	/** Costruttore della classe
 	 * @param prices
 	 */
 	public Event(Prices prices) {
@@ -136,7 +136,7 @@ public class Event {
 	}
 
 
-	/** Costruttore dell'oggetto
+	/** Costruttore della classe
 	 * @param dealer
 	 */
 	public Event(Dealer dealer) {
@@ -152,7 +152,7 @@ public class Event {
 	}
 
 
-	/**
+	/** Costruttore della classe
 	 * @param location
 	 */
 	public Event(Location location) {
@@ -167,7 +167,7 @@ public class Event {
 	}
 
 	
-	/** Costruttore dell'oggetto
+	/** Costruttore della classe
 	 * @param id
 	 * @param name
 	 * @param url
