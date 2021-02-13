@@ -7,6 +7,9 @@ import java.util.Vector;
 
 import org.json.JSONArray;
 
+import eu.univpm.TicketmasterEurope.exception.WrongCountryException;
+import eu.univpm.TicketmasterEurope.exception.WrongValueException;
+
 
 /** Questa è l'interfaccia contenente i metodi per il filtraggio globale degli eventi per country o per market
  * 
@@ -16,9 +19,6 @@ import org.json.JSONArray;
  */
 public interface CountryMarketFilterInterface {
 	
-	public abstract JSONArray OneMonthCountryMarket(Vector<String> countriesmarkets);
-	public abstract JSONArray ThreeMonthsCountryMarket(Vector<String> countriesmarkets);
-	public abstract JSONArray SixMonthsCountryMarket(Vector<String> countriesmarkets);
-	public abstract JSONArray TwelveMonthsCountryMarket(Vector<String> countriesmarkets);
+	public abstract JSONArray MonthsCountryMarket(Vector<String> countriesmarkets, int period) throws WrongCountryException, WrongValueException;
 
 } 
