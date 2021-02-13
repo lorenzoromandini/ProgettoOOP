@@ -4,16 +4,51 @@
 package eu.univpm.TicketmasterEurope.saves;
 
 
+/** Questa classe serve a salvare gli eventi in base al paese e alla tipologia scelti, richiamando il metodo 
+ * StoreSegmentRelevantEvents della classe SaveRelevantEvents, in modo automatico all'avvio del programma
+ * 
+ * @author Lorenzo Romandini
+ * @author Nicholas Urbanelli
+ *
+ */
 public class BootSaveEuroEvents {
 	
+	
+	/** Questo metodo non ha parametri passati come argomento né restituisce qualcosa, in quanto svolge unicamente il compito
+	 * di salvare gli eventi all'interno di file contenuti in una directory, una volta avviato il programma
+	 */
 	public void SaveBootEvents() {
 
-		
 		SaveRelevantEvents save = new SaveRelevantEvents();
 		
-		try {
+		
+        try {
 			
-			save.StoreRelevantEvents("AT", "Arts & Theatre");
+			save.StoreSegmentRelevantEvents("AD", "Arts & Theatre");
+			
+		}  catch(Exception e) {
+			e.printStackTrace();
+		}
+        
+        try {
+			
+			save.StoreSegmentRelevantEvents("AD", "Miscellaneous");
+			
+		}  catch(Exception e) {
+			e.printStackTrace();
+		}
+
+        try {
+			
+			save.StoreSegmentRelevantEvents("AD", "Music");
+			
+		}  catch(Exception e) {
+			e.printStackTrace();
+		}
+
+        try {
+			
+			save.StoreSegmentRelevantEvents("AD", "Sports");
 			
 		}  catch(Exception e) {
 			e.printStackTrace();
@@ -21,7 +56,15 @@ public class BootSaveEuroEvents {
 		
 		try {
 			
-			save.StoreRelevantEvents("AT", "Miscellaneous");
+			save.StoreSegmentRelevantEvents("AT", "Arts & Theatre");
+			
+		}  catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			
+			save.StoreSegmentRelevantEvents("AT", "Miscellaneous");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -29,7 +72,7 @@ public class BootSaveEuroEvents {
 		
 		try {
 			
-			save.StoreRelevantEvents("AT", "Music");
+			save.StoreSegmentRelevantEvents("AT", "Music");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -37,7 +80,7 @@ public class BootSaveEuroEvents {
 
 		try {
 
-			save.StoreRelevantEvents("AT", "Sports");
+			save.StoreSegmentRelevantEvents("AT", "Sports");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -45,7 +88,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("BE", "Arts & Theatre");
+			save.StoreSegmentRelevantEvents("BE", "Arts & Theatre");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -53,7 +96,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("BE", "Miscellaneous");
+			save.StoreSegmentRelevantEvents("BE", "Miscellaneous");
 			
 		}  catch(Exception e) {
 			e.printStackTrace();
@@ -61,7 +104,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("BE", "Music");
+			save.StoreSegmentRelevantEvents("BE", "Music");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -69,7 +112,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("BE", "Sports");
+			save.StoreSegmentRelevantEvents("BE", "Sports");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -77,7 +120,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("BG", "Arts & Theatre");
+			save.StoreSegmentRelevantEvents("BG", "Arts & Theatre");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -85,7 +128,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("BG", "Miscellaneous");
+			save.StoreSegmentRelevantEvents("BG", "Miscellaneous");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -93,7 +136,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("BG", "Music");
+			save.StoreSegmentRelevantEvents("BG", "Music");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -101,7 +144,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("BG", "Sports");
+			save.StoreSegmentRelevantEvents("BG", "Sports");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -109,7 +152,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("HR", "Arts & Theatre");
+			save.StoreSegmentRelevantEvents("HR", "Arts & Theatre");
 
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -117,7 +160,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("HR", "Miscellaneous");
+			save.StoreSegmentRelevantEvents("HR", "Miscellaneous");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -125,7 +168,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("HR", "Music");
+			save.StoreSegmentRelevantEvents("HR", "Music");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -133,7 +176,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("HR", "Sports");
+			save.StoreSegmentRelevantEvents("HR", "Sports");
 
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -141,7 +184,7 @@ public class BootSaveEuroEvents {
 
 		try {
 
-			save.StoreRelevantEvents("CY", "Arts & Theatre");
+			save.StoreSegmentRelevantEvents("CY", "Arts & Theatre");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -149,7 +192,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("CY", "Miscellaneous");
+			save.StoreSegmentRelevantEvents("CY", "Miscellaneous");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -157,7 +200,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("CY", "Music");
+			save.StoreSegmentRelevantEvents("CY", "Music");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -165,7 +208,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("CY", "Sports");
+			save.StoreSegmentRelevantEvents("CY", "Sports");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -173,7 +216,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("CZ", "Arts & Theatre");
+			save.StoreSegmentRelevantEvents("CZ", "Arts & Theatre");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -181,7 +224,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("CZ", "Miscellaneous");
+			save.StoreSegmentRelevantEvents("CZ", "Miscellaneous");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -189,7 +232,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("CZ", "Music");
+			save.StoreSegmentRelevantEvents("CZ", "Music");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -197,119 +240,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("CZ", "Sports");
-			
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-		
-		try {
-			
-			save.StoreRelevantEvents("DK", "Arts & Theatre");
-			
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-
-		try {
-			
-			save.StoreRelevantEvents("DK", "Miscellaneous");
-			
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-
-		try {
-			
-			save.StoreRelevantEvents("DK", "Music");
-			
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-
-		try {
-			
-			save.StoreRelevantEvents("DK", "Sports");
-			
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-
-		try {
-			
-			save.StoreRelevantEvents("FO", "Arts & Theatre");
-			
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-
-		try {
-			
-			save.StoreRelevantEvents("FO", "Miscellaneous");
-			
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-
-		try {
-			
-			save.StoreRelevantEvents("FO", "Music");
-			
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-
-		try {
-			
-			save.StoreRelevantEvents("FO", "Sports");
-			
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-
-		try {
-			
-			save.StoreRelevantEvents("FI", "Arts & Theatre");
-			
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-
-		try {
-			
-			save.StoreRelevantEvents("FI", "Miscellaneous");
-
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-
-		try {
-			
-			save.StoreRelevantEvents("FI", "Music");
-			
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-
-		try {
-			
-			save.StoreRelevantEvents("FI", "Sports");
-			
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-
-		try {
-			
-			save.StoreRelevantEvents("FR", "Arts & Theatre");
-
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-
-		try {
-			
-			save.StoreRelevantEvents("FR", "Miscellaneous");
+			save.StoreSegmentRelevantEvents("CZ", "Sports");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -317,7 +248,7 @@ public class BootSaveEuroEvents {
 		
 		try {
 			
-			save.StoreRelevantEvents("FR", "Music");
+			save.StoreSegmentRelevantEvents("DK", "Arts & Theatre");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -325,7 +256,23 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("FR", "Sports");
+			save.StoreSegmentRelevantEvents("DK", "Miscellaneous");
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+
+		try {
+			
+			save.StoreSegmentRelevantEvents("DK", "Music");
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+
+		try {
+			
+			save.StoreSegmentRelevantEvents("DK", "Sports");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -333,7 +280,7 @@ public class BootSaveEuroEvents {
 		
 		try {
 			
-			save.StoreRelevantEvents("GE", "Arts & Theatre");
+			save.StoreSegmentRelevantEvents("EE", "Arts & Theatre");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -341,7 +288,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("GE", "Miscellaneous");
+			save.StoreSegmentRelevantEvents("EE", "Miscellaneous");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -349,7 +296,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("GE", "Music");
+			save.StoreSegmentRelevantEvents("EE", "Music");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -357,7 +304,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("GE", "Sports");
+			save.StoreSegmentRelevantEvents("EE", "Sports");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -365,7 +312,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("DE", "Arts & Theatre");
+			save.StoreSegmentRelevantEvents("FO", "Arts & Theatre");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -373,7 +320,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("DE", "Miscellaneous");
+			save.StoreSegmentRelevantEvents("FO", "Miscellaneous");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -381,7 +328,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("DE", "Music");
+			save.StoreSegmentRelevantEvents("FO", "Music");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -389,7 +336,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("DE", "Sports");
+			save.StoreSegmentRelevantEvents("FO", "Sports");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -397,7 +344,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("GI", "Arts & Theatre");
+			save.StoreSegmentRelevantEvents("FI", "Arts & Theatre");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -405,7 +352,15 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("GI", "Miscellaneous");
+			save.StoreSegmentRelevantEvents("FI", "Miscellaneous");
+
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+
+		try {
+			
+			save.StoreSegmentRelevantEvents("FI", "Music");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -413,7 +368,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("GI", "Music");
+			save.StoreSegmentRelevantEvents("FI", "Sports");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -421,103 +376,15 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("GI", "Sports");
-			
+			save.StoreSegmentRelevantEvents("FR", "Arts & Theatre");
+
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
 
 		try {
 			
-			save.StoreRelevantEvents("GB", "Arts & Theatre");
-			
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-
-		try {
-			
-			save.StoreRelevantEvents("GB", "Miscellaneous");
-			
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-
-		try {
-			
-			save.StoreRelevantEvents("GB", "Music");
-			
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-
-		try {
-			
-			save.StoreRelevantEvents("GB", "Sports");
-			
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-
-		try {
-			
-			save.StoreRelevantEvents("GR", "Arts & Theatre");
-			
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-
-		try {
-			
-			save.StoreRelevantEvents("GR", "Miscellaneous");
-			
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-
-		try {
-			
-			save.StoreRelevantEvents("GR", "Music");
-			
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-
-		try {
-			
-			save.StoreRelevantEvents("GR", "Sports");
-			
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-
-		try {
-			
-			save.StoreRelevantEvents("HU", "Arts & Theatre");
-			
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-
-		try {
-			
-			save.StoreRelevantEvents("HU", "Miscellaneous");
-			
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-
-		try {
-			
-			save.StoreRelevantEvents("HU", "Music");
-			
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-
-		try {
-			
-			save.StoreRelevantEvents("HU", "Sports");
+			save.StoreSegmentRelevantEvents("FR", "Miscellaneous");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -525,7 +392,7 @@ public class BootSaveEuroEvents {
 		
 		try {
 			
-			save.StoreRelevantEvents("IS", "Arts & Theatre");
+			save.StoreSegmentRelevantEvents("FR", "Music");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -533,7 +400,15 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("IS", "Miscellaneous");
+			save.StoreSegmentRelevantEvents("FR", "Sports");
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			
+			save.StoreSegmentRelevantEvents("GE", "Arts & Theatre");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -541,7 +416,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("IS", "Music");
+			save.StoreSegmentRelevantEvents("GE", "Miscellaneous");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -549,7 +424,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("IS", "Sports");
+			save.StoreSegmentRelevantEvents("GE", "Music");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -557,7 +432,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("IE", "Arts & Theatre");
+			save.StoreSegmentRelevantEvents("GE", "Sports");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -565,7 +440,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("IE", "Miscellaneous");
+			save.StoreSegmentRelevantEvents("DE", "Arts & Theatre");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -573,15 +448,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("IE", "Music");
-
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-
-		try {
-			
-			save.StoreRelevantEvents("IE", "Sports");	
+			save.StoreSegmentRelevantEvents("DE", "Miscellaneous");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -589,7 +456,215 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("IT", "Arts & Theatre");
+			save.StoreSegmentRelevantEvents("DE", "Music");
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+
+		try {
+			
+			save.StoreSegmentRelevantEvents("DE", "Sports");
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+
+		try {
+			
+			save.StoreSegmentRelevantEvents("GI", "Arts & Theatre");
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+
+		try {
+			
+			save.StoreSegmentRelevantEvents("GI", "Miscellaneous");
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+
+		try {
+			
+			save.StoreSegmentRelevantEvents("GI", "Music");
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+
+		try {
+			
+			save.StoreSegmentRelevantEvents("GI", "Sports");
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+
+		try {
+			
+			save.StoreSegmentRelevantEvents("GB", "Arts & Theatre");
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+
+		try {
+			
+			save.StoreSegmentRelevantEvents("GB", "Miscellaneous");
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+
+		try {
+			
+			save.StoreSegmentRelevantEvents("GB", "Music");
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+
+		try {
+			
+			save.StoreSegmentRelevantEvents("GB", "Sports");
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+
+		try {
+			
+			save.StoreSegmentRelevantEvents("GR", "Arts & Theatre");
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+
+		try {
+			
+			save.StoreSegmentRelevantEvents("GR", "Miscellaneous");
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+
+		try {
+			
+			save.StoreSegmentRelevantEvents("GR", "Music");
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+
+		try {
+			
+			save.StoreSegmentRelevantEvents("GR", "Sports");
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+
+		try {
+			
+			save.StoreSegmentRelevantEvents("HU", "Arts & Theatre");
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+
+		try {
+			
+			save.StoreSegmentRelevantEvents("HU", "Miscellaneous");
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+
+		try {
+			
+			save.StoreSegmentRelevantEvents("HU", "Music");
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+
+		try {
+			
+			save.StoreSegmentRelevantEvents("HU", "Sports");
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			
+			save.StoreSegmentRelevantEvents("IS", "Arts & Theatre");
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+
+		try {
+			
+			save.StoreSegmentRelevantEvents("IS", "Miscellaneous");
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+
+		try {
+			
+			save.StoreSegmentRelevantEvents("IS", "Music");
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+
+		try {
+			
+			save.StoreSegmentRelevantEvents("IS", "Sports");
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+
+		try {
+			
+			save.StoreSegmentRelevantEvents("IE", "Arts & Theatre");
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+
+		try {
+			
+			save.StoreSegmentRelevantEvents("IE", "Miscellaneous");
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+
+		try {
+			
+			save.StoreSegmentRelevantEvents("IE", "Music");
+
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+
+		try {
+			
+			save.StoreSegmentRelevantEvents("IE", "Sports");	
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+
+		try {
+			
+			save.StoreSegmentRelevantEvents("IT", "Arts & Theatre");
 				
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -597,7 +672,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("IT", "Miscellaneous");
+			save.StoreSegmentRelevantEvents("IT", "Miscellaneous");
 
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -605,7 +680,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("IT", "Music");
+			save.StoreSegmentRelevantEvents("IT", "Music");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -613,7 +688,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("IT", "Sports");
+			save.StoreSegmentRelevantEvents("IT", "Sports");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -621,7 +696,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("LT", "Arts & Theatre");
+			save.StoreSegmentRelevantEvents("LT", "Arts & Theatre");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -629,7 +704,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("LT", "Miscellaneous");
+			save.StoreSegmentRelevantEvents("LT", "Miscellaneous");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -637,7 +712,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("LT", "Music");
+			save.StoreSegmentRelevantEvents("LT", "Music");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -645,7 +720,7 @@ public class BootSaveEuroEvents {
 
 		try {
 		
-			save.StoreRelevantEvents("LT", "Sports");
+			save.StoreSegmentRelevantEvents("LT", "Sports");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -653,7 +728,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("LU", "Arts & Theatre");
+			save.StoreSegmentRelevantEvents("LU", "Arts & Theatre");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -661,7 +736,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("LU", "Miscellaneous");
+			save.StoreSegmentRelevantEvents("LU", "Miscellaneous");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -669,7 +744,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("LU", "Music");
+			save.StoreSegmentRelevantEvents("LU", "Music");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -677,7 +752,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("LU", "Sports");
+			save.StoreSegmentRelevantEvents("LU", "Sports");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -685,7 +760,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("MT", "Arts & Theatre");
+			save.StoreSegmentRelevantEvents("MT", "Arts & Theatre");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -693,7 +768,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("MT", "Miscellaneous");
+			save.StoreSegmentRelevantEvents("MT", "Miscellaneous");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -701,7 +776,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("MT", "Music");
+			save.StoreSegmentRelevantEvents("MT", "Music");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -709,7 +784,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("MT", "Sports");
+			save.StoreSegmentRelevantEvents("MT", "Sports");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -717,7 +792,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("MC", "Arts & Theatre");
+			save.StoreSegmentRelevantEvents("MC", "Arts & Theatre");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -725,7 +800,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("MC", "Miscellaneous");
+			save.StoreSegmentRelevantEvents("MC", "Miscellaneous");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -733,7 +808,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("MC", "Music");
+			save.StoreSegmentRelevantEvents("MC", "Music");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -741,7 +816,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("MC", "Sports");
+			save.StoreSegmentRelevantEvents("MC", "Sports");
 
 			
 		} catch(Exception e) {
@@ -750,7 +825,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("ME", "Arts & Theatre");
+			save.StoreSegmentRelevantEvents("ME", "Arts & Theatre");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -758,7 +833,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("ME", "Miscellaneous");
+			save.StoreSegmentRelevantEvents("ME", "Miscellaneous");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -766,7 +841,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("ME", "Music");
+			save.StoreSegmentRelevantEvents("ME", "Music");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -774,7 +849,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("ME", "Sports");
+			save.StoreSegmentRelevantEvents("ME", "Sports");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -782,7 +857,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("NL", "Arts & Theatre");
+			save.StoreSegmentRelevantEvents("NL", "Arts & Theatre");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -790,7 +865,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("NL", "Miscellaneous");
+			save.StoreSegmentRelevantEvents("NL", "Miscellaneous");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -798,7 +873,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("NL", "Music");
+			save.StoreSegmentRelevantEvents("NL", "Music");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -806,7 +881,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("NL", "Sports");
+			save.StoreSegmentRelevantEvents("NL", "Sports");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -814,7 +889,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("ND", "Arts & Theatre");
+			save.StoreSegmentRelevantEvents("ND", "Arts & Theatre");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -822,7 +897,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("ND", "Miscellaneous");
+			save.StoreSegmentRelevantEvents("ND", "Miscellaneous");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -830,7 +905,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("ND", "Music");
+			save.StoreSegmentRelevantEvents("ND", "Music");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -838,7 +913,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("ND", "Sports");
+			save.StoreSegmentRelevantEvents("ND", "Sports");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -846,7 +921,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("NO", "Arts & Theatre");
+			save.StoreSegmentRelevantEvents("NO", "Arts & Theatre");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -854,7 +929,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("NO", "Miscellaneous");
+			save.StoreSegmentRelevantEvents("NO", "Miscellaneous");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -862,7 +937,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("NO", "Music");
+			save.StoreSegmentRelevantEvents("NO", "Music");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -870,7 +945,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("NO", "Sports");
+			save.StoreSegmentRelevantEvents("NO", "Sports");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -878,7 +953,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("PL", "Arts & Theatre");
+			save.StoreSegmentRelevantEvents("PL", "Arts & Theatre");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -886,7 +961,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("PL", "Miscellaneous");
+			save.StoreSegmentRelevantEvents("PL", "Miscellaneous");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -894,7 +969,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("PL", "Music");
+			save.StoreSegmentRelevantEvents("PL", "Music");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -902,7 +977,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("PL", "Sports");
+			save.StoreSegmentRelevantEvents("PL", "Sports");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -911,7 +986,7 @@ public class BootSaveEuroEvents {
 		
 		try {
 			
-			save.StoreRelevantEvents("PT", "Arts & Theatre");
+			save.StoreSegmentRelevantEvents("PT", "Arts & Theatre");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -919,7 +994,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("PT", "Miscellaneous");
+			save.StoreSegmentRelevantEvents("PT", "Miscellaneous");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -927,7 +1002,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("PT", "Music");
+			save.StoreSegmentRelevantEvents("PT", "Music");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -935,7 +1010,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("PT", "Sports");
+			save.StoreSegmentRelevantEvents("PT", "Sports");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -943,7 +1018,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("RO", "Arts & Theatre");
+			save.StoreSegmentRelevantEvents("RO", "Arts & Theatre");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -951,7 +1026,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("RO", "Miscellaneous");
+			save.StoreSegmentRelevantEvents("RO", "Miscellaneous");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -959,7 +1034,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("RO", "Music");
+			save.StoreSegmentRelevantEvents("RO", "Music");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -967,7 +1042,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("RO", "Sports");
+			save.StoreSegmentRelevantEvents("RO", "Sports");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -975,7 +1050,7 @@ public class BootSaveEuroEvents {
 		
 		try {
 			
-			save.StoreRelevantEvents("RU", "Arts & Theatre");
+			save.StoreSegmentRelevantEvents("RU", "Arts & Theatre");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -983,7 +1058,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("RU", "Miscellaneous");
+			save.StoreSegmentRelevantEvents("RU", "Miscellaneous");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -991,7 +1066,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("RU", "Music");
+			save.StoreSegmentRelevantEvents("RU", "Music");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -999,7 +1074,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("RU", "Sports");
+			save.StoreSegmentRelevantEvents("RU", "Sports");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -1007,7 +1082,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("RS", "Arts & Theatre");
+			save.StoreSegmentRelevantEvents("RS", "Arts & Theatre");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -1015,7 +1090,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("RS", "Miscellaneous");
+			save.StoreSegmentRelevantEvents("RS", "Miscellaneous");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -1023,7 +1098,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("RS", "Music");
+			save.StoreSegmentRelevantEvents("RS", "Music");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -1031,7 +1106,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("RS", "Sports");
+			save.StoreSegmentRelevantEvents("RS", "Sports");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -1039,7 +1114,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("SK", "Arts & Theatre");
+			save.StoreSegmentRelevantEvents("SK", "Arts & Theatre");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -1047,7 +1122,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("SK", "Miscellaneous");
+			save.StoreSegmentRelevantEvents("SK", "Miscellaneous");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -1055,7 +1130,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("SK", "Music");
+			save.StoreSegmentRelevantEvents("SK", "Music");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -1063,7 +1138,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("SK", "Sports");
+			save.StoreSegmentRelevantEvents("SK", "Sports");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -1071,7 +1146,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("SI", "Arts & Theatre");
+			save.StoreSegmentRelevantEvents("SI", "Arts & Theatre");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -1079,7 +1154,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("SI", "Miscellaneous");
+			save.StoreSegmentRelevantEvents("SI", "Miscellaneous");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -1087,7 +1162,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("SI", "Music");
+			save.StoreSegmentRelevantEvents("SI", "Music");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -1095,7 +1170,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("SI", "Sports");
+			save.StoreSegmentRelevantEvents("SI", "Sports");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -1103,7 +1178,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("ES", "Arts & Theatre");
+			save.StoreSegmentRelevantEvents("ES", "Arts & Theatre");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -1111,7 +1186,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("ES", "Miscellaneous");
+			save.StoreSegmentRelevantEvents("ES", "Miscellaneous");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -1119,7 +1194,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("ES", "Music");
+			save.StoreSegmentRelevantEvents("ES", "Music");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -1127,7 +1202,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("ES", "Sports");
+			save.StoreSegmentRelevantEvents("ES", "Sports");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -1135,7 +1210,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("SE", "Arts & Theatre");
+			save.StoreSegmentRelevantEvents("SE", "Arts & Theatre");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -1143,7 +1218,7 @@ public class BootSaveEuroEvents {
 		
 		try {
 			
-			save.StoreRelevantEvents("SE", "Miscellaneous");
+			save.StoreSegmentRelevantEvents("SE", "Miscellaneous");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -1151,7 +1226,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("SE", "Music");
+			save.StoreSegmentRelevantEvents("SE", "Music");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -1159,7 +1234,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("SE", "Sports");
+			save.StoreSegmentRelevantEvents("SE", "Sports");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -1167,7 +1242,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("CH", "Arts & Theatre");
+			save.StoreSegmentRelevantEvents("CH", "Arts & Theatre");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -1175,7 +1250,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("CH", "Miscellaneous");
+			save.StoreSegmentRelevantEvents("CH", "Miscellaneous");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -1183,7 +1258,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("CH", "Music");
+			save.StoreSegmentRelevantEvents("CH", "Music");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -1191,7 +1266,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("CH", "Sports");
+			save.StoreSegmentRelevantEvents("CH", "Sports");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -1199,7 +1274,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("UA", "Arts & Theatre");
+			save.StoreSegmentRelevantEvents("UA", "Arts & Theatre");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -1207,7 +1282,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("UA", "Miscellaneous");
+			save.StoreSegmentRelevantEvents("UA", "Miscellaneous");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -1215,7 +1290,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("UA", "Music");
+			save.StoreSegmentRelevantEvents("UA", "Music");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -1223,7 +1298,7 @@ public class BootSaveEuroEvents {
 
 		try {
 			
-			save.StoreRelevantEvents("UA", "Sports");
+			save.StoreSegmentRelevantEvents("UA", "Sports");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
