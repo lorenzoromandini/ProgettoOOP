@@ -4,22 +4,25 @@
 package eu.univpm.TicketmasterEurope.service;
 
 import org.json.JSONArray;
+
 import org.json.JSONObject;
 
 import eu.univpm.TicketmasterEurope.model.*;
 
-/** Questa classe permette di convertire un oggetto Location in un JSONObject
+
+/** Questa classe permette di convertire un oggetto EventsArray in un JSONObject
  * 
  * @author Lorenzo Romandini
  * @author Nicholas Urbanelli
+ * 
  */
 public class JSON_Converter {
 	
-	/**
-	 * Restituisce il JSONObject corrispondente all'oggetto EventsArray fornito in ingresso
+	
+	/** Questo metodo restituisce il JSONObject corrispondente all'oggetto EventsArray fornito in ingresso
 	 * 
-	 * @param eventsarray
-	 * @return JSONObject obj
+	 * @param eventsarray array di eventi che si vogliono convertire in JSONObject
+	 * @return JSONObject il JSONObject che rappresenta gli eventi
 	 */
 	public JSONObject JSON_converter(EventsArray eventsArray) {
 		
