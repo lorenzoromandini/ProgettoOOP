@@ -25,7 +25,7 @@ import eu.univpm.TicketmasterEurope.model.Prices;
  * contenente tutti gli eventi con riportate solo le informazioni scelte dallo sviluppatore
  * 
  * @author Lorenzo Romandini
- * @author Lorenzo Romandini
+ * @author Nicholas Urbanelli
  *
  */
 public class ServiceEventsInformations {

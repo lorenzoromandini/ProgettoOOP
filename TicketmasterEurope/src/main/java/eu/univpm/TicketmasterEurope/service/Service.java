@@ -29,5 +29,7 @@ public interface Service {
 	public abstract EventsArray getGenreEventsSelectedfromApi(String genre, String countryCode) throws WrongValueException, WrongCountryException;
 	public abstract JSONObject getSubGenreEvents(String subGenre, String countryCode) throws WrongValueException, WrongCountryException;
 	public abstract EventsArray getSubGenreEventsSelectedfromApi(String subgenre, String countryCode) throws WrongValueException, WrongCountryException;
+    public abstract JSONObject getKeywordEvents(String keyword, String countryCode) throws WrongCountryException;
+	public abstract EventsArray getKeywordEventsSelectedfromApi(String keyword, String countryCode) throws WrongCountryException;	
 
 }

@@ -301,6 +301,50 @@ public class ServiceManagement implements Service {
 		return events.getServiceEventsInformations(sourceEventsSelectedObject);
 
 	}
+	
+	
+	/** Questo metodo va a prendere da Ticketmaster gli eventi in un paese tramite il suo codice e li filtra in base 
+	 * alla parola chiave inserita
+	 * 
+	 * @param keyword parola chiave
+	 * @param countryCode codice del paese in cui ha luogo l'evento
+	 * @return un JSONObject contenente tutti gli eventi che si svolgono in un paese e in base alla parola chiave inserita, 
+	 * con tutte le relative informazioni	 
+	 * @throws WrongCountryException se viene inserito il codice di un paese non europeo 
+	 */
+    public JSONObject getKeywordEvents(String keyword, String countryCode) throws WrongCountryException {
+   	 
+   	 Exception.countryStringException(countryCode);
+		
+		JSONObject keywordEventsObject;
+		String Url = "https://app.ticketmaster.com/discovery/v2/events?size=200&sort=date,asc&keyword="
+		              + keyword + "&countryCode=" + countryCode + "&apikey="+ apikey;
+		
+		RestTemplate restTemplate = new RestTemplate();
+		
+		keywordEventsObject = new JSONObject(restTemplate.getForObject(Url, String.class));
+		
+		return keywordEventsObject; 
+	}
+    
+    
+	/** Questo metodo utilizza getSourceEvents per andare a selezionare le informazioni desiderate relative ad un evento
+	 * (id, nome, url, source, info, data, orario, valuta, paese, città, indirizzo, placement, market, prezzo minimo, prezzo massimo, 
+	 * tipologia, genere, sottogenere, eventi mostrati, eventi totali)
+	 * 
+	 * @param keyword parola chiave  
+	 * @param countryCode codice del paese in cui ha luogo l'evento
+	 * @return un vettore di eventi contenente le informazioni desiderate degli eventi che hanno luogo nel paese indicato e
+	 * in base alla parola chiave inserita
+	 * @throws WrongCountryException se viene inserito il codice di un paese non europeo 
+	 */
+	public EventsArray getKeywordEventsSelectedfromApi(String keyword, String countryCode) throws WrongCountryException {	
+		
+		JSONObject keywordEventsSelectedObject = getKeywordEvents(keyword, countryCode);
+		
+		return events.getServiceEventsInformations(keywordEventsSelectedObject);
+
+	}
 
 	
 	
