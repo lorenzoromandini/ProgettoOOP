@@ -1,0 +1,8 @@
+eu.univpm.TicketmasterEurope
+eu.univpm.TicketmasterEurope.controller
+eu.univpm.TicketmasterEurope.exception
+eu.univpm.TicketmasterEurope.filters
+eu.univpm.TicketmasterEurope.model
+eu.univpm.TicketmasterEurope.saves
+eu.univpm.TicketmasterEurope.service
+eu.univpm.TicketmasterEurope.stats
