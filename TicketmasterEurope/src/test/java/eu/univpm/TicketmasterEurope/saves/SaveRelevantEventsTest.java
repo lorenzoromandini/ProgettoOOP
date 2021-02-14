@@ -18,7 +18,8 @@ import eu.univpm.TicketmasterEurope.exception.WrongCountryException;
 import eu.univpm.TicketmasterEurope.exception.WrongValueException;
 
 
-/**
+/** Questa classe contiene i test per verificare l'effettiva creazione di una directory e del salvataggio di un file
+ * 
  * @author Lorenzo Romandini
  * @author Nicholas Urbanelli
  * 

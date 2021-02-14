@@ -2,8 +2,8 @@ package eu.univpm.TicketmasterEurope.exception;
 
 import java.util.Vector;
 
-/**
- * Questa classe contiene i metodi utili a riconoscere i valori ammessi dei parametri country, market, segment, 
+
+/** Questa classe contiene i metodi utili a riconoscere i valori ammessi dei parametri country, market, segment, 
  * genre, subgenre e source. In caso venga inserita una stringa non ammessa questi metodi richiamano l'opportuna eccezione 
  * 
  * @author Lorenzo Romandini

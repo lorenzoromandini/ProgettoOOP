@@ -71,7 +71,7 @@ public class EventsArray {
 
 
 	/** Setta il numero degli eventi mostrati
-	 * @param showedElvents numero degli eventi mostrati
+	 * @param showedEvents numero degli eventi mostrati
 	 */
 	public void setShowedEvents(int showedEvents) {
 		this.showedEvents = showedEvents;

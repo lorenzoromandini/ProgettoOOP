@@ -67,7 +67,7 @@ public class Filter {
 	 * @throws WrongPeriodException se l'int inserito non è uno tra 1, 3, 6 o 12
 	 * @throws WrongParameterException se la String inserita non è una tra country, segment, genre, subGenre, source
 	 * @throws WrongValueException se la String inserita per value è errata
-	 * @throws WrongCountryException 
+	 * @throws WrongCountryException se viene inserito il codice di un paese non europeo
 	 */
 	public JSONArray getFilter() throws WrongComparisonException, WrongPeriodException, WrongParameterException, WrongValueException, WrongCountryException {
 		

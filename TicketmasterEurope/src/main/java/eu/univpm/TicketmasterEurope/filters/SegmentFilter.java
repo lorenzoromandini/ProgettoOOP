@@ -4,6 +4,7 @@
 package eu.univpm.TicketmasterEurope.filters;
 
 import java.util.Iterator;
+
 import java.util.Vector;
 
 import org.json.JSONArray;
@@ -13,6 +14,7 @@ import eu.univpm.TicketmasterEurope.exception.VoidGetException;
 import eu.univpm.TicketmasterEurope.exception.WrongCountryException;
 import eu.univpm.TicketmasterEurope.exception.WrongValueException;
 import eu.univpm.TicketmasterEurope.stats.*;
+
 
 /** Questa classe implementa FilterMonthInterface e contiene i metodi per il filtraggio degli eventi in 
  *  un paese in base al segment e in funzione del periodo su cui si vuole effettuare tale ricerca

@@ -21,7 +21,7 @@ public class JSON_Converter {
 	
 	/** Questo metodo restituisce il JSONObject corrispondente all'oggetto EventsArray fornito in ingresso
 	 * 
-	 * @param eventsarray array di eventi che si vogliono convertire in JSONObject
+	 * @param eventsArray array di eventi che si vogliono convertire in JSONObject
 	 * @return JSONObject il JSONObject che rappresenta gli eventi
 	 */
 	public JSONObject JSON_converter(EventsArray eventsArray) {

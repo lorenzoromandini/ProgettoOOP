@@ -65,7 +65,7 @@ public class Country {
 	
 	
 	/** Setta il codice del paese in cui si svolge l'evento
-	 * @param countryCode
+	 * @param countryCode codice del paese in cui si svolge l'evento
 	 */
 	public void setCountryCode(String countryCode) {  
 		this.countryCode = countryCode;
