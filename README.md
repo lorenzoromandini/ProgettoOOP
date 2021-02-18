@@ -325,7 +325,7 @@ Di seguito vengono mostrate le tipologie in cui vengono catalogati gli eventi:
 
 | Segment 
 | ------------ 
-| `Arts & Theatre` 
+| `Arts` 
 | `Miscellaneous` 
 | `Music` 
 | `Sports`
