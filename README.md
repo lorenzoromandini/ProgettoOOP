@@ -37,7 +37,7 @@ Infine è possibile salvare gli eventi di un determinato paese attraverso la scr
 
 *Diagramma delle Classi*
 
-![alt text](https://github.com/lorenzoromandini/ProgettoOOP/blob/main/TicketmasterEurope/UML/TotalClassDiagram.jpeg)
+![alt text](https://github.com/lorenzoromandini/ProgettoOOP/blob/main/TicketmasterEurope/UML/Total_ClassDiagram.jpeg)
 
 * eu.univpm.TicketmasterEurope.controller
 
@@ -53,7 +53,7 @@ Infine è possibile salvare gli eventi di un determinato paese attraverso la scr
 
 * eu.univpm.TicketmasterEurope.stats
 
-![alt_text](https://github.com/lorenzoromandini/ProgettoOOP/blob/main/TicketmasterEurope/UML/StatsClassDiagram.jpeg)
+![alt_text](https://github.com/lorenzoromandini/ProgettoOOP/blob/main/TicketmasterEurope/UML/Stats_ClassDiagram.jpeg)
 
 * eu.univpm.TicketmasterEurope.saves
 
