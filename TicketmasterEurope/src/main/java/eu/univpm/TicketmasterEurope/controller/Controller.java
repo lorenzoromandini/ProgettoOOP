@@ -258,10 +258,10 @@ public class Controller {
      *   "comparison": "country",
      *   "elements": [
      *   {
-     *     name: "DE"
+     *     "name": "DE"
      *   },
      *   {
-     *     name: "GB"
+     *     "name": "GB"
      *   }
      *   ],
      *   "param": "total",
