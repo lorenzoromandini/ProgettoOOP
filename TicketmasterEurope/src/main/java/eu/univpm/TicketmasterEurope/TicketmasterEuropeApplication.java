@@ -27,7 +27,7 @@ public class TicketmasterEuropeApplication {
 		BootSaveEuroEvents boot = new BootSaveEuroEvents();
 		
 		boot.SaveBootEvents();
-		
+		 
 	}
 	
 }
