@@ -1271,6 +1271,38 @@ public class BootSaveEuroEvents {
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
+		
+		try {
+			
+			save.StoreSegmentRelevantEvents("TR", "Arts & Theatre");
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+
+		try {
+			
+			save.StoreSegmentRelevantEvents("TR", "Miscellaneous");
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+
+		try {
+			
+			save.StoreSegmentRelevantEvents("TR", "Music");
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+
+		try {
+			
+			save.StoreSegmentRelevantEvents("TR", "Sports");
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
 
 		try {
 			

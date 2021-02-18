@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import eu.univpm.TicketmasterEurope.service.JSON_Converter;
+import eu.univpm.TicketmasterEurope.stats.EuroCountries;
 import eu.univpm.TicketmasterEurope.service.*;
 import eu.univpm.TicketmasterEurope.exception.*;
 import eu.univpm.TicketmasterEurope.filters.Filter;
@@ -264,6 +265,8 @@ public class Controller {
 		JSONObject object = new JSONObject(body);
         JSONArray array = new JSONArray();
         
+        EuroCountries countries = new EuroCountries();
+        
         String comparison = object.getString("comparison");
         
         array = object.getJSONArray("elements");
@@ -281,6 +284,9 @@ public class Controller {
         String param = object.getString("param");
         String value = object.getString("value"); 
         int period = object.getInt("period");
+        
+        if (comparison.equals("country") && param.equals("total") && value.equals("all"))
+        	elements = countries.getEuroCountries();
 		
         Filter filter = new Filter(comparison, elements, param, value, period);
 		

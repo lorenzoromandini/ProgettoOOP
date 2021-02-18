@@ -30,7 +30,8 @@ public class VoidGetException {
 			&& !countries.contains("MC") && !countries.contains("ME") && !countries.contains("NL") && !countries.contains("ND")
 			&& !countries.contains("NO") && !countries.contains("PL") && !countries.contains("PT") && !countries.contains("RO")
 			&& !countries.contains("RU") && !countries.contains("RS") && !countries.contains("SK") && !countries.contains("SI")
-			&& !countries.contains("ES") && !countries.contains("SE") && !countries.contains("CH") && !countries.contains("UA"))
+			&& !countries.contains("ES") && !countries.contains("SE") && !countries.contains("CH") && !countries.contains("TR")
+			&& !countries.contains("UA"))
 			
 		 throw new WrongCountryException(countries + " non è un valore ammesso.");
 		
@@ -54,7 +55,8 @@ public class VoidGetException {
 			&& !country.equals("MC") && !country.equals("ME") && !country.equals("NL") && !country.equals("ND")
 			&& !country.equals("NO") && !country.equals("PL") && !country.equals("PT") && !country.equals("RO")
 			&& !country.equals("RU") && !country.equals("RS") && !country.equals("SK") && !country.equals("SI")
-			&& !country.equals("ES") && !country.equals("SE") && !country.equals("CH") && !country.equals("UA"))
+			&& !country.equals("ES") && !country.equals("SE") && !country.equals("CH") && !country.equals("TR") 
+			&& !country.equals("UA"))
 			
 		 throw new WrongCountryException(country + " non è un valore ammesso.");
 

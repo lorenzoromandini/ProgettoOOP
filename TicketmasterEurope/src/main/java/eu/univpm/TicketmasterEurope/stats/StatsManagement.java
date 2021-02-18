@@ -3,8 +3,8 @@
  */
 package eu.univpm.TicketmasterEurope.stats;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 
 import org.json.JSONObject;
 import org.springframework.web.client.RestTemplate;
@@ -27,16 +27,8 @@ public class StatsManagement implements Stats {
 	
 	ID_Converter converter = new ID_Converter();
 	
-	LocalDate data = java.time.LocalDate.now();
-			
-	LocalDateTime now = LocalDateTime.now();
-	
-	int hour = now.getHour();
-	int minute = now.getMinute();
-	int second = now.getSecond();
-	
-	String time = "T" + hour + ":" + minute + ":" + second + "Z";
-	
+	LocalDateTime data = LocalDateTime.now();
+
 	/**
 	 * apikey è la key necessaria per ottenere informazioni da Ticketmaster
 	 */
@@ -56,9 +48,11 @@ public class StatsManagement implements Stats {
 		Exception.countryStringException(countryCode);
 
         JSONObject countryEventsObject;
+        
+        data = data.truncatedTo(ChronoUnit.SECONDS);
 		
         String Url = "https://app.ticketmaster.com/discovery/v2/events?&countryCode=" + countryCode 
-                   + "&endDateTime=" + data.plusMonths(period) + time + "&apikey="+ apikey;
+                   + "&endDateTime=" + data.plusMonths(period) + "Z&apikey="+ apikey;
 		
 		RestTemplate restTemplate = new RestTemplate();
 		
@@ -91,8 +85,10 @@ public class StatsManagement implements Stats {
 
 		JSONObject marketEventsObject;
 		
+        data = data.truncatedTo(ChronoUnit.SECONDS);
+		
 		String Url = "https://app.ticketmaster.com/discovery/v2/events?&marketId=" + marketId 
-				   + "&endDateTime=" + data.plusMonths(period) + time + "&apikey="+ apikey;
+				   + "&endDateTime=" + data.plusMonths(period) + "Z&apikey="+ apikey;
 		
 		RestTemplate restTemplate = new RestTemplate();
 		
@@ -124,13 +120,15 @@ public class StatsManagement implements Stats {
 	 */
    public JSONObject getSegmentEvents(String countryCode, String segment, int period) throws WrongCountryException, WrongValueException {
 	   
-	   Exception.countryStringException(countryCode);
-	   Exception.segmentStringException(segment);
+	    Exception.countryStringException(countryCode);
+	    Exception.segmentStringException(segment);
 	   	   	   		
 		JSONObject segmentEventsObject;
+		
+        data = data.truncatedTo(ChronoUnit.SECONDS);
 					
 		String Url = "https://app.ticketmaster.com/discovery/v2/events?&countryCode="
-	              + countryCode + "&segmentName="+ segment + "&endDateTime=" + data.plusMonths(period) + time + "&apikey="+ apikey;
+	              + countryCode + "&segmentName="+ segment + "&endDateTime=" + data.plusMonths(period) + "Z&apikey="+ apikey;
 	   
 		RestTemplate restTemplate = new RestTemplate();
 		
@@ -170,8 +168,10 @@ public class StatsManagement implements Stats {
 		
 		JSONObject genreEventsObject;
 		
+        data = data.truncatedTo(ChronoUnit.SECONDS);
+		
 		String Url = "https://app.ticketmaster.com/discovery/v2/events?&countryCode="
-		              + countryCode + "&genreId="+ genreId + "&endDateTime=" + data.plusMonths(period) + time + "&apikey="+ apikey;
+		              + countryCode + "&genreId="+ genreId + "&endDateTime=" + data.plusMonths(period) + "Z&apikey="+ apikey;
 		
 		RestTemplate restTemplate = new RestTemplate();
 		
@@ -211,8 +211,10 @@ public class StatsManagement implements Stats {
 
 		JSONObject subGenreEventsObject;
 		
+        data = data.truncatedTo(ChronoUnit.SECONDS);
+		
 		String Url = "https://app.ticketmaster.com/discovery/v2/events?&countryCode="
-		              + countryCode + "&subGenreId="+ subGenreId + "&endDateTime=" + data.plusMonths(period) + time + "&apikey="+ apikey;
+		              + countryCode + "&subGenreId="+ subGenreId + "&endDateTime=" + data.plusMonths(period) + "Z&apikey="+ apikey;
 		
 		RestTemplate restTemplate = new RestTemplate();
 		
@@ -250,8 +252,10 @@ public class StatsManagement implements Stats {
 		
 		JSONObject sourceEventsObject;
 		
+        data = data.truncatedTo(ChronoUnit.SECONDS);
+		
 		String Url = "https://app.ticketmaster.com/discovery/v2/events?&countryCode="
-	              + countryCode + "&source="+ source + "&endDateTime=" + data.plusMonths(period) + time + "&apikey="+ apikey;
+	              + countryCode + "&source="+ source + "&endDateTime=" + data.plusMonths(period) + "Z&apikey="+ apikey;
 		
 		RestTemplate restTemplate = new RestTemplate();
 		
@@ -271,4 +275,3 @@ public class StatsManagement implements Stats {
 	}
     
 }
-

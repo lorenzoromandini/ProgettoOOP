@@ -200,7 +200,7 @@ public class ServiceManagement implements Service {
 	 */
 	public EventsArray getGenreEventsSelectedfromApi(String genre, String countryCode) throws WrongValueException, WrongCountryException {	
 		
-		JSONObject genreEventsSelectedObject = getSourceEvents(genre, countryCode);
+		JSONObject genreEventsSelectedObject = getGenreEvents(genre, countryCode);
 									
 		return events.getServiceEventsInformations(genreEventsSelectedObject);
 
