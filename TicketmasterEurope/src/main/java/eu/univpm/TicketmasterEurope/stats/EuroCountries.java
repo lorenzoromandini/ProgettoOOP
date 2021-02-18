@@ -20,7 +20,7 @@ public class EuroCountries {
 	 * @return void riempie semplicemente il vettore di stringhe con i countryCode
 	 */
 	public Vector<String> getEuroCountries() {
-				
+				 
 		countries.add("AD");
 		countries.add("AT");
 		countries.add("BE");
