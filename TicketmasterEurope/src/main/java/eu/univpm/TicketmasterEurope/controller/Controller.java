@@ -251,7 +251,17 @@ public class Controller {
 	 * PARAM - period: indica il periodo temporale (in mesi) su cui si vuole effettuare il confronto (può essere un 
 	 * valore tra 1, 3, 6 oppure 12).
 	 * Se l'utente desidera coniscere il numero di eventi di tutti i paesi europei in un arco temporale, deve inserire un body che 
-	 * presenta comparison uguale a country, param uguale a total e value uguale ad all.
+	 * presenta comparison uguale a country, il vettore elements vuoto, param uguale a total e value uguale ad all, come riportato 
+	 * di seguito:
+	 * 
+	 * {
+     *   "comparison": "country",
+     *   "elements": [
+     *   ],
+     *   "param": "total",
+     *   "value": "all",
+     *   "period": 1
+     * }
      *  	 
 	 * @param body è un JSONObject del tipo riportato sopra
 	 * @return un JSONArray di JSONObject che mostrano i vari elements con il relativo numero di eventi e infine quali tra
@@ -287,7 +297,7 @@ public class Controller {
         String value = object.getString("value"); 
         int period = object.getInt("period");
         
-        if (comparison.equals("country") && param.equals("total") && value.equals("all"))
+        if (comparison.equals("country") && elements.isEmpty() && param.equals("total") && value.equals("all"))
         	elements = countries.getEuroCountries();
 		
         Filter filter = new Filter(comparison, elements, param, value, period);
