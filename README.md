@@ -911,16 +911,27 @@ Se l'utente inserisce tutto correttamente, otterrà un JSONObject di questo tipo
 Abbiamo implementato i seguenti [test](https://github.com/lorenzoromandini/ProgettoOOP/tree/main/TicketmasterEurope/src/test/java/eu/univpm/TicketmasterEurope) per verificare il corretto funzionamento di alcuni metodi e delle eccezioni implementate.
 
 * eu.univpm.TicketmasterEurope.service
+
 Abbiamo testato l'effettivo funzionamento del meccanismo che converte un oggetto di tipo EventsArray in un JSONObject.
+
 ![alt_text](https://github.com/lorenzoromandini/ProgettoOOP/blob/main/TicketmasterEurope/UML/ServiceTest_ClassDiagram.png)
+
 * eu.univpm.TicketmasterEurope.filters
+ 
 Abbiamo verificato l'effettiva esecuzione delle eccezioni relative all'inserimento di un comparison, di un param o di un period errati.
+
 ![alt_text](https://github.com/lorenzoromandini/ProgettoOOP/blob/main/TicketmasterEurope/UML/FiltersTest_ClassDiagram.png)
+
 * eu.univpm.TicketmasterEurope.stats
+
 Abbiamo testato l'esecuzione corretta del lancio di eccezioni legate all'inserimento di countryCode o value errati.
+
 ![alt_text](https://github.com/lorenzoromandini/ProgettoOOP/blob/main/TicketmasterEurope/UML/StatsTest_ClassDiagram.png)
+
 * eu.univpm.TicketmasterEurope.saves
+
 Abbiamo verificato l'effettiva creazione della directory e dei file contenuti al suo interno.
+
 ![alt_text](https://github.com/lorenzoromandini/ProgettoOOP/blob/main/TicketmasterEurope/UML/SavesTest_ClassDiagram.png)
 
 
