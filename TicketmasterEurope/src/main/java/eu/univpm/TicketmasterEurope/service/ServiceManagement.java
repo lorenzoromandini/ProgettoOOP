@@ -123,8 +123,10 @@ public class ServiceManagement implements Service {
 	 */
     public JSONObject getSegmentEvents(String segment, String countryCode) throws WrongValueException, WrongCountryException {
     	 
-    	 Exception.countryStringException(countryCode);
-    	 Exception.segmentStringException(segment);
+        Exception.countryStringException(countryCode);
+        Exception.segmentStringException(segment); 
+    	 
+    	if (segment.equals("Arts")) segment = "Arts & Theatre";
 		
 		JSONObject segmentEventsObject;
 		String Url = "https://app.ticketmaster.com/discovery/v2/events?size=200&sort=date,asc&segmentName="
