@@ -352,6 +352,7 @@ localhost:8080/segmentCountryEvents?segment=Music&countryCode=NL
 Se l'utente inserisce tutto correttamente, riceverà un JSONObject in risposta come segue:
 
 ```
+
 {
     "Events": [
         {
@@ -394,6 +395,7 @@ Se l'utente inserisce tutto correttamente, riceverà un JSONObject in risposta c
     "showedEvents": 200,
     "totalEvents": 846
 }
+
 ```
 
 
