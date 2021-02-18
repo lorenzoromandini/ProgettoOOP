@@ -352,7 +352,6 @@ localhost:8080/segmentCountryEvents?segment=Music&countryCode=NL
 Se l'utente inserisce tutto correttamente, riceverà un JSONObject in risposta come segue:
 
 ```
-
 {
     "Events": [
         {
@@ -395,7 +394,6 @@ Se l'utente inserisce tutto correttamente, riceverà un JSONObject in risposta c
     "showedEvents": 200,
     "totalEvents": 846
 }
-
 ```
 
 
@@ -523,7 +521,50 @@ Nel caso in cui l'utente voglia confrontare tutti i paesi europei per individuar
    ```
 L'utente riceverà un JSONArray in risposta come segue:
 ```
-[{"country: ":"AD","totalEvents: ":0},{"country: ":"AT","totalEvents: ":0},{"country: ":"BE","totalEvents: ":64},{"country: ":"BG","totalEvents: ":0},{"country: ":"HR","totalEvents: ":0},{"country: ":"CY","totalEvents: ":0},{"country: ":"CZ","totalEvents: ":3},{"country: ":"DK","totalEvents: ":31},{"country: ":"EE","totalEvents: ":0},{"country: ":"FO","totalEvents: ":0},{"country: ":"FI","totalEvents: ":4},{"country: ":"FR","totalEvents: ":0},{"country: ":"DE","totalEvents: ":61},{"country: ":"GE","totalEvents: ":0},{"country: ":"GI","totalEvents: ":0},{"country: ":"GB","totalEvents: ":1335},{"country: ":"GR","totalEvents: ":0},{"country: ":"HU","totalEvents: ":0},{"country: ":"IS","totalEvents: ":0},{"country: ":"IE","totalEvents: ":42},{"country: ":"IT","totalEvents: ":0},{"country: ":"LT","totalEvents: ":0},{"country: ":"LU","totalEvents: ":0},{"country: ":"MT","totalEvents: ":0},{"country: ":"MC","totalEvents: ":0},{"country: ":"ME","totalEvents: ":0},{"country: ":"NL","totalEvents: ":162},{"country: ":"ND","totalEvents: ":0},{"country: ":"NO","totalEvents: ":4},{"country: ":"PL","totalEvents: ":25},{"country: ":"PT","totalEvents: ":0},{"country: ":"RO","totalEvents: ":0},{"country: ":"RU","totalEvents: ":0},{"country: ":"RS","totalEvents: ":0},{"country: ":"SK","totalEvents: ":0},{"country: ":"SI","totalEvents: ":0},{"country: ":"ES","totalEvents: ":8},{"country: ":"SE","totalEvents: ":18},{"country: ":"CH","totalEvents: ":15},{"country: ":"TR","totalEvents: ":0},{"country: ":"UA","totalEvents: ":0},{"Country with most events: ":"GB","totalEvents: ":1335},{"Country with least events: ":"UA","totalEvents: ":0}]
+[
+{"country: ":"AD","totalEvents: ":0},
+{"country: ":"AT","totalEvents: ":0},
+{"country: ":"BE","totalEvents: ":64},
+{"country: ":"BG","totalEvents: ":0},
+{"country: ":"HR","totalEvents: ":0},
+{"country: ":"CY","totalEvents: ":0},
+{"country: ":"CZ","totalEvents: ":3},
+{"country: ":"DK","totalEvents: ":31},
+{"country: ":"EE","totalEvents: ":0},
+{"country: ":"FO","totalEvents: ":0},
+{"country: ":"FI","totalEvents: ":4},
+{"country: ":"FR","totalEvents: ":0},
+{"country: ":"DE","totalEvents: ":61},
+{"country: ":"GE","totalEvents: ":0},
+{"country: ":"GI","totalEvents: ":0},
+{"country: ":"GB","totalEvents: ":1335},
+{"country: ":"GR","totalEvents: ":0},
+{"country: ":"HU","totalEvents: ":0},
+{"country: ":"IS","totalEvents: ":0},
+{"country: ":"IE","totalEvents: ":42},
+{"country: ":"IT","totalEvents: ":0},
+{"country: ":"LT","totalEvents: ":0},
+{"country: ":"LU","totalEvents: ":0},
+{"country: ":"MT","totalEvents: ":0},
+{"country: ":"MC","totalEvents: ":0},
+{"country: ":"ME","totalEvents: ":0},
+{"country: ":"NL","totalEvents: ":162},
+{"country: ":"ND","totalEvents: ":0},
+{"country: ":"NO","totalEvents: ":4},
+{"country: ":"PL","totalEvents: ":25},
+{"country: ":"PT","totalEvents: ":0},
+{"country: ":"RO","totalEvents: ":0},
+{"country: ":"RU","totalEvents: ":0},
+{"country: ":"RS","totalEvents: ":0},
+{"country: ":"SK","totalEvents: ":0},
+{"country: ":"SI","totalEvents: ":0},
+{"country: ":"ES","totalEvents: ":8},
+{"country: ":"SE","totalEvents: ":18},
+{"country: ":"CH","totalEvents: ":15},
+{"country: ":"TR","totalEvents: ":0},
+{"country: ":"UA","totalEvents: ":0},
+{"Country with most events: ":"GB","totalEvents: ":1335},
+{"Country with least events: ":"UA","totalEvents: ":0}]
 ```
 
 
