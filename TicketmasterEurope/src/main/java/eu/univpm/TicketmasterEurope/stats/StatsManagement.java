@@ -126,9 +126,20 @@ public class StatsManagement implements Stats {
 		JSONObject segmentEventsObject;
 		
         data = data.truncatedTo(ChronoUnit.SECONDS);
+        
+        String segmentIndex;
+        
+    	if (segment.equals("Arts")) {
+    		
+    		segment = "KZFzniwnSyZfZ7v7na";
+    		segmentIndex = "segmentId";
+    		
+    	}
+    	
+    	else segmentIndex = "segmentName";
 					
 		String Url = "https://app.ticketmaster.com/discovery/v2/events?&countryCode="
-	              + countryCode + "&segmentName="+ segment + "&endDateTime=" + data.plusMonths(period) + "Z&apikey="+ apikey;
+	              + countryCode + "&" + segmentIndex + "=" + segment + "&endDateTime=" + data.plusMonths(period) + "Z&apikey="+ apikey;
 	   
 		RestTemplate restTemplate = new RestTemplate();
 		

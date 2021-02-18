@@ -126,10 +126,19 @@ public class ServiceManagement implements Service {
         Exception.countryStringException(countryCode);
         Exception.segmentStringException(segment); 
     	 
-    	if (segment.equals("Arts")) segment = "Arts & Theatre";
+        String segmentIndex;
+        
+    	if (segment.equals("Arts")) {
+    		
+    		segment = "KZFzniwnSyZfZ7v7na";
+    		segmentIndex = "segmentId";
+    		
+    	}
+    	
+    	else segmentIndex = "segmentName";
 		
 		JSONObject segmentEventsObject;
-		String Url = "https://app.ticketmaster.com/discovery/v2/events?size=200&sort=date,asc&segmentName="
+		String Url = "https://app.ticketmaster.com/discovery/v2/events?size=200&sort=date,asc&" + segmentIndex + "="
 		              + segment + "&countryCode=" + countryCode + "&apikey="+ apikey;
 		
 		RestTemplate restTemplate = new RestTemplate();

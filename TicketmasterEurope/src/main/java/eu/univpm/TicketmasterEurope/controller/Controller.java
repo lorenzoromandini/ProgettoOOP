@@ -87,7 +87,7 @@ public class Controller {
 	/** Rotta di tipo GET che mostra gli eventi che hanno luogo nel paese e della tipologia scelti dall'utente, 
 	 * con le proprie caratteristiche selezionate dallo sviluppatore 
 	 * 
-	 * @param segment tipologia di evento (le tipologie in cui si suddividono gli eventi sono: "Arts & Theatre", "Miscellaneous", "Music" e "Sports")
+	 * @param segment tipologia di evento (le tipologie in cui si suddividono gli eventi sono: "Arts", "Miscellaneous", "Music" e "Sports")
 	 * @param countryCode countryCode rappresenta il codice del paese di cui si vogliono visualizzare gli eventi (sono ammessi solo codici di paesi europei)
 	 * @return gli eventi in ordine cronologico che hanno luogo nel paese scelto e della tipologia desiderata
 	 * @throws WrongValueException se viene inserita una tipologia di evento non ammessa
@@ -250,6 +250,8 @@ public class Controller {
      * PARAM - value: rappresenta il valore del parametro su cui si vuole effettuare il confronto.
 	 * PARAM - period: indica il periodo temporale (in mesi) su cui si vuole effettuare il confronto (può essere un 
 	 * valore tra 1, 3, 6 oppure 12).
+	 * Se l'utente desidera coniscere il numero di eventi di tutti i paesi europei in un arco temporale, deve inserire un body che 
+	 * presenta comparison uguale a country, param uguale a total e value uguale ad all.
      *  	 
 	 * @param body è un JSONObject del tipo riportato sopra
 	 * @return un JSONArray di JSONObject che mostrano i vari elements con il relativo numero di eventi e infine quali tra
